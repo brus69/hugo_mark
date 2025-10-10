@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Green | My New Hugo Site</title>
+
+ <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+ <style>
+        :root {
+            --color-bg: #1a1a1a;
+            --color-text: #e6e6e6;
+            --color-accent: #6b7280;
+            --color-link: #9ca3af;
+            --color-link-hover: #d1d5db;
+        }
+        
+        .light-mode {
+            --color-bg: #f9fafb;
+            --color-text: #1f2937;
+            --color-accent: #6b7280;
+            --color-link: #4b5563;
+            --color-link-hover: #111827;
+        }
+        
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        a {
+            color: var(--color-link);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: var(--color-link-hover);
+        }
+        
+        .sidebar {
+            position: fixed;
+            width: 250px;
+            height: 100vh;
+            overflow-y: auto;
+            border-right: 1px solid rgba(107, 114, 128, 0.2);
+        }
+        
+        .main-content {
+            margin-left: 250px;
+            max-width: 800px;
+            padding: 2rem;
+        }
+        
+        .toc-container {
+            position: fixed;
+            right: 2rem;
+            top: 2rem;
+            width: 250px;
+            display: none;
+        }
+        
+        @media (min-width: 1280px) {
+            .toc-container {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 50;
+            }
+            
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+                padding: 1rem;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: fixed;
+                top: 1rem;
+                left: 1rem;
+                z-index: 100;
+            }
+        }
+        
+        .toc-link.active {
+            color: var(--color-link-hover);
+            font-weight: bold;
+        }
+        
+        .social-icons a {
+            margin-right: 0.5rem;
+        }
+        
+        pre {
+            background-color: rgba(107, 114, 128, 0.1);
+            padding: 1rem;
+            border-radius: 0.25rem;
+            overflow-x: auto;
+        }
+        
+        code {
+            font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+    </style>
+</head>
+  <body class="light-mode">
+      <header>
+    <h1>My New Hugo Site</h1>
+
+
+  </header>
+    
+    <button class="mobile-menu-btn p-2 bg-gray-800 text-white rounded md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+    
+    <aside class="sidebar bg-opacity-95 py-6 px-4">
+        <div class="flex flex-col items-center mb-8">
+            
+            <button id="theme-toggle" class="absolute top-4 right-4 p-2 rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                </svg>
+            </button>
+            
+            
+            <div class="w-24 h-24 mb-4 relative">
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                    <circle cx="100" cy="100" r="90" fill="none" stroke="currentColor" stroke-width="4"/>
+                    <path d="M65,80 Q100,40 135,80 L135,130 Q100,170 65,130 Z" fill="none" stroke="currentColor" stroke-width="4"/>
+                    <circle cx="85" cy="90" r="8" fill="currentColor"/>
+                    <circle cx="115" cy="90" r="8" fill="currentColor"/>
+                    <path d="M85,120 Q100,135 115,120" fill="none" stroke="currentColor" stroke-width="4"/>
+                </svg>
+            </div>
+            <h1 class="text-2xl font-bold mb-1">Poison</h1>
+            <p class="text-sm text-center text-gray-500 mb-4">Минималистичная тема для блогеров</p>
+            <p class="text-xs text-center text-gray-500">Основана на классическом дизайне Hyde</p>
+        </div>
+
+        
+        <nav class="mb-8">
+          
+            <h2 class="text-lg font-semibold mb-2">аывффыв</h2>
+            
+  <nav>
+    <ul>
+    <li>
+      <a href="/">Home</a>
+    </li>
+    <li>
+      <a href="/posts/">Posts</a>
+    </li>
+    <li>
+      <a href="/tags/">Tags</a>
+    </li>
+    </ul>
+  </nav>
+
+            <ul>
+                <li class="mb-1"><a href="#" class="hover:underline">Главная</a></li>
+                <li class="mb-1"><a href="#" class="hover:underline">О нас</a></li>
+            </ul>
+            
+            <h2 class="text-lg font-semibold mt-4 mb-2">Статьи</h2>
+            <ul>
+                <li class="mb-1"><a href="#" class="hover:underline">Недавние</a></li>
+                <li class="mb-1"><a href="#" class="font-medium hover:underline">Представляем Poison</a></li>
+            </ul>
+        </nav>
+
+        
+        <div class="social-icons flex mt-auto">
+            <a href="#" aria-label="GitHub">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/>
+                </svg>
+            </a>
+            <a href="#" aria-label="Twitter">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                </svg>
+            </a>
+            <a href="#" aria-label="Discord">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/>
+                </svg>
+            </a>
+            <a href="#" aria-label="RSS">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M6.503 20.752c0 1.794-1.456 3.248-3.251 3.248-1.796 0-3.252-1.454-3.252-3.248 0-1.794 1.456-3.248 3.252-3.248 1.795.001 3.251 1.454 3.251 3.248zm-6.503-12.572v4.811c6.05.062 10.96 4.966 11.022 11.009h4.817c-.062-8.71-7.118-15.758-15.839-15.82zm0-3.368c10.58.046 19.152 8.594 19.183 19.188h4.817c-.03-13.231-10.755-23.954-24-24v4.812z"/>
+                </svg>
+            </a>
+            <a href="#" aria-label="Email">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+            </a>
+        </div>
+        
+        
+        <div class="mt-8 pt-4 text-xs text-gray-500 border-t border-gray-700">
+            <p>Powered by <a href="#" class="hover:underline">Hugo</a> | Themed with <a href="#" class="hover:underline">poison</a></p>
+            <p>© 2024 Poison. All rights reserved.</p>
+        </div>
+    </aside>
+
+    
+    <main class="main-content">
+        <article class="prose prose-lg max-w-none">
+            <h1 class="text-3xl font-bold mb-4">Представляем Poison</h1>
+            <p class="text-sm text-gray-500 mb-6">Опубликовано: 15 июня 2024 | Автор: @mdo</p>
+            
+            
+            <div class="mb-8 p-4 border border-gray-700 rounded-lg md:hidden">
+                <h3 class="text-lg font-semibold mb-2">Содержание</h3>
+                <ul class="mobile-toc">
+                    <li class="mb-1"><a href="#features" class="hover:underline">Особенности</a></li>
+                    <li class="mb-1"><a href="#light-dark-mode" class="hover:underline">Светлый и темный режим</a></li>
+                    <li class="mb-1"><a href="#table-of-contents" class="hover:underline">Оглавление</a></li>
+                    <li class="mb-1"><a href="#comments" class="hover:underline">Комментарии</a></li>
+                    <li class="mb-1"><a href="#analytics" class="hover:underline">Аналитика</a></li>
+                    <li class="mb-1"><a href="#email-newsletters" class="hover:underline">Email рассылки</a></li>
+                </ul>
+            </div>
+            
+            
+  <h1>Green</h1>
+  
+  
+    <h2><a href="/posts/post-3/">Post 3</a></h2>
+  
+    <h2><a href="/posts/post-2-copy-10/">Post 2</a></h2>
+  
+    <h2><a href="/posts/post-2-copy-11/">Post 2</a></h2>
+  
+    <h2><a href="/posts/post-2-copy-12/">Post 2</a></h2>
+  
+    <h2><a href="/posts/post-2-copy-2/">Post 2</a></h2>
+  
+    <h2><a href="/posts/post-2-copy-3/">Post 2</a></h2>
+  
+    <h2><a href="/posts/post-2-copy-4/">Post 2</a></h2>
+  
+    <h2><a href="/posts/post-2-copy-5/">Post 2</a></h2>
+  
+    <h2><a href="/posts/post-2-copy-6/">Post 2</a></h2>
+  
+    <h2><a href="/posts/post-2-copy-7/">Post 2</a></h2>
+  
+    <h2><a href="/posts/post-2-copy-8/">Post 2</a></h2>
+  
+    <h2><a href="/posts/post-2-copy-9/">Post 2</a></h2>
+  
+    <h2><a href="/posts/post-2/">Post 2</a></h2>
+  
+    <h2><a href="/posts/post-2-copy/">Post 24</a></h2>
+  
+
+          
+            
+            
+        
+            
+    
+    <aside class="toc-container">
+        <div class="p-4 border border-gray-700 rounded-lg">
+            <h3 class="text-lg font-semibold mb-2">Содержание</h3>
+            <ul class="desktop-toc">
+                <li class="mb-1"><a href="#features" class="toc-link hover:underline">Особенности</a></li>
+                <li class="mb-1"><a href="#light-dark-mode" class="toc-link hover:underline">Светлый и темный режим</a></li>
+                <li class="mb-1"><a href="#table-of-contents" class="toc-link hover:underline">Оглавление</a></li>
+                <li class="mb-1"><a href="#comments" class="toc-link hover:underline">Комментарии</a></li>
+                <li class="mb-1"><a href="#analytics" class="toc-link hover:underline">Аналитика</a></li>
+                <li class="mb-1"><a href="#email-newsletters" class="toc-link hover:underline">Email рассылки</a></li>
+            </ul>
+        </div>
+    </aside>
+
+    <script>
+        
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        
+        themeToggle.addEventListener('click', () => {
+            if (body.classList.contains('dark-mode')) {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+                themeToggle.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                `;
+            } else {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+                themeToggle.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                `;
+            }
+        });
+        
+        
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const sidebar = document.querySelector('.sidebar');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+        
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                if (entry.isIntersecting) {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.add('active');
+                    });
+                } else {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.remove('active');
+                    });
+                }
+            });
+        }, observerOptions);
+        
+        
+        document.querySelectorAll('h2[id]').forEach(heading => {
+            observer.observe(heading);
+        });
+    </script>
+
+
+  <footer>
+    <p>Copyright 2025. All rights reserved.</p>
+
+  </footer>
+</body>
+</html>

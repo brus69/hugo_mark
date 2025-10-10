@@ -1,0 +1,10 @@
+baseURL: https://example.org/
+languageCode: en-us
+title: My New Hugo Site
+theme: "brus69-theme"
+
+pagination:
+  disableAliases: false
+  pagerSize: 2
+  path: page
+
