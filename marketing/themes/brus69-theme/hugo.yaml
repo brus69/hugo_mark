@@ -18,3 +18,8 @@ module:
   hugoVersion:
     extended: false
     min: '0.146.0'
+
+pagination:
+  disableAliases: false
+  pagerSize: 2
+  path: page
