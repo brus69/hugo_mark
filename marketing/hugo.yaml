@@ -1,6 +1,6 @@
 baseURL: https://example.org/
 languageCode: en-us
-title: My New Hugo Site
+title: Документация по маркетингу и аналитики
 theme: "brus69-theme"
 
 pagination:
@@ -8,3 +8,5 @@ pagination:
   pagerSize: 2
   path: page
 
+enableRobotsTXT: true
+enableSitemapXML: true

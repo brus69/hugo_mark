@@ -1,10 +1,19 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
+  <article class="prose prose-lg mx-auto py-8 px-4">
+    <h1 class="text-2xl font-bold mb-4">
+            {{ with .Params.h1 }}{{ . }}{{ else }}{{ .Title }}{{ end }}
+    </h1>
 
-  {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
-  {{ $dateHuman := .Date | time.Format ":date_long" }}
-  <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+    {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+    {{ $dateHuman := .Date | time.Format ":date_long" }}
+    <time class="block mb-6 text-gray-500" datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
 
-  {{ .Content }}
-  {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+    <div class="content mb-8 ">
+      {{ .Content }}
+    </div>
+
+    <div class="tags mt-8">
+      {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+    </div>
+  </article>
 {{ end }}

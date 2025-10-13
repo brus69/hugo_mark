@@ -1,11 +1,11 @@
 {{ define "main" }}
         <article class="prose prose-lg max-w-none">
-            <h1 class="text-3xl font-bold mb-4">A. Brusilov</h1>
-            <p class="text-sm mb-6">Performance маркетолог с 15+ стажем | Web-аналитик</p>
+            <h1 class="text-3xl font-bold mb-4">TASK</h1>
+            <p class="text-sm mb-6">Performance / Web analytics</p>
 <div class="container mx-auto px-4 py-8">
     {{ .Content }}
     
-    <h2 class="text-2xl font-bold text-gray-900 mb-6">Последние статьи</h2>
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Последние записи</h2>
     
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {{ range first 3 (where site.RegularPages "Type" "posts") }}

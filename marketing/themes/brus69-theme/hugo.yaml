@@ -4,10 +4,10 @@ title: 'My New Hugo Site'
 
 menus:
   main:
-    - name: 'Home'
+    - name: 'Главная'
       pageRef: '/'
       weight: 10
-    - name: 'Posts'
+    - name: 'Статьи'
       pageRef: '/posts'
       weight: 20
     - name: 'Tags'
