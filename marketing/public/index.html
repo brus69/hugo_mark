@@ -8,7 +8,7 @@
 <meta name="description" content="Описание главной страницы">
 
 
- <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
  <style>
   .content h1 { 
         font-size: 1.875rem; 
@@ -285,7 +285,7 @@
         
         .main-content {
             margin-left: 250px;
-            max-width: 1200px;
+            
             padding: 2rem;
         }
         
@@ -451,15 +451,322 @@ fill="#000000" stroke="none">
         </div>
     </aside>
 
-  <main class="main-content">
+  <main class="main-content bg-white">
     
   
             
              
             
             
-        <article class="prose prose-lg max-w-none">
-            <h1 class="text-3xl font-bold mb-4">TASK</h1>
+
+<div class="fixed top-0 w-[100%] bg-blue-600 shadow-sm z-50">
+  <div class="container mx-auto px-6 py-3">
+    <div class="flex items-center justify-between">
+      
+      <div class="flex items-center space-x-2">
+        <img src="https://placehold.co/40x40/4f46e5/white?text=eL" alt="eLama" class="h-10 w-10 rounded-full">
+        <span class="font-bold text-xl text-gray-800">elama</span>
+      </div>
+      
+      
+      <div class="flex items-center space-x-6">
+        <a href="#" class="text-red-600 font-medium flex items-center space-x-1">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+          </svg>
+          <span>Акции</span>
+        </a>
+        
+        <div class="relative group">
+          <button class="text-gray-800 font-medium flex items-center space-x-1">
+            <span>Возможности</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          
+          <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg hidden group-hover:block">
+            <a href="#" class="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100">Для агентств</a>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100">Для фрилансеров</a>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100">Для маркетологов</a>
+          </div>
+        </div>
+        
+        <div class="relative group">
+          <button class="text-gray-800 font-medium flex items-center space-x-1">
+            <span>Услуги</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          
+          <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg hidden group-hover:block">
+            <a href="#" class="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100">Настройка кампаний</a>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100">Аудит рекламы</a>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100">Консультации</a>
+          </div>
+        </div>
+        
+        <a href="#" class="text-gray-800 font-medium">Тарифы</a>
+        
+        <a href="#" class="text-gray-800 font-medium">Агентствам и фрилансерам</a>
+        
+        <div class="relative group">
+          <button class="text-gray-800 font-medium flex items-center space-x-1">
+            <span>Обучение</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          
+          <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg hidden group-hover:block">
+            <a href="#" class="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100">Видеокурсы</a>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100">Вебинары</a>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100">Блог</a>
+          </div>
+        </div>
+      </div>
+      
+      
+      <div class="flex items-center space-x-4">
+        <a href="#" class="text-gray-800 font-medium">Вход</a>
+        <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors">
+          Регистрация
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="min-h-[600px] max-w bg-gradient-to-r from-indigo-50/60 to-emerald-100/40 rounded-lg p-4">
+  <h1 class="text-3xl font-bold m-8 mt-8 mb-4">TASK</h1>
+  
+  <div class="max-w-[960px]">
+<div class="bg-white rounded-xl p-6 mb-3">
+  <div class="flex justify-between items-start">
+    
+    <div class="w-2/3">
+      <h1 class="text-2xl font-bold text-gray-800 mb-2">
+        <span class="inline-block bg-yellow-400 text-black px-3 py-1 rounded-full mr-2">До 9%</span>
+        вознаграждения в Яндекс Директе
+      </h1>
+      <p class="text-sm text-gray-500 mb-4">И 10% по таргетированной рекламе для всех новых партнеров</p>
+      <button class="bg-gray-800 text-white px-4 py-2 rounded-md hover:bg-gray-700 transition-colors">
+        Начать зарабатывать
+      </button>
+    </div>
+    
+    
+    <div class="w-1/3 flex items-center space-x-4">
+      
+      <div class="relative">
+        <img src="https://placehold.co/120x80/yellow/white?text=💰" alt="Монеты" class="rounded-lg">
+      </div>
+      
+      
+      <div class="bg-gradient-to-br from-green-100 to-blue-50 rounded-xl p-4 w-full">
+        <div class="bg-green-500 text-white rounded-lg p-3 mb-3">
+          <div class="flex items-center text-xs mb-1">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8v6h-8V7z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h8v6h-8v-6z" />
+            </svg>
+            Вознаграждение за апрель
+          </div>
+          <div class="text-2xl font-bold">≈ 189 380 ₽</div>
+        </div>
+        <div class="text-xs text-gray-600 mt-2">
+          <div>базовое — 101 251 ₽</div>
+          <div>дополнительное — 88 129 ₽</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="grid grid-cols-3 gap-3">
+  
+  <div class="bg-white rounded-xl p-5 ">
+    <h3 class="font-bold text-gray-800 mb-3">Управляйте бюджетами клиентов в одном окне</h3>
+    <p class="text-sm text-gray-600">Пополняйте рекламный кабинет в пару кликов и давайте сотрудникам разные уровни доступов</p>
+  </div>
+  
+  
+  <div class="bg-white rounded-xl p-5 ">
+    <h3 class="font-bold text-gray-800 mb-3">Получайте постоплату для клиентов, которые не работают по предоплате</h3>
+    <p class="text-sm text-gray-600">Отсрочка до 30 дней без процентов и комиссий</p>
+  </div>
+  
+  
+  <div class="bg-white rounded-xl p-5 ">
+    <h3 class="font-bold text-gray-800 mb-3">Маркируйте рекламу клиентов во всех рекламных системах</h3>
+    <p class="text-sm text-gray-600">Автоматически получаем токены, размещаем рекламу и отправляем отчеты в ЕРИР</p>
+  </div>
+</div>
+</div>
+
+</div>
+
+
+<div class="flex items-center justify-between bg-white p-8 ">
+  
+  <div class="w-1/2">
+    <h2 class="text-3xl font-bold text-gray-800 mb-4">
+      Нам доверяют<br>
+      больше <span class="bg-yellow-400 text-black px-3 py-1 rounded-full">30 000</span><br>
+      рекламодателей
+    </h2>
+    <button class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+      Зарегистрироваться
+    </button>
+  </div>
+  
+  
+  <div class="w-1/2 flex flex-wrap justify-center gap-6">
+    
+    <div class="bg-white p-4 rounded-lg shadow-sm w-40 h-20 flex items-center justify-center">
+      <img src="https://placehold.co/120x40/orange/white?text=ДОДО+ПИЦЦА" alt="Додо Пицца" class="h-8">
+    </div>
+    <div class="bg-white p-4 rounded-lg shadow-sm w-40 h-20 flex items-center justify-center">
+      <img src="https://placehold.co/120x40/green/white?text=2ГИС" alt="2ГИС" class="h-8">
+    </div>
+    
+    
+    <div class="bg-white p-4 rounded-lg shadow-sm w-40 h-20 flex items-center justify-center">
+      <img src="https://placehold.co/120x40/black/white?text=%23SEKTA" alt="#SEKTA" class="h-8">
+    </div>
+    <div class="bg-white p-4 rounded-lg shadow-sm w-40 h-20 flex items-center justify-center">
+      <img src="https://placehold.co/120x40/green/white?text=ИНТАН" alt="Интан" class="h-8">
+    </div>
+    
+    
+    <div class="bg-white p-4 rounded-lg shadow-sm w-40 h-20 flex items-center justify-center">
+      <img src="https://placehold.co/120x40/brown/white?text=УМСКУЛ" alt="УмСкул" class="h-8">
+    </div>
+    <div class="bg-white p-4 rounded-lg shadow-sm w-40 h-20 flex items-center justify-center">
+      <img src="https://placehold.co/120x40/green/white?text=GF" alt="GF" class="h-8">
+    </div>
+    <div class="bg-white p-4 rounded-lg shadow-sm w-40 h-20 flex items-center justify-center">
+      <img src="https://placehold.co/120x40/orange/white?text=FITSERVICE" alt="FIT SERVICE" class="h-8">
+    </div>
+  </div>
+</div>
+    
+
+
+<div class="bg-gradient-to-r from-pink-50 to-yellow-50 p-8 rounded-xl">
+  <div class="flex items-center justify-between mb-8">
+    
+    <div class="w-1/2">
+      <h2 class="text-4xl font-bold text-gray-800 mb-4">Настроим кампанию в Яндекс Директе бесплатно</h2>
+      <p class="text-gray-600 mb-6">С 2008 года мы настроили больше 13 000 стартовых кампаний и знаем, как создавать эффективную рекламу</p>
+      <button class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+        Заполнить бриф
+      </button>
+    </div>
+    
+    
+    <div class="w-1/2 flex justify-center">
+      <img src="https://placehold.co/300x200/gradient?from=ff6b6b&to=ffd166" alt="Иллюстрация" class="rounded-lg">
+    </div>
+  </div>
+  
+  
+  <div class="grid grid-cols-3 gap-6">
+    
+    <div class="bg-white rounded-xl p-5  flex items-start space-x-3">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-.426 1.038-.426 1.464 0l1.596 1.596m-7.5 7.5l1.596 1.596m0 0v-4.95M3 20.25v-4.95" />
+      </svg>
+      <div>
+        <h3 class="font-medium text-gray-800 mb-1">Настраиваем кампанию по вашим пожеланиям</h3>
+      </div>
+    </div>
+    
+    
+    <div class="bg-white rounded-xl p-5 flex items-start space-x-3">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+      </svg>
+      <div>
+        <h3 class="font-medium text-gray-800 mb-1">Дарим видеоурок по работе с рекламой в Яндекс Директе</h3>
+      </div>
+    </div>
+    
+    
+    <div class="bg-white rounded-xl p-5 flex items-start space-x-3">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 18.72a9.094 9.094 0 003.741-.479c3.113-1.32 5.926-3.199 8.001-5.468 2.075-2.269 3.89-4.988 4.824-7.888 1.074-3.345.73-6.747-1.014-9.628a4.654 4.654 0 00-2.628-2.628c-2.882-1.744-6.284-2.08-9.628-1.014A4.654 4.654 0 0010.37 2.628c-2.882 1.744-6.284 2.08-9.628 1.014A4.654 4.654 0 00.73 10.37c-1.074 3.345-.73 6.747 1.014 9.628 1.744 2.882 4.988 6.284 7.888 8.001 2.269 2.075 4.988 3.89 7.888 4.824 3.345 1.074 6.747.73 9.628-1.014a4.654 4.654 0 002.628-2.628c1.744-2.882 2.08-6.284 1.014-9.628a4.654 4.654 0 00-2.628-2.628c-2.882-1.744-6.284-2.08-9.628-1.014A4.654 4.654 0 0010.37 14.37c-1.744 2.882-2.08 6.284-1.014 9.628a4.654 4.654 0 002.628 2.628" />
+      </svg>
+      <div>
+        <h3 class="font-medium text-gray-800 mb-1">Остаемся рядом, если понадобится помочь или ответить на вопросы</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="grid grid-cols-3 gap-6">
+  
+  <div class="bg-white rounded-xl overflow-hidden">
+    <div class="bg-gradient-to-r from-blue-100 to-indigo-100 p-4">
+      <img src="https://placehold.co/300x200/gradient?from=93c5fd&to=60a5fa" alt="Иллюстрация" class="w-full h-48 object-cover rounded-t-lg">
+    </div>
+    <div class="p-5">
+      <div class="flex items-center text-xs text-gray-500 mb-2">
+        <span class="font-medium">Кейсы</span>
+        <span class="mx-2">•</span>
+        <span>17 октября 2025</span>
+        <span class="mx-2">•</span>
+        <span>41</span>
+      </div>
+      <h3 class="font-medium text-gray-800 mb-3">Как увеличить трафик и продажи в высокий сезон с помощью медийной рекламы на Ozon — показываем на пяти кейсах из разных ниш</h3>
+      <p class="text-sm text-gray-600">Примеры компаний, которые запустили рекламу на Ozon и добились крутых результатов</p>
+    </div>
+  </div>
+  
+  
+  <div class="bg-white rounded-xl overflow-hidden">
+    <div class="bg-gradient-to-r from-blue-500 to-blue-600 p-4">
+      <img src="https://placehold.co/300x200/gradient?from=3b82f6&to=2565da" alt="Иллюстрация" class="w-full h-48 object-cover rounded-t-lg">
+    </div>
+    <div class="p-5">
+      <div class="flex items-center text-xs text-gray-500 mb-2">
+        <span class="font-medium">Кейсы</span>
+        <span class="mx-2">•</span>
+        <span>16 октября 2025</span>
+        <span class="mx-2">•</span>
+        <span>772</span>
+      </div>
+      <h3 class="font-medium text-gray-800 mb-3">Аудит рекламы в Яндекс Директе для производителя оборудования: как не терять 300 000 ₽ в месяц из-за банальных ошибок</h3>
+      <p class="text-sm text-gray-600">Разбираем, как делать рекламу не надо</p>
+    </div>
+  </div>
+  
+  
+  <div class="bg-white rounded-xl overflow-hidden">
+    <div class="bg-gradient-to-r from-purple-500 to-purple-600 p-4">
+      <img src="https://placehold.co/300x200/gradient?from=a78bfa&to=9333ea" alt="Иллюстрация" class="w-full h-48 object-cover rounded-t-lg">
+    </div>
+    <div class="p-5">
+      <div class="flex items-center text-xs text-gray-500 mb-2">
+        <span class="font-medium">Кейсы</span>
+        <span class="mx-2">•</span>
+        <span>14 октября 2025</span>
+        <span class="mx-2">•</span>
+        <span>925</span>
+      </div>
+      <h3 class="font-medium text-gray-800 mb-3">Подключили товарную кампанию в Яндекс Директе — и снизили CPA с рекламы в 3 раза: кейс интернет-магазина цветов</h3>
+      <p class="text-sm text-gray-600">Кейс участника партнерской программы eLama</p>
+    </div>
+  </div>
+</div>
+
+<article class="prose prose-lg max-w-none">
+            
             <p class="text-sm mb-6">Performance / Web analytics</p>
 <div class="container mx-auto px-4 py-8">
     <p>123333 Laborum voluptate pariatur ex culpa magna nostrud est incididunt fugiat
@@ -470,6 +777,25 @@ excepteur excepteur pariatur nostrud qui irure ullamco.</p>
     <h2 class="text-2xl font-bold text-gray-900 mb-6">Последние записи</h2>
     
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        
+        <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+            <div class="p-6">
+                <h3 class="text-xl font-semibold text-gray-800 mb-3">
+                    <a href="/posts/direct/" class="hover:text-blue-600 transition-colors">
+                        Алгоритм проверки выдачи по SEO
+                    </a>
+                </h3>
+                <time class="text-sm text-gray-500 block mb-2">
+                    15 January 2023
+                </time>
+                <p class="text-gray-600 mb-4">
+                    Заголовок 22222 Tempor proident minim aliquip reprehenderit dolor et ad anim Lorem duis sint eiusmod. Labore ut ea duis dolor. Incididunt consectetur proident qui occaecat incididunt do nisi Lorem. Tempor do laborum elit laboris excepteur eiusmod do. Eiusmod nisi excepteur ut amet pariatur …
+                </p>
+                <a href="/posts/direct/" class="text-blue-600 hover:text-blue-800 font-medium">
+                    Читать далее →
+                </a>
+            </div>
+        </article>
         
         <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
             <div class="p-6">
