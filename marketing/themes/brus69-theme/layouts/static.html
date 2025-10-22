@@ -1,0 +1,29 @@
+{{ define "main" }}
+<div class="container mx-auto px-30 py-8 bg-gradient-to-br from-yellow-50 via-orange-100 to-red-50">
+    <div class="max-w-4xl ">
+        <!-- Заголовок страницы -->
+        <div class="mb-12">
+            <h1 class="text-4xl font-bold text-gray-900 mb-4">{{ .Title }}</h1>
+            {{ with .Params.subtitle }}
+                <p class="text-xl text-gray-600">{{ . }}</p>
+            {{ end }}
+        </div>
+
+   
+            {{ .Content }}
+
+
+        <!-- Дополнительные блоки -->
+        {{ if .Params.blocks }}
+        <div class="mt-12 grid md:grid-cols-2 gap-8">
+            {{ range .Params.blocks }}
+            <div class="bg-white rounded-xl p-6 shadow-md">
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">{{ .title }}</h3>
+                <p class="text-gray-600">{{ .content }}</p>
+            </div>
+            {{ end }}
+        </div>
+        {{ end }}
+    </div>
+</div>
+{{ end }}

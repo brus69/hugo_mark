@@ -15,7 +15,7 @@
     </button>
 
     <!-- Боковая панель -->
-    <aside class="sidebar bg-opacity-95 py-6 px-4">
+    <aside class="sidebar min-w-[350px] py-12 px-10 {{ if in .RelPermalink "/about/" }}bg-white{{ else }}bg-gradient-to-br from-cyan-200 via-green-100 to-sky-100{{ end }}">
         <div class="flex flex-col items-center mb-8">
             <!-- Переключатель темы -->
             <button id="theme-toggle" class="absolute top-4 right-4 p-2 rounded-full">

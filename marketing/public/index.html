@@ -277,16 +277,16 @@
         
         .sidebar {
             position: fixed;
-            width: 250px;
+             
             height: 100vh;
             overflow-y: auto;
-            border-right: 1px solid rgba(107, 114, 128, 0.2);
+            
         }
         
         .main-content {
-            margin-left: 250px;
+            margin-left: 350px;
             
-            padding: 2rem;
+             
         }
         
         .toc-container {
@@ -363,7 +363,7 @@
     </button>
 
     
-    <aside class="sidebar bg-opacity-95 py-6 px-4">
+    <aside class="sidebar min-w-[350px] py-12 px-10 bg-gradient-to-br from-cyan-200 via-green-100 to-sky-100">
         <div class="flex flex-col items-center mb-8">
             
             <button id="theme-toggle" class="absolute top-4 right-4 p-2 rounded-full">
@@ -1507,6 +1507,26 @@ excepteur excepteur pariatur nostrud qui irure ullamco.</p>
     <h2 class="text-2xl font-bold text-gray-900 mb-6">Последние записи</h2>
     
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        
+        <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+            <div class="p-6">
+                <h3 class="text-xl font-semibold text-gray-800 mb-3">
+                    <a href="/about/" class="hover:text-blue-600 transition-colors">
+                        О нас
+                    </a>
+                </h3>
+                <time class="text-sm text-gray-500 block mb-2">
+                    15 January 2024
+                </time>
+                <p class="text-gray-600 mb-4">
+                    Вопрос отчетности по рекламе остро стоит не только перед специалистом по Яндекс Директу, но и перед заказчиком. Особенно это проявляется в крупных организациях, где в качестве заказчика выступает маркетолог или любой другой представитель, которому нужно отчитаться в дальнейшем перед начальством.
+К …
+                </p>
+                <a href="/about/" class="text-blue-600 hover:text-blue-800 font-medium">
+                    Читать далее →
+                </a>
+            </div>
+        </article>
         
         <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
             <div class="p-6">

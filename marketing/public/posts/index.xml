@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Документация по маркетингу и аналитики</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 15 Jan 2023 09:00:00 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 15 Jan 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>О нас</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/about/</guid>
+      <description>&lt;p&gt;Вопрос отчетности по рекламе остро стоит не только перед специалистом по Яндекс Директу, но и перед заказчиком. Особенно это проявляется в крупных организациях, где в качестве заказчика выступает маркетолог или любой другой представитель, которому нужно отчитаться в дальнейшем перед начальством.&lt;/p&gt;&#xA;&lt;p&gt;К сожалению (а может, и к счастью), не существует единого мнения, какой должна быть отчетность исполнителя. Цифры, взятые из рекламного кабинета? Действия, совершенные на прошедшей неделе? План на новую неделю? А может — все вместе?&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Алгоритм проверки выдачи по SEO</title>
       <link>http://localhost:1313/posts/direct/</link>
