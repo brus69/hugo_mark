@@ -4,15 +4,33 @@ title: 'My New Hugo Site'
 
 menus:
   main:
-    - name: 'Главная'
+    - name: 'Контекстная реклама'
       pageRef: '/'
       weight: 10
-    - name: 'Статьи'
+    - name: 'web-аналитика'
+      pageRef: '/analytics'
+      weight: 15
+    - name: 'Блог'
       pageRef: '/posts'
       weight: 20
-    - name: 'Tags'
+    - name: 'О нас'
+      pageRef: '/about'
+      weight: 25
+    - name: 'Категории'
       pageRef: '/tags'
       weight: 30
+    - name: 'Вакансии'
+      pageRef: '/job/'
+      weight: 40
+    - name: 'Кейсы'
+      pageRef: '/tags'
+      weight: 50
+    - name: 'Калькуляторы'
+      pageRef: '/calculators'
+      weight: 55
+    - name: 'Контакты'
+      pageRef: '/contacts'
+      weight: 60
 
 module:
   hugoVersion:

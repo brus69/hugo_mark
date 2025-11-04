@@ -185,58 +185,174 @@
   <div class="bg-blue-50 p-6 flex items-start space-x-6">
     <!-- Left Content -->
     <div class="w-1/2">
-      <h2 class="text-xl font-bold text-gray-800 mb-4">Узнайте, насколько эффективно работает реклама</h2>
-      <p class="text-sm text-gray-600">Отслеживайте, сколько прибыли вы получаете с каждого товара и рекламного канала. Выбирайте более эффективную рекламу для товаров, чтобы получить больше прибыли</p>
+      <h2 class="text-xl font-bold text-gray-800 mb-4">{{ .Title }}</h2>
+      <p class="text-sm text-gray-600">
+          {{ .Content }}
+      </p>
     </div>
     
     <!-- Right Content - Table -->
     <div class="w-1/2 bg-white rounded-lg p-4">
-      <table class="w-full text-sm">
-        <thead>
-          <tr class="bg-gray-50">
-            <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase">Категория товара 1</th>
-            <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase">Товаров куплено</th>
-            <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase">Прибыль по товарам</th>
-          </tr>
+    <!---->
+<div class="overflow-x-auto bg-white rounded-lg shadow-md mt-6">
+    <table class="w-full table-auto">
+        <thead class="bg-gray-50">
+            <tr>
+                <th class="px-6 py-4 text-left text-sm font-semibold text-gray-700 border-b">Категория товара</th>
+                <th class="px-6 py-4 text-right text-sm font-semibold text-gray-700 border-b">Товаров куплено</th>
+                <th class="px-6 py-4 text-right text-sm font-semibold text-gray-700 border-b">Прибыль</th>
+                <th class="px-6 py-4 text-right text-sm font-semibold text-gray-700 border-b">Средний чек</th>
+                <th class="px-6 py-4 text-right text-sm font-semibold text-gray-700 border-b">Конверсия</th>
+                <th class="px-6 py-4 text-right text-sm font-semibold text-gray-700 border-b">ROI</th>
+            </tr>
         </thead>
-        <tbody>
-          <tr class="border-t">
-            <td class="px-3 py-2">Итого/среднее</td>
-            <td class="px-3 py-2">578</td>
-            <td class="px-3 py-2">1 156 188 ₽</td>
-          </tr>
-          <tr class="border-t">
-            <td class="px-3 py-2">+ Освещение</td>
-            <td class="px-3 py-2">202</td>
-            <td class="px-3 py-2">484 840 ₽</td>
-          </tr>
-          <tr class="border-t">
-            <td class="px-3 py-2">+ Декор</td>
-            <td class="px-3 py-2">196</td>
-            <td class="px-3 py-2">340 898 ₽</td>
-          </tr>
-          <tr class="border-t">
-            <td class="px-3 py-2">- Посуда</td>
-            <td class="px-3 py-2">180</td>
-            <td class="px-3 py-2">330 450 ₽</td>
-          </tr>
-          <tr class="border-t bg-green-50">
-            <td class="px-3 py-2">Google Ads</td>
-            <td class="px-3 py-2">102</td>
-            <td class="px-3 py-2">275 600 ₽</td>
-          </tr>
-          <tr class="border-t">
-            <td class="px-3 py-2">Яндекс.Директ</td>
-            <td class="px-3 py-2">78</td>
-            <td class="px-3 py-2">54 850 ₽</td>
-          </tr>
+        <tbody class="divide-y divide-gray-200">
+            <tr class="bg-blue-50 hover:bg-blue-100 transition-colors">
+                <td class="px-6 py-4 text-sm font-semibold text-gray-900">Итого</td>
+                <td class="px-6 py-4 text-sm font-semibold text-gray-900 text-right">642</td>
+                <td class="px-6 py-4 text-sm font-semibold text-gray-900 text-right">1 445 760 ₽</td>
+                <td class="px-6 py-4 text-sm font-semibold text-gray-900 text-right">22 520 ₽</td>
+                <td class="px-6 py-4 text-sm font-semibold text-gray-900 text-right">4.8%</td>
+                <td class="px-6 py-4 text-sm font-semibold text-gray-900 text-right">287%</td>
+            </tr>
+            <tr class="hover:bg-gray-50 transition-colors">
+                <td class="px-6 py-4 text-sm text-gray-800">🏠 Дымоходы нержавеющие</td>
+                <td class="px-6 py-4 text-sm text-gray-600 text-right">245</td>
+                <td class="px-6 py-4 text-sm text-gray-600 text-right">612 500 ₽</td>
+                <td class="px-6 py-4 text-sm text-gray-600 text-right">25 000 ₽</td>
+                <td class="px-6 py-4 text-sm text-gray-600 text-right">5.2%</td>
+                <td class="px-6 py-4 text-sm font-semibold text-green-600 text-right">315%</td>
+            </tr>
+            <tr class="hover:bg-gray-50 transition-colors">
+                <td class="px-6 py-4 text-sm text-gray-800">🏗️ Дымоходы керамические</td>
+                <td class="px-6 py-4 text-sm text-gray-600 text-right">198</td>
+                <td class="px-6 py-4 text-sm text-gray-600 text-right">495 000 ₽</td>
+                <td class="px-6 py-4 text-sm text-gray-600 text-right">25 000 ₽</td>
+                <td class="px-6 py-4 text-sm text-gray-600 text-right">4.6%</td>
+                <td class="px-6 py-4 text-sm font-semibold text-green-600 text-right">278%</td>
+            </tr>
+            <tr class="hover:bg-gray-50 transition-colors">
+                <td class="px-6 py-4 text-sm text-gray-800">🔧 Комплектующие</td>
+                <td class="px-6 py-4 text-sm text-gray-600 text-right">152</td>
+                <td class="px-6 py-4 text-sm text-gray-600 text-right">285 760 ₽</td>
+                <td class="px-6 py-4 text-sm text-gray-600 text-right">18 800 ₽</td>
+                <td class="px-6 py-4 text-sm text-gray-600 text-right">4.1%</td>
+                <td class="px-6 py-4 text-sm font-semibold text-amber-600 text-right">245%</td>
+            </tr>
+            <tr class="hover:bg-gray-50 transition-colors">
+                <td class="px-6 py-4 text-sm text-gray-800">♨️ Дымоходы для бани</td>
+                <td class="px-6 py-4 text-sm text-gray-600 text-right">47</td>
+                <td class="px-6 py-4 text-sm text-gray-600 text-right">52 500 ₽</td>
+                <td class="px-6 py-4 text-sm text-gray-600 text-right">11 190 ₽</td>
+                <td class="px-6 py-4 text-sm text-gray-600 text-right">3.2%</td>
+                <td class="px-6 py-4 text-sm font-semibold text-red-600 text-right">189%</td>
+            </tr>
         </tbody>
-      </table>
-      
-      <!-- Tooltip -->
-      <div class="mt-3 p-3 bg-green-100 rounded-lg text-sm">
-        Google Ads приводит большую часть прибыли по категории "Посуда". Возможно, стоит направить больший бюджет на данный канал.
-      </div>
+    </table>
+</div>
+
+<div class="mt-8">
+    <h3 class="text-lg font-semibold text-gray-900 mb-4">Детализация по Яндекс.Директ:</h3>
+    <div class="overflow-x-auto bg-white rounded-lg shadow">
+        <table class="w-full table-auto">
+            <thead class="bg-gray-50">
+                <tr>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Категория</th>
+                    <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Затраты</th>
+                    <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Клики</th>
+                    <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">CTR</th>
+                    <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">CPC</th>
+                    <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Конверсии</th>
+                </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+                <tr class="hover:bg-gray-50 transition-colors">
+                    <td class="px-6 py-4 text-sm text-gray-900">Нержавеющие</td>
+                    <td class="px-6 py-4 text-sm text-gray-600 text-right">48 900 ₽</td>
+                    <td class="px-6 py-4 text-sm text-gray-600 text-right">815</td>
+                    <td class="px-6 py-4 text-sm text-gray-600 text-right">4.8%</td>
+                    <td class="px-6 py-4 text-sm text-gray-600 text-right">60 ₽</td>
+                    <td class="px-6 py-4 text-sm text-gray-600 text-right">42</td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors">
+                    <td class="px-6 py-4 text-sm text-gray-900">Керамические</td>
+                    <td class="px-6 py-4 text-sm text-gray-600 text-right">42 300 ₽</td>
+                    <td class="px-6 py-4 text-sm text-gray-600 text-right">705</td>
+                    <td class="px-6 py-4 text-sm text-gray-600 text-right">4.2%</td>
+                    <td class="px-6 py-4 text-sm text-gray-600 text-right">60 ₽</td>
+                    <td class="px-6 py-4 text-sm text-gray-600 text-right">32</td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors">
+                    <td class="px-6 py-4 text-sm text-gray-900">Комплектующие</td>
+                    <td class="px-6 py-4 text-sm text-gray-600 text-right">28 500 ₽</td>
+                    <td class="px-6 py-4 text-sm text-gray-600 text-right">475</td>
+                    <td class="px-6 py-4 text-sm text-gray-600 text-right">3.8%</td>
+                    <td class="px-6 py-4 text-sm text-gray-600 text-right">60 ₽</td>
+                    <td class="px-6 py-4 text-sm text-gray-600 text-right">19</td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors">
+                    <td class="px-6 py-4 text-sm text-gray-900">Для бани</td>
+                    <td class="px-6 py-4 text-sm text-gray-600 text-right">12 200 ₽</td>
+                    <td class="px-6 py-4 text-sm text-gray-600 text-right">174</td>
+                    <td class="px-6 py-4 text-sm text-gray-600 text-right">2.9%</td>
+                    <td class="px-6 py-4 text-sm text-gray-600 text-right">70 ₽</td>
+                    <td class="px-6 py-4 text-sm text-gray-600 text-right">6</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="mt-8 space-y-4">
+    <h3 class="text-lg font-semibold text-gray-900">Ключевые инсайты:</h3>
+    
+    <div class="flex items-start p-4 bg-green-50 rounded-lg border border-green-200">
+        <span class="text-green-500 mr-3 mt-0.5">✅</span>
+        <div>
+            <p class="text-sm font-medium text-green-800">Яндекс.Директ показывает максимальную эффективность в категории "Дымоходы нержавеющие" (ROI 315%)</p>
+        </div>
+    </div>
+    
+    <div class="flex items-start p-4 bg-green-50 rounded-lg border border-green-200">
+        <span class="text-green-500 mr-3 mt-0.5">✅</span>
+        <div>
+            <p class="text-sm font-medium text-green-800">Наибольший средний чек - 25 000 ₽ у премиальных категорий</p>
+        </div>
+    </div>
+    
+    <div class="flex items-start p-4 bg-amber-50 rounded-lg border border-amber-200">
+        <span class="text-amber-500 mr-3 mt-0.5">⚠️</span>
+        <div>
+            <p class="text-sm font-medium text-amber-800">Категория "Комплектующие" требует оптимизации ставок для улучшения ROI</p>
+        </div>
+    </div>
+    
+    <div class="flex items-start p-4 bg-red-50 rounded-lg border border-red-200">
+        <span class="text-red-500 mr-3 mt-0.5">❌</span>
+        <div>
+            <p class="text-sm font-medium text-red-800">"Дымоходы для бани" демонстрируют низкую конверсию - требуется пересмотр семантики</p>
+        </div>
+    </div>
+</div>
+
+<div class="mt-8">
+    <h3 class="text-lg font-semibold text-gray-900 mb-4">Рекомендации:</h3>
+    <ul class="space-y-3">
+        <li class="flex items-start">
+            <span class="text-blue-500 mr-2 mt-1">•</span>
+            <span class="text-gray-700">Увеличить бюджет на категорию "Дымоходы нержавеющие" в Яндекс.Директ</span>
+        </li>
+        <li class="flex items-start">
+            <span class="text-blue-500 mr-2 mt-1">•</span>
+            <span class="text-gray-700">Провести A/B тестирование объявлений для категории "Комплектующие"</span>
+        </li>
+        <li class="flex items-start">
+            <span class="text-blue-500 mr-2 mt-1">•</span>
+            <span class="text-gray-700">Разработать отдельную стратегию для продвижения дымоходов для бань</span>
+        </li>
+    </ul>
+</div>
+    <!---->
     </div>
   </div>
 
@@ -399,10 +515,55 @@
     </div>
 <!---->
 
+<!---->
+
+  <div class="px-4 py-12 px-12 bg-blue-50 ">
+    <h2 class="text-3xl font-bold text-gray-900 mb-4">Наша команда</h2>
+    <p class="text-lg text-gray-600 mb-12 max-w-2xl">
+     Мы — энергичная команда профессионалов, которая горит своим делом и стремится достичь выдающихся результатов для наших клиентов.
+    </p>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl ">
+      <!-- Team Member 1 -->
+      <div class="text-center">
+        <img src="user_01.png" alt="Leslie Alexander" class="w-full h-64 object-cover rounded-lg mb-4">
+        <h3 class="text-xl font-semibold text-gray-900 mb-1">Алексей Кузнецов</h3>
+        <p class="text-gray-600 mb-1">Технический специалист по настройке рекламы</p>
+        <p class="text-sm text-gray-500">Санкт-Петербург, Россия</p>
+      </div>
+      
+      <!-- Team Member 2 -->
+      <div class="text-center">
+        <img src="user_04.png" alt="Michael Foster" class="w-full h-64 object-cover rounded-lg mb-4">
+        <h3 class="text-xl font-semibold text-gray-900 mb-1">Екатерина Смирнова</h3>
+        <p class="text-gray-600 mb-1">Менеджер по работе с клиентами</p>
+        <p class="text-sm text-gray-500">Новосибирск, Россия</p>
+      </div>
+      
+      <!-- Team Member 3 -->
+      <div class="text-center">
+        <img src="user_02.png" alt="Dries Vincent" class="w-full h-64 object-cover rounded-lg mb-4">
+        <h3 class="text-xl font-semibold text-gray-900 mb-1">Дмитрий Иванов</h3>
+        <p class="text-gray-600 mb-1">Специалист по аналитике и оптимизации рекламы</p>
+        <p class="text-sm text-gray-500">Екатеринбург, Россия</p>
+      </div>
+      
+      <!-- Team Member 4 -->
+      <div class="text-center">
+        <img src="user_03.png" alt="Lindsay Walton" class="w-full h-64 object-cover rounded-lg mb-4">
+        <h3 class="text-xl font-semibold text-gray-900 mb-1">Анна Петрова</h3>
+        <p class="text-gray-600 mb-1">Руководитель отдела контекстной рекламы</p>
+        <p class="text-sm text-gray-500">Москва, Россия</p>
+      </div>
+    </div>
+  </div>
+
+
+
+    <!---->
+
 <article class="prose prose-lg max-w-none">
 <div class="container mx-auto px-4 py-8">
-    {{ .Content }}
-    
     <h2 class="text-2xl font-bold text-gray-900 mb-6">Последние записи</h2>
     
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -410,7 +571,7 @@
         
   <article class="bg-white rounded-xl overflow-hidden">
     <div class="p-4">
-      <img src="https://img.ixbt.site/live/topics/preview/00/12/76/19/a53f45e8b8.jpg?w=600&h=300&resize=entropy" alt="Иллюстрация" 
+      <img src="post_t.png" alt="Иллюстрация" 
       class="w-full h-48 object-cover rounded-lg">
     </div>
     <div class="p-5">
@@ -448,7 +609,6 @@
 </div>
 
 <!-- -->
-
 <div class="bg-white p-8">
   <!-- Header -->
   <div class="flex items-center justify-between mb-6">

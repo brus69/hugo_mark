@@ -1,0 +1,510 @@
+{{ define "main" }}
+
+
+    <!-- Main Content -->
+    <div class="container px-4 py-8 bg-sky-950">
+        <!-- Page Header -->
+        <div class="text-center mb-12 text-white">
+            <h1 class="text-4xl font-bold text-dark mb-4">Все маркетинговые калькуляторы</h1>
+            <p class="text-xl text-gray-100 max-w-3xl mx-auto">
+                27 профессиональных инструментов для точных расчетов и анализа эффективности маркетинга
+            </p>
+        </div>
+
+
+        <!-- Calculators Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            
+            <!-- 1. ROI Calculator -->
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-primary">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                        <span class="text-primary text-xl">💰</span>
+                    </div>
+                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Популярный</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">ROI калькулятор</h3>
+                <p class="text-gray-600 mb-4 text-sm">Расчет возврата на инвестиции в маркетинг</p>
+                <div class="space-y-2 text-sm text-gray-500 mb-4">
+                    <div class="flex justify-between"><span>Сложность:</span><span class="text-green-600">Легкая</span></div>
+                    <div class="flex justify-between"><span>Время:</span><span>2 мин</span></div>
+                    <div class="flex justify-between"><span>Категория:</span><span class="text-purple-600">Финансы</span></div>
+                </div>
+                <button class="w-full bg-primary text-white py-3 rounded-lg hover:bg-secondary transition-colors">
+                    Открыть калькулятор
+                </button>
+            </div>
+
+            <!-- 2. LTV Calculator -->
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-blue-500">
+                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                    <span class="text-blue-500 text-xl">👤</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">LTV калькулятор</h3>
+                <p class="text-gray-600 mb-4 text-sm">Пожизненная ценность клиента</p>
+                <div class="space-y-2 text-sm text-gray-500 mb-4">
+                    <div class="flex justify-between"><span>Сложность:</span><span class="text-yellow-600">Средняя</span></div>
+                    <div class="flex justify-between"><span>Время:</span><span>5 мин</span></div>
+                    <div class="flex justify-between"><span>Категория:</span><span class="text-blue-600">Клиенты</span></div>
+                </div>
+                <button class="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 transition-colors">
+                    Открыть калькулятор
+                </button>
+            </div>
+
+            <!-- 3. CAC Calculator -->
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-green-500">
+                <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                    <span class="text-green-500 text-xl">📊</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">CAC калькулятор</h3>
+                <p class="text-gray-600 mb-4 text-sm">Стоимость привлечения клиента</p>
+                <div class="space-y-2 text-sm text-gray-500 mb-4">
+                    <div class="flex justify-between"><span>Сложность:</span><span class="text-green-600">Легкая</span></div>
+                    <div class="flex justify-between"><span>Время:</span><span>3 мин</span></div>
+                    <div class="flex justify-between"><span>Категория:</span><span class="text-green-600">Клиенты</span></div>
+                </div>
+                <button class="w-full bg-green-500 text-white py-3 rounded-lg hover:bg-green-600 transition-colors">
+                    Открыть калькулятор
+                </button>
+            </div>
+
+            <!-- 4. ROAS Calculator -->
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-purple-500">
+                <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                    <span class="text-purple-500 text-xl">🎯</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">ROAS калькулятор</h3>
+                <p class="text-gray-600 mb-4 text-sm">Окупаемость расходов на рекламу</p>
+                <div class="space-y-2 text-sm text-gray-500 mb-4">
+                    <div class="flex justify-between"><span>Сложность:</span><span class="text-green-600">Легкая</span></div>
+                    <div class="flex justify-between"><span>Время:</span><span>2 мин</span></div>
+                    <div class="flex justify-between"><span>Категория:</span><span class="text-purple-600">Реклама</span></div>
+                </div>
+                <button class="w-full bg-purple-500 text-white py-3 rounded-lg hover:bg-purple-600 transition-colors">
+                    Открыть калькулятор
+                </button>
+            </div>
+
+            <!-- 5. CTR Calculator -->
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-orange-500">
+                <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                    <span class="text-orange-500 text-xl">📈</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">CTR калькулятор</h3>
+                <p class="text-gray-600 mb-4 text-sm">Показатель кликабельности объявлений</p>
+                <div class="space-y-2 text-sm text-gray-500 mb-4">
+                    <div class="flex justify-between"><span>Сложность:</span><span class="text-green-600">Легкая</span></div>
+                    <div class="flex justify-between"><span>Время:</span><span>1 мин</span></div>
+                    <div class="flex justify-between"><span>Категория:</span><span class="text-orange-600">Реклама</span></div>
+                </div>
+                <button class="w-full bg-orange-500 text-white py-3 rounded-lg hover:bg-orange-600 transition-colors">
+                    Открыть калькулятор
+                </button>
+            </div>
+
+            <!-- 6. Sales Forecast Calculator -->
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-red-500">
+                <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                    <span class="text-red-500 text-xl">📉</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">Прогноз продаж</h3>
+                <p class="text-gray-600 mb-4 text-sm">Прогнозирование объема продаж</p>
+                <div class="space-y-2 text-sm text-gray-500 mb-4">
+                    <div class="flex justify-between"><span>Сложность:</span><span class="text-red-600">Сложная</span></div>
+                    <div class="flex justify-between"><span>Время:</span><span>10 мин</span></div>
+                    <div class="flex justify-between"><span>Категория:</span><span class="text-red-600">Аналитика</span></div>
+                </div>
+                <button class="w-full bg-red-500 text-white py-3 rounded-lg hover:bg-red-600 transition-colors">
+                    Открыть калькулятор
+                </button>
+            </div>
+
+            <!-- 7. Conversion Rate Calculator -->
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-indigo-500">
+                <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
+                    <span class="text-indigo-500 text-xl">🔄</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">Конверсия сайта</h3>
+                <p class="text-gray-600 mb-4 text-sm">Расчет коэффициента конверсии</p>
+                <div class="space-y-2 text-sm text-gray-500 mb-4">
+                    <div class="flex justify-between"><span>Сложность:</span><span class="text-green-600">Легкая</span></div>
+                    <div class="flex justify-between"><span>Время:</span><span>2 мин</span></div>
+                    <div class="flex justify-between"><span>Категория:</span><span class="text-indigo-600">Аналитика</span></div>
+                </div>
+                <button class="w-full bg-indigo-500 text-white py-3 rounded-lg hover:bg-indigo-600 transition-colors">
+                    Открыть калькулятор
+                </button>
+            </div>
+
+            <!-- 8. Customer Retention Calculator -->
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-pink-500">
+                <div class="w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center mb-4">
+                    <span class="text-pink-500 text-xl">💝</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">Удержание клиентов</h3>
+                <p class="text-gray-600 mb-4 text-sm">Коэффициент удержания клиентов</p>
+                <div class="space-y-2 text-sm text-gray-500 mb-4">
+                    <div class="flex justify-between"><span>Сложность:</span><span class="text-yellow-600">Средняя</span></div>
+                    <div class="flex justify-between"><span>Время:</span><span>4 мин</span></div>
+                    <div class="flex justify-between"><span>Категория:</span><span class="text-pink-600">Клиенты</span></div>
+                </div>
+                <button class="w-full bg-pink-500 text-white py-3 rounded-lg hover:bg-pink-600 transition-colors">
+                    Открыть калькулятор
+                </button>
+            </div>
+
+            <!-- 9. Churn Rate Calculator -->
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-rose-500">
+                <div class="w-12 h-12 bg-rose-100 rounded-lg flex items-center justify-center mb-4">
+                    <span class="text-rose-500 text-xl">📉</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">Отток клиентов</h3>
+                <p class="text-gray-600 mb-4 text-sm">Расчет уровня оттока клиентов</p>
+                <div class="space-y-2 text-sm text-gray-500 mb-4">
+                    <div class="flex justify-between"><span>Сложность:</span><span class="text-yellow-600">Средняя</span></div>
+                    <div class="flex justify-between"><span>Время:</span><span>3 мин</span></div>
+                    <div class="flex justify-between"><span>Категория:</span><span class="text-rose-600">Клиенты</span></div>
+                </div>
+                <button class="w-full bg-rose-500 text-white py-3 rounded-lg hover:bg-rose-600 transition-colors">
+                    Открыть калькулятор
+                </button>
+            </div>
+
+            <!-- 10. Break-even Calculator -->
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-amber-500">
+                <div class="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mb-4">
+                    <span class="text-amber-500 text-xl">⚖️</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">Точка безубыточности</h3>
+                <p class="text-gray-600 mb-4 text-sm">Расчет точки окупаемости проекта</p>
+                <div class="space-y-2 text-sm text-gray-500 mb-4">
+                    <div class="flex justify-between"><span>Сложность:</span><span class="text-yellow-600">Средняя</span></div>
+                    <div class="flex justify-between"><span>Время:</span><span>5 мин</span></div>
+                    <div class="flex justify-between"><span>Категория:</span><span class="text-amber-600">Финансы</span></div>
+                </div>
+                <button class="w-full bg-amber-500 text-white py-3 rounded-lg hover:bg-amber-600 transition-colors">
+                    Открыть калькулятор
+                </button>
+            </div>
+
+            <!-- 11. CPC Calculator -->
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-cyan-500">
+                <div class="w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center mb-4">
+                    <span class="text-cyan-500 text-xl">🖱️</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">CPC калькулятор</h3>
+                <p class="text-gray-600 mb-4 text-sm">Стоимость за клик</p>
+                <div class="space-y-2 text-sm text-gray-500 mb-4">
+                    <div class="flex justify-between"><span>Сложность:</span><span class="text-green-600">Легкая</span></div>
+                    <div class="flex justify-between"><span>Время:</span><span>1 мин</span></div>
+                    <div class="flex justify-between"><span>Категория:</span><span class="text-cyan-600">Реклама</span></div>
+                </div>
+                <button class="w-full bg-cyan-500 text-white py-3 rounded-lg hover:bg-cyan-600 transition-colors">
+                    Открыть калькулятор
+                </button>
+            </div>
+
+            <!-- 12. CPM Calculator -->
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-blue-400">
+                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                    <span class="text-blue-400 text-xl">👁️</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">CPM калькулятор</h3>
+                <p class="text-gray-600 mb-4 text-sm">Стоимость за 1000 показов</p>
+                <div class="space-y-2 text-sm text-gray-500 mb-4">
+                    <div class="flex justify-between"><span>Сложность:</span><span class="text-green-600">Легкая</span></div>
+                    <div class="flex justify-between"><span>Время:</span><span>1 мин</span></div>
+                    <div class="flex justify-between"><span>Категория:</span><span class="text-blue-400">Реклама</span></div>
+                </div>
+                <button class="w-full bg-blue-400 text-white py-3 rounded-lg hover:bg-blue-500 transition-colors">
+                    Открыть калькулятор
+                </button>
+            </div>
+
+            <!-- 13. CPA Calculator -->
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-emerald-500">
+                <div class="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-4">
+                    <span class="text-emerald-500 text-xl">🎯</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">CPA калькулятор</h3>
+                <p class="text-gray-600 mb-4 text-sm">Стоимость за действие</p>
+                <div class="space-y-2 text-sm text-gray-500 mb-4">
+                    <div class="flex justify-between"><span>Сложность:</span><span class="text-green-600">Легкая</span></div>
+                    <div class="flex justify-between"><span>Время:</span><span>2 мин</span></div>
+                    <div class="flex justify-between"><span>Категория:</span><span class="text-emerald-600">Реклама</span></div>
+                </div>
+                <button class="w-full bg-emerald-500 text-white py-3 rounded-lg hover:bg-emerald-600 transition-colors">
+                    Открыть калькулятор
+                </button>
+            </div>
+
+            <!-- 14. Marketing Budget Calculator -->
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-violet-500">
+                <div class="w-12 h-12 bg-violet-100 rounded-lg flex items-center justify-center mb-4">
+                    <span class="text-violet-500 text-xl">💸</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">Бюджет маркетинга</h3>
+                <p class="text-gray-600 mb-4 text-sm">Планирование маркетингового бюджета</p>
+                <div class="space-y-2 text-sm text-gray-500 mb-4">
+                    <div class="flex justify-between"><span>Сложность:</span><span class="text-yellow-600">Средняя</span></div>
+                    <div class="flex justify-between"><span>Время:</span><span>7 мин</span></div>
+                    <div class="flex justify-between"><span>Категория:</span><span class="text-violet-600">Финансы</span></div>
+                </div>
+                <button class="w-full bg-violet-500 text-white py-3 rounded-lg hover:bg-violet-600 transition-colors">
+                    Открыть калькулятор
+                </button>
+            </div>
+
+            <!-- 15. Email Marketing ROI -->
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-fuchsia-500">
+                <div class="w-12 h-12 bg-fuchsia-100 rounded-lg flex items-center justify-center mb-4">
+                    <span class="text-fuchsia-500 text-xl">📧</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">Email маркетинг ROI</h3>
+                <p class="text-gray-600 mb-4 text-sm">Эффективность email рассылок</p>
+                <div class="space-y-2 text-sm text-gray-500 mb-4">
+                    <div class="flex justify-between"><span>Сложность:</span><span class="text-yellow-600">Средняя</span></div>
+                    <div class="flex justify-between"><span>Время:</span><span>4 мин</span></div>
+                    <div class="flex justify-between"><span>Категория:</span><span class="text-fuchsia-600">Аналитика</span></div>
+                </div>
+                <button class="w-full bg-fuchsia-500 text-white py-3 rounded-lg hover:bg-fuchsia-600 transition-colors">
+                    Открыть калькулятор
+                </button>
+            </div>
+
+            <!-- 16. Social Media ROI -->
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-sky-500">
+                <div class="w-12 h-12 bg-sky-100 rounded-lg flex items-center justify-center mb-4">
+                    <span class="text-sky-500 text-xl">📱</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">Соцсети ROI</h3>
+                <p class="text-gray-600 mb-4 text-sm">Окупаемость соцмедиа маркетинга</p>
+                <div class="space-y-2 text-sm text-gray-500 mb-4">
+                    <div class="flex justify-between"><span>Сложность:</span><span class="text-yellow-600">Средняя</span></div>
+                    <div class="flex justify-between"><span>Время:</span><span>5 мин</span></div>
+                    <div class="flex justify-between"><span>Категория:</span><span class="text-sky-600">Аналитика</span></div>
+                </div>
+                <button class="w-full bg-sky-500 text-white py-3 rounded-lg hover:bg-sky-600 transition-colors">
+                    Открыть калькулятор
+                </button>
+            </div>
+
+            <!-- 17. Customer Lifetime Value to CAC Ratio -->
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-lime-500">
+                <div class="w-12 h-12 bg-lime-100 rounded-lg flex items-center justify-center mb-4">
+                    <span class="text-lime-500 text-xl">⚡</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">LTV:CAC Ratio</h3>
+                <p class="text-gray-600 mb-4 text-sm">Соотношение ценности и стоимости клиента</p>
+                <div class="space-y-2 text-sm text-gray-500 mb-4">
+                    <div class="flex justify-between"><span>Сложность:</span><span class="text-yellow-600">Средняя</span></div>
+                    <div class="flex justify-between"><span>Время:</span><span>3 мин</span></div>
+                    <div class="flex justify-between"><span>Категория:</span><span class="text-lime-600">Клиенты</span></div>
+                </div>
+                <button class="w-full bg-lime-500 text-white py-3 rounded-lg hover:bg-lime-600 transition-colors">
+                    Открыть калькулятор
+                </button>
+            </div>
+
+            <!-- 18. Marketing Funnel Conversion -->
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-teal-500">
+                <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
+                    <span class="text-teal-500 text-xl">🔄</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">Конверсия воронки</h3>
+                <p class="text-gray-600 mb-4 text-sm">Эффективность маркетинговой воронки</p>
+                <div class="space-y-2 text-sm text-gray-500 mb-4">
+                    <div class="flex justify-between"><span>Сложность:</span><span class="text-red-600">Сложная</span></div>
+                    <div class="flex justify-between"><span>Время:</span><span>8 мин</span></div>
+                    <div class="flex justify-between"><span>Категория:</span><span class="text-teal-600">Аналитика</span></div>
+                </div>
+                <button class="w-full bg-teal-500 text-white py-3 rounded-lg hover:bg-teal-600 transition-colors">
+                    Открыть калькулятор
+                </button>
+            </div>
+
+            <!-- 19. Customer Acquisition Cost Payback Period -->
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-amber-600">
+                <div class="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mb-4">
+                    <span class="text-amber-600 text-xl">⏱️</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">Окупаемость CAC</h3>
+                <p class="text-gray-600 mb-4 text-sm">Период окупаемости стоимости привлечения</p>
+                <div class="space-y-2 text-sm text-gray-500 mb-4">
+                    <div class="flex justify-between"><span>Сложность:</span><span class="text-yellow-600">Средняя</span></div>
+                    <div class="flex justify-between"><span>Время:</span><span>4 мин</span></div>
+                    <div class="flex justify-between"><span>Категория:</span><span class="text-amber-600">Финансы</span></div>
+                </div>
+                <button class="w-full bg-amber-600 text-white py-3 rounded-lg hover:bg-amber-700 transition-colors">
+                    Открыть калькулятор
+                </button>
+            </div>
+
+            <!-- 20. Website Traffic Value -->
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-purple-600">
+                <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                    <span class="text-purple-600 text-xl">🚦</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">Ценность трафика</h3>
+                <p class="text-gray-600 mb-4 text-sm">Монетарная ценность веб-трафика</p>
+                <div class="space-y-2 text-sm text-gray-500 mb-4">
+                    <div class="flex justify-between"><span>Сложность:</span><span class="text-yellow-600">Средняя</span></div>
+                    <div class="flex justify-between"><span>Время:</span><span>5 мин</span></div>
+                    <div class="flex justify-between"><span>Категория:</span><span class="text-purple-600">Аналитика</span></div>
+                </div>
+                <button class="w-full bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition-colors">
+                    Открыть калькулятор
+                </button>
+            </div>
+
+            <!-- 21. Lead Generation Cost -->
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-rose-600">
+                <div class="w-12 h-12 bg-rose-100 rounded-lg flex items-center justify-center mb-4">
+                    <span class="text-rose-600 text-xl">🎣</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">Стоимость лида</h3>
+                <p class="text-gray-600 mb-4 text-sm">Расчет стоимости генерации лида</p>
+                <div class="space-y-2 text-sm text-gray-500 mb-4">
+                    <div class="flex justify-between"><span>Сложность:</span><span class="text-green-600">Легкая</span></div>
+                    <div class="flex justify-between"><span>Время:</span><span>2 мин</span></div>
+                    <div class="flex justify-between"><span>Категория:</span><span class="text-rose-600">Клиенты</span></div>
+                </div>
+                <button class="w-full bg-rose-600 text-white py-3 rounded-lg hover:bg-rose-700 transition-colors">
+                    Открыть калькулятор
+                </button>
+            </div>
+
+            <!-- 22. Marketing Attribution -->
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-indigo-600">
+                <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
+                    <span class="text-indigo-600 text-xl">🎭</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">Атрибуция</h3>
+                <p class="text-gray-600 mb-4 text-sm">Распределение конверсий по каналам</p>
+                <div class="space-y-2 text-sm text-gray-500 mb-4">
+                    <div class="flex justify-between"><span>Сложность:</span><span class="text-red-600">Сложная</span></div>
+                    <div class="flex justify-between"><span>Время:</span><span>10 мин</span></div>
+                    <div class="flex justify-between"><span>Категория:</span><span class="text-indigo-600">Аналитика</span></div>
+                </div>
+                <button class="w-full bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700 transition-colors">
+                    Открыть калькулятор
+                </button>
+            </div>
+
+            <!-- 23. Customer Satisfaction Score (CSAT) -->
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-green-600">
+                <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                    <span class="text-green-600 text-xl">😊</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">CSAT калькулятор</h3>
+                <p class="text-gray-600 mb-4 text-sm">Индекс удовлетворенности клиентов</p>
+                <div class="space-y-2 text-sm text-gray-500 mb-4">
+                    <div class="flex justify-between"><span>Сложность:</span><span class="text-green-600">Легкая</span></div>
+                    <div class="flex justify-between"><span>Время:</span><span>2 мин</span></div>
+                    <div class="flex justify-between"><span>Категория:</span><span class="text-green-600">Клиенты</span></div>
+                </div>
+                <button class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition-colors">
+                    Открыть калькулятор
+                </button>
+            </div>
+
+            <!-- 24. Net Promoter Score (NPS) -->
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-blue-600">
+                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                    <span class="text-blue-600 text-xl">⭐</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">NPS калькулятор</h3>
+                <p class="text-gray-600 mb-4 text-sm">Индекс лояльности клиентов</p>
+                <div class="space-y-2 text-sm text-gray-500 mb-4">
+                    <div class="flex justify-between"><span>Сложность:</span><span class="text-green-600">Легкая</span></div>
+                    <div class="flex justify-between"><span>Время:</span><span>2 мин</span></div>
+                    <div class="flex justify-between"><span>Категория:</span><span class="text-blue-600">Клиенты</span></div>
+                </div>
+                <button class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                    Открыть калькулятор
+                </button>
+            </div>
+
+            <!-- 25. Marketing Efficiency Ratio -->
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-cyan-600">
+                <div class="w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center mb-4">
+                    <span class="text-cyan-600 text-xl">📐</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">Эффективность маркетинга</h3>
+                <p class="text-gray-600 mb-4 text-sm">Коэффициент эффективности маркетинга</p>
+                <div class="space-y-2 text-sm text-gray-500 mb-4">
+                    <div class="flex justify-between"><span>Сложность:</span><span class="text-yellow-600">Средняя</span></div>
+                    <div class="flex justify-between"><span>Время:</span><span>4 мин</span></div>
+                    <div class="flex justify-between"><span>Категория:</span><span class="text-cyan-600">Аналитика</span></div>
+                </div>
+                <button class="w-full bg-cyan-600 text-white py-3 rounded-lg hover:bg-cyan-700 transition-colors">
+                    Открыть калькулятор
+                </button>
+            </div>
+
+            <!-- 26. Content Marketing ROI -->
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-orange-600">
+                <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                    <span class="text-orange-600 text-xl">📝</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">Контент-маркетинг ROI</h3>
+                <p class="text-gray-600 mb-4 text-sm">Окупаемость контент-маркетинга</p>
+                <div class="space-y-2 text-sm text-gray-500 mb-4">
+                    <div class="flex justify-between"><span>Сложность:</span><span class="text-yellow-600">Средняя</span></div>
+                    <div class="flex justify-between"><span>Время:</span><span>5 мин</span></div>
+                    <div class="flex justify-between"><span>Категория:</span><span class="text-orange-600">Аналитика</span></div>
+                </div>
+                <button class="w-full bg-orange-600 text-white py-3 rounded-lg hover:bg-orange-700 transition-colors">
+                    Открыть калькулятор
+                </button>
+            </div>
+
+            <!-- 27. Viral Coefficient -->
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-red-600">
+                <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                    <span class="text-red-600 text-xl">🦠</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">Вирусный коэффициент</h3>
+                <p class="text-gray-600 mb-4 text-sm">Коэффициент виральности продукта</p>
+                <div class="space-y-2 text-sm text-gray-500 mb-4">
+                    <div class="flex justify-between"><span>Сложность:</span><span class="text-red-600">Сложная</span></div>
+                    <div class="flex justify-between"><span>Время:</span><span>6 мин</span></div>
+                    <div class="flex justify-between"><span>Категория:</span><span class="text-red-600">Аналитика</span></div>
+                </div>
+                <button class="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition-colors">
+                    Открыть калькулятор
+                </button>
+            </div>
+
+        </div>
+
+        <!-- Summary Stats -->
+        <div class="bg-white rounded-xl p-8 shadow-lg text-center">
+            <h2 class="text-2xl font-bold text-dark mb-4">Все калькуляторы в одном месте</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-6">
+                <div>
+                    <div class="text-3xl font-bold text-primary">27</div>
+                    <div class="text-gray-600">Калькуляторов</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-green-500">14</div>
+                    <div class="text-gray-600">Легких</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-yellow-500">9</div>
+                    <div class="text-gray-600">Средних</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-red-500">4</div>
+                    <div class="text-gray-600">Сложных</div>
+                </div>
+            </div>
+            <p class="text-gray-600 max-w-2xl mx-auto">
+                От базовых расчетов до сложных аналитических моделей — все инструменты для профессионального маркетинга
+            </p>
+        </div>
+    </div>
+
+
+{{ end }}
