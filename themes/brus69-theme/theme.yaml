@@ -1,0 +1,11 @@
+name: "brus69-theme"
+license: "MIT"
+description: "Minimal Hugo theme"
+min_version: "0.152.0"
+
+author:
+  name: "Your Name"
+
+params:
+  title: "My Site"
+  description: "A simple Hugo site"
