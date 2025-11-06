@@ -5,7 +5,7 @@
 <div class="container mx-auto px-4 py-8">
 
     <h1 class="text-3xl font-bold text-gray-900 mb-8">{{ .Title }}</h1>
-1
+
     <div class="space-y-6 mb-8">
 <div class="flex justify-center items-center gap-6 ml-8">
         
@@ -22,7 +22,7 @@
        
 </div>
     </div>
-2
+
     {{ if gt .Paginator.TotalPages 1 }}
     <nav class="flex items-center justify-between sm:justify-center gap-4 py-6 border-t">
         {{ if .Paginator.HasPrev }}
