@@ -1,0 +1,15 @@
+{{ range .menuEntries }}
+<li>
+    <a href="{{ .URL }}" 
+       {{ if $.page.IsMenuCurrent "main" . }}class="active"{{ end }}
+       {{ if $.page.HasMenuCurrent "main" . }}class="active-parent"{{ end }}>
+        {{ .Name }}
+    </a>
+    
+    {{ if .HasChildren }}
+    <ul>
+        {{ partial "inline/menu/walk.html" (dict "page" $.page "menuEntries" .Children) }}
+    </ul>
+    {{ end }}
+</li>
+{{ end }}
