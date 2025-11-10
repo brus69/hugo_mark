@@ -3,7 +3,7 @@
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
-<title>Контакты | Агентство контекстной рекламы</title>
+<title>Posts | Агентство контекстной рекламы</title>
 <meta name="description" content="">
 <meta name="yandex-verification" content="242f5a0ee52d5836" />
 <link rel="icon" type="image/x-icon" href="http://localhost:1313/favicon.ico">
@@ -416,7 +416,7 @@ fill="#000000" stroke="none">
       <a href="/analytics/">web-аналитика</a>
     </li>
     <li class="text-lg font-semibold">
-      <a href="/posts/">Блог</a>
+      <a aria-current="page" class="active" href="/posts/">Блог</a>
     </li>
     <li class="text-lg font-semibold">
       <a href="/about/">О нас</a>
@@ -434,7 +434,7 @@ fill="#000000" stroke="none">
       <a href="/calculators/">Калькуляторы</a>
     </li>
     <li class="text-lg font-semibold">
-      <a aria-current="page" class="active" href="/contacts/">Контакты</a>
+      <a href="/contacts/">Контакты</a>
     </li>
     </ul>
   </nav>
@@ -484,29 +484,105 @@ fill="#fff" class="bi bi-telegram pr-1">
  
             
             
-<div class="max-w-4xl bg-white overflow-hidden">
-    <div class="grid md:grid-cols-1 gap-8 p-8">
+
+<div class="container px-4 py-8">
+
+    <h1 class="text-3xl font-bold text-gray-900 mb-8">Posts</h1>
+
+    <div class="space-y-6 mb-8">
+<div class="grid-cols-2 grid gap-6 ml-8">
         
-        <div class="space-y-3">
-            <div>
-                <h1 class="text-2xl font-bold text-gray-900 mb-4">Контакты</h1>
-                <p class="text-gray-700 mb-4">
-                 <p>📞 Телефон: +7 (999) 123-45-67<br>
-📧 Email: <a href="mailto:info@example.com">info@example.com</a><br>
-📍 Адрес: Москва, ул. Примерная, 123</p>
+        
+        <article class="bg-white rounded-lg border border-gray-200  p-6 hover:shadow-lg transition-shadow">
+            <h2 class="text-xl font-semibold text-gray-800 mb-2">
+                <a href="/posts/seo-algorithm/" class="hover:text-blue-600 transition-colors">
+                    Алгоритм проверки выдачи по SEO
+                </a>
+            </h2>
+            <p class="text-gray-600"><h2 id="заголовок-22222111111111111111">Заголовок 22222111111111111111</h2>
+<blockquote>
+<p>Tempor proident minim aliquip reprehenderit dolor et ad anim Lorem duis sint eiusmod. Labore ut ea duis dolor. Incididunt consectetur proident qui occaecat incididunt do nisi Lorem. Tempor do laborum elit laboris excepteur eiusmod do. Eiusmod nisi excepteur ut amet pariatur adipisicing Lorem.</p></blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">content_site</span>(url):
+</span></span><span style="display:flex;"><span>  r <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(url, timeout<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>  soup <span style="color:#f92672">=</span> BeautifulSoup(r<span style="color:#f92672">.</span>text)
+</span></span><span style="display:flex;"><span>  data <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#39;title&#39;</span>: soup<span style="color:#f92672">.</span>title<span style="color:#f92672">.</span>get_text(),
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#39;h1&#39;</span>: soup<span style="color:#f92672">.</span>h1<span style="color:#f92672">.</span>get_text(),
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#39;description&#39;</span>: soup<span style="color:#f92672">.</span>find(<span style="color:#e6db74">&#39;meta&#39;</span>, attrs<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;name&#39;</span>:<span style="color:#e6db74">&#39;description&#39;</span>})<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;content&#39;</span>),
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#39;content&#39;</span>: soup<span style="color:#f92672">.</span>find(<span style="color:#e6db74">&#39;div&#39;</span>, class_<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;container&#39;</span>)<span style="color:#f92672">.</span>get_text()
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> data
+</span></span></code></pre></div><p>Occaecat nulla excepteur dolore<a href="nic.ru"> </a><a href="">excepteur</a> duis eiusmod ullamco officia anim in voluptate ea</p></p>
+        </article>
+        
+       
+</div>
+    </div>
 
-                </p>
-            </div>
+    
+    <nav class="flex items-center justify-between sm:justify-center gap-4 py-6 border-t">
+        
+        <a href="/posts/" 
+           class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2">
+            <span>←</span>
+            <span class="hidden sm:inline">Назад</span>
+        </a>
+        
 
-            <div class="border-t border-gray-200 pt-6">
+        <div class="flex items-center gap-1">
+            
+            
+            
+            
                 
-            <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A172a0fadc3037dab46330af1d8aac2e5589e2eac4babb777d97ec58efb39e7d7&amp;width=100%25&amp;height=632&amp;lang=ru_RU&amp;scroll=true"></script>
-            </div>
+                
+                
+                
+                
+                    
+                    
+                
+                
+                
+                
+                    
+                    <a href="/posts/" 
+                       class="px-3 py-1 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition-colors">
+                        1
+                    </a>
+                    
+                
+            
+                
+                
+                
+                
+                
+                    
+                    
+                
+                
+                
+                
+                    
+                    <span class="px-3 py-1 bg-blue-600 text-white rounded-md font-semibold">
+                        2
+                    </span>
+                    
+                
+            
         </div>
 
-      
-    </div>
+        
+        <span class="px-4 py-2 bg-gray-300 text-gray-500 rounded-lg cursor-not-allowed flex items-center gap-2">
+            <span class="hidden sm:inline">Вперед</span>
+            <span>→</span>
+        </span>
+        
+    </nav>
+    
 </div>
+
 
           
             
