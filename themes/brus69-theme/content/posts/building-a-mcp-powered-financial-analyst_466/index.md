@@ -1,7 +1,7 @@
 ---
 title: "Создание финансового аналитика на базе MCP - Analytics Vidhya"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "Узнайте о будущем финансового анализа с помощью финансового аналитика на базе MCP, который преобразует запросы в полезную информацию о запасах."
 h1: "Создание финансового аналитика на базе MCP"
 urldel: "https://www.analyticsvidhya.com/blog/2025/09/building-a-mcp-powered-financial-analyst/"

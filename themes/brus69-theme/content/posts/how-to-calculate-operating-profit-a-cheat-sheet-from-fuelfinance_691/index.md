@@ -1,7 +1,7 @@
 ---
 title: "Как рассчитать операционную прибыль: шпаргалка от Fuelfinance"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Как рассчитать операционную прибыль: шпаргалка от Fuelfinance"
 urldel: "https://fuelfinance.me/blog/how-to-calculate-operating-profit-a-cheat-sheet-from-fuelfinance"

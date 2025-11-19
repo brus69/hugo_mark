@@ -1,7 +1,7 @@
 ---
 title: "Как рассчитать эластичность ставок в PPC-маркетинге | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Как рассчитать эластичность ставок в PPC-маркетинге"
 urldel: "https://towardsdatascience.com/how-to-calculate-the-elasticity-of-bids-in-ppc-marketing-1a989c0b46cd/"

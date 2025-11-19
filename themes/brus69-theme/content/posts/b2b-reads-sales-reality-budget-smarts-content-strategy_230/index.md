@@ -1,7 +1,7 @@
 ---
 title: "B2B Readings: Реальность продаж, разумный бюджет и контент-стратегия"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "Еженедельная подборка статей о продажах в сфере B2B и маркетинга - никаких аффилированных лиц, никаких комиссионных, просто к вашему сведению."
 h1: "B2B Reads: Реальность продаж, разумный бюджет и контент-стратегия"
 urldel: "https://www.heinzmarketing.com/blog/b2b-reads-sales-reality-budget-smarts-content-strategy/"

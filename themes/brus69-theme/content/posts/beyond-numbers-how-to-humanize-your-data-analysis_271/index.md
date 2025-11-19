@@ -1,7 +1,7 @@
 ---
 title: "За пределами цифр: как гуманизировать ваши данные и анализ"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "За пределами цифр: как гуманизировать ваши данные и анализ"
 urldel: "https://towardsdatascience.com/beyond-numbers-how-to-humanize-your-data-analysis/"

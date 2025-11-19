@@ -1,7 +1,7 @@
 ---
 title: "Удобное байесовское моделирование маркетингового комплекса с помощью PyMC Marketing | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Удобное Байесовское моделирование комплекса маркетинга с помощью PyMC Marketing"
 urldel: "https://towardsdatascience.com/convenient-bayesian-marketing-mix-modeling-with-pymc-marketing-8b02a9a9c4aa/"

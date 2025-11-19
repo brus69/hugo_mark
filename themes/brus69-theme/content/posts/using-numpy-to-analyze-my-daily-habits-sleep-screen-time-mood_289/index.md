@@ -1,7 +1,7 @@
 ---
 title: "Использую NumPy для анализа своих ежедневных привычек (сон, экранное время и настроение) | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Использую NumPy для анализа своих ежедневных привычек (сон, экранное время и настроение)"
 urldel: "https://towardsdatascience.com/using-numpy-to-analyze-my-daily-habits-sleep-screen-time-mood/"

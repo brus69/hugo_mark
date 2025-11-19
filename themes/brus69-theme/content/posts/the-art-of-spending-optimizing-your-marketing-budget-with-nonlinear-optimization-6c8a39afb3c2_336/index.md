@@ -1,7 +1,7 @@
 ---
 title: "Искусство тратить: Оптимизация маркетингового бюджета с помощью нелинейной оптимизации | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Искусство тратить: Оптимизируйте свой маркетинговый бюджет с помощью нелинейной оптимизации"
 urldel: "https://towardsdatascience.com/the-art-of-spending-optimizing-your-marketing-budget-with-nonlinear-optimization-6c8a39afb3c2/"

@@ -1,7 +1,7 @@
 ---
 title: "Почему Маркетологи обращаются к экспериментам с Квазигеолифтами? (И как их планировать) | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Почему Маркетологи прибегают к экспериментам с Квазигеолифтами? (И как их планировать)"
 urldel: "https://towardsdatascience.com/why-are-marketers-turning-to-quasi-geo-lift-experiments-and-how-to-plan-them/"

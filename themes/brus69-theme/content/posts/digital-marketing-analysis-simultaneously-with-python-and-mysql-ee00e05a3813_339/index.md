@@ -1,7 +1,7 @@
 ---
 title: "Анализ цифрового маркетинга с помощью Python и MySQL | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Анализ цифрового маркетинга с помощью Python и MySQL"
 urldel: "https://towardsdatascience.com/digital-marketing-analysis-simultaneously-with-python-and-mysql-ee00e05a3813/"

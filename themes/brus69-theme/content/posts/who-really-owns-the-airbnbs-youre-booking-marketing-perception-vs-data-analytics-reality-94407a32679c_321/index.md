@@ -1,7 +1,7 @@
 ---
 title: "Кому на самом деле принадлежат Airbnbs, которые вы бронируете? - Маркетинговое восприятие против реальности анализа данных | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Кому на самом деле принадлежат Airbnbs, которые вы бронируете? – Маркетинговое восприятие и реальность анализа данных"
 urldel: "https://towardsdatascience.com/who-really-owns-the-airbnbs-youre-booking-marketing-perception-vs-data-analytics-reality-94407a32679c/"

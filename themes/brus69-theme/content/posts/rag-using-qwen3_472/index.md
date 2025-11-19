@@ -1,7 +1,7 @@
 ---
 title: "Как создать RAG с помощью Qwen3?"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "Изучите две недавно выпущенные модели Qwen3, используя их впечатляющую длину контекста для создания модели RAG"
 h1: "Как создать RAG с помощью Qwen3?"
 urldel: "https://www.analyticsvidhya.com/blog/2025/08/rag-using-qwen3/"

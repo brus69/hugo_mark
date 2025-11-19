@@ -1,7 +1,7 @@
 ---
 title: "Создание мультимодального RAG, который использует текст, изображения и таблицы из исходных текстов | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Создание мультимодального RAG, который будет дополняться текстом, изображениями и таблицами из исходных текстов"
 urldel: "https://towardsdatascience.com/building-a-multimodal-rag-with-text-images-tables-from-sources-in-response/"

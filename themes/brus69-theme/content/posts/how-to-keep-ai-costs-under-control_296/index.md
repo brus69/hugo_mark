@@ -1,7 +1,7 @@
 ---
 title: "Как контролировать затраты на искусственный Интеллект | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Как держать Расходы на Искусственный Интеллект под контролем"
 urldel: "https://towardsdatascience.com/how-to-keep-ai-costs-under-control/"

@@ -1,7 +1,7 @@
 ---
 title: "Создание систем рекомендаций для видеоигр с использованием FastAPI, PostgreSQL и Render: Часть 1 | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Создание систем рекомендаций по видеоиграм с использованием FastAPI, PostgreSQL и Render: Часть 1"
 urldel: "https://towardsdatascience.com/building-video-game-recommender-systems-with-fastapi-postgresql-and-render-part-1/"

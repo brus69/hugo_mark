@@ -1,7 +1,7 @@
 ---
 title: "\"Системное мышление помогает мне видеть общую картину в целом\" | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "“Системное мышление помогает мне видеть общую картину в центре внимания”"
 urldel: "https://towardsdatascience.com/systems-thinking-helps-me-put-the-big-picture-front-and-center/"

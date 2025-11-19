@@ -1,7 +1,7 @@
 ---
 title: "Руководство по внедрению LLMS в производство"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "Изучите практические навыки работы с LLMOP: внедряйте LLM в производство с помощью LangChain, FastAPI, Docker и Streamlit, от прототипа до масштабируемого чат-бота RAG."
 h1: "От нуля до героя LLMOps: 101 руководство по внедрению LLM в производство"
 urldel: "https://www.analyticsvidhya.com/blog/2025/11/llms-in-production/"

@@ -1,7 +1,7 @@
 ---
 title: "4 Метода оптимизации запросов LLM с точки зрения затрат, задержки и производительности | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "4 Метода оптимизации запросов LLM с точки зрения затрат, задержки и производительности"
 urldel: "https://towardsdatascience.com/4-techniques-to-optimize-your-llm-prompts-for-cost-latency-and-performance/"

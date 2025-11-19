@@ -1,7 +1,7 @@
 ---
 title: "Как получить максимальную отдачу от адаптивной поисковой рекламы (RSA)"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "Руководство по получению максимальной отдачи от адаптивной поисковой рекламы Google Ads в формате RSA в 2023 году. Как написать и оптимизировать RSA в платформе Google Ads."
 h1: "Как получить максимальную отдачу от адаптивной поисковой рекламы (RSA)"
 urldel: "https://www.digitalthirdcoast.com/blog/how-to-get-the-most-out-of-responsive-search-ads"

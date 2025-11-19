@@ -1,7 +1,7 @@
 ---
 title: "7 Лучших репозиториев на GitHub для освоения систем RAG"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "В связи с растущим использованием таких систем RAG, как LlamaIndex и LangChain, вот лучшие репозитории на GitHub, которые помогут вам создать свою собственную систему RAG"
 h1: "7 Лучших репозиториев на GitHub для освоения систем RAG"
 urldel: "https://www.analyticsvidhya.com/blog/2025/10/github-repositories-for-mastering-rag-systems/"

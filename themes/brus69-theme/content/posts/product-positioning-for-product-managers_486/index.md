@@ -1,7 +1,7 @@
 ---
 title: "Позиционирование продукта для менеджеров по продуктам - Отдел разработки продуктов"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Позиционирование продукта для менеджеров по продуктам"
 urldel: "https://www.departmentofproduct.com/blog/product-positioning-for-product-managers/"

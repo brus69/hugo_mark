@@ -1,7 +1,7 @@
 ---
 title: "Повысьте эффективность межканального привлечения клиентов с помощью моделирования маркетингового комплекса"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Оптимизируйте процесс привлечения клиентов по всем каналам с помощью моделирования комплекса маркетинга"
 urldel: "https://towardsdatascience.com/supercharge-your-cross-channel-customer-acquisition-with-marketing-mix-modeling-21ba1bc5f2e8/"

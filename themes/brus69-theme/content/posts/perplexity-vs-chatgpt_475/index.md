@@ -1,7 +1,7 @@
 ---
 title: "Perplexity против ChatGPT: что лучше? - Аналитика Vidhya"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "Является ли perplexity против ChatGPT новой темой для обсуждения? Узнайте, как Perplexity Pro сочетается с ChatGPT Plus в плане взаимодействия с пользователями."
 h1: "Perplexity против ChatGPT: что лучше?"
 urldel: "https://www.analyticsvidhya.com/blog/2025/07/perplexity-vs-chatgpt/"

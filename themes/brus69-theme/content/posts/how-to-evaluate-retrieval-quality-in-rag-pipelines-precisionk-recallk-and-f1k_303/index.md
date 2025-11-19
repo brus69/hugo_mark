@@ -1,7 +1,7 @@
 ---
 title: "Как оценить качество поиска в конвейерах RAG: Precision@k, Recall@k и F1@k | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Как оценить качество извлечения в трубопроводах RAG: Точность @k, отзыв@k и F1@k"
 urldel: "https://towardsdatascience.com/how-to-evaluate-retrieval-quality-in-rag-pipelines-precisionk-recallk-and-f1k/"

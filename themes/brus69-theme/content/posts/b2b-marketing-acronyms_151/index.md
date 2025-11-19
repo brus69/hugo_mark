@@ -1,7 +1,7 @@
 ---
 title: "Алфавитный список: определены 75 сокращений для B2B–маркетинга"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Алфавитный список: определены 75 сокращений для B2B-маркетинга"
 urldel: "https://www.toprankmarketing.com/blog/b2b-marketing-acronyms/"

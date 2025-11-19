@@ -1,7 +1,7 @@
 ---
 title: "Анализ ожидаемой ценности в управлении продуктами искусственного интеллекта | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Анализ ожидаемой ценности в управлении продуктами с использованием искусственного интеллекта"
 urldel: "https://towardsdatascience.com/expected-value-analysis-in-ai-product-management/"

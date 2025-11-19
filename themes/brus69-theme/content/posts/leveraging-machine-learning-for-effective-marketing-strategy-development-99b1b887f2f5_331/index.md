@@ -1,7 +1,7 @@
 ---
 title: "Использование машинного обучения для разработки эффективной маркетинговой стратегии | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Использование машинного обучения для разработки эффективной маркетинговой стратегии"
 urldel: "https://towardsdatascience.com/leveraging-machine-learning-for-effective-marketing-strategy-development-99b1b887f2f5/"

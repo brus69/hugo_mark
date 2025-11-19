@@ -1,7 +1,7 @@
 ---
 title: "Что такое оптимизация цифровых активов?"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "Цифровым ресурсам тоже нужна любовь к SEO. Вот как позаботиться обо всей вашей коллекции контента."
 h1: "Что такое оптимизация цифровых активов?"
 urldel: "https://www.toprankmarketing.com/blog/what-is-digital-asset-optimization/"

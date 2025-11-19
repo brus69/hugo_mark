@@ -1,7 +1,7 @@
 ---
 title: "Matomo против Google Analytics для маркетинговых агентств"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "Узнайте, как Matomo извлекает выгоду из недовольства пользователей GA4, превращая его в популярную альтернативу веб-аналитике. Узнайте, как он сочетается с Google Analytics и Google Search Console."
 h1: "Matomo против Google Analytics: что лучше для агентств в 2025 году?"
 urldel: "https://agencyanalytics.com/blog/matomo-vs-google-analytics"

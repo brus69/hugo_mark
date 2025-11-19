@@ -1,7 +1,7 @@
 ---
 title: "Как создать шаблон для SEO-аудита Google Sheets"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "Когда дело доходит до проведения SEO-аудита, существует множество инструментов. Независимо от того, использует ли ваше агентство шаблон SEO-аудита Google Sheets или автоматизированный инструмент SEO-аудита, вот на что следует обратить внимание."
 h1: "Как создать шаблон SEO-аудита Google Sheets"
 urldel: "https://agencyanalytics.com/blog/google-sheets-seo-audit-template"

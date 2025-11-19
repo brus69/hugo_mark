@@ -1,7 +1,7 @@
 ---
 title: "Теряю свой цифровой след: Как Искусственный интеллект заставил меня пересмотреть свою Онлайн-идентичность - Новости Accounting Insight"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Потеря моего цифрового следа: Как Искусственный Интеллект заставил меня пересмотреть свою Онлайн-идентичность"
 urldel: "https://www.accountex.co.uk/insight/2025/11/07/losing-my-digital-footprint-how-ai-made-me-reassess-my-online-identity/"

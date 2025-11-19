@@ -1,7 +1,7 @@
 ---
 title: "Что такое Google SGE? Как оптимизировать поисковую систему для будущего. - Apiary Digital"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "Google Search Generative Experience (SGE) меняет поисковую систему. Узнайте, чем она отличается от традиционного поиска, а также получите наши 4 лучших совета по оптимизации."
 h1: "Что такое Google SGE? Как оптимизировать поисковую систему для будущего?"
 urldel: "https://apiarydigital.com/resources/google-search-generative-experience-sge/"

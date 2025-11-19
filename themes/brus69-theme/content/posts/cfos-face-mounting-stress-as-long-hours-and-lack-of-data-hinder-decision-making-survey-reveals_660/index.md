@@ -1,7 +1,7 @@
 ---
 title: "Финансовые директора сталкиваются с растущим стрессом, поскольку долгие часы работы и нехватка данных препятствуют принятию решений, показывает опрос - Accounting Insight News"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Согласно опросу, финансовые директора сталкиваются с растущим стрессом, поскольку долгие часы работы и нехватка данных препятствуют принятию решений"
 urldel: "https://www.accountex.co.uk/insight/2025/11/04/cfos-face-mounting-stress-as-long-hours-and-lack-of-data-hinder-decision-making-survey-reveals/"

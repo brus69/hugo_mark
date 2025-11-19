@@ -1,7 +1,7 @@
 ---
 title: "NumPy для абсолютных новичков: Проектный подход к анализу данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "NumPy для абсолютных новичков: Проектный подход к анализу данных"
 urldel: "https://towardsdatascience.com/numpy-for-absolute-beginners-a-project-based-approach-to-data-analysis/"

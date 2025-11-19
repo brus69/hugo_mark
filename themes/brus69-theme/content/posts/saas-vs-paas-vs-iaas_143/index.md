@@ -1,7 +1,7 @@
 ---
 title: "SaaS против PaaS против IaaS: примеры и как их отличить"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "Пришло время перенести веб-сайт вашего бизнеса в облако? Узнайте больше о ваших возможностях: SaaS, PaaS и IaaS."
 h1: "SaaS против PaaS против IaaS: что вам нужно знать"
 urldel: "https://www.bigcommerce.com/articles/ecommerce/saas-vs-paas-vs-iaas/"

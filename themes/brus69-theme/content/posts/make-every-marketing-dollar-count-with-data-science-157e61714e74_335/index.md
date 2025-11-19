@@ -1,7 +1,7 @@
 ---
 title: "Сделайте так, чтобы каждый маркетинговый доллар был на счету с помощью data science | Навстречу науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Сделайте так, чтобы каждый маркетинговый доллар был на счету с помощью data science"
 urldel: "https://towardsdatascience.com/make-every-marketing-dollar-count-with-data-science-157e61714e74/"

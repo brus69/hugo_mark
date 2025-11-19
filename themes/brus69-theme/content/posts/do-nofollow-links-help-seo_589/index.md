@@ -1,7 +1,7 @@
 ---
 title: "Ссылки без перехода: Что Вам нужно знать об их SEO-ценности"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "Ссылки Nofollow не бесполезны и могут повысить ваш рейтинг. Узнайте больше о теге NoFollow, его значении, способах добавления и о том, как он может помочь SEO."
 h1: "Помогают ли ссылки Nofollow в SEO?"
 urldel: "https://www.digitalthirdcoast.com/blog/do-nofollow-links-help-seo"

@@ -1,7 +1,7 @@
 ---
 title: "Почему сторителлинг с использованием данных важен для бизнеса и аналитиков данных | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Почему сторителлинг с использованием данных важен для бизнеса и аналитиков данных"
 urldel: "https://towardsdatascience.com/why-storytelling-with-data-matters-for-business-and-data-analysts/"

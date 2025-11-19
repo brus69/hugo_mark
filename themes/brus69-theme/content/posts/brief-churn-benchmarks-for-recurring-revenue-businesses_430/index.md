@@ -1,7 +1,7 @@
 ---
 title: "Критерии оттока для компаний с постоянным доходом — Reforge"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "Компания ProfitWell изучила более 3000 компаний-подписчиков, чтобы определить средний показатель оттока выручки по таким параметрам, как возраст и ценовая категория."
 h1: "Критерии оттока для компаний с постоянным доходом"
 urldel: "https://www.reforge.com/blog/brief-churn-benchmarks-for-recurring-revenue-businesses"

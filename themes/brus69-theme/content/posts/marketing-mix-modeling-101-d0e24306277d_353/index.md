@@ -1,7 +1,7 @@
 ---
 title: "Моделирование комплекса маркетинговых мероприятий 101 | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Моделирование комплекса маркетинга 101"
 urldel: "https://towardsdatascience.com/marketing-mix-modeling-101-d0e24306277d/"

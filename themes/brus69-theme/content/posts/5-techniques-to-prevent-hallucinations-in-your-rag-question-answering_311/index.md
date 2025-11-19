@@ -1,7 +1,7 @@
 ---
 title: "5 Приемов предотвращения галлюцинаций при ответе на вопросы RAG | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "5 Приемов предотвращения галлюцинаций при ответе на вопросы RAG"
 urldel: "https://towardsdatascience.com/5-techniques-to-prevent-hallucinations-in-your-rag-question-answering/"

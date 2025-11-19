@@ -1,7 +1,7 @@
 ---
 title: "Может ли n8n заменить DevOps? Взгляд на автоматизацию рабочего процесса"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "Может ли n8n заменить DevOps? Изучите различия между автоматизацией рабочего процесса в n8n и основными принципами DevOps, такими как CI/CD."
 h1: "Может ли n8n заменить DevOps?"
 urldel: "https://www.analyticsvidhya.com/blog/2025/09/can-n8n-replace-devops/"

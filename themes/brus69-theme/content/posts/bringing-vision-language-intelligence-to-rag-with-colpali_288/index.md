@@ -1,7 +1,7 @@
 ---
 title: "Использование визуального и языкового интеллекта в RAG с ColPali | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Привнесение визуального и языкового интеллекта в RAG с помощью ColPali"
 urldel: "https://towardsdatascience.com/bringing-vision-language-intelligence-to-rag-with-colpali/"

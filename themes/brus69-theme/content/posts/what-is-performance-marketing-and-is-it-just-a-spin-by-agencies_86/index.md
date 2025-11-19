@@ -1,7 +1,7 @@
 ---
 title: "Что такое performance marketing и является ли он просто уловкой агентств?"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "В Performance marketing используется измеримая тактика, ориентированная на результат. В этом блоге рассказывается о том, как агентства формулируют это как факты или вымысел и что компаниям следует знать, прежде чем привлекать партнера по performance marketing."
 h1: "Что такое performance marketing и является ли он просто уловкой агентств?"
 urldel: "https://www.marketingeye.com.au/marketing-blog/what-is-performance-marketing-and-is-it-just-a-spin-by-agencies.html"

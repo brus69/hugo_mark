@@ -1,7 +1,7 @@
 ---
 title: "Руководство по GSC SEO: Как использовать Google Search Console для SEO?"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "Узнайте, как использовать Google Search Console для эффективного SEO. Повысьте эффективность своего веб—сайта уже сегодня - ознакомьтесь с нашим подробным руководством!"
 h1: "Руководство по GSC SEO: Как использовать Google Search Console для SEO?"
 urldel: "https://landingi.com/seo/google-search-console/"

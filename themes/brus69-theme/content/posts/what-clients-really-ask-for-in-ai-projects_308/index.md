@@ -1,7 +1,7 @@
 ---
 title: "Что на самом деле нужно клиентам в проектах искусственного интеллекта | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Что на самом деле нужно клиентам в проектах искусственного интеллекта"
 urldel: "https://towardsdatascience.com/what-clients-really-ask-for-in-ai-projects/"

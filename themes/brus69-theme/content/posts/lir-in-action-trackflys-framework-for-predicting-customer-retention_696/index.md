@@ -1,7 +1,7 @@
 ---
 title: "LIR в действии: платформа Trackfly для прогнозирования удержания клиентов"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "Узнайте, как Trackfly использует передовые показатели удержания клиентов (LIR) для улучшения взаимодействия с клиентами, разработки продуктов и стратегий выхода на рынок."
 h1: "Блог"
 urldel: "https://www.stage2.capital/blog/lir-in-action-trackflys-framework-for-predicting-customer-retention"

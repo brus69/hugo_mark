@@ -1,7 +1,7 @@
 ---
 title: "Моделирование маркетингового комплекса с ограниченными коэффициентами | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Моделирование комплекса маркетинга с ограниченными коэффициентами"
 urldel: "https://towardsdatascience.com/modeling-marketing-mix-with-constrained-coefficients-234b23190ee2/"

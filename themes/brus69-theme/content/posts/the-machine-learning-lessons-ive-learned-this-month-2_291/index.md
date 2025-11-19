@@ -1,7 +1,7 @@
 ---
 title: "Уроки машинного обучения, которые я усвоил в этом месяце | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Уроки машинного обучения, которые я усвоил за этот месяц"
 urldel: "https://towardsdatascience.com/the-machine-learning-lessons-ive-learned-this-month-2/"

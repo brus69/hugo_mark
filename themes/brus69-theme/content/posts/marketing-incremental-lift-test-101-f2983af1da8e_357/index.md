@@ -1,7 +1,7 @@
 ---
 title: "Маркетинговый тест на постепенный подъем 101 | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Маркетинговый тест на постепенный подъем 101"
 urldel: "https://towardsdatascience.com/marketing-incremental-lift-test-101-f2983af1da8e/"

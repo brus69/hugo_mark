@@ -1,7 +1,7 @@
 ---
 title: "Измерение Внутреннего Причинно-Следственного Влияния Ваших Маркетинговых Кампаний | На Пути К Науке О Данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Измерение Внутреннего Причинно-Следственного Влияния Ваших Маркетинговых Кампаний"
 urldel: "https://towardsdatascience.com/measuring-the-intrinsic-causal-influence-of-your-marketing-campaigns-aa8354c26b7b/"

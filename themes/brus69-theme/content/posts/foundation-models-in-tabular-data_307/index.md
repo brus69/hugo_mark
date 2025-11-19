@@ -1,7 +1,7 @@
 ---
 title: "Готовы ли базовые модели для обработки Ваших табличных данных? | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Готовы ли базовые модели для Ваших производственных табличных данных?"
 urldel: "https://towardsdatascience.com/foundation-models-in-tabular-data/"

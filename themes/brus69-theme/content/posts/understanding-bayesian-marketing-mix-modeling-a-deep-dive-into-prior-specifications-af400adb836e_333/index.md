@@ -1,7 +1,7 @@
 ---
 title: "Понимание байесовского моделирования комплекса маркетинга: Глубокое погружение в предыдущие спецификации | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Понимание байесовского моделирования комплекса маркетинга: Глубокое погружение в предыдущие спецификации"
 urldel: "https://towardsdatascience.com/understanding-bayesian-marketing-mix-modeling-a-deep-dive-into-prior-specifications-af400adb836e/"

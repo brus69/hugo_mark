@@ -1,7 +1,7 @@
 ---
 title: "Чему меня научило создание моей первой информационной панели в области рассказывания историй о данных | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Чему Меня научило создание Моей Первой Информационной Панели В области рассказывания историй о Данных"
 urldel: "https://towardsdatascience.com/what-building-my-first-dashboard-taught-me-about-data-storytelling/"

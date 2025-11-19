@@ -1,7 +1,7 @@
 ---
 title: "Финансовое планирование малого бизнеса: практическое руководство из 5 шагов"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Финансовое планирование малого бизнеса: практическое руководство из 5 шагов"
 urldel: "https://fuelfinance.me/blog/small-business-financial-planning"

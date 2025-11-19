@@ -1,7 +1,7 @@
 ---
 title: "Я проанализировал 25 000 названий отелей и обнаружил четыре удивительные истины | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Я проанализировал 25 000 названий отелей и обнаружил четыре удивительные истины"
 urldel: "https://towardsdatascience.com/i-analysed-25000-hotel-names-and-found-something-unexpected/"

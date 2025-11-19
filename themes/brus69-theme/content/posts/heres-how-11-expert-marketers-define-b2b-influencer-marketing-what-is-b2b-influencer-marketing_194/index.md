@@ -1,7 +1,7 @@
 ---
 title: "Что такое маркетинг влияния в сфере B2B? Ведущие маркетологи принимают во внимание"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "Что такое маркетинг влияния в сфере B2B? Чтобы получить наилучшее определение, мы спросили самих маркетологов и B2B-инфлюенсеров."
 h1: "Вот как 11 экспертов-маркетологов определяют маркетинг влияния в сфере B2B."
 urldel: "https://www.toprankmarketing.com/blog/heres-how-11-expert-marketers-define-b2b-influencer-marketing-what-is-b2b-influencer-marketing/"

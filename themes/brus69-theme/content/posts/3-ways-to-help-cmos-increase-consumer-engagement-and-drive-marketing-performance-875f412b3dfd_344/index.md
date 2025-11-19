@@ -1,7 +1,7 @@
 ---
 title: "3 способа помочь CMOs повысить вовлеченность потребителей и повысить эффективность маркетинга"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "3 Способа помочь CMOs повысить вовлеченность потребителей и повысить эффективность маркетинга"
 urldel: "https://towardsdatascience.com/3-ways-to-help-cmos-increase-consumer-engagement-and-drive-marketing-performance-875f412b3dfd/"

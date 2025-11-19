@@ -1,7 +1,7 @@
 ---
 title: "Контрольный список контента для SEO-блога Google E-E-A-T [Обновлен в 2025 году] | Milap"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "В постоянно меняющемся ландшафте SEO акцент Google на E-E-A-T (опыте, компетентности, авторитетности, надежности) стал более важным, чем когда-либо."
 h1: "Контрольный список содержимого SEO-блога Google E-E-A-T [Обновлен в 2025 году]"
 urldel: "https://www.milapchavda.com/e-e-a-t-blog-content-checklist/"

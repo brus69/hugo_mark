@@ -1,7 +1,7 @@
 ---
 title: "Создание системы мониторинга, которая действительно Работает | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Создание системы мониторинга, которая на самом деле Работает"
 urldel: "https://towardsdatascience.com/building-a-monitoring-system-that-actually-works/"

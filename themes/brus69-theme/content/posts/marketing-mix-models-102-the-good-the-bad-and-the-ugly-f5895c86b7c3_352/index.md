@@ -1,7 +1,7 @@
 ---
 title: "102 модели маркетингового комплекса - хорошие, плохие и уродливые | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "102 Модели маркетингового комплекса – хорошее, плохое и уродливое"
 urldel: "https://towardsdatascience.com/marketing-mix-models-102-the-good-the-bad-and-the-ugly-f5895c86b7c3/"

@@ -1,7 +1,7 @@
 ---
 title: "Часто задаваемые вопросы об организации выхода на рынок"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "Все, что вам нужно знать о выводе оркестровки на рынок, собрано в одном месте. Ознакомьтесь с нашим кратким и квалифицированным FAQ."
 h1: "Часто задаваемые вопросы о планировании выхода на рынок"
 urldel: "https://www.heinzmarketing.com/blog/frequently-asked-questions-about-go-to-market-orchestration/"

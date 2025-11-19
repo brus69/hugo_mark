@@ -1,7 +1,7 @@
 ---
 title: "Как оптимизировать структуру вашей продуктовой организации для роста - Отдел разработки продуктов"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Как структурировать вашу продуктовую организацию, чтобы оптимизировать ее для роста"
 urldel: "https://www.departmentofproduct.com/blog/how-to-structure-your-product-org-to-optimise-for-growth/"

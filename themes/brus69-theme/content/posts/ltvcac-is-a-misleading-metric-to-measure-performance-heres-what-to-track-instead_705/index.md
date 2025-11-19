@@ -1,7 +1,7 @@
 ---
 title: "LTV: CAC — это вводящий в заблуждение показатель для измерения производительности - вот что нужно отслеживать вместо этого"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "LTV: CAC делает снимок в определенный момент времени. Вместо этого более важным показателем эффективности является изменение поведения клиентов с течением времени."
 h1: "Блог"
 urldel: "https://www.stage2.capital/blog/ltvcac-is-a-misleading-metric-to-measure-performance-heres-what-to-track-instead"

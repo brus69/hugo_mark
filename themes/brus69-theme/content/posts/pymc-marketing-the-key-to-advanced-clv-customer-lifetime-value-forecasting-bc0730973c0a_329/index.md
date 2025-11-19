@@ -1,7 +1,7 @@
 ---
 title: "Прогнозирование ценности клиента на протяжении всей жизни с помощью PyMC-Маркетинг | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Прогнозирование ценности клиента на протяжении всей жизни с помощью PyMC-маркетинга"
 urldel: "https://towardsdatascience.com/pymc-marketing-the-key-to-advanced-clv-customer-lifetime-value-forecasting-bc0730973c0a/"

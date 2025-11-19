@@ -1,7 +1,7 @@
 ---
 title: "3 шага, как управлять финансами в стартапе"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "3 шага, как управлять финансами в стартапе"
 urldel: "https://fuelfinance.me/blog/finances-for-startups-or-how-to-be-a-good-boy"

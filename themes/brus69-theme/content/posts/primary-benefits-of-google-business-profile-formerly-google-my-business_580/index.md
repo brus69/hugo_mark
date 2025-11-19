@@ -1,7 +1,7 @@
 ---
 title: "Три главных преимущества бизнес-профиля Google (ранее - Google Мой бизнес)"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "Как оптимизировать свой бизнес-профиль Google (ранее Google Мой бизнес), чтобы улучшить видимость в локальном поиске, привлечь клиентов и развить свой бизнес."
 h1: "Три главных преимущества бизнес-профиля Google (ранее - Google Мой бизнес)"
 urldel: "https://www.digitalthirdcoast.com/blog/primary-benefits-of-google-business-profile-formerly-google-my-business"

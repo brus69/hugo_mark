@@ -1,7 +1,7 @@
 ---
 title: "Имеет ли блоггинг все еще значение в B2B-маркетинге? Плюс 5 примеров отличных B2B–блогов"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Имеет ли блоггинг все еще значение в B2B-маркетинге? Плюс 5 примеров отличных B2B-блогов"
 urldel: "https://www.toprankmarketing.com/blog/b2b-blogging-still-matter/"

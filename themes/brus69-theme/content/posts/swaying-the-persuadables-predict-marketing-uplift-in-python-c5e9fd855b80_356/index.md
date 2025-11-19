@@ -1,7 +1,7 @@
 ---
 title: "Убедительные аргументы: прогнозирование маркетингового роста на Python | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Воздействуя на тех, кого можно убедить: Предсказывайте маркетинговый рост на Python"
 urldel: "https://towardsdatascience.com/swaying-the-persuadables-predict-marketing-uplift-in-python-c5e9fd855b80/"

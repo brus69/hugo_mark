@@ -1,7 +1,7 @@
 ---
 title: "Как создавать проекты машинного обучения, которые помогут Вам получить работу"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Как создавать проекты машинного Обучения, которые помогут Вам получить работу"
 urldel: "https://towardsdatascience.com/the-machine-learning-projects-employers-want-to-see/"

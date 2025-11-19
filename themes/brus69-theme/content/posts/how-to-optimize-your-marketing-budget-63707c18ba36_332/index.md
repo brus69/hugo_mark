@@ -1,7 +1,7 @@
 ---
 title: "Как оптимизировать свой маркетинговый бюджет | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Как оптимизировать свой маркетинговый бюджет"
 urldel: "https://towardsdatascience.com/how-to-optimize-your-marketing-budget-63707c18ba36/"

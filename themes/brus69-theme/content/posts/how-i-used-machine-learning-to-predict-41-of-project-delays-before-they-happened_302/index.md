@@ -1,7 +1,7 @@
 ---
 title: "Как я использовал машинное обучение, чтобы предсказать 41% задержек проекта до того, как они произошли | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Как я использовал машинное обучение, чтобы предсказать 41% задержек проекта до того, как они произошли"
 urldel: "https://towardsdatascience.com/how-i-used-machine-learning-to-predict-41-of-project-delays-before-they-happened/"

@@ -1,7 +1,7 @@
 ---
 title: "Моделирование маркетингового комплекса с использованием PyMC3 | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Моделирование комплекса маркетинга с использованием PyMC3"
 urldel: "https://towardsdatascience.com/modeling-marketing-mix-using-pymc3-ba18dd9e6e68/"

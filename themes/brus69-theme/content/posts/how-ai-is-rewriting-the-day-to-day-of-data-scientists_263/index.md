@@ -1,7 +1,7 @@
 ---
 title: "Как искусственный интеллект меняет повседневную жизнь специалистов по обработке данных | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Как искусственный интеллект меняет повседневную жизнь специалистов по обработке данных"
 urldel: "https://towardsdatascience.com/how-ai-is-rewriting-the-day-to-day-of-data-scientists/"

@@ -1,7 +1,7 @@
 ---
 title: "Как реализовать иерархическую кластеризацию для кампаний прямого маркетинга - с помощью кода на Python | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Как реализовать иерархическую кластеризацию для кампаний прямого маркетинга - с помощью кода на Python"
 urldel: "https://towardsdatascience.com/how-to-implement-hierarchical-clustering-for-direct-marketing-campaigns-with-python-code-ef897f52d1c5/"

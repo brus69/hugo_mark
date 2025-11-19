@@ -1,7 +1,7 @@
 ---
 title: "8 Наиболее важных показателей для роста рынка — Reforge"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "Мы собрали 8 наиболее важных показателей, KPI и формул, которые вам следует использовать для оценки роста рынка."
 h1: "8 Наиболее важных показателей для роста рынка"
 urldel: "https://www.reforge.com/blog/brief-the-8-most-important-metrics-for-marketplace-growth"

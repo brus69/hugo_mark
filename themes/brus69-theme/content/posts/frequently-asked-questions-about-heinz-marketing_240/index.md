@@ -1,7 +1,7 @@
 ---
 title: "Часто задаваемые вопросы"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "Все, что вам нужно знать о маркетинге собрано в одном месте. Ознакомьтесь с нашим кратким обзором часто задаваемых вопросов от экспертов."
 h1: "Часто задаваемые вопросы"
 urldel: "https://www.heinzmarketing.com/blog/frequently-asked-questions-about-heinz-marketing/"

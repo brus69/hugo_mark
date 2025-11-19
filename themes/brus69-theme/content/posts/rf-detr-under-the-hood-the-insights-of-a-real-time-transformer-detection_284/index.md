@@ -1,7 +1,7 @@
 ---
 title: "Радиочастотный ДЕТЕКТОР под капотом: Возможности обнаружения трансформаторов в режиме реального времени | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Радиочастотный ДЕТЕКТОР под капотом: Основные возможности обнаружения трансформатора в режиме реального времени"
 urldel: "https://towardsdatascience.com/rf-detr-under-the-hood-the-insights-of-a-real-time-transformer-detection/"

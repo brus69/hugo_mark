@@ -1,7 +1,7 @@
 ---
 title: "Калибровка моделей маркетингового комплекса на Python | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Калибровка Моделей Маркетингового Комплекса На Python"
 urldel: "https://towardsdatascience.com/calibrating-marketing-mix-models-in-python-49dce1a5b33d/"

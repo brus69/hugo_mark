@@ -1,7 +1,7 @@
 ---
 title: "Оптимизация маркетинговых кампаний с помощью многоруких бандитов с ограниченным бюджетом | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Оптимизация маркетинговых кампаний с помощью многоруких бандитов, заложенных в бюджет"
 urldel: "https://towardsdatascience.com/optimizing-marketing-campaigns-with-budgeted-multi-armed-bandits-a65fccd61878/"

@@ -1,7 +1,7 @@
 ---
 title: "%%название%% Разработка SEO–стратегии для микросайта"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "Организация вашего контента в виде микросайтов - это один из способов привлечь к нему внимание. Вот что вам нужно знать."
 h1: "Стоит ли Вам разрабатывать микросайт для SEO? Узнайте, почему и как"
 urldel: "https://www.toprankmarketing.com/blog/should-you-develop-a-microsite-for-seo-learn-why-and-how-microsite-seo-strategy/"

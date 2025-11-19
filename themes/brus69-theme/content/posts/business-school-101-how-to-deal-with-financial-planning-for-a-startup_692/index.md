@@ -1,7 +1,7 @@
 ---
 title: "Бизнес-школа 101: как справиться с финансовым планированием стартапа"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Бизнес-школа 101: как справиться с финансовым планированием стартапа"
 urldel: "https://fuelfinance.me/blog/business-school-101-how-to-deal-with-financial-planning-for-a-startup"

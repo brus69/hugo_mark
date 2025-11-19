@@ -1,7 +1,7 @@
 ---
 title: "Глубокое обучение с подкреплением: от 0 до 100 | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Глубокое обучение с подкреплением: от 0 до 100"
 urldel: "https://towardsdatascience.com/deep-reinforcement-learning-for-dummies/"

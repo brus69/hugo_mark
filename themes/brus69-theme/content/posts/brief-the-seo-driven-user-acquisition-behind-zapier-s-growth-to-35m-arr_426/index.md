@@ -1,7 +1,7 @@
 ---
 title: "Рост Zapier до $35 млн в год обусловлен привлечением пользователей за счет SEO-оптимизации — Reforge"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "Райан Берг рассказывает о стратегиях SEO и привлечения пользователей, которые Zapier использовала для привлечения 7,3 миллионов посетителей в месяц."
 h1: "Рост Zapier до 35 млн долларов в год обусловлен привлечением пользователей, ориентированных на SEO,"
 urldel: "https://www.reforge.com/blog/brief-the-seo-driven-user-acquisition-behind-zapier-s-growth-to-35m-arr"

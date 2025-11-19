@@ -1,7 +1,7 @@
 ---
 title: "Переосмысление защиты от DDoS-атак: Почему масштаб - не единственный важный показатель | Imperva"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Переосмысление защиты от DDoS-атак: Почему масштаб - не единственный важный показатель"
 urldel: "https://www.imperva.com/blog/rethinking-ddos-defense-why-scale-isnt-the-only-metric-that-matters/"

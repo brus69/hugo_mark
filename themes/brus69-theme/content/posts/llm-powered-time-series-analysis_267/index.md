@@ -1,7 +1,7 @@
 ---
 title: "Анализ временных рядов на базе LLM | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Анализ временных рядов на базе LLM"
 urldel: "https://towardsdatascience.com/llm-powered-time-series-analysis/"

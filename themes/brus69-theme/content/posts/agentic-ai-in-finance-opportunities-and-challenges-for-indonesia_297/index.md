@@ -1,7 +1,7 @@
 ---
 title: "Агентный ИИ в финансах: возможности и вызовы для Индонезии | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Искусственный интеллект в финансах: возможности и вызовы для Индонезии"
 urldel: "https://towardsdatascience.com/agentic-ai-in-finance-opportunities-and-challenges-for-indonesia/"

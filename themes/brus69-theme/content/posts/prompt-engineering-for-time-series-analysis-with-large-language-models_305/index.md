@@ -1,7 +1,7 @@
 ---
 title: "Оперативное проектирование для анализа временных рядов с использованием больших языковых моделей | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Оперативное проектирование для анализа временных рядов с использованием больших языковых моделей"
 urldel: "https://towardsdatascience.com/prompt-engineering-for-time-series-analysis-with-large-language-models/"

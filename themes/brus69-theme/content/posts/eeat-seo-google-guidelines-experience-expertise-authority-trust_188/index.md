@@ -1,7 +1,7 @@
 ---
 title: "Электронная почта и SEO: Оптимизация в соответствии с рекомендациями Google"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "Концепция E-E-A-T приобретает все большее значение в мире SEO-контента. Что это значит и как ваш бренд может оптимизировать свою работу с учетом этого?"
 h1: "Каковы Основные Принципы E-E-A-T и Как Вы Можете оптимизировать Свой Сайт В соответствии С Ними?"
 urldel: "https://www.toprankmarketing.com/blog/eeat-seo-google-guidelines-experience-expertise-authority-trust/"

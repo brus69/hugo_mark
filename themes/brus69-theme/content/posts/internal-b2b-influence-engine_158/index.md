@@ -1,7 +1,7 @@
 ---
 title: "Как создать механизм влияния в сфере B2B изнутри с помощью сотрудников"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Как задействовать защитников интересов сотрудников и руководителей в качестве механизма влияния в сфере B2B"
 urldel: "https://www.toprankmarketing.com/blog/internal-b2b-influence-engine/"

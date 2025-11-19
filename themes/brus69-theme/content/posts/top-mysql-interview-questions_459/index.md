@@ -1,7 +1,7 @@
 ---
 title: "Топ-30+ вопросов для интервью по MySQL - Analytics Vidhya"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "Подготовьтесь к собеседованию по MySQL, ответив на более чем 30 основных вопросов, охватывающих теорию и практические навыки, от базовых до продвинутых концепций."
 h1: "Топ-30+ вопросов для интервью по MySQL"
 urldel: "https://www.analyticsvidhya.com/blog/2024/07/top-mysql-interview-questions/"

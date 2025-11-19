@@ -1,7 +1,7 @@
 ---
 title: "B2B Reads: Стратегия продаж B2B, контент-маркетинг и аналитика GTM"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "Еженедельная подборка статей в сфере B2B со всего Интернета, включая стратегию продаж в сфере B2B и аналитику GTM - никаких аффилированных лиц, никаких комиссий, просто к вашему сведению."
 h1: "B2B Читает: Стратегия продаж B2B, контент-маркетинг и аналитика GTM"
 urldel: "https://www.heinzmarketing.com/blog/b2b-reads-email-b2bsalesstrategy-contentmarketing-gtm-intelligence/"

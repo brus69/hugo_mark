@@ -1,7 +1,7 @@
 ---
 title: "Влияет ли узнаваемость бренда на результаты PPC?"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "Узнайте, как узнаваемость бренда влияет на результаты продаж с помощью аналитических материалов Digital Third Coast. Улучшите свою маркетинговую стратегию, поняв взаимосвязь."
 h1: "Влияет ли узнаваемость бренда на результаты PPC?"
 urldel: "https://www.digitalthirdcoast.com/blog/does-brand-awareness-affect-ppc-results"

@@ -1,7 +1,7 @@
 ---
 title: "7 Использование маркетинговой науки о данных | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "7 Использование научных маркетинговых данных"
 urldel: "https://towardsdatascience.com/7-uses-of-marketing-data-science-7ccc0b7b6c3c/"

@@ -1,7 +1,7 @@
 ---
 title: "Внедрение эффективных стратегий антикризисного управления для стартапов | impact startup academy"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "Изучите стратегии антикризисного управления стартапами с Build3 и Impact Startup Academy. Решайте сложные задачи и преуспевайте в нестабильные времена!"
 h1: "Внедрение эффективных стратегий антикризисного управления для стартапов"
 urldel: "https://www.impactstartupacademy.com/blog/implement-effective-crisis-management-strategies-startups"

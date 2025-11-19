@@ -1,7 +1,7 @@
 ---
 title: "Как MedScout построила модель зрелости клиентов для повышения NRR"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "Узнайте, как MedScout обновила свою стратегию привлечения клиентов, чтобы увеличить удержание чистой выручки и снизить отток клиентов за счет оценки состояния здоровья, сегментации и модели зрелости клиентов."
 h1: "Блог"
 urldel: "https://www.stage2.capital/blog/how-medscout-built-a-customer-maturity-model-to-increase-nrr"

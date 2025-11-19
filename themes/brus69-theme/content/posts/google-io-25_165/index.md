@@ -1,7 +1,7 @@
 ---
 title: "Маркетинг с наилучшим ответом – Новая эра SEO для B2B–маркетологов"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Новая эра для B2B SEO и маркетинга с наилучшими ответами"
 urldel: "https://www.toprankmarketing.com/blog/google-io-25/"

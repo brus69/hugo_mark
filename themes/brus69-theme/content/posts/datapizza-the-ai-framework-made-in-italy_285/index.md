@@ -1,7 +1,7 @@
 ---
 title: "Ускоряйте создание агентов LLM с помощью Datapizza AI | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Ускоряйте создание агентов LLM с помощью Datapizza AI"
 urldel: "https://towardsdatascience.com/datapizza-the-ai-framework-made-in-italy/"

@@ -1,7 +1,7 @@
 ---
 title: "Проблемы лидерства и умение справляться с критическими моментами в Вашей работе – Перековывайте себя"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Проблемы лидерства и умение ориентироваться в критических моментах Вашей работы"
 urldel: "https://www.reforge.com/blog/leadership-challenges-and-navigating-critical-moments-in-your-role"

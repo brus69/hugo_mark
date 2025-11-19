@@ -1,7 +1,7 @@
 ---
 title: "Совершенствование моделирования маркетингового комплекса с использованием подходов машинного обучения | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Совершенствование моделирования комплекса маркетинговых мероприятий с использованием подходов машинного обучения"
 urldel: "https://towardsdatascience.com/improving-marketing-mix-modeling-using-machine-learning-approaches-25ea4cd6994b/"

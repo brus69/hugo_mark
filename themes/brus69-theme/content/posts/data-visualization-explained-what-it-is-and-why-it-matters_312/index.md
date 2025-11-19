@@ -1,7 +1,7 @@
 ---
 title: "Объясненная визуализация данных: что это такое и почему это важно | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Объяснение визуализации данных: Что это такое и почему это важно"
 urldel: "https://towardsdatascience.com/data-visualization-explained-what-it-is-and-why-it-matters/"

@@ -1,7 +1,7 @@
 ---
 title: "LTV: CAC нарушен. Используйте доходность CAC для измерения удельной экономики в мире, ориентированном на искусственный интеллект."
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "Узнайте, почему LTV: CAC устарел и как CAC Yield предлагает динамичный и точный способ измерения эффективности продаж и маркетинга на рынке, управляемом искусственным интеллектом."
 h1: "Блог"
 urldel: "https://www.stage2.capital/blog/ltvcac-is-broken.-use-cac-yield-to-measure-unit-economics-in-an-ai-first-world"

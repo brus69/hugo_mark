@@ -1,7 +1,7 @@
 ---
 title: "Навыки, необходимые B2B–маркетологам для продвижения от хорошего к великому в 2025 году"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Навыки, необходимые B2B-маркетологам, чтобы к 2025 году превратиться из хороших в отличные"
 urldel: "https://www.toprankmarketing.com/blog/great-b2b-marketing-skills-25/"

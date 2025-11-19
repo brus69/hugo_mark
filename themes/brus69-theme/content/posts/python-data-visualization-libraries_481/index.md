@@ -1,7 +1,7 @@
 ---
 title: "12 библиотек визуализации данных на Python для бизнес-анализа | Mode"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "Этот список представляет собой обзор 10 междисциплинарных библиотек визуализации данных Python, включая matplotlib, Seaborn, Plotly, Bokeh, pygal, geoplotlib и другие."
 h1: "12 Библиотек визуализации данных на Python, которые можно использовать для бизнес-анализа"
 urldel: "https://mode.com/blog/python-data-visualization-libraries"

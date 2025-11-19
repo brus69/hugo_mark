@@ -1,7 +1,7 @@
 ---
 title: "Как изменила отношения этого агентства с клиентами"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "Узнайте, как помогла агентству цифрового маркетинга Artemis Marketing удержать клиентов и улучшить коммуникацию с ними."
 h1: "Как изменила отношения Artemis Marketing с клиентами"
 urldel: "https://agencyanalytics.com/blog/marketing-client-retention"

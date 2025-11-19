@@ -1,7 +1,7 @@
 ---
 title: "Кошмары ERP: опрос показал, что 94% финансовых руководителей сожалеют о внедрении - Новости Accounting Insight"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Кошмары ERP: опрос показал, что 94% финансовых руководителей сожалеют о внедрении ERP"
 urldel: "https://www.accountex.co.uk/insight/2025/09/23/erp-nightmares-94-of-finance-leaders-regret-implementation-survey-reveals/"

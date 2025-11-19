@@ -1,7 +1,7 @@
 ---
 title: "15 Ключевых показателей SaaS и KPI (финансовые, взаимодействие и приобретения)"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "15 Ключевых показателей SaaS и KPI (финансовые, взаимодействие и приобретения)"
 urldel: "https://fuelfinance.me/blog/key-saas-metrics"

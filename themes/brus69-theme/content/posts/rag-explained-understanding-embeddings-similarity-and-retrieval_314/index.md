@@ -1,7 +1,7 @@
 ---
 title: "RAG Объяснил: Понимание встраивания, сходства и поиска | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "RAG Объяснил: Понимание встраиваний, сходства и поиска"
 urldel: "https://towardsdatascience.com/rag-explained-understanding-embeddings-similarity-and-retrieval/"

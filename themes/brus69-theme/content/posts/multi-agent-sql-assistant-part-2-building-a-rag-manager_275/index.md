@@ -1,7 +1,7 @@
 ---
 title: "Мультиагентный ассистент по SQL, часть 2: Создание менеджера RAG | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Мультиагентный SQL-ассистент, часть 2: Создание RAG-менеджера"
 urldel: "https://towardsdatascience.com/multi-agent-sql-assistant-part-2-building-a-rag-manager/"

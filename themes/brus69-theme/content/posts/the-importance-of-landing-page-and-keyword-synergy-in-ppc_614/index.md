@@ -1,7 +1,7 @@
 ---
 title: "Важность целевых страниц в PPC"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "При создании коммерческого веб-сайта в основе бизнес-модели лежит идея. Как правило, в основе лежит вопрос о том, как этот сайт зарабатывает деньги?"
 h1: "Важность взаимодействия целевой страницы и ключевых слов в PPC"
 urldel: "https://www.digitalthirdcoast.com/blog/the-importance-of-landing-page-and-keyword-synergy-in-ppc"

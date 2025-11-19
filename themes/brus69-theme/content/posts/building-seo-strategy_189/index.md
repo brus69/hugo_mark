@@ -1,7 +1,7 @@
 ---
 title: "Разработка SEO–стратегии на 2025 год"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "Узнайте, как последние тенденции и изменения в поисковой системе должны повлиять на вашу SEO-стратегию в этом году."
 h1: "Разработка SEO-стратегии на 2025 год"
 urldel: "https://www.toprankmarketing.com/blog/building-seo-strategy/"

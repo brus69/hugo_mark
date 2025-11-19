@@ -1,7 +1,7 @@
 ---
 title: "Полное руководство по Python для изучения науки о данных с нуля"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "Это учебное пособие по Python посвящено основным концепциям Python для анализа данных. Изучайте Python, чтобы расширить свои знания и навыки в области анализа данных."
 h1: "Полное руководство по Python для изучения науки о данных с нуля"
 urldel: "https://www.analyticsvidhya.com/blog/2016/01/complete-tutorial-learn-data-science-python-scratch-2/"

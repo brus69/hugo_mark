@@ -1,7 +1,7 @@
 ---
 title: "Руководство по автоматизации маркетингового процесса: Основные инструменты и советы"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "Изучите инструменты автоматизации маркетинга, которые идеально подходят для логистических и бухгалтерских фирм. Ознакомьтесь с советами по настройке и соблюдению требований для достижения совершенства в автоматизации маркетинга."
 h1: "Как автоматизировать свой маркетинговый процесс с помощью таких инструментов, как Robotic Marketer, ChatGPT, Google AI Studio, Riverside и Eleven Labs"
 urldel: "https://www.marketingeye.com.au/marketing-blog/how-to-automate-your-marketing-process-with-tools-including-robotic-marketer-chatgpt-google-ai-studio-riverside-and-eleven-labs.html"

@@ -1,7 +1,7 @@
 ---
 title: "Как создать стартап с технологией беспилотных летательных аппаратов в Индии | impact startup academy"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "Узнайте, как создать стартап в области беспилотных технологий в Индии с помощью Build3 и Impact Startup Academy. Внедряйте инновации в небе и разрушайте отрасли!"
 h1: "Как создать стартап по производству беспилотных летательных аппаратов в Индии"
 urldel: "https://www.impactstartupacademy.com/blog/build-drone-technology-startup-india"

@@ -1,7 +1,7 @@
 ---
 title: "Часто задаваемые вопросы о показателях CLG в B2B-маркетинге"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "Все, что вам нужно знать о CLG Metrics, собрано в одном месте. Ознакомьтесь с нашим кратким обзором часто задаваемых вопросов для экспертов."
 h1: "Часто задаваемые вопросы о показателях CLG в B2B-маркетинге"
 urldel: "https://www.heinzmarketing.com/blog/frequently-asked-questions-about-clg-metrics/"

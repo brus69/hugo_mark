@@ -1,7 +1,7 @@
 ---
 title: "Как построить стратегию ЛОС с нуля"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "Узнайте, как создать стратегию \"Голоса клиента\" (VoC) с нуля, выполнив 3 ключевых шага."
 h1: "Как построить стратегию ЛОС с нуля"
 urldel: "https://www.heinzmarketing.com/blog/how-to-build-a-voc-strategy-from-the-ground-up/"

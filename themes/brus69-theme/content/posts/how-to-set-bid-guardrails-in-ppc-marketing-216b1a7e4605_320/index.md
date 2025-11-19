@@ -1,7 +1,7 @@
 ---
 title: "Как установить барьеры для ставок в PPC-маркетинге | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Как установить ограничения ставок в PPC-маркетинге"
 urldel: "https://towardsdatascience.com/how-to-set-bid-guardrails-in-ppc-marketing-216b1a7e4605/"

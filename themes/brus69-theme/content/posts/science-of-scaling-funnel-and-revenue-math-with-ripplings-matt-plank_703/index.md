@@ -1,7 +1,7 @@
 ---
 title: "Наука масштабирования: математика воронки и доходов с Мэттом Планком из Rippling"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "Узнайте о важности расчета доходов, определения квот и оптимизации формирования спроса в этом кратком обзоре подкаста \"Наука масштабирования\"."
 h1: "Блог"
 urldel: "https://www.stage2.capital/blog/science-of-scaling-funnel-and-revenue-math-with-ripplings-matt-plank"

@@ -1,7 +1,7 @@
 ---
 title: "Практические подходы к оптимизации бюджета при моделировании комплекса маркетинга | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Практические подходы к оптимизации бюджета при моделировании комплекса маркетинга"
 urldel: "https://towardsdatascience.com/practical-approaches-to-optimizng-budget-in-marketing-mix-modeling-7816a27f2f71/"

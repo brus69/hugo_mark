@@ -1,7 +1,7 @@
 ---
 title: "Как провести проверку работоспособности продукта - Отдел по работе с продуктами"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Как провести проверку работоспособности продукта"
 urldel: "https://www.departmentofproduct.com/blog/how-to-conduct-a-product-health-check/"

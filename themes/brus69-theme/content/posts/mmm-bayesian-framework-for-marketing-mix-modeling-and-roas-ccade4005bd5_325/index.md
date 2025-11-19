@@ -1,7 +1,7 @@
 ---
 title: "MMM: Байесовский подход к моделированию комплекса маркетинга и рентабельности инвестиций | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "MMM: Байесовский подход к моделированию комплекса маркетинга и рентабельности инвестиций"
 urldel: "https://towardsdatascience.com/mmm-bayesian-framework-for-marketing-mix-modeling-and-roas-ccade4005bd5/"

@@ -1,7 +1,7 @@
 ---
 title: "Почему вам нужна стратегия влияния для эффективного маркетинга"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "Узнайте, почему стратегия привлечения влияния имеет решающее значение для вашего маркетингового успеха."
 h1: "Зачем Вам нужна стратегия влияния (и как ее создать)"
 urldel: "https://www.toprankmarketing.com/blog/creating-b2b-influencer-marketing-strategy-why-how/"

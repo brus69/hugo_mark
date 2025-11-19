@@ -1,7 +1,7 @@
 ---
 title: "Шаблон SWOT: Примеры реальных маркетинговых стратегий"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: "Узнайте, как проводить маркетинговый SWOT-анализ, на примерах SWOT-анализа реальных брендов и руководствах по современной командной стратегии."
 h1: "Маркетинговый SWOT-анализ: реальные примеры и стратегии для брендов"
 urldel: "https://www.roboticmarketer.com/swot-analysis-marketing-real-examples-and-strategy-for-brands/"

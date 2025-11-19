@@ -1,7 +1,7 @@
 ---
 title: "Машинное обучение в цифровом маркетинге: 4 варианта использования и перспективы на будущее | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Машинное обучение в цифровом маркетинге: 4 варианта использования и перспективы на будущее"
 urldel: "https://towardsdatascience.com/machine-learning-in-digital-marketing-4-use-cases-and-future-outlook-654a49c131ad/"

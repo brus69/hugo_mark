@@ -1,7 +1,7 @@
 ---
 title: "Секрет повышения рентабельности инвестиций: внедрение полномасштабного маркетингового подхода"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Секрет повышения рентабельности инвестиций: внедрение полномасштабного маркетингового подхода"
 urldel: "https://towardsdatascience.com/the-secret-to-better-roi-implementing-a-full-funnel-marketing-approach-34669cbc7ffc/"

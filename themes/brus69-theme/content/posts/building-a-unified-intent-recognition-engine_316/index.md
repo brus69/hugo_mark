@@ -1,7 +1,7 @@
 ---
 title: "Создание единого механизма распознавания намерений | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Создание единого механизма распознавания намерений"
 urldel: "https://towardsdatascience.com/building-a-unified-intent-recognition-engine/"

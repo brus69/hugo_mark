@@ -1,7 +1,7 @@
 ---
 title: "Агенты с искусственным интеллектом: от помощников по повышению эффективности до лидеров завтрашнего дня? | На пути к науке о данных"
-date: "2025-11-19T22:53:35+0000"
-draft: false
+date: "2025-11-19T23:13:09+0000"
+draft: true
 description: ""
 h1: "Агенты с искусственным интеллектом: от помощников по повышению эффективности до лидеров завтрашнего дня?"
 urldel: "https://towardsdatascience.com/ai-agents-from-assistants-for-efficiency-to-leaders-of-tomorrow/"
