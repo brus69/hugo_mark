@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Многофункциональный инструмент RAG: Руководство по управлению веб-поиском | Агентство контекстной рекламы</title>
+<meta name="description" content="Мультиинструментальный RAG: Научитесь комбинировать веб-поиск и векторные базы данных для создания интеллектуальных рабочих процессов LLM для получения точных ответов.">
+<meta name="yandex-verification" content="242f5a0ee52d5836" />
+
+<link rel="icon" type="image/x-icon" href="http://localhost:1313/favicon.ico">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+ <style>
+  .content h1 { 
+        font-size: 1.875rem; 
+        font-weight: bold; 
+        margin-bottom: 1rem; 
+    }
+    .content h2 { 
+        font-size: 1.5rem; 
+        font-weight: 600; 
+        margin-bottom: 0.75rem; 
+    }
+    .content h3 { 
+        font-size: 1.25rem; 
+        font-weight: 500; 
+        margin-bottom: 0.5rem; 
+    }
+    .content p { 
+        margin-bottom: 1rem; 
+    }
+    .content ul { 
+        list-style-type: disc; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content ol { 
+        list-style-type: decimal; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content a { 
+        color: #2563eb; 
+    }
+    .content a:hover { 
+        color: #1e40af; 
+    }
+    .content blockquote { 
+        border-left: 4px solid #d1d5db; 
+        padding-left: 1rem; 
+        font-style: italic; 
+    }
+
+    
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.875rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+.dark-mode .content table {
+    border: 1px solid #4b5563;
+}
+
+.content thead {
+    background-color: #eaebec;
+}
+
+.dark-mode .content thead {
+    background-color: #374151;
+}
+
+.content th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.dark-mode .content th {
+    color: #f9fafb;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content th:last-child {
+    border-right: none;  
+}
+
+.content td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    color: #6b7280;
+}
+
+.dark-mode .content td {
+    color: #d1d5db;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content td:last-child {
+    border-right: none;  
+}
+
+.content tbody tr {
+    transition: background-color 0.15s ease-in-out;
+}
+
+.content tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.dark-mode .content tbody tr:hover {
+    background-color: #374151;
+}
+
+.content tbody tr:last-child td {
+    border-bottom: none;
+}
+
+ 
+.content tbody tr:nth-child(even) {
+    background-color: #f4f5f7;
+}
+
+.dark-mode .content tbody tr:nth-child(even) {
+    background-color: #1f2937;
+}
+
+.dark-mode .content tbody tr:nth-child(even):hover {
+    background-color: #374151;
+}
+
+ 
+.content code:not(pre code) {
+    background-color: #f3f4f6;
+    color: #dc2626;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    font-weight: 500;
+    border: 1px solid #e5e7eb;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+}
+
+.dark-mode .content code:not(pre code) {
+    background-color: #224464;
+    color: #f87171;
+    border: 1px solid #4b5563;
+}
+
+ 
+.content pre {
+    background-color: #224464;
+    color: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid #374151;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.dark-mode .content pre {
+    background-color: #111827;
+    border: 1px solid #374151;
+}
+
+ 
+.content pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+    font-weight: normal;
+}
+
+ 
+.content pre code .keyword { color: #f472b6; }  
+.content pre code .function { color: #60a5fa; }  
+.content pre code .string { color: #34d399; }  
+.content pre code .comment { color: #9ca3af; font-style: italic; }  
+.content pre code .number { color: #fbbf24; }  
+.content pre code .class { color: #c084fc; }  
+.content pre code .operator { color: #93c5fd; }  
+
+ 
+.content pre::-webkit-scrollbar {
+    height: 6px;
+}
+
+.content pre::-webkit-scrollbar-track {
+    background: #374151;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.content pre::-webkit-scrollbar-thumb {
+    background: #6b7280;
+    border-radius: 3px;
+}
+
+.content pre::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+ 
+.content h1 code:not(pre code),
+.content h2 code:not(pre code),
+.content h3 code:not(pre code) {
+    font-size: 0.9em;
+    background-color: #fef2f2;
+    color: #dc2626;
+}
+
+.dark-mode .content h1 code:not(pre code),
+.dark-mode .content h2 code:not(pre code),
+.dark-mode .content h3 code:not(pre code) {
+    background-color: #7f1d1d;
+    color: #fca5a5;
+}
+
+ 
+.content a code:not(pre code) {
+    color: inherit;
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+.dark-mode .content a code:not(pre code) {
+    background-color: rgba(96, 165, 250, 0.2);
+}
+        :root {
+            --color-bg: #1a1a1a;
+            --color-text: #e6e6e6;
+            --color-accent: #6b7280;
+            --color-link: #9ca3af;
+            --color-link-hover: #d1d5db;
+        }
+        
+        .light-mode {
+            --color-bg: #f9fafb;
+            --color-text: #1f2937;
+            --color-accent: #6b7280;
+            --color-link: #4b5563;
+            --color-link-hover: #111827;
+        }
+        
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        a {
+            color: var(--color-link);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: var(--color-link-hover);
+        }
+        
+        .sidebar {
+            position: fixed;
+             
+            height: 100vh;
+            overflow-y: auto;
+            
+        }
+        
+        .main-content {
+            margin-left: 350px;
+            
+             
+        }
+        
+        .toc-container {
+            position: fixed;
+            right: 2rem;
+            top: 2rem;
+            width: 250px;
+            display: none;
+        }
+        
+        @media (min-width: 1280px) {
+            .toc-container {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 50;
+            }
+            
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+                 
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: fixed;
+                top: 1rem;
+                left: 1rem;
+                z-index: 100;
+            }
+        }
+        
+        .toc-link.active {
+            color: var(--color-link-hover);
+            font-weight: bold;
+        }
+        
+        .social-icons a {
+            margin-right: 0.5rem;
+        }
+        
+        pre {
+            background-color: rgba(107, 114, 128, 0.1);
+            padding: 1rem;
+            border-radius: 0.25rem;
+            overflow-x: auto;
+        }
+        
+        code {
+            font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+    </style>
+</head>
+  <body class="light-mode">
+      <header>
+    
+  </header>
+    
+    <button class="mobile-menu-btn p-2 bg-gray-800 text-white rounded md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+    
+    <aside class="sidebar border-r-4 border-sky-800  min-w-[350px] py-12 px-10 bg-gradient-to-br from-cyan-200 via-green-100 to-sky-100">
+        <div class="flex flex-col items-center mb-8">
+                
+            
+            <div class="w-24 h-24 mb-4 relative">
+                <a href="/">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ viewBox="0 0 550.000000 385.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,385.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M2780 3000 l0 -300 40 0 40 0 0 260 0 260 1165 0 1165 0 0 -1245 0
+-1245 -1165 0 -1165 0 0 260 0 260 -40 0 -40 0 0 -300 0 -300 1245 0 1245 0 0
+1325 0 1325 -1245 0 -1245 0 0 -300z"/>
+<path d="M700 1975 l0 -635 145 0 145 0 0 245 0 245 383 0 c422 0 426 1 491
+66 60 60 66 88 66 319 0 190 -2 214 -21 255 -25 56 -53 86 -104 113 -39 22
+-49 22 -572 25 l-533 3 0 -636z m940 245 l0 -100 -325 0 -325 0 0 100 0 100
+325 0 325 0 0 -100z"/>
+<path d="M2320 2601 c-69 -22 -112 -58 -146 -121 -17 -31 -19 -60 -19 -260 0
+-211 1 -227 22 -265 27 -51 68 -90 115 -109 32 -14 98 -16 438 -16 l400 0 0
+-245 0 -245 145 0 145 0 0 536 c0 373 -3 548 -11 575 -16 50 -61 105 -112 132
+-41 22 -48 22 -497 24 -250 1 -466 -2 -480 -6z m810 -381 l0 -100 -340 0 -340
+0 0 100 0 100 340 0 340 0 0 -100z"/>
+<path d="M3650 2607 c0 -1 99 -144 219 -317 l219 -314 -63 -91 c-34 -49 -133
+-191 -219 -315 l-157 -225 172 -3 c97 -1 176 2 183 7 6 5 72 97 146 205 74
+107 138 196 141 196 4 0 71 -92 149 -205 l143 -205 173 0 c96 0 174 2 174 4 0
+3 -95 141 -211 308 -116 167 -214 308 -216 315 -3 7 92 151 211 322 119 170
+216 312 216 315 0 3 -78 6 -174 6 l-174 0 -143 -205 c-78 -113 -145 -205 -149
+-205 -3 0 -70 92 -148 205 l-143 205 -174 0 c-96 0 -175 -1 -175 -3z"/>
+</g>
+</svg>
+</a>
+            </div>
+
+            <p class="text-xs text-center text-gray-500 max-w-[200px]">
+                Профессиональное агентство контекстной рекламы с опытом более 18 лет.
+
+            </p>
+        </div>
+
+        
+        <nav class="mb-8">
+          
+        
+            
+  <nav>
+    <ul>
+    <li class="text-lg font-semibold">
+      <a href="/">Контекстная реклама</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/analytics/">web-аналитика</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a aria-current="true" class="ancestor" href="/posts/">Блог</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/about/">О нас</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Категории</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/job/">Вакансии</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Кейсы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/calculators/">Калькуляторы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/contacts/">Контакты</a>
+    </li>
+    </ul>
+  </nav>
+
+           
+
+        </nav>
+
+        
+        <div class="social-icons  mt-auto">
+<div>
+
+<a href="https://t.me/your_link" target="_blank" class="inline-flex 
+items-center justify-center px-3 py-3 text-white bg-[#2AABEE] font-medium text-sm rounded 
+shadow-md hover:bg-[#279fd9] 
+hover:shadow-lg focus:bg-[#2493c8] 
+focus:shadow-lg focus:outline-none 
+focus:ring-0 active:bg-[#2185b3] active:shadow-lg transition duration-150 ease-in-out">
+  
+     
+<svg width="25px" height="25px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" 
+fill="#fff" class="bi bi-telegram pr-1">
+  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>
+</svg>
+                            
+  
+  Открыть в Telegram
+</a>
+
+</div>
+            <div class="pt-6 flex gap-1 justify-left items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                sale@p9x.ru
+            </div>
+        </div>
+        
+        
+        <div class="mt-8 pt-4 text-xs text-gray-500 border-t border-gray-700">
+            <p>Powered by <a href="#" class="hover:underline">Hugo</a> | Themed with <a href="#" class="hover:underline">poison</a></p>
+            <p>© 2010 - 2025 Poison. All rights reserved.</p>
+        </div>
+    </aside>
+
+  <main class="main-content bg-white">
+ 
+            
+            
+  <article class="prose prose-lg py-8 px-4 max-w-[1200px]">
+    <h1 class="text-2xl font-bold mb-4">
+            RAG для мультиинструментальной интеграции и интеллектуальных рабочих процессов
+    </h1>
+
+    
+    
+    <time class="block mb-6 text-gray-500" datetime="2025-11-19T22:53:35&#43;00:00">November 19, 2025</time>
+
+    <div class="content mb-8 ">
+      <h3 id="оркестровка-мультиинструментов-с-генерацией-на-основе-извлечения-rag">Оркестровка мультиинструментов с генерацией на основе извлечения (RAG)</h3>
+<p>Оркестровка мультиинструментов с генерацией на основе извлечения (RAG) — это создание интеллектуальных рабочих процессов, которые используют большие языковые модели (LLM) с инструментами, включая веб-поисковые системы или векторные базы данных, для ответа на запросы. При этом LLM автоматически и динамически выбирает, какой инструмент использовать для каждого запроса. Например, веб-поисковый инструмент откроет область актуальной обновлённой информации, а векторная база данных, такая как Pinecone, — контекстно-специфическую информацию.</p>
+<p><strong>На практике RAG часто включает в себя определение инструментов вызова функций, таких как веб-поиск или поиск в базе данных, и организацию их работы через API</strong>, например Responses API или OpenAI. Это использование инициирует последовательность шагов извлечения и генерации для каждого пользовательского запроса. В результате аспекты возможностей модели переплетаются с текущей информацией.</p>
+<h3 id="что-такое-rag">Что такое RAG?</h3>
+<p>RAG — это процесс, при котором языковая модель использует извлечённую релевантную внешнюю информацию и включает её в свои выходные данные. Вместо того чтобы быть «закрытой» моделью, которая полагается исключительно на внутренние обучающие данные, модель RAG выполняет явный шаг извлечения. Она просматривает набор документов, таких как векторная база данных или поисковый индекс, и использует эти извлечённые документы для дополнения запроса к LLM.</p>
+<p>Чтобы извлечь знания, на которые LLM опирается для предоставления точных ответов на запросы. Таким образом, мы можем рассматривать этот процесс как генерацию в реальном времени с «расширенными» возможностями. Когда LLM может предоставлять контекстуально релевантные, точные ответы на запросы, используя возможности генерации и дополненную информацию посредством извлечения во время вопроса, это позволяет LLM отвечать на вопросы с использованием точных, актуальных, специфичных для домена или проприетарных знаний, которых у него не было бы на этапе обучения.</p>
+<p><strong>Ключевые преимущества RAG:</strong></p>
+<ul>
+<li><strong>Актуальные и специфические знания:</strong> RAG позволяет модели получать доступ к новым и нестатическим обучающим данным, например, к текущим новостям, внутренним документам, для ответа на запросы.</li>
+<li><strong>Снижение частоты галлюцинаций:</strong> RAG минимизирует галлюцинации, поскольку модель отвечает, основываясь на фактических извлечённых фактах.</li>
+<li><strong>Проверяемость:</strong> ответ может содержать ссылки на источники извлечённого контента, что повышает прозрачность и достоверность ответа.</li>
+</ul>
+<p>RAG позволяет LLM объединять генеративные способности с извлечением знаний. В методе RAG модель извлекает соответствующие фрагменты информации из внешних корпусов, прежде чем дать ответ, и затем выдаёт более точный и обоснованный ответ, используя этот контекст.</p>
+<p>Инструменты, такие как веб-поиск и запросы к векторным индексам, имеют решающее значение для RAG, поскольку они обеспечивают компонент извлечения, которого LLM не предоставляет самостоятельно. Когда эти инструменты добавлены, RAG может устранить проблемы, связанные с использованием только сервисов LLM. Например, LLM имеют ограничения по знаниям и могут уверенно выдавать неверную или устаревшую информацию. Поисковый инструмент позволяет системе автоматически получать актуальные факты по запросу. Аналогично векторная база данных, такая как Pinecone, хранит специфичные для домена и проприетарные данные: записи врачей, политику компании и т. д., которые модель иначе не могла бы знать.</p>
+<p>Каждый инструмент имеет свои сильные стороны, и использование комбинации инструментов — это мультиинструментальная оркестровка. Например, общий инструмент веб-поиска может отвечать на общие вопросы. Инструмент, подобный PineconeSearchDocuments, может найти нужные записи во внутреннем векторном хранилище, содержащем знания из проприетарного набора информации. Вместе они гарантируют, что любой ответ модели может быть найден в источнике или в любом другом месте, где он имеет наилучшее качество. Общие вопросы могут быть обработаны с помощью полностью функциональных встроенных инструментов, таких как веб-поиск. «Очень специфические» вопросы или медицинские вопросы, использующие внутренние знания системы, решаются посредством извлечения контекста из векторной базы данных. В целом, использование мультиинструментов в конвейерах RAG обеспечивает повышенную достоверность, корректность данных, а также точность и современный контекст.</p>
+<h3 id="пример-создания-системы-rag-с-несколькими-инструментами">Пример создания системы RAG с несколькими инструментами</h3>
+<p>Теперь мы рассмотрим реальный пример создания системы RAG с несколькими инструментами, используя набор данных медицинских вопросов и ответов. Процесс включает в себя встраивание набора данных вопросов и ответов в Pinecone и настройку системы. Модель имеет инструмент веб-поиска и инструмент поиска на основе Pinecone.</p>
+<p><strong>Загрузка зависимостей и наборов данных</strong></p>
+<p>Сначала мы установим, затем импортируем необходимые библиотеки и, наконец, загрузим набор данных. Для этого потребуется базовое понимание обработки данных, встраивания и Pinecone SDK.</p>
+<pre tabindex="0"><code>import os, time, random, string
+import pandas as pd
+from tqdm.auto import tqdm
+from sentence_transformers import SentenceTransformer
+from pinecone import Pinecone, ServerlessSpec
+import openai
+from openai import OpenAI
+import kagglehub
+</code></pre><p>Далее мы загрузим и загрузим набор данных медицинских вопросов и ответов. В коде мы использовали утилиту Kagglehub для доступа к набору данных QA, ориентированному на медицину:</p>
+<pre tabindex="0"><code>path = kagglehub.dataset_download(&#34;thedevastator/comprehensive-medical-q-a-dataset&#34;)
+DATASET_PATH = path  # local path to downloaded files
+df = pd.read_csv(f&#34;{DATASET_PATH}/train.csv&#34;)
+</code></pre><p>Для этого примера мы можем взять подмножество, то есть первые 2500 строк. Затем мы добавим префиксы к столбцам «Вопрос:» и «Ответ:» и объединим их в одну текстовую строку. Это будет контекст, который мы будем встраивать. Мы делаем вложения из текста.</p>
+<pre tabindex="0"><code>df = df[:2500]
+df[&#39;Question&#39;] = &#39;Question: &#39; + df[&#39;Question&#39;]
+df[&#39;Answer&#39;] = &#39; Answer: &#39; + df[&#39;Answer&#39;]
+df[&#39;merged_text&#39;] = df[&#39;Question&#39;] + df[&#39;Answer&#39;]
+</code></pre><p><strong>Создание индекса Pinecone на основе набора данных</strong></p>
+<p>Теперь, когда набор данных загружен, мы создадим векторное вложение для каждой из объединённых строк QA. Мы будем использовать модель преобразования предложений «BAAI/bge-small-en» для кодирования текстов:</p>
+<pre tabindex="0"><code>MODEL = SentenceTransformer(&#34;BAAI/bge-small-en&#34;)
+embeddings = MODEL.encode(df[&#39;merged_text&#39;].tolist(), show_progress_bar=True)
+df[&#39;embedding&#39;] = list(embeddings)
+</code></pre><p>Далее мы создадим новый индекс Pinecone и укажем размерность. Это делается с помощью клиента Python Pinecone:</p>
+<pre tabindex="0"><code>def upsert_to_pinecone(df, embed_dim, model, api_key, region=&#34;us-east-1&#34;, batch_size=32):
+    # Initialize Pinecone and create the index if it doesn&#39;t exist
+    pinecone = Pinecone(api_key=api_key)
+    spec = ServerlessSpec(cloud=&#34;aws&#34;, region=region)
+    index_name = &#39;pinecone-index-&#39; + &#39;&#39;.join(random.choices(string.ascii_lowercase + string.digits, k=10))
+    if index_name not in pinecone.list_indexes().names():
+        pinecone.create_index(
+            index_name=index_name,
+            dimension=embed_dim,
+            metric=&#39;dotproduct&#39;,
+            spec=spec
+        )
+    # Connect to index
+    index = pinecone.Index(index_name)
+    time.sleep(2)
+    print(&#34;Index stats:&#34;, index.describe_index_stats())
+    # Upsert in batches
+    for i in tqdm(range(0, len(df), batch_size), desc=&#34;Upserting to Pinecone&#34;):
+        i_end = min(i + batch_size, len(df))
+        # Prepare input and metadata
+        lines_batch = df[&#39;merged_text&#39;].iloc[i:i_end].tolist()
+        ids_batch = [str(n) for n in range(i, i_end)]
+        embeds = model.encode(lines_batch, show_progress_bar=False, convert_to_numpy=True)
+        meta = [
+            {
+                &#34;Question&#34;: record.get(&#34;Question&#34;, &#34;&#34;),
+                &#34;Answer&#34;: record.get(&#34;Response&#34;, &#34;&#34;)
+            }
+            for record in df.iloc[i:i_end].to_dict(&#34;records&#34;)
+        ]
+        # Upsert to index
+        vectors = list(zip(ids_batch, embeds, meta))
+        index.upsert(vectors=vectors)
+    print(f&#34;Upsert complete. Index name: {index_name}&#34;)
+    return index_name
+</code></pre><p>Это то, что загружает наши данные в Pinecone; в терминологии RAG это эквивалентно загрузке внешних авторитетных знаний в векторное хранилище. Как только индекс будет создан, мы будем вставлять все вложения по частям вместе с метаданными, исходным текстом вопроса и ответа для поиска:</p>
+<pre tabindex="0"><code>index_name = upsert_to_pinecone(
+    df=df,
+    embed_dim=384,
+    model=MODEL,
+    api_key=&#34;your-pinecone-api-key&#34;
+)
+</code></pre><p>Здесь каждый вектор сохраняется со своим текстом и метаданными. Индекс Pinecone теперь заполнен нашим набором данных, специфичным для домена.</p>
+<p><strong>Запрос индекса Pinecone</strong></p>
+<p>Чтобы использовать индекс, мы определяем функцию, которую можно вызвать в индексе с новым вопросом. Функция встраивает текст запроса и вызывает <code>index.query</code>, чтобы вернуть наиболее похожие документы:</p>
+<pre tabindex="0"><code>def query_pinecone_index(index, model, query_text):
+    query_embedding = model.encode(query_text, convert_to_numpy=True).tolist()
+    res = index.query(vector=query_embedding, top_k=5, include_metadata=True)
+    print(&#34;--- Query Results ---&#34;)
+    for match in res[&#39;matches&#39;]:
+        question = match[&#39;metadata&#39;].get(&#34;Question&#34;, &#39;N/A&#39;)
+        answer = match[&#39;metadata&#39;].get(&#34;Answer&#34;, &#34;N/A&#34;)
+        print(f&#34;{match[&#39;score&#39;]:.2f}: {question} - {answer}&#34;)
+    return res
+</code></pre><p>Например, если мы вызовем <code>query_pinecone_index(index, MODEL, &quot;What is the most common treatment for diabetes?&quot;)</code>, мы увидим напечатанные сверху соответствующие пары вопросов и ответов из нашего набора данных. Это часть процесса извлечения: пользовательский запрос получает встраивание, просматривает индекс и возвращает наиболее близкие документы (а также их метаданные). Как только мы получим эти контексты, мы сможем использовать их для формулирования окончательного ответа.</p>
+<p>Далее мы определяем инструменты, которые может использовать модель. В этом конвейере мы определяем два инструмента. Предварительный просмотр веб-поиска — это общий веб-поиск фактов из открытого интернета. <code>PineconeSearchDocuments</code> используется для выполнения семантического поиска по нашему индексу Pinecone. Каждый инструмент определяется как объект JSON, который содержит имя, описание и ожидаемые параметры.</p>
+<p>Инструмент даёт агенту возможность выполнить веб-поиск, просто введя запрос на естественном языке. Есть необязательные метаданные о местоположении, которые могут повысить специфику релевантности пользователя (например, новости, услуги, специфичные для региона).</p>
+<pre tabindex="0"><code>web_search_tool = {
+    &#34;type&#34;: &#34;function&#34;,
+    &#34;name&#34;: &#34;web_search_preview&#34;,
+    &#34;function&#34;: {
+        &#34;name&#34;: &#34;web_search_preview&#34;,
+        &#34;description&#34;: &#34;Perform a web search for general queries.&#34;,
+        &#34;parameters&#34;: {
+            &#34;type&#34;: &#34;object&#34;,
+            &#34;properties&#34;: {
+                &#34;query&#34;: {
+                    &#34;type&#34;: &#34;string&#34;,
+                    &#34;description&#34;: &#34;The search query string&#34;
+                },
+                &#34;user_location&#34;: {
+                    &#34;type&#34;: &#34;object&#34;,
+                    &#34;properties&#34;: {
+                        &#34;country&#34;: {&#34;type&#34;: &#34;string&#34;, &#34;default&#34;: &#34;IN&#34;},
+                        &#34;region&#34;: {&#34;type&#34;: &#34;string&#34;, &#34;default&#34;: &#34;Delhi&#34;},
+                        &#34;city&#34;: {&#34;type&#34;: &#34;string&#34;, &#34;default&#34;: &#34;New Delhi&#34;}
+                    }}},
+            &#34;required&#34;: [&#34;query&#34;]
+        }
+    }
+}
+</code></pre><p>Этот инструмент позволяет агенту проводить семантический поиск в векторной базе данных, такой как Pinecone, позволяя системам RAG полагаться на семантику точечного произведения и угла между векторами.</p>
+<p>Инструмент принимает запрос и возвращает документы, которые являются наиболее похожими, на основе векторных вложений.</p>
+<pre tabindex="0"><code>pinecone_tool = {
+    &#34;type&#34;: &#34;function&#34;,
+    &#34;name&#34;: &#34;PineconeSearchDocuments&#34;,
+    &#34;function&#34;: {
+        &#34;name&#34;: &#34;PineconeSearchDocuments&#34;,
+        &#34;description&#34;: &#34;Search for relevant documents based on the user’s question in the vector database.&#34;,
+        &#34;parameters&#34;: {
+            &#34;type&#34;: &#34;object&#34;,
+            &#34;properties&#34;: {
+                &#34;query&#34;: {
+                    &#34;type&#34;: &#34;string&#34;,
+                    &#34;description&#34;: &#34;The question to search in the vector database.&#34;
+                },
+                &#34;top_k&#34;: {
+                    &#34;type&#34;: &#34;integer&#34;,
+                    &#34;description&#34;: &#34;Number of top results to return.&#34;,
+                    &#34;default&#34;: 3
+                }
+            },
+            &#34;required&#34;: [&#34;query&#34;],
+            &#34;additionalProperties&#34;: False
+        }
+    }
+}
+</code></pre><p>Это используется, когда агенту необходимо извлечь контекст специфичности из документов, содержащих встроенные контексты.</p>
+<p>Теперь мы объединяем оба инструмента в один список, который будет передан агенту.</p>
+<pre tabindex="0"><code>tools = [web_search_tool, pinecone_tool]
+</code></pre><p>Каждый инструмент включает в себя определение аргументов, которые наша модель должна передать ему при вызове. Например, инструмент поиска в Pinecone ожидает строку запроса на естественном языке, и этот инструмент вернёт верхние K соответствующих документов из нашего индекса.</p>
+<p>Вместе с инструментом мы включим набор пользовательских запросов для обработки. Для каждого запроса модель определит, будет ли она вызывать инструмент или отвечать напрямую.</p>
+<pre tabindex="0"><code>queries = [
+    {&#34;query&#34;: &#34;Who won the cricket world cup in 1983?&#34;},
+    {&#34;query&#34;: &#34;What is the most common cause of death in India?&#34;},
+    {&#34;query&#34;: &#34;A 7-year-old boy with sickle cell disease has knee and hip pain... What is the next step in management according to our internal knowledge base?&#34;}
+]
+</code></pre><p>Наконец, мы выполняем поток разговора, в котором модель управляет инструментами от своего имени. Мы предоставляем модели системное приглашение, которое направляет её использовать инструменты в определённом порядке. В этом примере наше приглашение говорит модели: «Каждый раз, когда ей задают вопрос, сначала вызвать инструмент веб-поиска для получения результатов, а затем вызвать <code>PineconeSearchDocuments</code>, чтобы найти соответствующие примеры во внутренней базе знаний».</p>
+<pre tabindex="0"><code>system_prompt = (
+    &#34;Every time it&#39;s prompted with a question, first call the web search tool for results, &#34;
+    &#34;then call `PineconeSearchDocuments` to find relevant examples in the internal knowledge base.&#34;
+)
+</code></pre><p>Мы собираем сообщения и вызываем Responses API с включёнными инструментами для каждого запроса пользователя:</p>
+<pre tabindex="0"><code>for item in queries:
+    input_messages = [
+        {&#34;role&#34;: &#34;system&#34;, &#34;content&#34;: system_prompt},
+        {&#34;role&#34;: &#34;user&#34;,  &#34;content&#34;: item[&#34;query&#34;]}
+    ]
+    response = openai.responses.create(
+        model=&#34;gpt-4o-mini&#34;,
+        input=input_messages,
+        tools=tools,
+        parallel_tool_calls=True
+    )
+</code></pre><p><strong>Вывод</strong></p>
+<p>API возвращает сообщение помощника, которое может включать или не включать вызовы инструментов. Мы проверяем <code>response.output</code>, чтобы увидеть, вызывала ли модель какие-либо инструменты, и если да, мы выполняем эти вызовы и включаем результаты в разговор. Наконец, мы отправляем обновлённый разговор обратно в модель, чтобы получить окончательный ответ.</p>
+<p>Вышеописанный поток показывает, как работает мультиинструментальная оркестровка; модель динамически выбирает инструменты для запроса. В примере для общих вопросов, таких как «Что такое астма?», может использоваться инструмент веб-поиска, но для вопросов, связанных с более конкретными ссылками на «астму», может потребоваться контекст Pinecone, на котором будет строиться ответ.</p>
+<p>Мы выполняем несколько вызовов инструментов из нашего цикла кода, и после того, как все они будут выполнены, мы вызываем API, чтобы модель могла построить «окончательный» ответ на основе полученных ею подсказок. В целом мы ожидаем получить ответ, который объединит внешние истины из веб-знаний и учтёт контекст из внутренних документов, на основе наших инструкций.</p>
+<h3 id="заключение">Заключение</h3>
+<p>Мультиинструментальная оркестровка с RAG создаёт мощную систему вопросов и ответов с множеством опций. Использование генерации модели с инструментами извлечения позволяет нам воспользоваться как пониманием естественного языка модели, так и фактической точностью внешних наборов данных. В нашем случае мы использовали индекс медицинских вопросов и ответов в Pinecone, в котором у нас была возможность вызвать либо веб-поиск, либо этот индекс в качестве опций. Таким образом, наша модель была более обоснована фактическими данными и могла отвечать на вопросы, на которые она не смогла бы ответить иначе.</p>
+<p>На практике этот тип конвейера RAG обеспечивает более высокую точность и релевантность ответов, поскольку модель может ссылаться на актуальные источники, охватывать нишевые знания и минимизировать галлюцинации. Будущие итерации могут включать более сложные схемы извлечения или дополнительные инструменты в экосистеме, такие как работа с графами знаний или API, но ядро системы не изменится.</p>
+<h3 id="часто-задаваемые-вопросы">Часто задаваемые вопросы</h3>
+<p><strong>Q1. В чём будут заключаться основные преимущества RAG по сравнению с традиционными LLM?</strong></p>
+<p>A. RAG позволяет LLM получать доступ к внешнему источнику данных, такому как векторные базы данных или веб, для генерации более точных, актуальных и специфичных для домена ответов, чего не могут сделать традиционные «закрытые» модели.</p>
+<p><strong>Q2. Какие инструменты чаще всего используются в конвейере RAG?</strong></p>
+<p>A. Обычно используются векторные базы данных, такие как Pinecone, FAISS или Weaviate, для семантического извлечения. Веб-поиск с использованием API для получения актуальной информации из интернета. Пользовательские API или функции, которые обеспечивают возможности запросов к графам знаний, SQL-базам данных или хранилищам документов.</p>
+<p><strong>Q3. Можно ли использовать RAG в приложениях реального времени, таких как чат-боты?</strong></p>
+<p>A. Да. RAG хорошо подходит для приложений, требующих динамичных, фактических ответов, таких как боты поддержки клиентов, медицинские или финансовые помощники. Поскольку ответы основаны на извлекаемых документах или фактах.</p>
+<h3 id="привет-я-випин-увлечённый-энтузиаст-в-области-науки-о-данных-и-машинного-обучения-с-прочным-фундаментом-в-области-анализа-данных-алгоритмов-машинного-обучения-и-программирования-у-меня-есть-практический-опыт-в-создании-моделей-управлении-грязными-данными-и-решении-реальных-задач-моя-цель--применять-основанные-на-данных-идеи-для-создания-практических-решений-которые-приносят-результаты-я-готов-внести-свой-вклад-в-совместную-работу-продолжая-учиться-и-расти-в-области-науки-о-данных-машинного-обучения-и-нлп">Привет! Я Випин, увлечённый энтузиаст в области науки о данных и машинного обучения с прочным фундаментом в области анализа данных, алгоритмов машинного обучения и программирования. У меня есть практический опыт в создании моделей, управлении грязными данными и решении реальных задач. Моя цель — применять основанные на данных идеи для создания практических решений, которые приносят результаты. Я готов внести свой вклад в совместную работу, продолжая учиться и расти в области науки о данных, машинного обучения и НЛП.</h3>
+
+    </div>
+
+    <div class="tags mt-8">
+      
+
+    </div>
+  </article>
+
+          
+            
+  </main>          
+
+    <script>
+
+        
+        
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const sidebar = document.querySelector('.sidebar');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+        
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                if (entry.isIntersecting) {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.add('active');
+                    });
+                } else {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.remove('active');
+                    });
+                }
+            });
+        }, observerOptions);
+        
+        
+        document.querySelectorAll('h2[id]').forEach(heading => {
+            observer.observe(heading);
+        });
+    </script>
+
+
+  <footer class="px-6 py-12 bg-sky-950 text-white/50">
+    
+<p>P9X.ru 2010 - 2025г. услуги интернет маркетинга</p>
+
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105149615', 'ym');
+
+    ym(105149615, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/105149615" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+  </footer>
+</body>
+</html>

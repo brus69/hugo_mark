@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Я проанализировал 25 000 названий отелей и обнаружил четыре удивительные истины | На пути к науке о данных | Агентство контекстной рекламы</title>
+<meta name="description" content="">
+<meta name="yandex-verification" content="242f5a0ee52d5836" />
+
+<link rel="icon" type="image/x-icon" href="http://localhost:1313/favicon.ico">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+ <style>
+  .content h1 { 
+        font-size: 1.875rem; 
+        font-weight: bold; 
+        margin-bottom: 1rem; 
+    }
+    .content h2 { 
+        font-size: 1.5rem; 
+        font-weight: 600; 
+        margin-bottom: 0.75rem; 
+    }
+    .content h3 { 
+        font-size: 1.25rem; 
+        font-weight: 500; 
+        margin-bottom: 0.5rem; 
+    }
+    .content p { 
+        margin-bottom: 1rem; 
+    }
+    .content ul { 
+        list-style-type: disc; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content ol { 
+        list-style-type: decimal; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content a { 
+        color: #2563eb; 
+    }
+    .content a:hover { 
+        color: #1e40af; 
+    }
+    .content blockquote { 
+        border-left: 4px solid #d1d5db; 
+        padding-left: 1rem; 
+        font-style: italic; 
+    }
+
+    
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.875rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+.dark-mode .content table {
+    border: 1px solid #4b5563;
+}
+
+.content thead {
+    background-color: #eaebec;
+}
+
+.dark-mode .content thead {
+    background-color: #374151;
+}
+
+.content th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.dark-mode .content th {
+    color: #f9fafb;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content th:last-child {
+    border-right: none;  
+}
+
+.content td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    color: #6b7280;
+}
+
+.dark-mode .content td {
+    color: #d1d5db;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content td:last-child {
+    border-right: none;  
+}
+
+.content tbody tr {
+    transition: background-color 0.15s ease-in-out;
+}
+
+.content tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.dark-mode .content tbody tr:hover {
+    background-color: #374151;
+}
+
+.content tbody tr:last-child td {
+    border-bottom: none;
+}
+
+ 
+.content tbody tr:nth-child(even) {
+    background-color: #f4f5f7;
+}
+
+.dark-mode .content tbody tr:nth-child(even) {
+    background-color: #1f2937;
+}
+
+.dark-mode .content tbody tr:nth-child(even):hover {
+    background-color: #374151;
+}
+
+ 
+.content code:not(pre code) {
+    background-color: #f3f4f6;
+    color: #dc2626;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    font-weight: 500;
+    border: 1px solid #e5e7eb;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+}
+
+.dark-mode .content code:not(pre code) {
+    background-color: #224464;
+    color: #f87171;
+    border: 1px solid #4b5563;
+}
+
+ 
+.content pre {
+    background-color: #224464;
+    color: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid #374151;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.dark-mode .content pre {
+    background-color: #111827;
+    border: 1px solid #374151;
+}
+
+ 
+.content pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+    font-weight: normal;
+}
+
+ 
+.content pre code .keyword { color: #f472b6; }  
+.content pre code .function { color: #60a5fa; }  
+.content pre code .string { color: #34d399; }  
+.content pre code .comment { color: #9ca3af; font-style: italic; }  
+.content pre code .number { color: #fbbf24; }  
+.content pre code .class { color: #c084fc; }  
+.content pre code .operator { color: #93c5fd; }  
+
+ 
+.content pre::-webkit-scrollbar {
+    height: 6px;
+}
+
+.content pre::-webkit-scrollbar-track {
+    background: #374151;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.content pre::-webkit-scrollbar-thumb {
+    background: #6b7280;
+    border-radius: 3px;
+}
+
+.content pre::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+ 
+.content h1 code:not(pre code),
+.content h2 code:not(pre code),
+.content h3 code:not(pre code) {
+    font-size: 0.9em;
+    background-color: #fef2f2;
+    color: #dc2626;
+}
+
+.dark-mode .content h1 code:not(pre code),
+.dark-mode .content h2 code:not(pre code),
+.dark-mode .content h3 code:not(pre code) {
+    background-color: #7f1d1d;
+    color: #fca5a5;
+}
+
+ 
+.content a code:not(pre code) {
+    color: inherit;
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+.dark-mode .content a code:not(pre code) {
+    background-color: rgba(96, 165, 250, 0.2);
+}
+        :root {
+            --color-bg: #1a1a1a;
+            --color-text: #e6e6e6;
+            --color-accent: #6b7280;
+            --color-link: #9ca3af;
+            --color-link-hover: #d1d5db;
+        }
+        
+        .light-mode {
+            --color-bg: #f9fafb;
+            --color-text: #1f2937;
+            --color-accent: #6b7280;
+            --color-link: #4b5563;
+            --color-link-hover: #111827;
+        }
+        
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        a {
+            color: var(--color-link);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: var(--color-link-hover);
+        }
+        
+        .sidebar {
+            position: fixed;
+             
+            height: 100vh;
+            overflow-y: auto;
+            
+        }
+        
+        .main-content {
+            margin-left: 350px;
+            
+             
+        }
+        
+        .toc-container {
+            position: fixed;
+            right: 2rem;
+            top: 2rem;
+            width: 250px;
+            display: none;
+        }
+        
+        @media (min-width: 1280px) {
+            .toc-container {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 50;
+            }
+            
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+                 
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: fixed;
+                top: 1rem;
+                left: 1rem;
+                z-index: 100;
+            }
+        }
+        
+        .toc-link.active {
+            color: var(--color-link-hover);
+            font-weight: bold;
+        }
+        
+        .social-icons a {
+            margin-right: 0.5rem;
+        }
+        
+        pre {
+            background-color: rgba(107, 114, 128, 0.1);
+            padding: 1rem;
+            border-radius: 0.25rem;
+            overflow-x: auto;
+        }
+        
+        code {
+            font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+    </style>
+</head>
+  <body class="light-mode">
+      <header>
+    
+  </header>
+    
+    <button class="mobile-menu-btn p-2 bg-gray-800 text-white rounded md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+    
+    <aside class="sidebar border-r-4 border-sky-800  min-w-[350px] py-12 px-10 bg-gradient-to-br from-cyan-200 via-green-100 to-sky-100">
+        <div class="flex flex-col items-center mb-8">
+                
+            
+            <div class="w-24 h-24 mb-4 relative">
+                <a href="/">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ viewBox="0 0 550.000000 385.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,385.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M2780 3000 l0 -300 40 0 40 0 0 260 0 260 1165 0 1165 0 0 -1245 0
+-1245 -1165 0 -1165 0 0 260 0 260 -40 0 -40 0 0 -300 0 -300 1245 0 1245 0 0
+1325 0 1325 -1245 0 -1245 0 0 -300z"/>
+<path d="M700 1975 l0 -635 145 0 145 0 0 245 0 245 383 0 c422 0 426 1 491
+66 60 60 66 88 66 319 0 190 -2 214 -21 255 -25 56 -53 86 -104 113 -39 22
+-49 22 -572 25 l-533 3 0 -636z m940 245 l0 -100 -325 0 -325 0 0 100 0 100
+325 0 325 0 0 -100z"/>
+<path d="M2320 2601 c-69 -22 -112 -58 -146 -121 -17 -31 -19 -60 -19 -260 0
+-211 1 -227 22 -265 27 -51 68 -90 115 -109 32 -14 98 -16 438 -16 l400 0 0
+-245 0 -245 145 0 145 0 0 536 c0 373 -3 548 -11 575 -16 50 -61 105 -112 132
+-41 22 -48 22 -497 24 -250 1 -466 -2 -480 -6z m810 -381 l0 -100 -340 0 -340
+0 0 100 0 100 340 0 340 0 0 -100z"/>
+<path d="M3650 2607 c0 -1 99 -144 219 -317 l219 -314 -63 -91 c-34 -49 -133
+-191 -219 -315 l-157 -225 172 -3 c97 -1 176 2 183 7 6 5 72 97 146 205 74
+107 138 196 141 196 4 0 71 -92 149 -205 l143 -205 173 0 c96 0 174 2 174 4 0
+3 -95 141 -211 308 -116 167 -214 308 -216 315 -3 7 92 151 211 322 119 170
+216 312 216 315 0 3 -78 6 -174 6 l-174 0 -143 -205 c-78 -113 -145 -205 -149
+-205 -3 0 -70 92 -148 205 l-143 205 -174 0 c-96 0 -175 -1 -175 -3z"/>
+</g>
+</svg>
+</a>
+            </div>
+
+            <p class="text-xs text-center text-gray-500 max-w-[200px]">
+                Профессиональное агентство контекстной рекламы с опытом более 18 лет.
+
+            </p>
+        </div>
+
+        
+        <nav class="mb-8">
+          
+        
+            
+  <nav>
+    <ul>
+    <li class="text-lg font-semibold">
+      <a href="/">Контекстная реклама</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/analytics/">web-аналитика</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a aria-current="true" class="ancestor" href="/posts/">Блог</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/about/">О нас</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Категории</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/job/">Вакансии</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Кейсы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/calculators/">Калькуляторы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/contacts/">Контакты</a>
+    </li>
+    </ul>
+  </nav>
+
+           
+
+        </nav>
+
+        
+        <div class="social-icons  mt-auto">
+<div>
+
+<a href="https://t.me/your_link" target="_blank" class="inline-flex 
+items-center justify-center px-3 py-3 text-white bg-[#2AABEE] font-medium text-sm rounded 
+shadow-md hover:bg-[#279fd9] 
+hover:shadow-lg focus:bg-[#2493c8] 
+focus:shadow-lg focus:outline-none 
+focus:ring-0 active:bg-[#2185b3] active:shadow-lg transition duration-150 ease-in-out">
+  
+     
+<svg width="25px" height="25px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" 
+fill="#fff" class="bi bi-telegram pr-1">
+  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>
+</svg>
+                            
+  
+  Открыть в Telegram
+</a>
+
+</div>
+            <div class="pt-6 flex gap-1 justify-left items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                sale@p9x.ru
+            </div>
+        </div>
+        
+        
+        <div class="mt-8 pt-4 text-xs text-gray-500 border-t border-gray-700">
+            <p>Powered by <a href="#" class="hover:underline">Hugo</a> | Themed with <a href="#" class="hover:underline">poison</a></p>
+            <p>© 2010 - 2025 Poison. All rights reserved.</p>
+        </div>
+    </aside>
+
+  <main class="main-content bg-white">
+ 
+            
+            
+  <article class="prose prose-lg py-8 px-4 max-w-[1200px]">
+    <h1 class="text-2xl font-bold mb-4">
+            Я проанализировал 25 000 названий отелей и обнаружил четыре удивительные истины
+    </h1>
+
+    
+    
+    <time class="block mb-6 text-gray-500" datetime="2025-11-19T22:09:56&#43;00:00">November 19, 2025</time>
+
+    <div class="content mb-8 ">
+      <h2 id="недавно-я-гулял-по-осло-когда-проходил-мимо-шикарного-здания-с-красной-дорожкой-чёрным-навесом-и-названием-большими-заглавными-буквами-hotel-bristol-я-был-озадачен-бристоль-в-осло">Недавно я гулял по Осло, когда проходил мимо шикарного здания с красной дорожкой, чёрным навесом и названием большими заглавными буквами: Hotel Bristol. Я был озадачен. Бристоль? В Осло?</h2>
+<p>Оказывается, что Hotel California находится в Париже, Hotel Manhattan — в Джакарте, а Hotel Vienna существует практически везде, кроме Вены.</p>
+<p>Я думал, что всё сводится к маркетингу. Но чем больше я исследовал, тем больше видел три истории: расположение, стремление и традиции старого мира.</p>
+<p>Присоединяйтесь ко мне для увлекательного анализа данных в мире отелей, которые заимствуют названия городов откуда-то ещё. Результаты оказались гораздо более удивительными, чем я ожидал.</p>
+<h3 id="какие-топовые-названия-отелей">Какие топовые названия отелей?</h3>
+<p>После поездки в Осло я не мог перестать думать об этом. Поэтому я сделал то, что у меня получается лучше всего: развил лёгкую одержимость и открыл слишком много вкладок. На одной из вкладок я наткнулся на API данных отелей от liteAPI, которые любезно разрешили мне использовать их данные для этого анализа.</p>
+<p>Вот как я это делал:</p>
+<p>Я провёл глобальный поиск названий отелей, которые ссылались на крупные города, но на самом деле не находились в них. Для каждого названия города (например, Roma) я перебрал все коды стран и нашёл отели с этим названием в любой точке мира.</p>
+<blockquote>
+<p>Я говорю «города» на протяжении всей статьи, но некоторые названия (например, Калифорния и Манхэттен) не являются городами. Я включил их, потому что они широко используются в названиях отелей.</p>
+</blockquote>
+<p>Код ниже иллюстрирует, как извлечь данные для списка городов. Он использует функцию launch_requests для обработки запросов API, которую я не буду здесь приводить — подробности о запросе API и получении ключей доступны в официальной документации.</p>
+<pre tabindex="0"><code>citylist=[&#34;Paris&#34;,&#34;Vienna&#34;,&#34;Rome&#34;]
+for city in citylist:
+    print(&#39;Starting extraction for&#39;, city)
+    results=[]
+
+    for alpha in countrycodes[&#39;alpha-2&#39;]:
+        print(alpha)
+
+        url = (
+            &#34;https://api.liteapi.travel/v3.0/data/hotels&#34;
+            &#34;?countryCode=&#34;+alpha+
+            &#34;&amp;hotelName=&#34;+city+
+            &#34;&amp;limit=5000&#34;
+            &#34;&amp;hotelTypeIds=201%2C203%2C204%2C205%2C206%2C208%2C219%2C231&#34;
+        )
+
+        results.append(launch_requests(url))
+
+df_all = pd.concat(results, ignore_index=True)
+df_all.to_csv(str(city) + &#39;_24_04.csv&#39;)
+</code></pre><p>Я отфильтровал для точных совпадений, чтобы всё было чисто, поэтому <em>«Hotel romantic»</em> не пробрался как ложный Roma. Я также дополнительно пометил результаты как <em>«incity»</em> , где отель находится в том же городе, что и название (например, Hotel Roma в Риме), <em>«inaddress»</em> , когда отель находится на улице, названной в честь города (например, Hotel Roma на Roma Street) и «outside» для всего остального.</p>
+<p>Что касается названий городов, помимо очевидного Бристоля, я выбрал их на основе атмосферы, а не географии.</p>
+<p>Я начал список с очарованием старого мира: Лондон, Рим и Париж. Солнце у бассейна? Это <em>Майами</em>, <em>Калифорния</em>, <em>Барселона</em> и <em>Гавана</em>. Я добавил <em>Венецию</em>, <em>Прагу</em> и <em>Вену</em> для элегантности. <em>Марракеш</em>, <em>Касабланка</em> и <em>Каир</em>? Экзотика и таинственность. И закончил с космополитичностью: <em>Манхэттен</em>, <em>Берлин</em> и <em>Шанхай</em>.</p>
+<blockquote>
+<p>Чтобы проиллюстрировать, возьмите красивый лобби <strong>The Parisian Macao</strong>, тематического отеля в Париже, в Макао, Китай.</p>
+</blockquote>
+<p>И теперь, главное открытие… Ниже представлен окончательный список наиболее заимствованных названий городов, используемых в названиях отелей по всему миру. Думайте об этом как об Олимпиаде названий городов, которые хорошо смотрятся на ключе от гостиничного номера.</p>
+<p>Но прежде чем мы перейдём к полной таблице, вот карта топ-7 финишёров и, конечно, причина этой статьи — загадочный Бристоль. Каждая точка — это реальный отель, так что не стесняйтесь увеличивать масштаб, фильтровать и наблюдать за точками по всему миру.</p>
+<p>[Интерактивная карта, созданная с помощью Flourish автором]</p>
+<blockquote>
+<p>Мой самый большой сюрприз? Большая концентрация отелей с названиями городов в Европе по сравнению с небольшим разбросом в Северной Америке. Что в отелях Северной Америки называют в честь? Может быть, содержание для другой статьи?</p>
+</blockquote>
+<p>Теперь вернёмся к цифрам, вот как читать таблицу (если вам интересно, я использовал библиотеку PlotTable).</p>
+<ul>
+<li><strong>Название отеля:</strong> город, упомянутый в названии отеля.</li>
+<li><strong>Количество стран:</strong> сколько стран имеют отели с таким названием.</li>
+<li><strong>Количество отелей:</strong> общее количество отелей в мире с таким названием.</li>
+<li><strong>В городе:</strong> сколько из них на самом деле расположены в реальном городе.</li>
+<li><strong>В адресе:</strong> сколько из них находятся на улице или в районе с таким же названием.</li>
+<li><strong>Снаружи:</strong> остальные и интересный момент — отели, заимствующие название, но расположенные далеко от реального места.</li>
+</ul>
+<p>Часть 1 «Топ заимствованных названий городов в отелях». Изображение автора. Часть 2 «Топ заимствованных названий городов в отелях». Изображение автора.</p>
+<p>И победитель — <strong>Париж</strong>, город света и любви, занимает первое место с более чем 1100 отелями по всему миру. Достаточно, чтобы бронировать новый каждый выходной в течение 20 лет?</p>
+<p>Недалеко позади <strong>Вена</strong>, что стало неожиданностью, особенно в Китае, где это название пользуется большой популярностью.</p>
+<p>На третьем месте — Рим, где, кажется, есть Hotel Roma практически в каждом городе Италии.</p>
+<p>И мне интересно, действительно ли это связано с роскошью и шармом, которые вызывают эти города? — или то, что некоторые названия просто звучат «дорого»? Давайте углубимся в следующий раздел.</p>
+<h3 id="почему-отели-заимствуют-названия-городов">Почему отели заимствуют названия городов?</h3>
+<p>Иногда — и как экономный путешественник я могу это подтвердить — дело не в том, чтобы быть в городе, а в том, чтобы быть достаточно близко. Возьмите Мestre, материковый сосед Венеции. Многие отели там называют себя «Венеция», чтобы появляться в поисковых системах путешествий. Например, <em>«Hilton Garden Inn Venice Mestre San Giuliano»</em> гораздо чаще будет отображаться, когда кто-то ищет «места для проживания в Венеции». Посмотрите на следующую карту, которая иллюстрирует все отели возле Венеции, которые включают «Венеция» в своём названии.</p>
+<p>Расположение отелей, использующих название Венеция в Венеции и Мestre. Изображение автора.</p>
+<p>То же самое происходит с Парижем. Многие отели расположены за пределами официальных городских границ, но достаточно близко, чтобы вы всё равно чувствовали себя в отпуске в Париже. Может быть, даже достаточно близко, чтобы почувствовать запах кофе за пять евро перед Эйфелевой башней.</p>
+<p>Расположение отелей, использующих название Париж в городе Париже и за его пределами. Изображение автора.</p>
+<p>В других случаях название имеет мало общего с географией и всё — с музыкой, которая звучит в лобби.</p>
+<p>Я говорю о <strong>Vienna Hotels Group</strong>, основанной в 1993 году в Шэньчжэне, Китай. Основатель выбрал название «Вена», чтобы продавать элегантность, комфорт и классическую музыку — европейскую фантазию.</p>
+<p>До сих пор многие их отели перенимают европейский стиль брендинга с неоклассическими колоннами, люстрами и классической фортепианной музыкой, звучащей в лобби. Трудно устоять, правда?</p>
+<p>В лобби отеля Vienna в Шэньчжэне. Изображение находится в общественном достоянии с Wikimedia Commons.</p>
+<p>На самом деле, если посмотреть на данные, только в Китае насчитывается почти 1000 отелей, которые включают в своё название «Вена», что намного больше, чем в любой другой стране, включая саму Австрию.</p>
+<p>Другие забавные примеры брендинга — отель <strong>Manhattan</strong> в Джакарте:</p>
+<p>Отель <strong>Venetian</strong> в Лас-Вегасе, куда меня не уговорили бы пойти за любые деньги:</p>
+<p>Фото tommao wang на Unsplash.</p>
+<p>И только посмотрите на <strong>Miami</strong> Heat Beach Resort в Батаане, Филиппины.</p>
+<p>Не каждый отель назван для продажи местоположения или фантазии. Некоторые названы по чистой традиции.</p>
+<p>Вернёмся к названию, с которого началось всё это путешествие: <strong>Bristol</strong>.</p>
+<p>Первое, что я сделал, — это нанёс на карту каждый отель Bristol — просто прокрутите вверх, чтобы увидеть интерактивную карту самостоятельно. Результат? Ни одного отеля Bristol в Великобритании за пределами города Бристоль.</p>
+<p>Отели разбросаны по Европе и даже в Южной Америке. Поэтому я задался вопросом: как далеко эти отели от реального города Бристоль?</p>
+<p>Вот как я это измерил:</p>
+<ol>
+<li>Я рассчитал расстояние от координат каждого отеля до координат Бристоля.</li>
+</ol>
+<pre tabindex="0"><code>origin=(51.4545,-2.5879)
+bristol[&#39;distance_km&#39;]=bristol.apply(lambda row:distance(
+    origin,
+    (row[&#39;latitude&#39;],row[&#39;longitude&#39;])
+).km, axis=1)
+</code></pre><ol start="2">
+<li>Затем я построил распределение этих расстояний вместе с Парижем и Веной, используя Seaborn’s FacetGrid в качестве RidgePlot. Код (слишком длинный для этой статьи) основан на руководстве Тиаго Карвалью в Plain English.</li>
+</ol>
+<p>Распределение расстояний между отелями и городом, в честь которого они названы. Изображение автора.</p>
+<p>Результаты говорят сами за себя:</p>
+<ul>
+<li>Отели <strong>Парижа</strong> находятся в среднем всего в <strong>22 км</strong> от реального города, в основном из-за расположения, как мы исследовали в первом разделе.</li>
+<li>Отели <strong>Вены</strong> в среднем находятся на расстоянии <strong>8 416 км</strong> — явный пример забавного брендинга.</li>
+<li>Отели <strong>Бристоля</strong>? Они находятся в среднем на расстоянии <strong>1 649 км</strong> от Бристоля — слишком далеко, чтобы расположение было причиной.</li>
+</ul>
+<p>Так в чём же реальная история? Для этого я обращаюсь к <strong>Роджеру Уильямсу</strong>, журналисту и автору книги <em>«High Times at the Bristol Hotel»</em> , в которой исследуются увлекательные истоки отелей Bristol по всему миру.</p>
+<p>Уильямс рассказывает об английском дворянине XVIII века, <strong>лорде Бристоле</strong>. Он был известен как настоящий ценитель искусства и путешествий, и его визиты часто повышали статус места: отели, в которых он останавливался, даже стали неофициально называться «отелями лорда Бристоля». Так, как оказалось, открывались самые первые отели Bristol по всей Европе. Позже другие отели переняли это название, либо чтобы звучать изысканно и роскошно, либо, как сказал владелец Le Bristol в <strong>Париже</strong> в 1925 году, просто чтобы поддержать старую традицию, которая восходит к XVIII веку.</p>
+<h3 id="это-больше-чем-просто-название">Это больше, чем просто название</h3>
+<p>Это путешествие началось с простого вопроса об отеле Bristol в Осло, название которого казалось странным. Всё началось с одного отеля, но вскоре я стал наносить на карту названия по всему миру. То, что начиналось как просто названия городов, превратилось в историю о географии, брендинге и даже немного о старых европейских традициях. Вот краткое изложение того, что мы обнаружили:</p>
+<ol>
+<li><strong>Париж</strong> — город с наибольшим количеством названий отелей. Большинство из них находятся не в Париже — средний «парижский отель» находится в 22 км от реального города.</li>
+<li><strong>Вена</strong> заняла второе место. Но это не просто город — это также китайский гостиничный бренд с почти 1000 локациями, продающий изысканную, классическую европейскую фантазию.</li>
+<li><strong>Рим</strong> — третий, и оказывается, что отели по всей Италии любят называть себя в честь столицы. Расположение или стремление? Может быть, и то и другое.</li>
+</ol>
+<p>Всё это показывает, что названия отелей редко бывают случайными. Они продают местоположение, фантазию или — иногда — традицию.</p>
+<p>И да, кот вылез из мешка: существует более 200 отелей Bristol по всему миру, и причина уходит корнями в английского аристократа XVIII века, чьи предпочтения в отношении отелей превратились в традицию именования.</p>
+<p>Так что в следующий раз, когда вы обнаружите, что остановились в Лондоне в Уругвае, Риме в Лиссабоне или Барселоне в Мексике — вы будете знать, что за этим названием, вероятно, стоит нечто большее, чем кажется на первый взгляд. И теперь вы знаете, как начать раскрывать это.</p>
+<p><em>Все изображения и код в этой статье принадлежат автору.</em></p>
+
+    </div>
+
+    <div class="tags mt-8">
+      
+
+    </div>
+  </article>
+
+          
+            
+  </main>          
+
+    <script>
+
+        
+        
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const sidebar = document.querySelector('.sidebar');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+        
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                if (entry.isIntersecting) {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.add('active');
+                    });
+                } else {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.remove('active');
+                    });
+                }
+            });
+        }, observerOptions);
+        
+        
+        document.querySelectorAll('h2[id]').forEach(heading => {
+            observer.observe(heading);
+        });
+    </script>
+
+
+  <footer class="px-6 py-12 bg-sky-950 text-white/50">
+    
+<p>P9X.ru 2010 - 2025г. услуги интернет маркетинга</p>
+
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105149615', 'ym');
+
+    ym(105149615, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/105149615" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+  </footer>
+</body>
+</html>

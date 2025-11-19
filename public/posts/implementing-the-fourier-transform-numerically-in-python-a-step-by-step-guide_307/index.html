@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Численная реализация преобразования Фурье в Python: пошаговое руководство | На пути к науке о данных | Агентство контекстной рекламы</title>
+<meta name="description" content="">
+<meta name="yandex-verification" content="242f5a0ee52d5836" />
+
+<link rel="icon" type="image/x-icon" href="http://localhost:1313/favicon.ico">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+ <style>
+  .content h1 { 
+        font-size: 1.875rem; 
+        font-weight: bold; 
+        margin-bottom: 1rem; 
+    }
+    .content h2 { 
+        font-size: 1.5rem; 
+        font-weight: 600; 
+        margin-bottom: 0.75rem; 
+    }
+    .content h3 { 
+        font-size: 1.25rem; 
+        font-weight: 500; 
+        margin-bottom: 0.5rem; 
+    }
+    .content p { 
+        margin-bottom: 1rem; 
+    }
+    .content ul { 
+        list-style-type: disc; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content ol { 
+        list-style-type: decimal; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content a { 
+        color: #2563eb; 
+    }
+    .content a:hover { 
+        color: #1e40af; 
+    }
+    .content blockquote { 
+        border-left: 4px solid #d1d5db; 
+        padding-left: 1rem; 
+        font-style: italic; 
+    }
+
+    
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.875rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+.dark-mode .content table {
+    border: 1px solid #4b5563;
+}
+
+.content thead {
+    background-color: #eaebec;
+}
+
+.dark-mode .content thead {
+    background-color: #374151;
+}
+
+.content th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.dark-mode .content th {
+    color: #f9fafb;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content th:last-child {
+    border-right: none;  
+}
+
+.content td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    color: #6b7280;
+}
+
+.dark-mode .content td {
+    color: #d1d5db;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content td:last-child {
+    border-right: none;  
+}
+
+.content tbody tr {
+    transition: background-color 0.15s ease-in-out;
+}
+
+.content tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.dark-mode .content tbody tr:hover {
+    background-color: #374151;
+}
+
+.content tbody tr:last-child td {
+    border-bottom: none;
+}
+
+ 
+.content tbody tr:nth-child(even) {
+    background-color: #f4f5f7;
+}
+
+.dark-mode .content tbody tr:nth-child(even) {
+    background-color: #1f2937;
+}
+
+.dark-mode .content tbody tr:nth-child(even):hover {
+    background-color: #374151;
+}
+
+ 
+.content code:not(pre code) {
+    background-color: #f3f4f6;
+    color: #dc2626;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    font-weight: 500;
+    border: 1px solid #e5e7eb;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+}
+
+.dark-mode .content code:not(pre code) {
+    background-color: #224464;
+    color: #f87171;
+    border: 1px solid #4b5563;
+}
+
+ 
+.content pre {
+    background-color: #224464;
+    color: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid #374151;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.dark-mode .content pre {
+    background-color: #111827;
+    border: 1px solid #374151;
+}
+
+ 
+.content pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+    font-weight: normal;
+}
+
+ 
+.content pre code .keyword { color: #f472b6; }  
+.content pre code .function { color: #60a5fa; }  
+.content pre code .string { color: #34d399; }  
+.content pre code .comment { color: #9ca3af; font-style: italic; }  
+.content pre code .number { color: #fbbf24; }  
+.content pre code .class { color: #c084fc; }  
+.content pre code .operator { color: #93c5fd; }  
+
+ 
+.content pre::-webkit-scrollbar {
+    height: 6px;
+}
+
+.content pre::-webkit-scrollbar-track {
+    background: #374151;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.content pre::-webkit-scrollbar-thumb {
+    background: #6b7280;
+    border-radius: 3px;
+}
+
+.content pre::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+ 
+.content h1 code:not(pre code),
+.content h2 code:not(pre code),
+.content h3 code:not(pre code) {
+    font-size: 0.9em;
+    background-color: #fef2f2;
+    color: #dc2626;
+}
+
+.dark-mode .content h1 code:not(pre code),
+.dark-mode .content h2 code:not(pre code),
+.dark-mode .content h3 code:not(pre code) {
+    background-color: #7f1d1d;
+    color: #fca5a5;
+}
+
+ 
+.content a code:not(pre code) {
+    color: inherit;
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+.dark-mode .content a code:not(pre code) {
+    background-color: rgba(96, 165, 250, 0.2);
+}
+        :root {
+            --color-bg: #1a1a1a;
+            --color-text: #e6e6e6;
+            --color-accent: #6b7280;
+            --color-link: #9ca3af;
+            --color-link-hover: #d1d5db;
+        }
+        
+        .light-mode {
+            --color-bg: #f9fafb;
+            --color-text: #1f2937;
+            --color-accent: #6b7280;
+            --color-link: #4b5563;
+            --color-link-hover: #111827;
+        }
+        
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        a {
+            color: var(--color-link);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: var(--color-link-hover);
+        }
+        
+        .sidebar {
+            position: fixed;
+             
+            height: 100vh;
+            overflow-y: auto;
+            
+        }
+        
+        .main-content {
+            margin-left: 350px;
+            
+             
+        }
+        
+        .toc-container {
+            position: fixed;
+            right: 2rem;
+            top: 2rem;
+            width: 250px;
+            display: none;
+        }
+        
+        @media (min-width: 1280px) {
+            .toc-container {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 50;
+            }
+            
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+                 
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: fixed;
+                top: 1rem;
+                left: 1rem;
+                z-index: 100;
+            }
+        }
+        
+        .toc-link.active {
+            color: var(--color-link-hover);
+            font-weight: bold;
+        }
+        
+        .social-icons a {
+            margin-right: 0.5rem;
+        }
+        
+        pre {
+            background-color: rgba(107, 114, 128, 0.1);
+            padding: 1rem;
+            border-radius: 0.25rem;
+            overflow-x: auto;
+        }
+        
+        code {
+            font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+    </style>
+</head>
+  <body class="light-mode">
+      <header>
+    
+  </header>
+    
+    <button class="mobile-menu-btn p-2 bg-gray-800 text-white rounded md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+    
+    <aside class="sidebar border-r-4 border-sky-800  min-w-[350px] py-12 px-10 bg-gradient-to-br from-cyan-200 via-green-100 to-sky-100">
+        <div class="flex flex-col items-center mb-8">
+                
+            
+            <div class="w-24 h-24 mb-4 relative">
+                <a href="/">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ viewBox="0 0 550.000000 385.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,385.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M2780 3000 l0 -300 40 0 40 0 0 260 0 260 1165 0 1165 0 0 -1245 0
+-1245 -1165 0 -1165 0 0 260 0 260 -40 0 -40 0 0 -300 0 -300 1245 0 1245 0 0
+1325 0 1325 -1245 0 -1245 0 0 -300z"/>
+<path d="M700 1975 l0 -635 145 0 145 0 0 245 0 245 383 0 c422 0 426 1 491
+66 60 60 66 88 66 319 0 190 -2 214 -21 255 -25 56 -53 86 -104 113 -39 22
+-49 22 -572 25 l-533 3 0 -636z m940 245 l0 -100 -325 0 -325 0 0 100 0 100
+325 0 325 0 0 -100z"/>
+<path d="M2320 2601 c-69 -22 -112 -58 -146 -121 -17 -31 -19 -60 -19 -260 0
+-211 1 -227 22 -265 27 -51 68 -90 115 -109 32 -14 98 -16 438 -16 l400 0 0
+-245 0 -245 145 0 145 0 0 536 c0 373 -3 548 -11 575 -16 50 -61 105 -112 132
+-41 22 -48 22 -497 24 -250 1 -466 -2 -480 -6z m810 -381 l0 -100 -340 0 -340
+0 0 100 0 100 340 0 340 0 0 -100z"/>
+<path d="M3650 2607 c0 -1 99 -144 219 -317 l219 -314 -63 -91 c-34 -49 -133
+-191 -219 -315 l-157 -225 172 -3 c97 -1 176 2 183 7 6 5 72 97 146 205 74
+107 138 196 141 196 4 0 71 -92 149 -205 l143 -205 173 0 c96 0 174 2 174 4 0
+3 -95 141 -211 308 -116 167 -214 308 -216 315 -3 7 92 151 211 322 119 170
+216 312 216 315 0 3 -78 6 -174 6 l-174 0 -143 -205 c-78 -113 -145 -205 -149
+-205 -3 0 -70 92 -148 205 l-143 205 -174 0 c-96 0 -175 -1 -175 -3z"/>
+</g>
+</svg>
+</a>
+            </div>
+
+            <p class="text-xs text-center text-gray-500 max-w-[200px]">
+                Профессиональное агентство контекстной рекламы с опытом более 18 лет.
+
+            </p>
+        </div>
+
+        
+        <nav class="mb-8">
+          
+        
+            
+  <nav>
+    <ul>
+    <li class="text-lg font-semibold">
+      <a href="/">Контекстная реклама</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/analytics/">web-аналитика</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a aria-current="true" class="ancestor" href="/posts/">Блог</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/about/">О нас</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Категории</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/job/">Вакансии</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Кейсы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/calculators/">Калькуляторы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/contacts/">Контакты</a>
+    </li>
+    </ul>
+  </nav>
+
+           
+
+        </nav>
+
+        
+        <div class="social-icons  mt-auto">
+<div>
+
+<a href="https://t.me/your_link" target="_blank" class="inline-flex 
+items-center justify-center px-3 py-3 text-white bg-[#2AABEE] font-medium text-sm rounded 
+shadow-md hover:bg-[#279fd9] 
+hover:shadow-lg focus:bg-[#2493c8] 
+focus:shadow-lg focus:outline-none 
+focus:ring-0 active:bg-[#2185b3] active:shadow-lg transition duration-150 ease-in-out">
+  
+     
+<svg width="25px" height="25px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" 
+fill="#fff" class="bi bi-telegram pr-1">
+  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>
+</svg>
+                            
+  
+  Открыть в Telegram
+</a>
+
+</div>
+            <div class="pt-6 flex gap-1 justify-left items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                sale@p9x.ru
+            </div>
+        </div>
+        
+        
+        <div class="mt-8 pt-4 text-xs text-gray-500 border-t border-gray-700">
+            <p>Powered by <a href="#" class="hover:underline">Hugo</a> | Themed with <a href="#" class="hover:underline">poison</a></p>
+            <p>© 2010 - 2025 Poison. All rights reserved.</p>
+        </div>
+    </aside>
+
+  <main class="main-content bg-white">
+ 
+            
+            
+  <article class="prose prose-lg py-8 px-4 max-w-[1200px]">
+    <h1 class="text-2xl font-bold mb-4">
+            Численная реализация преобразования Фурье в Python: пошаговое руководство
+    </h1>
+
+    
+    
+    <time class="block mb-6 text-gray-500" datetime="2025-11-19T22:09:56&#43;00:00">November 19, 2025</time>
+
+    <div class="content mb-8 ">
+      <h3 id="чтобы-извлечь-максимум-пользы-из-этой-статьи-вам-следует-иметь-базовое-представление-об-интегралах-и-преобразовании-фурье-а-также-о-его-свойствах">Чтобы извлечь максимум пользы из этой статьи, вам следует иметь базовое представление об <strong>интегралах</strong> и <strong>преобразовании Фурье</strong>, а также о его свойствах.</h3>
+<p>Если у вас нет таких знаний, мы рекомендуем ознакомиться с <strong>разделом 1</strong>, где эти понятия рассматриваются. Если вы уже знакомы с ними, вы можете перейти сразу к <strong>разделу 2</strong>.</p>
+<p>В <strong>разделе 2.1</strong> мы реализуем <strong>преобразование Фурье</strong>, используя <strong>метод численной квадратуры</strong>. В <strong>разделе 2.2</strong> мы реализуем его с помощью алгоритма <strong>быстрого преобразования Фурье (БПФ)</strong> и <strong>формулы интерполяции Шеннона</strong>.</p>
+<h3 id="эта-статья-попала-к-нам-на-последнем-курсе-инженерного-факультета">Эта статья попала к нам на последнем курсе инженерного факультета.</h3>
+<p>В рамках курса по <strong>калибровке стохастических процессов</strong> наш профессор хотел проверить понимание материала. Для этого нам было предложено выбрать научную статью, подробно изучить её и воспроизвести результаты.</p>
+<p>Мы выбрали статью Эль Колеи (2013), в которой предлагается <strong>параметрический метод</strong> оценки параметров <strong>модели стохастической волатильности</strong>, такой как модель GARCH. Подход основан на <strong>минимизации контраста</strong> и <strong>деконволюции</strong>.</p>
+<p>Чтобы воспроизвести результаты, нам нужно было реализовать <strong>метод оптимизации</strong>, который включал вычисление <strong>преобразования Фурье</strong> функции $f_\theta$:</p>
+<p>Для вычисления преобразования Фурье функции $f_\theta$ Эль Колеи (2013) использовал <strong>метод левой римановой суммы</strong> (также известный как прямоугольная квадратура), реализованный в MATLAB. В статье предполагалось, что использование алгоритма <strong>быстрого преобразования Фурье (БПФ)</strong> может ускорить вычисления.</p>
+<p>Мы решили воспроизвести результаты, используя <strong>Python</strong>, и реализовали метод левой прямоугольной квадратуры, чтобы проверить, действительно ли это ускоряет вычисления.</p>
+<h3 id="1-определение-и-свойства-преобразования-фурье">1. Определение и свойства преобразования Фурье</h3>
+<p>Мы принимаем рамки, представленные Балаком (2011), чтобы определить преобразование Фурье функции $f$ и ввести его свойства.</p>
+<p>Мы рассматриваем функции, которые принадлежат пространству интегрируемых функций, обозначаемому $L^1(\mathbb{R}, \mathbb{K})$. Это пространство включает все функции $f: \mathbb{R} \to \mathbb{K}$, где $\mathbb{K}$ представляет либо действительные числа ($\mathbb{R}$), либо комплексные числа ($\mathbb{C}$).</p>
+<p>Эти функции интегрируемы в смысле Лебега, что означает, что интеграл от их абсолютного значения конечен.</p>
+<h3 id="2-как-численно-аппроксимировать-преобразование-фурье">2. Как численно аппроксимировать преобразование Фурье?</h3>
+<p>В своей статье Балак (2011) показывает, что вычисление преобразования Фурье функции включает в себя аппроксимацию его следующим интегралом по интервалу $[-T/2, T/2]$:</p>
+<p>Где $T$ — достаточно большое число, чтобы интеграл сходился. Приближённое значение интеграла $S(\nu)$ можно вычислить с помощью <strong>методов квадратуры</strong>.</p>
+<p>В следующем разделе мы аппроксимируем этот интеграл с помощью <strong>метода левой прямоугольной квадратуры</strong> (также известного как <strong>метод левой римановой суммы</strong>).</p>
+<h4 id="21-метод-квадратуры-левых-прямоугольников">2.1 Метод квадратуры левых прямоугольников</h4>
+<p>Чтобы вычислить интеграл $S(\nu)$ с помощью <strong>метода левой прямоугольной квадратуры</strong>, мы поступаем следующим образом:</p>
+<ol>
+<li>
+<p><strong>Дискретизация интервала.</strong> Мы делим интервал $[-T/2, T/2]$ на $N$ равномерных подотрезков длины $h_t = T/N$.</p>
+<p>Точки дискретизации, соответствующие <strong>левым концам</strong> подотрезков, определяются как:</p>
+<p>$t_k = -T/2 + h_t, \text{ для } k = 0, 1, \ldots, N-1.$</p>
+</li>
+<li>
+<p><strong>Аппроксимация интеграла.</strong> Используя <strong>отношение Шале</strong>, мы аппроксимируем интеграл $S(\nu)$ следующим образом:</p>
+<p>$S(\nu) \approx \sum_{k=0}^{N-1} f(t_k) h_t e^{-2i\pi \nu t_k}.$</p>
+<p>Поскольку $t_{k+1} - t_k = h_t$ и $t_k = -T/2 + k \cdot h_t = T(k/N - 1/2)$, выражение принимает вид:</p>
+<p>$S(\nu) \approx T \sum_{k=0}^{N-1} f(t_k) e^{-2i\pi \nu T k/N}.$</p>
+<p>Мы называем этот подход методом левой прямоугольной квадратуры, потому что он использует <strong>левый конец</strong> $t_k$ каждого подотрезка для аппроксимации значения $f(t)$ в этом интервале.</p>
+</li>
+<li>
+<p><strong>Окончательная формула.</strong> Окончательное выражение для аппроксимации преобразования Фурье имеет вид:</p>
+<p>$\hat{f}(\nu) \approx T \sum_{k=0}^{N-1} f(t_k) e^{-2i\pi \nu T k/N}.$</p>
+</li>
+</ol>
+<h3 id="211-реализация-метода-левой-прямоугольной-квадратуры-в-python">2.1.1 Реализация метода левой прямоугольной квадратуры в Python</h3>
+<p>Функция <code>tfquad</code> ниже реализует <strong>метод левой прямоугольной квадратуры</strong> для вычисления <strong>преобразования Фурье</strong> функции $f$ при заданной частоте $\nu$.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">tfquad</span>(f, nu, n, T):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Вычисляет преобразование Фурье функции f при частоте nu
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    с использованием левой римановой суммы квадратуры
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    над интервалом [-T/2, T/2].
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Параметры:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    ----------
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    f : callable
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        Функция для преобразования. Должна принимать массив NumPy в качестве входных данных.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    nu : float
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        Частота, при которой вычисляется преобразование Фурье.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    n : int
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        Количество точек квадратуры.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    T : float
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        Ширина временного окна [-T/2, T/2].
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Возвращает:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    -------
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    tfnu : complex
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        Приближённое значение преобразования Фурье при частоте nu.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    k <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(n)
+</span></span><span style="display:flex;"><span>    t_k <span style="color:#f92672">=</span> (k <span style="color:#f92672">/</span> n <span style="color:#f92672">-</span> <span style="color:#ae81ff">0.5</span>) <span style="color:#f92672">*</span> T
+</span></span><span style="display:flex;"><span>    weights <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>exp(<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>j <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>pi <span style="color:#f92672">*</span> nu <span style="color:#f92672">*</span> T <span style="color:#f92672">*</span> k <span style="color:#f92672">/</span> n)
+</span></span><span style="display:flex;"><span>    prefactor <span style="color:#f92672">=</span> (T <span style="color:#f92672">/</span> n) <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>exp(<span style="color:#ae81ff">1</span>j <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>pi <span style="color:#f92672">*</span> nu <span style="color:#f92672">*</span> T)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> prefactor <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>sum(f(t_k) <span style="color:#f92672">*</span> weights)
+</span></span></code></pre></div><p>Мы также можем использовать функцию <code>quad</code> из SciPy для определения <strong>преобразования Фурье</strong> функции $f$ при заданной частоте $\nu$. Функция <code>tf_integral</code> ниже реализует этот подход. Она использует численное интегрирование для вычисления преобразования Фурье $f$ по интервалу $[-T/2, T/2]$.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> scipy.integrate <span style="color:#f92672">import</span> quad
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">tf_integral</span>(f, nu, T):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Вычисляет FT функции f при частоте nu над [-T/2, T/2] с помощью scipy quad.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    real_part <span style="color:#f92672">=</span> quad(<span style="color:#66d9ef">lambda</span> t: np<span style="color:#f92672">.</span>real(f(t) <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>exp(<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>j <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>pi <span style="color:#f92672">*</span> nu <span style="color:#f92672">*</span> t)), <span style="color:#f92672">-</span>T<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>, T<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>)[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>    imag_part <span style="color:#f92672">=</span> quad(<span style="color:#66d9ef">lambda</span> t: np<span style="color:#f92672">.</span>imag(f(t) <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>exp(<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>j <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>pi <span style="color:#f92672">*</span> nu <span style="color:#f92672">*</span> t)), <span style="color:#f92672">-</span>T<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>, T<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>)[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> real_part <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>j <span style="color:#f92672">*</span> imag_part
+</span></span></code></pre></div><h3 id="22-вычисление-преобразования-фурье-при-частоте-nu-с-помощью-алгоритма-бпф">2.2 Вычисление преобразования Фурье при частоте $\nu$ с помощью алгоритма БПФ</h3>
+<p>В этом разделе мы обозначаем приближение преобразования Фурье $f(\nu)$ функции $f$ при точке $\nu \in [-\nu_{max}/2, \nu_{max}/2]$ как $\hat{S}<em>n(\nu)$, где $\nu</em>{max} = n/T$.</p>
+<p>Теперь я представляю <strong>алгоритм преобразования Фурье</strong>, используемый для аппроксимации $f(\nu)$. Я не буду вдаваться в подробности <strong>алгоритма быстрого преобразования Фурье (БПФ)</strong> в этой статье. Для упрощённого объяснения я ссылаюсь на <strong>Балака (2011)</strong>, а для более технического и всестороннего рассмотрения — на <strong>оригинальную работу Кули и Туки (1965)</strong>.</p>
+<p>Важно понимать, что использование <strong>алгоритма БПФ</strong> для аппроксимации преобразования Фурье функции $f$ основано на результате, установленном <strong>Эпштейном (2005)</strong>. Этот результат гласит, что когда $\hat{S}_n(\nu)$ оценивается на частотах $v_j = j/T$, для $j = 0, 1, \ldots, n - 1$, он обеспечивает хорошую аппроксимацию непрерывного преобразования Фурье $f(\nu)$.</p>
+<p>Более того, $\hat{S}_n$ известно как <strong>периодическое</strong>. Эта периодичность присваивает симметричную роль индексам $j \in {0, 1, \ldots, n - 1}$ и $k \in {-n/2, -n/2 + 1, \ldots, -1}$.</p>
+<p>В следующем разделе мы рассмотрим, как использовать <strong>интерполяцию Шеннона</strong> для вычисления преобразования Фурье функции $f$ при любой частоте $\nu$.</p>
+<h3 id="заключение">Заключение</h3>
+<p>В этой статье мы рассмотрели два метода аппроксимации преобразования Фурье функции. Первый — это <strong>метод численной квадратуры</strong> (метод левой прямоугольной квадратуры), а второй — <strong>алгоритм быстрого преобразования Фурье (БПФ)</strong>.</p>
+<p>Мы показали, что, в отличие от встроенных функций <code>fft</code> в SciPy или NumPy, БПФ можно адаптировать для вычисления преобразования Фурье непрерывной функции путём правильной формулировки.</p>
+<p>Наша реализация основана на работе <strong>Балака (2013)</strong>, который продемонстрировал, как воспроизвести вычисление БПФ в Python. Мы также представили <strong>теорему интерполяции Шеннона</strong>, которая позволяет нам оценить преобразование Фурье любой функции на $\mathbb{R}$ при произвольных частотах.</p>
+<p>Эта интерполяция может быть заменена более традиционными подходами, такими как <strong>линейная</strong> или <strong>сплайн-интерполяция</strong>, когда это уместно.</p>
+<p>Наконец, важно отметить, что когда требуется преобразование Фурье на <strong>одной частоте</strong>, часто более эффективно вычислять его напрямую с помощью <strong>метода численной квадратуры</strong>. Такие методы хорошо подходят для обработки колебательной природы интеграла Фурье и могут быть более точными, чем применение БПФ, а затем интерполяция.</p>
+<h3 id="список-литературы">Список литературы</h3>
+<p>Balac, Stéphane. 2011. “La Transformée de Fourier Vue Sous l’angle Du Calcul Numérique.”</p>
+<p>Cooley, James W, and John W Tukey. 1965. “An Algorithm for the Machine Calculation of Complex Fourier Series.” <em>Mathematics of Computation</em> 19 (90): 297–301.</p>
+<p>El Kolei, Salima. 2013. “Parametric Estimation of Hidden Stochastic Model by Contrast Minimization and Deconvolution: Application to the Stochastic Volatility Model.” <em>Metrika</em> 76 (8): 1031–81.</p>
+<p>Epstein, Charles L. 2005. “How Well Does the Finite Fourier Transform Approximate the Fourier Transform?” <em>Communications on Pure and Applied Mathematics: A Journal Issued by the Courant Institute of Mathematical Sciences</em> 58 (10): 1421–35.</p>
+<p>M. Crouzeix and A.L. Mignot. Analyse numérique des équations différentielles. Collection mathématiques appliquées pour la maîtrise. Masson, 1992.</p>
+<p>A.M. Quarteroni, J.F. Gerbeau, R. Sacco, and F. Saleri. Méthodes numériques pour le calcul scientifique : Programmes en MATLAB. Collection IRIS. Springer Paris, 2000.</p>
+<p>A. Iserles and S. Norsett. On quadrature methods for highly oscillatory integrals and their implementation. BIT Numerical Mathematics, 44 :755–772, 2004.</p>
+<p>A. Iserles and S. Norsett. Efficient quadrature of highly oscillatory integrals using derivatives. Proc. R. Soc. A, 461 :1383–1399, 2005.</p>
+
+    </div>
+
+    <div class="tags mt-8">
+      
+
+    </div>
+  </article>
+
+          
+            
+  </main>          
+
+    <script>
+
+        
+        
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const sidebar = document.querySelector('.sidebar');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+        
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                if (entry.isIntersecting) {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.add('active');
+                    });
+                } else {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.remove('active');
+                    });
+                }
+            });
+        }, observerOptions);
+        
+        
+        document.querySelectorAll('h2[id]').forEach(heading => {
+            observer.observe(heading);
+        });
+    </script>
+
+
+  <footer class="px-6 py-12 bg-sky-950 text-white/50">
+    
+<p>P9X.ru 2010 - 2025г. услуги интернет маркетинга</p>
+
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105149615', 'ym');
+
+    ym(105149615, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/105149615" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+  </footer>
+</body>
+</html>

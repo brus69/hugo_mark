@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Формирование конвейера B2B на основе данных: Изучение рекламных каналов | Агентство контекстной рекламы</title>
+<meta name="description" content="Узнайте, как медийная реклама, платный поиск и платная социальная реклама влияют на формирование B2B-канала. Наш корреляционный анализ выявил оптимальное распределение каналов и синергию для достижения максимальной рентабельности инвестиций.">
+<meta name="yandex-verification" content="242f5a0ee52d5836" />
+
+<link rel="icon" type="image/x-icon" href="http://localhost:1313/favicon.ico">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+ <style>
+  .content h1 { 
+        font-size: 1.875rem; 
+        font-weight: bold; 
+        margin-bottom: 1rem; 
+    }
+    .content h2 { 
+        font-size: 1.5rem; 
+        font-weight: 600; 
+        margin-bottom: 0.75rem; 
+    }
+    .content h3 { 
+        font-size: 1.25rem; 
+        font-weight: 500; 
+        margin-bottom: 0.5rem; 
+    }
+    .content p { 
+        margin-bottom: 1rem; 
+    }
+    .content ul { 
+        list-style-type: disc; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content ol { 
+        list-style-type: decimal; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content a { 
+        color: #2563eb; 
+    }
+    .content a:hover { 
+        color: #1e40af; 
+    }
+    .content blockquote { 
+        border-left: 4px solid #d1d5db; 
+        padding-left: 1rem; 
+        font-style: italic; 
+    }
+
+    
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.875rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+.dark-mode .content table {
+    border: 1px solid #4b5563;
+}
+
+.content thead {
+    background-color: #eaebec;
+}
+
+.dark-mode .content thead {
+    background-color: #374151;
+}
+
+.content th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.dark-mode .content th {
+    color: #f9fafb;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content th:last-child {
+    border-right: none;  
+}
+
+.content td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    color: #6b7280;
+}
+
+.dark-mode .content td {
+    color: #d1d5db;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content td:last-child {
+    border-right: none;  
+}
+
+.content tbody tr {
+    transition: background-color 0.15s ease-in-out;
+}
+
+.content tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.dark-mode .content tbody tr:hover {
+    background-color: #374151;
+}
+
+.content tbody tr:last-child td {
+    border-bottom: none;
+}
+
+ 
+.content tbody tr:nth-child(even) {
+    background-color: #f4f5f7;
+}
+
+.dark-mode .content tbody tr:nth-child(even) {
+    background-color: #1f2937;
+}
+
+.dark-mode .content tbody tr:nth-child(even):hover {
+    background-color: #374151;
+}
+
+ 
+.content code:not(pre code) {
+    background-color: #f3f4f6;
+    color: #dc2626;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    font-weight: 500;
+    border: 1px solid #e5e7eb;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+}
+
+.dark-mode .content code:not(pre code) {
+    background-color: #224464;
+    color: #f87171;
+    border: 1px solid #4b5563;
+}
+
+ 
+.content pre {
+    background-color: #224464;
+    color: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid #374151;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.dark-mode .content pre {
+    background-color: #111827;
+    border: 1px solid #374151;
+}
+
+ 
+.content pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+    font-weight: normal;
+}
+
+ 
+.content pre code .keyword { color: #f472b6; }  
+.content pre code .function { color: #60a5fa; }  
+.content pre code .string { color: #34d399; }  
+.content pre code .comment { color: #9ca3af; font-style: italic; }  
+.content pre code .number { color: #fbbf24; }  
+.content pre code .class { color: #c084fc; }  
+.content pre code .operator { color: #93c5fd; }  
+
+ 
+.content pre::-webkit-scrollbar {
+    height: 6px;
+}
+
+.content pre::-webkit-scrollbar-track {
+    background: #374151;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.content pre::-webkit-scrollbar-thumb {
+    background: #6b7280;
+    border-radius: 3px;
+}
+
+.content pre::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+ 
+.content h1 code:not(pre code),
+.content h2 code:not(pre code),
+.content h3 code:not(pre code) {
+    font-size: 0.9em;
+    background-color: #fef2f2;
+    color: #dc2626;
+}
+
+.dark-mode .content h1 code:not(pre code),
+.dark-mode .content h2 code:not(pre code),
+.dark-mode .content h3 code:not(pre code) {
+    background-color: #7f1d1d;
+    color: #fca5a5;
+}
+
+ 
+.content a code:not(pre code) {
+    color: inherit;
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+.dark-mode .content a code:not(pre code) {
+    background-color: rgba(96, 165, 250, 0.2);
+}
+        :root {
+            --color-bg: #1a1a1a;
+            --color-text: #e6e6e6;
+            --color-accent: #6b7280;
+            --color-link: #9ca3af;
+            --color-link-hover: #d1d5db;
+        }
+        
+        .light-mode {
+            --color-bg: #f9fafb;
+            --color-text: #1f2937;
+            --color-accent: #6b7280;
+            --color-link: #4b5563;
+            --color-link-hover: #111827;
+        }
+        
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        a {
+            color: var(--color-link);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: var(--color-link-hover);
+        }
+        
+        .sidebar {
+            position: fixed;
+             
+            height: 100vh;
+            overflow-y: auto;
+            
+        }
+        
+        .main-content {
+            margin-left: 350px;
+            
+             
+        }
+        
+        .toc-container {
+            position: fixed;
+            right: 2rem;
+            top: 2rem;
+            width: 250px;
+            display: none;
+        }
+        
+        @media (min-width: 1280px) {
+            .toc-container {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 50;
+            }
+            
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+                 
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: fixed;
+                top: 1rem;
+                left: 1rem;
+                z-index: 100;
+            }
+        }
+        
+        .toc-link.active {
+            color: var(--color-link-hover);
+            font-weight: bold;
+        }
+        
+        .social-icons a {
+            margin-right: 0.5rem;
+        }
+        
+        pre {
+            background-color: rgba(107, 114, 128, 0.1);
+            padding: 1rem;
+            border-radius: 0.25rem;
+            overflow-x: auto;
+        }
+        
+        code {
+            font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+    </style>
+</head>
+  <body class="light-mode">
+      <header>
+    
+  </header>
+    
+    <button class="mobile-menu-btn p-2 bg-gray-800 text-white rounded md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+    
+    <aside class="sidebar border-r-4 border-sky-800  min-w-[350px] py-12 px-10 bg-gradient-to-br from-cyan-200 via-green-100 to-sky-100">
+        <div class="flex flex-col items-center mb-8">
+                
+            
+            <div class="w-24 h-24 mb-4 relative">
+                <a href="/">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ viewBox="0 0 550.000000 385.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,385.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M2780 3000 l0 -300 40 0 40 0 0 260 0 260 1165 0 1165 0 0 -1245 0
+-1245 -1165 0 -1165 0 0 260 0 260 -40 0 -40 0 0 -300 0 -300 1245 0 1245 0 0
+1325 0 1325 -1245 0 -1245 0 0 -300z"/>
+<path d="M700 1975 l0 -635 145 0 145 0 0 245 0 245 383 0 c422 0 426 1 491
+66 60 60 66 88 66 319 0 190 -2 214 -21 255 -25 56 -53 86 -104 113 -39 22
+-49 22 -572 25 l-533 3 0 -636z m940 245 l0 -100 -325 0 -325 0 0 100 0 100
+325 0 325 0 0 -100z"/>
+<path d="M2320 2601 c-69 -22 -112 -58 -146 -121 -17 -31 -19 -60 -19 -260 0
+-211 1 -227 22 -265 27 -51 68 -90 115 -109 32 -14 98 -16 438 -16 l400 0 0
+-245 0 -245 145 0 145 0 0 536 c0 373 -3 548 -11 575 -16 50 -61 105 -112 132
+-41 22 -48 22 -497 24 -250 1 -466 -2 -480 -6z m810 -381 l0 -100 -340 0 -340
+0 0 100 0 100 340 0 340 0 0 -100z"/>
+<path d="M3650 2607 c0 -1 99 -144 219 -317 l219 -314 -63 -91 c-34 -49 -133
+-191 -219 -315 l-157 -225 172 -3 c97 -1 176 2 183 7 6 5 72 97 146 205 74
+107 138 196 141 196 4 0 71 -92 149 -205 l143 -205 173 0 c96 0 174 2 174 4 0
+3 -95 141 -211 308 -116 167 -214 308 -216 315 -3 7 92 151 211 322 119 170
+216 312 216 315 0 3 -78 6 -174 6 l-174 0 -143 -205 c-78 -113 -145 -205 -149
+-205 -3 0 -70 92 -148 205 l-143 205 -174 0 c-96 0 -175 -1 -175 -3z"/>
+</g>
+</svg>
+</a>
+            </div>
+
+            <p class="text-xs text-center text-gray-500 max-w-[200px]">
+                Профессиональное агентство контекстной рекламы с опытом более 18 лет.
+
+            </p>
+        </div>
+
+        
+        <nav class="mb-8">
+          
+        
+            
+  <nav>
+    <ul>
+    <li class="text-lg font-semibold">
+      <a href="/">Контекстная реклама</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/analytics/">web-аналитика</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a aria-current="true" class="ancestor" href="/posts/">Блог</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/about/">О нас</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Категории</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/job/">Вакансии</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Кейсы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/calculators/">Калькуляторы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/contacts/">Контакты</a>
+    </li>
+    </ul>
+  </nav>
+
+           
+
+        </nav>
+
+        
+        <div class="social-icons  mt-auto">
+<div>
+
+<a href="https://t.me/your_link" target="_blank" class="inline-flex 
+items-center justify-center px-3 py-3 text-white bg-[#2AABEE] font-medium text-sm rounded 
+shadow-md hover:bg-[#279fd9] 
+hover:shadow-lg focus:bg-[#2493c8] 
+focus:shadow-lg focus:outline-none 
+focus:ring-0 active:bg-[#2185b3] active:shadow-lg transition duration-150 ease-in-out">
+  
+     
+<svg width="25px" height="25px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" 
+fill="#fff" class="bi bi-telegram pr-1">
+  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>
+</svg>
+                            
+  
+  Открыть в Telegram
+</a>
+
+</div>
+            <div class="pt-6 flex gap-1 justify-left items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                sale@p9x.ru
+            </div>
+        </div>
+        
+        
+        <div class="mt-8 pt-4 text-xs text-gray-500 border-t border-gray-700">
+            <p>Powered by <a href="#" class="hover:underline">Hugo</a> | Themed with <a href="#" class="hover:underline">poison</a></p>
+            <p>© 2010 - 2025 Poison. All rights reserved.</p>
+        </div>
+    </aside>
+
+  <main class="main-content bg-white">
+ 
+            
+            
+  <article class="prose prose-lg py-8 px-4 max-w-[1200px]">
+    <h1 class="text-2xl font-bold mb-4">
+            Корреляционный анализ: Как управлять конвейерной генерацией
+    </h1>
+
+    
+    
+    <time class="block mb-6 text-gray-500" datetime="2025-11-19T22:53:35&#43;00:00">November 19, 2025</time>
+
+    <div class="content mb-8 ">
+      <h3 id="в-demandbase-мы-не-боимся-рисковать--мы-здесь-чтобы-помочь-командам-b2b-побеждать">В Demandbase мы не боимся рисковать — мы здесь, чтобы помочь командам B2B побеждать</h3>
+<p>Именно поэтому мы работали с Alcamo, чтобы разобраться, что на самом деле нужно для достижения результатов в маркетинге. Результаты нашего всестороннего корреляционного анализа опровергли некоторые предположения и выявили действенные стратегии, позволяющие эффективно использовать каждый маркетинговый доллар.</p>
+<p>Изучая, как дисплейная, платная поисковая и платная социальная реклама влияют на маркетинговую воронку, этот анализ открывает новые возможности для понимания сильных сторон каналов, их взаимодействия и времени. Если вы готовы переосмыслить, что такое успех в B2B-маркетинге, вот всё, что вам нужно знать.</p>
+<h3 id="что-мы-сделали-и-почему-это-важно">Что мы сделали и почему это важно</h3>
+<p>Традиционный маркетинговый анализ предполагает мгновенные результаты от кампаний, но мы знаем, что это не так. Часто существует задержка между взаимодействием потенциального клиента с рекламой и его продвижением по воронке. Чтобы получить точную картину, мы провели <strong>многоканальный лаговый корреляционный анализ</strong>.</p>
+<p>Этот подход измерял, как метрики верхней части воронки (такие как показы, клики и расходы) влияли на результаты нижней части воронки (лиды, квалифицированные лиды, возможности и пайплайн) с различными временными задержками — от 1 до 90 дней. С более чем 300 днями данных по каналам мы точно определили, как каждый канал влияет на воронку и когда.</p>
+<h4 id="почему-это-важно">Почему это важно</h4>
+<p>Понимание временной задержки между действиями и результатами позволяет планировать кампании с высокой точностью. Это даёт вам возможность оптимизировать роль каждого канала в генерации пайплайна, обеспечивая эффективность каждой точки контакта.</p>
+<h4 id="важный-контекст">Важный контекст</h4>
+<p>Этот анализ показывает интересные закономерности в том, как маркетинговые каналы связаны с результатами продаж, но у него есть важные ограничения. Мы обнаружили корреляции, а не причины, между маркетинговыми действиями и результатами, на которые могли повлиять факторы, которые мы не измеряли. Данные, которые использовались, также имели ограничения: показатели пайплайна были ежемесячными значениями, распределёнными по дневным записям, что делает точные выводы о времени полезными для руководства, а не для фактов.</p>
+<p>Доверительный уровень этого анализа считался умеренным. Эти выводы следует рассматривать как обоснованные гипотезы, а не как доказанные факты. Рекомендуется проверить эти идеи с помощью контролируемых экспериментов, чтобы подтвердить, какие отношения действительно представляют собой причинно-следственную связь, а не случайные закономерности в данных.</p>
+<h4 id="ключевые-выводы">Ключевые выводы</h4>
+<p><strong>1. Дисплейная реклама — это драйвер генерации пайплайна</strong></p>
+<p>Забудьте о старом убеждении, что дисплейная реклама нужна только для повышения узнаваемости. Анализ доказал, что <strong>дисплейная реклама способствует генерации пайплайна с самой сильной корреляцией (0,69)</strong>. Вот что делает эту статистику такой мощной:</p>
+<ul>
+<li><strong>Влияние на пайплайн за 7 дней:</strong> дисплей влияет на нижние показатели воронки, такие как возможности и пайплайн, всего за неделю.</li>
+<li><strong>Показы важнее кликов:</strong> видимость сама по себе приводит к результатам. Показы — не клики — являются самым сильным предиктором успеха для дисплейных кампаний.</li>
+<li><strong>Доминирование в возможностях и пайплайне:</strong> дисплей выделяется как ведущий канал для создания возможностей и продвижения пайплайна.</li>
+</ul>
+<blockquote>
+<p><strong>Практический совет:</strong> увеличьте количество показов в рекламе, чтобы увидеть быстрый, измеримый эффект на возможности и пайплайн.</p>
+</blockquote>
+<p><strong>2. Платный поиск отлично подходит для генерации лидов</strong></p>
+<p>Платный поиск продемонстрировал своё законное место в верхней части воронки, доминируя в генерации лидов. С учётом того, что показы демонстрируют немедленное влияние (всего за 1 день), этот канал уникально эффективен для охвата потенциальных клиентов в режиме активного поиска.</p>
+<p>Платный поиск также показал свою ценность не только в лидогенерации, но и в сильном влиянии на CTR (0,56) на этапах пайплайна после более длительной задержки в 60 дней.</p>
+<blockquote>
+<p><strong>Практический совет:</strong> используйте платный поиск для захвата лидов с высокой вовлечённостью и будьте готовы к быстрому росту результатов.</p>
+</blockquote>
+<p><strong>3. Синергия между каналами способствует достижению результатов</strong></p>
+<p>Ни один канал не является изолированным. Анализ показал, что дисплейная и платная социальная реклама работают лучше вместе, усиливая сильные стороны друг друга для достижения большего эффекта. С корреляцией синергии 0,66 эти каналы доказали, что скоординированные кампании обеспечивают более высокую производительность.</p>
+<p>Платная социальная реклама также принесла свою пользу, особенно благодаря эффективным показам и способности поддерживать прогресс в средней части воронки.</p>
+<blockquote>
+<p><strong>Практический совет:</strong> координируйте усилия по дисплейной и платной социальной рекламе для достижения максимальной синергии. Планируйте обмен сообщениями и время, чтобы дополнить сильные стороны каждого канала.</p>
+</blockquote>
+<p><strong>4. Впечатления имеют наибольшее значение</strong></p>
+<p>По всем каналам одно из наблюдений стало очевидным: <strong>впечатления приводят к результатам более эффективно, чем клики</strong>.</p>
+<p>Это опровергает представление о том, что вовлечённость сама по себе определяет успех. С учётом того, что показы опережают клики на каждом этапе воронки, анализ доказывает, что широкая видимость создаёт основу для ускорения пайплайна.</p>
+<blockquote>
+<p><strong>Практический совет:</strong> измените ключевые показатели эффективности вашего канала, чтобы отдать приоритет росту показов. Разрабатывайте кампании для максимизации видимости, а не сосредотачивайтесь исключительно на метриках, основанных на кликах.</p>
+</blockquote>
+<p><strong>5. Время имеет решающее значение</strong></p>
+<p>Когда дело доходит до планирования кампании, время имеет решающее значение. Анализ разбил время воздействия каждого канала, показав, как планировать кампании для достижения оптимальных результатов.</p>
+<ul>
+<li><strong>Платный поиск:</strong> начните первым, примерно за 45 дней до целевой даты. Его сила заключается в генерации лидов и квалификации потенциальных клиентов на раннем этапе.</li>
+<li><strong>Платная социальная реклама:</strong> запустите кампании с платной социальной рекламой за 21 день до вашей цели. Этот канал хорошо работает на средних этапах, создавая основу для успеха.</li>
+<li><strong>Дисплейная реклама:</strong> завершите с дисплеем, который влияет на возможности и пайплайн всего за 7 дней до запуска.</li>
+</ul>
+<blockquote>
+<p><strong>Практический совет:</strong> используйте эту временную шкалу для последовательности кампаний для достижения максимальной эффективности и воздействия.</p>
+</blockquote>
+<h3 id="как-максимально-использовать-эти-идеи">Как максимально использовать эти идеи</h3>
+<p>Знания о том, что работает, недостаточно. Ключ в том, чтобы использовать эти идеи. Вот как ваша команда может действовать прямо сейчас:</p>
+<p><strong>1. Сосредоточьтесь на сильных сторонах каждого канала:</strong></p>
+<ul>
+<li>Увеличьте количество показов в рекламе для быстрого увеличения пайплайна.</li>
+<li>Используйте платный поиск для быстрой генерации лидов и долгосрочного вклада в воронку.</li>
+<li>Повышайте эффективность с помощью платной социальной рекламы и сочетайте её с дисплейной.</li>
+</ul>
+<table>
+  <thead>
+      <tr>
+          <th>Этап воронки</th>
+          <th>Лучший канал</th>
+          <th>Ключевой показатель</th>
+          <th>Самое раннее время воздействия</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Генерация лидов</td>
+          <td>Платный поиск</td>
+          <td>Показы</td>
+          <td>1 день</td>
+      </tr>
+      <tr>
+          <td>Квалификация (QRs)</td>
+          <td>Платный поиск</td>
+          <td>Показы</td>
+          <td>1 день</td>
+      </tr>
+      <tr>
+          <td>Возможности</td>
+          <td>Дисплейная реклама</td>
+          <td>Показы</td>
+          <td>7 дней</td>
+      </tr>
+      <tr>
+          <td>Пайплайн (под влиянием)</td>
+          <td>Дисплейная реклама</td>
+          <td>Показы</td>
+          <td>7 дней</td>
+      </tr>
+      <tr>
+          <td>Пайплайн (приписанный)</td>
+          <td>Дисплейная реклама</td>
+          <td>Показы</td>
+          <td>7 дней</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>2. Никогда не работайте изолированно:</strong></p>
+<ul>
+<li>Обеспечьте согласование между каналами, чтобы воспользоваться преимуществами синергии.</li>
+<li>Планируйте кампании совместно, чтобы максимизировать общий эффект.</li>
+</ul>
+<p><strong>3. Последовательность для достижения успеха:</strong></p>
+<ul>
+<li>Начните с платного поиска, затем переходите к платной социальной рекламе, а затем завершите с дисплейной рекламой.</li>
+</ul>
+<p><strong>4. Держите данные в центре внимания:</strong></p>
+<p>Используйте данные о производительности для оптимизации кампаний и изменения стратегий по мере необходимости. С такими идеями вы будете оставаться на шаг впереди.</p>
+<h3 id="выйдите-за-рамки-осведомлённости-и-ускорьте-развитие">Выйдите за рамки осведомлённости и ускорьте развитие</h3>
+<p>Ставки в B2B-маркетинге никогда не были выше, и хорошего недостаточно. Вооружившись этими выводами, ваша команда может применить проактивный, основанный на данных подход к генерации пайплайна. Перераспределите свои ресурсы, усовершенствуйте свои стратегии и работайте совместно по каналам для достижения результатов, которые имеют значение.</p>
+<p>В Demandbase мы здесь, чтобы помочь вам победить. Этот анализ — только начало. Если вы готовы перейти от осведомлённости к ускорению, сейчас самое время действовать.</p>
+
+    </div>
+
+    <div class="tags mt-8">
+      
+
+    </div>
+  </article>
+
+          
+            
+  </main>          
+
+    <script>
+
+        
+        
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const sidebar = document.querySelector('.sidebar');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+        
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                if (entry.isIntersecting) {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.add('active');
+                    });
+                } else {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.remove('active');
+                    });
+                }
+            });
+        }, observerOptions);
+        
+        
+        document.querySelectorAll('h2[id]').forEach(heading => {
+            observer.observe(heading);
+        });
+    </script>
+
+
+  <footer class="px-6 py-12 bg-sky-950 text-white/50">
+    
+<p>P9X.ru 2010 - 2025г. услуги интернет маркетинга</p>
+
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105149615', 'ym');
+
+    ym(105149615, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/105149615" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+  </footer>
+</body>
+</html>

@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Это не обязательно должен быть чат-бот | На пути к науке о данных | Агентство контекстной рекламы</title>
+<meta name="description" content="">
+<meta name="yandex-verification" content="242f5a0ee52d5836" />
+
+<link rel="icon" type="image/x-icon" href="http://localhost:1313/favicon.ico">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+ <style>
+  .content h1 { 
+        font-size: 1.875rem; 
+        font-weight: bold; 
+        margin-bottom: 1rem; 
+    }
+    .content h2 { 
+        font-size: 1.5rem; 
+        font-weight: 600; 
+        margin-bottom: 0.75rem; 
+    }
+    .content h3 { 
+        font-size: 1.25rem; 
+        font-weight: 500; 
+        margin-bottom: 0.5rem; 
+    }
+    .content p { 
+        margin-bottom: 1rem; 
+    }
+    .content ul { 
+        list-style-type: disc; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content ol { 
+        list-style-type: decimal; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content a { 
+        color: #2563eb; 
+    }
+    .content a:hover { 
+        color: #1e40af; 
+    }
+    .content blockquote { 
+        border-left: 4px solid #d1d5db; 
+        padding-left: 1rem; 
+        font-style: italic; 
+    }
+
+    
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.875rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+.dark-mode .content table {
+    border: 1px solid #4b5563;
+}
+
+.content thead {
+    background-color: #eaebec;
+}
+
+.dark-mode .content thead {
+    background-color: #374151;
+}
+
+.content th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.dark-mode .content th {
+    color: #f9fafb;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content th:last-child {
+    border-right: none;  
+}
+
+.content td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    color: #6b7280;
+}
+
+.dark-mode .content td {
+    color: #d1d5db;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content td:last-child {
+    border-right: none;  
+}
+
+.content tbody tr {
+    transition: background-color 0.15s ease-in-out;
+}
+
+.content tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.dark-mode .content tbody tr:hover {
+    background-color: #374151;
+}
+
+.content tbody tr:last-child td {
+    border-bottom: none;
+}
+
+ 
+.content tbody tr:nth-child(even) {
+    background-color: #f4f5f7;
+}
+
+.dark-mode .content tbody tr:nth-child(even) {
+    background-color: #1f2937;
+}
+
+.dark-mode .content tbody tr:nth-child(even):hover {
+    background-color: #374151;
+}
+
+ 
+.content code:not(pre code) {
+    background-color: #f3f4f6;
+    color: #dc2626;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    font-weight: 500;
+    border: 1px solid #e5e7eb;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+}
+
+.dark-mode .content code:not(pre code) {
+    background-color: #224464;
+    color: #f87171;
+    border: 1px solid #4b5563;
+}
+
+ 
+.content pre {
+    background-color: #224464;
+    color: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid #374151;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.dark-mode .content pre {
+    background-color: #111827;
+    border: 1px solid #374151;
+}
+
+ 
+.content pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+    font-weight: normal;
+}
+
+ 
+.content pre code .keyword { color: #f472b6; }  
+.content pre code .function { color: #60a5fa; }  
+.content pre code .string { color: #34d399; }  
+.content pre code .comment { color: #9ca3af; font-style: italic; }  
+.content pre code .number { color: #fbbf24; }  
+.content pre code .class { color: #c084fc; }  
+.content pre code .operator { color: #93c5fd; }  
+
+ 
+.content pre::-webkit-scrollbar {
+    height: 6px;
+}
+
+.content pre::-webkit-scrollbar-track {
+    background: #374151;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.content pre::-webkit-scrollbar-thumb {
+    background: #6b7280;
+    border-radius: 3px;
+}
+
+.content pre::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+ 
+.content h1 code:not(pre code),
+.content h2 code:not(pre code),
+.content h3 code:not(pre code) {
+    font-size: 0.9em;
+    background-color: #fef2f2;
+    color: #dc2626;
+}
+
+.dark-mode .content h1 code:not(pre code),
+.dark-mode .content h2 code:not(pre code),
+.dark-mode .content h3 code:not(pre code) {
+    background-color: #7f1d1d;
+    color: #fca5a5;
+}
+
+ 
+.content a code:not(pre code) {
+    color: inherit;
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+.dark-mode .content a code:not(pre code) {
+    background-color: rgba(96, 165, 250, 0.2);
+}
+        :root {
+            --color-bg: #1a1a1a;
+            --color-text: #e6e6e6;
+            --color-accent: #6b7280;
+            --color-link: #9ca3af;
+            --color-link-hover: #d1d5db;
+        }
+        
+        .light-mode {
+            --color-bg: #f9fafb;
+            --color-text: #1f2937;
+            --color-accent: #6b7280;
+            --color-link: #4b5563;
+            --color-link-hover: #111827;
+        }
+        
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        a {
+            color: var(--color-link);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: var(--color-link-hover);
+        }
+        
+        .sidebar {
+            position: fixed;
+             
+            height: 100vh;
+            overflow-y: auto;
+            
+        }
+        
+        .main-content {
+            margin-left: 350px;
+            
+             
+        }
+        
+        .toc-container {
+            position: fixed;
+            right: 2rem;
+            top: 2rem;
+            width: 250px;
+            display: none;
+        }
+        
+        @media (min-width: 1280px) {
+            .toc-container {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 50;
+            }
+            
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+                 
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: fixed;
+                top: 1rem;
+                left: 1rem;
+                z-index: 100;
+            }
+        }
+        
+        .toc-link.active {
+            color: var(--color-link-hover);
+            font-weight: bold;
+        }
+        
+        .social-icons a {
+            margin-right: 0.5rem;
+        }
+        
+        pre {
+            background-color: rgba(107, 114, 128, 0.1);
+            padding: 1rem;
+            border-radius: 0.25rem;
+            overflow-x: auto;
+        }
+        
+        code {
+            font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+    </style>
+</head>
+  <body class="light-mode">
+      <header>
+    
+  </header>
+    
+    <button class="mobile-menu-btn p-2 bg-gray-800 text-white rounded md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+    
+    <aside class="sidebar border-r-4 border-sky-800  min-w-[350px] py-12 px-10 bg-gradient-to-br from-cyan-200 via-green-100 to-sky-100">
+        <div class="flex flex-col items-center mb-8">
+                
+            
+            <div class="w-24 h-24 mb-4 relative">
+                <a href="/">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ viewBox="0 0 550.000000 385.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,385.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M2780 3000 l0 -300 40 0 40 0 0 260 0 260 1165 0 1165 0 0 -1245 0
+-1245 -1165 0 -1165 0 0 260 0 260 -40 0 -40 0 0 -300 0 -300 1245 0 1245 0 0
+1325 0 1325 -1245 0 -1245 0 0 -300z"/>
+<path d="M700 1975 l0 -635 145 0 145 0 0 245 0 245 383 0 c422 0 426 1 491
+66 60 60 66 88 66 319 0 190 -2 214 -21 255 -25 56 -53 86 -104 113 -39 22
+-49 22 -572 25 l-533 3 0 -636z m940 245 l0 -100 -325 0 -325 0 0 100 0 100
+325 0 325 0 0 -100z"/>
+<path d="M2320 2601 c-69 -22 -112 -58 -146 -121 -17 -31 -19 -60 -19 -260 0
+-211 1 -227 22 -265 27 -51 68 -90 115 -109 32 -14 98 -16 438 -16 l400 0 0
+-245 0 -245 145 0 145 0 0 536 c0 373 -3 548 -11 575 -16 50 -61 105 -112 132
+-41 22 -48 22 -497 24 -250 1 -466 -2 -480 -6z m810 -381 l0 -100 -340 0 -340
+0 0 100 0 100 340 0 340 0 0 -100z"/>
+<path d="M3650 2607 c0 -1 99 -144 219 -317 l219 -314 -63 -91 c-34 -49 -133
+-191 -219 -315 l-157 -225 172 -3 c97 -1 176 2 183 7 6 5 72 97 146 205 74
+107 138 196 141 196 4 0 71 -92 149 -205 l143 -205 173 0 c96 0 174 2 174 4 0
+3 -95 141 -211 308 -116 167 -214 308 -216 315 -3 7 92 151 211 322 119 170
+216 312 216 315 0 3 -78 6 -174 6 l-174 0 -143 -205 c-78 -113 -145 -205 -149
+-205 -3 0 -70 92 -148 205 l-143 205 -174 0 c-96 0 -175 -1 -175 -3z"/>
+</g>
+</svg>
+</a>
+            </div>
+
+            <p class="text-xs text-center text-gray-500 max-w-[200px]">
+                Профессиональное агентство контекстной рекламы с опытом более 18 лет.
+
+            </p>
+        </div>
+
+        
+        <nav class="mb-8">
+          
+        
+            
+  <nav>
+    <ul>
+    <li class="text-lg font-semibold">
+      <a href="/">Контекстная реклама</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/analytics/">web-аналитика</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a aria-current="true" class="ancestor" href="/posts/">Блог</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/about/">О нас</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Категории</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/job/">Вакансии</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Кейсы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/calculators/">Калькуляторы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/contacts/">Контакты</a>
+    </li>
+    </ul>
+  </nav>
+
+           
+
+        </nav>
+
+        
+        <div class="social-icons  mt-auto">
+<div>
+
+<a href="https://t.me/your_link" target="_blank" class="inline-flex 
+items-center justify-center px-3 py-3 text-white bg-[#2AABEE] font-medium text-sm rounded 
+shadow-md hover:bg-[#279fd9] 
+hover:shadow-lg focus:bg-[#2493c8] 
+focus:shadow-lg focus:outline-none 
+focus:ring-0 active:bg-[#2185b3] active:shadow-lg transition duration-150 ease-in-out">
+  
+     
+<svg width="25px" height="25px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" 
+fill="#fff" class="bi bi-telegram pr-1">
+  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>
+</svg>
+                            
+  
+  Открыть в Telegram
+</a>
+
+</div>
+            <div class="pt-6 flex gap-1 justify-left items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                sale@p9x.ru
+            </div>
+        </div>
+        
+        
+        <div class="mt-8 pt-4 text-xs text-gray-500 border-t border-gray-700">
+            <p>Powered by <a href="#" class="hover:underline">Hugo</a> | Themed with <a href="#" class="hover:underline">poison</a></p>
+            <p>© 2010 - 2025 Poison. All rights reserved.</p>
+        </div>
+    </aside>
+
+  <main class="main-content bg-white">
+ 
+            
+            
+  <article class="prose prose-lg py-8 px-4 max-w-[1200px]">
+    <h1 class="text-2xl font-bold mb-4">
+            Это не обязательно должен быть чат-бот
+    </h1>
+
+    
+    
+    <time class="block mb-6 text-gray-500" datetime="2025-11-19T22:09:56&#43;00:00">November 19, 2025</time>
+
+    <div class="content mb-8 ">
+      <h3 id="обычно-всё-начинается-одинаково">Обычно всё начинается одинаково</h3>
+<p>На совещании руководства кто-нибудь говорит: <em>«Давайте воспользуемся ИИ!»</em> Головы кивают, энтузиазм нарастает, и прежде чем вы это осознаете, все приходят к стандартному выводу: <em>«Конечно — мы создадим чат-бота».</em> Этот инстинкт понятен. Большие языковые модели мощны, вездесущи и увлекательны. Они обещают интуитивный доступ к универсальным знаниям и функциональности.</p>
+<p>Команда уходит и начинает работать. Вскоре наступает время демонстрации. Появляется отполированный интерфейс чата, сопровождаемый уверенными аргументами о том, почему на этот раз всё будет иначе. Однако к этому моменту чат-бот ещё не достиг реальных пользователей в реальных ситуациях, и оценка получается предвзятой и оптимистичной. Кто-нибудь из аудитории неизбежно задаст нестандартный вопрос, раздражая бота. Разработчики обещают исправить «это», но в большинстве случаев основная проблема носит системный характер.</p>
+<p>Как только чат-бот выходит в работу, первоначальный оптимизм часто сменяется разочарованием пользователей. Здесь всё становится немного личным, потому что за последние недели мне пришлось потратить некоторое время на общение с разными чат-ботами.</p>
+<p>Я склонен откладывать взаимодействие с поставщиками услуг до тех пор, пока ситуация не станет невыносимой, и несколько таких случаев накопились. Улыбающиеся виджеты чат-ботов стали моей последней надеждой перед бесконечным звонком на горячую линию, но:</p>
+<ul>
+<li>После входа на сайт моей страховой компании я попросил объяснить необъявленное повышение цены, только чтобы понять, что у чат-бота нет доступа к моим данным о ценах. Всё, что он мог предложить, — это номер горячей линии. Ой.</li>
+<li>После отмены рейса в последнюю минуту я спросил чат-бота авиакомпании о причине. Он вежливо извинился, что, поскольку время отправления уже прошло, он не может мне помочь. Впрочем, он был открыт для обсуждения всех других тем.</li>
+<li>На сайте телекоммуникационной компании я спросил, почему мой мобильный тариф внезапно истёк. Чат-бот уверенно ответил, что не может комментировать договорные вопросы, и сослался на раздел часто задаваемых вопросов. Как и ожидалось, они были длинными, но нерелевантными.</li>
+</ul>
+<p>Эти взаимодействия не приблизили меня к решению и оставили меня на противоположном конце спектра удовлетворения. Чат-боты ощущались как чужеродные тела. Сидя там, они потребляли ресурсы, время отклика и внимание, но не добавляли ценности.</p>
+<p>Давайте пропустим дебаты о том, являются ли это преднамеренными тёмными паттернами. Дело в том, что устаревшие системы, подобные перечисленным выше, несут тяжёлое бремя энтропии. Они поставляются с тоннами уникальных данных, знаний и контекста. В тот момент, когда вы пытаетесь интегрировать их с общей языковой моделью, вы заставляете два мира столкнуться.</p>
+<p>Модели необходимо усвоить контекст вашего продукта, чтобы она могла осмысленно рассуждать о вашей области. Правильное проектирование контекста требует навыков и времени для неустанной оценки и итераций. И прежде чем вы даже доберётесь до этого момента, ваши данные должны быть готовы, но в большинстве организаций данные шумные, фрагментированные или просто отсутствуют.</p>
+<p>В этом посте я кратко расскажу о выводах из моей книги «Искусство разработки ИИ-продуктов» и моего недавнего выступления на саммите Google Web AI Summit, а также поделюсь более органичным, поэтапным подходом к интеграции ИИ в существующие продукты.</p>
+<h2 id="использование-небольших-моделей-для-низкоуровневой-интеграции-ии">Использование небольших моделей для низкоуровневой интеграции ИИ</h2>
+<blockquote>
+<p><em>«При внедрении ИИ я вижу, что больше организаций терпят неудачу, начиная со слишком больших проектов, чем со слишком маленьких» (Эндрю Нг).</em></p>
+</blockquote>
+<p>Интеграция ИИ требует времени:</p>
+<ul>
+<li>Вашей технической команде необходимо подготовить данные и изучить доступные методы и инструменты.</li>
+<li>Вам нужно создать прототип и провести итерации, чтобы найти оптимальные точки ценности ИИ в вашем продукте и на рынке.</li>
+<li>Пользователям нужно откалибровать своё доверие при переходе к новому вероятностному опыту.</li>
+</ul>
+<p>Чтобы адаптироваться к этим кривым обучения, не стоит спешить выставлять ИИ — особенно открытые функции чата — перед вашими пользователями. ИИ вносит неопределённость и ошибки в опыт, что большинству людей не нравится.</p>
+<p>Один из эффективных способов замедлить ваше путешествие в области ИИ в условиях «коричневого поля» — использование небольших языковых моделей (SLM), которые обычно насчитывают от нескольких сотен миллионов до нескольких миллиардов параметров. Они могут гибко интегрироваться с существующими данными и инфраструктурой вашего продукта, вместо того чтобы добавлять дополнительные технологические накладные расходы.</p>
+<h3 id="как-обучаются-slm">Как обучаются SLM</h3>
+<p>Большинство SLM происходят от более крупных моделей путём дистилляции знаний. В этой настройке большая модель выступает в роли учителя, а меньшая — в роли ученика. Например, Google Gemini служил учителем для Gemma 2 и Gemma 3, в то время как Meta’s Llama Behemoth обучила свою стаю из более мелких моделей Llama 4.</p>
+<p>Подобно тому как учитель-человек конденсирует годы обучения в понятные объяснения и структурированные уроки, большая модель преобразует своё обширное параметрическое пространство в более компактное и плотное представление, которое может усвоить ученик. В результате получается компактная модель, которая сохраняет большую часть компетентности учителя, но работает с гораздо меньшим количеством параметров и значительно меньшими вычислительными затратами.</p>
+<h3 id="использование-slm">Использование SLM</h3>
+<p>Одним из ключевых преимуществ SLM является их гибкость развёртывания. В отличие от LLM, которые в основном используются через внешние API, меньшие модели могут запускаться локально, либо на серверах вашей организации, либо непосредственно на устройстве пользователя:</p>
+<ul>
+<li><strong>Локальное развёртывание</strong>: вы можете размещать SLM на своих серверах или в облачной среде, сохраняя полный контроль над данными, задержкой и соответствием требованиям. Такая настройка идеально подходит для корпоративных приложений, где конфиденциальная информация или нормативные ограничения делают сторонние API нецелесообразными.</li>
+<li><strong>Развёртывание на устройстве через браузер</strong>: современные браузеры имеют встроенные возможности искусственного интеллекта, на которые вы можете положиться. Например, Chrome интегрирует Gemini Nano через встроенные API искусственного интеллекта, в то время как Microsoft Edge включает Phi-4 (см. документацию по API подсказок). Запуск моделей непосредственно в браузере обеспечивает использование с низкой задержкой и сохранением конфиденциальности, например, для интеллектуальных текстовых предложений, автозаполнения форм или контекстной помощи.</li>
+</ul>
+<p>Если вы хотите узнать больше о технических аспектах SLM, вот несколько полезных ресурсов.</p>
+<p>Давайте теперь перейдём к тому, что вы можете создать с помощью SLM, чтобы обеспечить ценность для пользователей и добиться устойчивого прогресса в интеграции ИИ.</p>
+<h2 id="возможности-для-slm-в-продуктах">Возможности для SLM в продуктах</h2>
+<p>SLM отлично подходят для выполнения конкретных, чётко определённых задач, где контекст и данные уже известны — такие виды использования, которые глубоко укоренились в существующих продуктах. Вы можете думать о них как о специализированном встроенном интеллекте, а не как об универсальных помощниках. Давайте рассмотрим основные категории возможностей, которые они открывают в условиях «коричневого поля», как показано на следующем дереве возможностей.</p>
+<h3 id="1-улучшение-аналитики-продуктов">1. Улучшение аналитики продуктов</h3>
+<p>Прежде чем выставлять пользователям функции ИИ, ищите способы улучшить свой продукт изнутри. Большинство продуктов уже генерируют непрерывный поток неструктурированного текста — поддержка чатов, запросы помощи, обратная связь в приложении. SLM могут анализировать эти данные в режиме реального времени и выявлять инсайты, которые помогут принять решения о продукте и улучшить непосредственный пользовательский опыт. Вот несколько примеров:</p>
+<ul>
+<li><strong>Маркировка и маршрутизация чатов поддержки</strong> по мере их поступления, направляя технические проблемы в соответствующие команды.</li>
+<li><strong>Сигнализация о потере клиентов во время сеанса</strong>, что позволяет своевременно вмешаться.</li>
+<li><strong>Предложение соответствующего контента или действий</strong> на основе текущего контекста пользователя.</li>
+<li><strong>Обнаружение повторяющихся точек трения</strong>, пока пользователь всё ещё находится в потоке, а не через недели в ретроспективе.</li>
+</ul>
+<p>Эти внутренние инструменты снижают риски, повышают ценность и дают вашей команде время на обучение. Они укрепляют вашу базу данных и готовят вас к более заметным функциям ИИ, ориентированным на пользователя, в будущем.</p>
+<h3 id="2-устранение-трений">2. Устранение трений</h3>
+<p>Далее сделайте шаг назад и проведите аудит UX-долгов, которые уже есть. В условиях «коричневого поля» большинство продуктов не являются мечтой дизайнера. Они были разработаны с учётом технических и архитектурных ограничений своего времени. С помощью ИИ у нас теперь есть возможность снять некоторые из этих ограничений, уменьшив трение и создав более быстрые и интуитивно понятные интерфейсы.</p>
+<p>Хорошим примером являются интеллектуальные фильтры на поисковых сайтах, таких как Booking.com. Традиционно на этих страницах используются длинные списки флажков и категорий, которые пытаются охватить все возможные предпочтения пользователей. Они громоздки в разработке и использовании, и в итоге многие пользователи не могут найти нужную настройку.</p>
+<p>Языковой фильтр меняет это. Вместо того чтобы перемещаться по сложной таксономии, пользователи просто вводят то, что они хотят (например, «дружелюбные к домашним животным отели у пляжа»), и модель переводит это в структурированный запрос за кулисами.</p>
+<p>Более широко, ищите области в вашем продукте, где пользователям необходимо применить вашу внутреннюю логику — ваши категории, структуры или терминологию — и замените это взаимодействием на естественном языке. Всякий раз, когда пользователи могут выразить намерение напрямую, вы устраняете слой когнитивного трения и делаете продукт умнее и дружелюбнее.</p>
+<h3 id="3-расширение-возможностей">3. Расширение возможностей</h3>
+<p>Когда ваш пользовательский опыт будет упрощён, пришло время подумать об аугментации — добавлении небольших полезных возможностей ИИ в ваш продукт. Вместо того чтобы изобретать основной опыт, посмотрите, что пользователи уже делают вокруг вашего продукта — побочные задачи, обходные пути или внешние инструменты, которые они используют для достижения своей цели. Могут ли специализированные модели ИИ помочь им сделать это быстрее или умнее?</p>
+<p>Например, туристическое приложение может интегрировать генератор контекстуальных заметок о поездке, который суммирует детали маршрута или составляет сообщения для попутчиков. Инструмент повышения производительности может включать генератор резюме встреч, который обобщает обсуждения или действия из текстовых заметок, не отправляя данные в облако.</p>
+<p>Эти функции органично вырастают из реального поведения пользователей и расширяют контекст вашего продукта, а не переопределяют его.</p>
+<h3 id="4-персонализация">4. Персонализация</h3>
+<p>Успешная персонализация — это святой Грааль ИИ. Она переворачивает традиционную динамику: вместо того чтобы просить пользователей научиться и адаптироваться к вашему продукту, ваш продукт теперь адаптируется к ним, как хорошо сидящая перчатка.</p>
+<p>Когда вы начнёте, держите амбиции на привязи — вам не нужен полностью адаптивный помощник. Вместо этого вносите небольшие, низкоуровневые корректировки в том, что видят пользователи, в том, как формулируется информация, или в том, какие варианты появляются первыми. На уровне контента ИИ может адаптировать тон и стиль, например, используя краткую формулировку для экспертов и более объяснительную формулировку для новичков. На уровне взаимодействия он может создавать адаптивные интерфейсы. Например, инструмент управления проектами может отображать наиболее релевантные действия («создать задачу», «поделиться обновлением», «сгенерировать сводку») на основе прошлых рабочих процессов пользователя.</p>
+<blockquote>
+<p><em>⚠️ <strong>Внимание!</strong> Когда персонализация идёт не так, она быстро подрывает доверие. Пользователи чувствуют, что они обменяли личные данные на опыт, который не стал лучше. Поэтому внедряйте персонализацию только тогда, когда ваши данные будут готовы её поддержать.</em></p>
+</blockquote>
+<h2 id="почему-маленькие-выигрывают-со-временем">Почему «маленькие» выигрывают со временем</h2>
+<p>Каждая успешная функция ИИ — будь то улучшение аналитики, точка контакта без трения или персонализированный шаг в более крупном потоке — укрепляет вашу базу данных и развивает у вашей команды навыки итераций и грамотность в области ИИ. Это также закладывает основу для более крупных и сложных приложений в будущем. Когда ваши «маленькие» функции работают надёжно, они становятся повторно используемыми компонентами в более крупных рабочих процессах или модульных системах агентов (ср. статью Nvidia Small Language Models are the Future of Agentic AI).</p>
+<p>Подведём итог:</p>
+<p>✅ <strong>Начните с малого</strong> — отдавайте предпочтение постепенному улучшению, а не разрушению.</p>
+<p>✅ <strong>Экспериментируйте быстро</strong> — меньшие модели означают меньшие затраты и более быстрые циклы обратной связи.</p>
+<p>✅ <strong>Будьте осторожны</strong> — начните с внутренних процессов; внедряйте пользовательский ИИ после его проверки.</p>
+<p>✅ <strong>Развивайте свои итерационные навыки</strong> — устойчивый, совокупный прогресс превосходит заголовки проектов.</p>
+<p><em>Первоначально опубликовано на</em> <em><a href="https://jannalipenkova.substack.com">https://jannalipenkova.substack.com</a></em>.</p>
+
+    </div>
+
+    <div class="tags mt-8">
+      
+
+    </div>
+  </article>
+
+          
+            
+  </main>          
+
+    <script>
+
+        
+        
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const sidebar = document.querySelector('.sidebar');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+        
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                if (entry.isIntersecting) {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.add('active');
+                    });
+                } else {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.remove('active');
+                    });
+                }
+            });
+        }, observerOptions);
+        
+        
+        document.querySelectorAll('h2[id]').forEach(heading => {
+            observer.observe(heading);
+        });
+    </script>
+
+
+  <footer class="px-6 py-12 bg-sky-950 text-white/50">
+    
+<p>P9X.ru 2010 - 2025г. услуги интернет маркетинга</p>
+
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105149615', 'ym');
+
+    ym(105149615, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/105149615" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+  </footer>
+</body>
+</html>

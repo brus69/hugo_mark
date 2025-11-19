@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>DevRel Объяснил для менеджеров по продуктам - Отдел разработки продуктов | Агентство контекстной рекламы</title>
+<meta name="description" content="Разработчики являются и всегда будут играть важную роль в разработке продукта. Не только потому, что инженеры - это те, кто на самом деле создает продукты, которые мы используем, но и потому, что привлечение инженерного сообщества в качестве сторонников вашего продукта может привести к успеху.">
+<meta name="yandex-verification" content="242f5a0ee52d5836" />
+
+<link rel="icon" type="image/x-icon" href="http://localhost:1313/favicon.ico">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+ <style>
+  .content h1 { 
+        font-size: 1.875rem; 
+        font-weight: bold; 
+        margin-bottom: 1rem; 
+    }
+    .content h2 { 
+        font-size: 1.5rem; 
+        font-weight: 600; 
+        margin-bottom: 0.75rem; 
+    }
+    .content h3 { 
+        font-size: 1.25rem; 
+        font-weight: 500; 
+        margin-bottom: 0.5rem; 
+    }
+    .content p { 
+        margin-bottom: 1rem; 
+    }
+    .content ul { 
+        list-style-type: disc; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content ol { 
+        list-style-type: decimal; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content a { 
+        color: #2563eb; 
+    }
+    .content a:hover { 
+        color: #1e40af; 
+    }
+    .content blockquote { 
+        border-left: 4px solid #d1d5db; 
+        padding-left: 1rem; 
+        font-style: italic; 
+    }
+
+    
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.875rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+.dark-mode .content table {
+    border: 1px solid #4b5563;
+}
+
+.content thead {
+    background-color: #eaebec;
+}
+
+.dark-mode .content thead {
+    background-color: #374151;
+}
+
+.content th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.dark-mode .content th {
+    color: #f9fafb;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content th:last-child {
+    border-right: none;  
+}
+
+.content td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    color: #6b7280;
+}
+
+.dark-mode .content td {
+    color: #d1d5db;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content td:last-child {
+    border-right: none;  
+}
+
+.content tbody tr {
+    transition: background-color 0.15s ease-in-out;
+}
+
+.content tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.dark-mode .content tbody tr:hover {
+    background-color: #374151;
+}
+
+.content tbody tr:last-child td {
+    border-bottom: none;
+}
+
+ 
+.content tbody tr:nth-child(even) {
+    background-color: #f4f5f7;
+}
+
+.dark-mode .content tbody tr:nth-child(even) {
+    background-color: #1f2937;
+}
+
+.dark-mode .content tbody tr:nth-child(even):hover {
+    background-color: #374151;
+}
+
+ 
+.content code:not(pre code) {
+    background-color: #f3f4f6;
+    color: #dc2626;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    font-weight: 500;
+    border: 1px solid #e5e7eb;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+}
+
+.dark-mode .content code:not(pre code) {
+    background-color: #224464;
+    color: #f87171;
+    border: 1px solid #4b5563;
+}
+
+ 
+.content pre {
+    background-color: #224464;
+    color: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid #374151;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.dark-mode .content pre {
+    background-color: #111827;
+    border: 1px solid #374151;
+}
+
+ 
+.content pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+    font-weight: normal;
+}
+
+ 
+.content pre code .keyword { color: #f472b6; }  
+.content pre code .function { color: #60a5fa; }  
+.content pre code .string { color: #34d399; }  
+.content pre code .comment { color: #9ca3af; font-style: italic; }  
+.content pre code .number { color: #fbbf24; }  
+.content pre code .class { color: #c084fc; }  
+.content pre code .operator { color: #93c5fd; }  
+
+ 
+.content pre::-webkit-scrollbar {
+    height: 6px;
+}
+
+.content pre::-webkit-scrollbar-track {
+    background: #374151;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.content pre::-webkit-scrollbar-thumb {
+    background: #6b7280;
+    border-radius: 3px;
+}
+
+.content pre::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+ 
+.content h1 code:not(pre code),
+.content h2 code:not(pre code),
+.content h3 code:not(pre code) {
+    font-size: 0.9em;
+    background-color: #fef2f2;
+    color: #dc2626;
+}
+
+.dark-mode .content h1 code:not(pre code),
+.dark-mode .content h2 code:not(pre code),
+.dark-mode .content h3 code:not(pre code) {
+    background-color: #7f1d1d;
+    color: #fca5a5;
+}
+
+ 
+.content a code:not(pre code) {
+    color: inherit;
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+.dark-mode .content a code:not(pre code) {
+    background-color: rgba(96, 165, 250, 0.2);
+}
+        :root {
+            --color-bg: #1a1a1a;
+            --color-text: #e6e6e6;
+            --color-accent: #6b7280;
+            --color-link: #9ca3af;
+            --color-link-hover: #d1d5db;
+        }
+        
+        .light-mode {
+            --color-bg: #f9fafb;
+            --color-text: #1f2937;
+            --color-accent: #6b7280;
+            --color-link: #4b5563;
+            --color-link-hover: #111827;
+        }
+        
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        a {
+            color: var(--color-link);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: var(--color-link-hover);
+        }
+        
+        .sidebar {
+            position: fixed;
+             
+            height: 100vh;
+            overflow-y: auto;
+            
+        }
+        
+        .main-content {
+            margin-left: 350px;
+            
+             
+        }
+        
+        .toc-container {
+            position: fixed;
+            right: 2rem;
+            top: 2rem;
+            width: 250px;
+            display: none;
+        }
+        
+        @media (min-width: 1280px) {
+            .toc-container {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 50;
+            }
+            
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+                 
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: fixed;
+                top: 1rem;
+                left: 1rem;
+                z-index: 100;
+            }
+        }
+        
+        .toc-link.active {
+            color: var(--color-link-hover);
+            font-weight: bold;
+        }
+        
+        .social-icons a {
+            margin-right: 0.5rem;
+        }
+        
+        pre {
+            background-color: rgba(107, 114, 128, 0.1);
+            padding: 1rem;
+            border-radius: 0.25rem;
+            overflow-x: auto;
+        }
+        
+        code {
+            font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+    </style>
+</head>
+  <body class="light-mode">
+      <header>
+    
+  </header>
+    
+    <button class="mobile-menu-btn p-2 bg-gray-800 text-white rounded md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+    
+    <aside class="sidebar border-r-4 border-sky-800  min-w-[350px] py-12 px-10 bg-gradient-to-br from-cyan-200 via-green-100 to-sky-100">
+        <div class="flex flex-col items-center mb-8">
+                
+            
+            <div class="w-24 h-24 mb-4 relative">
+                <a href="/">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ viewBox="0 0 550.000000 385.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,385.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M2780 3000 l0 -300 40 0 40 0 0 260 0 260 1165 0 1165 0 0 -1245 0
+-1245 -1165 0 -1165 0 0 260 0 260 -40 0 -40 0 0 -300 0 -300 1245 0 1245 0 0
+1325 0 1325 -1245 0 -1245 0 0 -300z"/>
+<path d="M700 1975 l0 -635 145 0 145 0 0 245 0 245 383 0 c422 0 426 1 491
+66 60 60 66 88 66 319 0 190 -2 214 -21 255 -25 56 -53 86 -104 113 -39 22
+-49 22 -572 25 l-533 3 0 -636z m940 245 l0 -100 -325 0 -325 0 0 100 0 100
+325 0 325 0 0 -100z"/>
+<path d="M2320 2601 c-69 -22 -112 -58 -146 -121 -17 -31 -19 -60 -19 -260 0
+-211 1 -227 22 -265 27 -51 68 -90 115 -109 32 -14 98 -16 438 -16 l400 0 0
+-245 0 -245 145 0 145 0 0 536 c0 373 -3 548 -11 575 -16 50 -61 105 -112 132
+-41 22 -48 22 -497 24 -250 1 -466 -2 -480 -6z m810 -381 l0 -100 -340 0 -340
+0 0 100 0 100 340 0 340 0 0 -100z"/>
+<path d="M3650 2607 c0 -1 99 -144 219 -317 l219 -314 -63 -91 c-34 -49 -133
+-191 -219 -315 l-157 -225 172 -3 c97 -1 176 2 183 7 6 5 72 97 146 205 74
+107 138 196 141 196 4 0 71 -92 149 -205 l143 -205 173 0 c96 0 174 2 174 4 0
+3 -95 141 -211 308 -116 167 -214 308 -216 315 -3 7 92 151 211 322 119 170
+216 312 216 315 0 3 -78 6 -174 6 l-174 0 -143 -205 c-78 -113 -145 -205 -149
+-205 -3 0 -70 92 -148 205 l-143 205 -174 0 c-96 0 -175 -1 -175 -3z"/>
+</g>
+</svg>
+</a>
+            </div>
+
+            <p class="text-xs text-center text-gray-500 max-w-[200px]">
+                Профессиональное агентство контекстной рекламы с опытом более 18 лет.
+
+            </p>
+        </div>
+
+        
+        <nav class="mb-8">
+          
+        
+            
+  <nav>
+    <ul>
+    <li class="text-lg font-semibold">
+      <a href="/">Контекстная реклама</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/analytics/">web-аналитика</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a aria-current="true" class="ancestor" href="/posts/">Блог</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/about/">О нас</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Категории</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/job/">Вакансии</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Кейсы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/calculators/">Калькуляторы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/contacts/">Контакты</a>
+    </li>
+    </ul>
+  </nav>
+
+           
+
+        </nav>
+
+        
+        <div class="social-icons  mt-auto">
+<div>
+
+<a href="https://t.me/your_link" target="_blank" class="inline-flex 
+items-center justify-center px-3 py-3 text-white bg-[#2AABEE] font-medium text-sm rounded 
+shadow-md hover:bg-[#279fd9] 
+hover:shadow-lg focus:bg-[#2493c8] 
+focus:shadow-lg focus:outline-none 
+focus:ring-0 active:bg-[#2185b3] active:shadow-lg transition duration-150 ease-in-out">
+  
+     
+<svg width="25px" height="25px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" 
+fill="#fff" class="bi bi-telegram pr-1">
+  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>
+</svg>
+                            
+  
+  Открыть в Telegram
+</a>
+
+</div>
+            <div class="pt-6 flex gap-1 justify-left items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                sale@p9x.ru
+            </div>
+        </div>
+        
+        
+        <div class="mt-8 pt-4 text-xs text-gray-500 border-t border-gray-700">
+            <p>Powered by <a href="#" class="hover:underline">Hugo</a> | Themed with <a href="#" class="hover:underline">poison</a></p>
+            <p>© 2010 - 2025 Poison. All rights reserved.</p>
+        </div>
+    </aside>
+
+  <main class="main-content bg-white">
+ 
+            
+            
+  <article class="prose prose-lg py-8 px-4 max-w-[1200px]">
+    <h1 class="text-2xl font-bold mb-4">
+            Деврел Объяснил это для менеджеров по продуктам
+    </h1>
+
+    
+    
+    <time class="block mb-6 text-gray-500" datetime="2025-11-19T22:09:56&#43;00:00">November 19, 2025</time>
+
+    <div class="content mb-8 ">
+      <h3 id="отношения-с-разработчиками-devrel">Отношения с разработчиками (DevRel)</h3>
+<p>DevRel (relations with developers — отношения с разработчиками) описывает процесс активного взаимодействия с инженерами и учёта их потребностей при создании вашего продукта в попытке развить и поддерживать прочные отношения с сообществом разработчиков.</p>
+<p>Разработчики всегда были и остаются важной частью разработки продукта. Не только потому, что инженеры создают продукты, которыми мы пользуемся, но и потому, что привлечение инженерного сообщества в качестве сторонников вашего продукта может обеспечить вам успех или погубить его.</p>
+<p>В некоторых секторах руководители продуктов заискивают перед инженерным сообществом, потому что знают, насколько полезно для некоторых продуктов иметь поддержку инженерного сообщества.</p>
+<p>Но инженеры также могут быть непостоянными и непредсказуемыми, поэтому установление с ними долгосрочных отношений — непростая задача.</p>
+<p>В этом посте мы рассмотрим, почему DevRel важен, что он означает для вашей продуктовой стратегии и как вы можете развить свои отношения с разработчиками.</p>
+<h4 id="почему-мне-стоит-беспокоиться-об-отношениях-с-разработчиками">Почему мне стоит беспокоиться об отношениях с разработчиками?</h4>
+<p><strong>Web3, криптовалюты и рост сообществ</strong></p>
+<p>В течение последних нескольких лет взаимодействие с сообществом инженеров было центральным фактором успеха продуктов, включая крупные проекты в Web3. Обычно продукты Web3 ищут не только инвесторов, но и инженеров для поддержки своих блокчейнов.</p>
+<p>Обанкротившийся токен $LUNA, который недавно потерял практически всю свою рыночную капитализацию в $40 миллиардов, теперь пытается заново изобрести себя с помощью нового токена. И отчасти это возможно благодаря инженерному сообществу, которое он культивировал до своего падения в хаос.</p>
+<p>С тысячами разработчиков, уже купивших экосистему Terra / Luna, сработала концепция «затонувших затрат», и инженеры, которые создавали что-то на основе исходного блокчейна — многие из которых также являются инвесторами — всё ещё хотят, чтобы проект преуспел.</p>
+<p>Основатель $LUNA До Квон ясно дал это понять в своей серии твитов после краха токена:</p>
+<p>Но я знаю, о чём вы думаете… это же криптовалюта. Можем ли мы поговорить о <em>настоящих</em> продуктах, пока так называемый Web3 не разберётся, что, чёрт возьми, это такое на самом деле?</p>
+<p>Хорошо, конечно.</p>
+<p>За пределами Web3 продукты и компании, которые развивают прочные отношения с инженерным сообществом, могут настроить себя на успех по ряду причин. И налаживание этих отношений может оказать существенное влияние на вашу продуктовую стратегию и принимаемые вами решения.</p>
+<h4 id="как-devrel-и-продуктовая-стратегия-переплетаются">Как DevRel и продуктовая стратегия переплетаются</h4>
+<p>Для некоторых компаний основным стратегическим фокусом является нетехнический потребитель. Это не значит, что инженеры полностью игнорируются, просто основное внимание уделяется созданию ценности для нетехнических потребителей.</p>
+<p><strong>Пример — WordPress</strong></p>
+<p>WordPress поддерживает около 40% всего Интернета. Это потрясающе. Но не менее поразительно то, что если поговорить с инженером, многие из них ненавидят его. Всякий раз, когда у меня были разговоры о создании блога для поддержки продукта, 99% инженеров говорили: «Только не WordPress, пожалуйста».</p>
+<p>У WordPress плохая репутация в сообществе разработчиков, но это не помешало их усилиям по росту, поскольку они уделяют огромное внимание конечным пользователям: в данном случае нетехническим специалистам по маркетингу и блогерам, которые хотят быстрое решение для создания контента.</p>
+<p>Это не значит, что WordPress <em>ничего не делает</em> для сообщества разработчиков. Множество разработчиков создают для него плагины, и экосистема огромна, но это абсолютно не тот продукт, который выбирают большинство команд по разработке продуктов.</p>
+<p>Для WordPress DevRel вторичен по отношению к основным пользователям: маркетологам, блогерам и авторам контента, которые не хотят изучать HTML, CSS и JS для публикации своего контента. Но как насчёт компаний, где DevRel важен для продуктовой стратегии?</p>
+<p>Установление прочных отношений с сообществом разработчиков важно в трёх основных случаях:</p>
+<ol>
+<li><strong>Рост</strong> — рост продукта связан с внедрением инженерных решений. Если инженеры любят ваш продукт и пропагандируют его, скорее всего, ваш продукт будет расти. Если ваш продукт содержит множество API, SDK или других инструментов, которые после внедрения сделают его более вероятным для роста, инвестирование в DevRel может иметь решающее значение для вашей продуктовой стратегии.</li>
+<li><strong>Полезность</strong> — сам продукт ориентирован на инженеров и используется ими. Подумайте о Github, Gitlab или о headless CMS-решениях вроде Strapi или Storyblok. В этих случаях инженеры — ваши пользователи, а значит, важно наладить с ними прочные отношения.</li>
+<li><strong>Новые технологии</strong> — ваш продукт — это совершенно новая технология, и вам нужно, чтобы инженеры полюбили её и приняли, чтобы она стала популярной и успешной. MongoDB, GraphQL, React и т. д. — всё это требует от инженеров принятия технологии, чтобы она стала повсеместной и успешной.</li>
+</ol>
+<p>Это не единственные случаи, когда DevRel имеет значение, но они дают вам представление о некоторых примерах, когда DevRel важен.</p>
+<p>Давайте рассмотрим несколько реальных примеров, чтобы понять, как каждый из этих случаев проявляется в реальном мире.</p>
+<p><strong>Банк Monzo (рост)</strong></p>
+<p>Для тех, кто не знаком с Monzo, это крупный лондонский банк-претендент, который привлёк сотни миллионов инвестиций и несколько лет назад пережил взрывной рост. Сейчас это прочно утвердившийся игрок в сфере финансовых технологий, и банк был признан лучшим банком Великобритании по рекомендациям.</p>
+<p>В статье, описывающей рост банка Monzo, соучредитель компании и бывший генеральный директор Том Бломфилд объясняет, что сработало для роста компании, а что — нет. Вот что не сработало:</p>
+<blockquote>
+<p>Мы потратили больше времени на вторую идею — хакатоны и отношения с разработчиками. Многие из нас (включая меня) были разработчиками программного обеспечения, и нас очень воодушевила идея банковского счёта с API. Мы провели 3–4 хакатона на раннем этапе (ещё до того, как у нас появились живые предоплаченные карты), и люди придумали несколько интересных идей, но мы быстро поняли, что это не будет большим стимулом для роста. Мы получили только 300 дополнительных пользователей, но это, безусловно, помогло нанять несколько первых инженеров.</p>
+</blockquote>
+<p>По опыту Monzo, сосредоточение внимания на DevRel не привело к значительному увеличению реальных показателей привлечения пользователей, но позволило открыть возможности для найма талантливых инженеров.</p>
+<p>Это то, что следует учитывать при разработке стратегии вашего продукта. Даже если вы не видите очевидного пути, по которому развитие DevRel будет стимулировать рост, подумайте о других преимуществах — в данном случае о найме талантливых специалистов.</p>
+<p><strong>FourSquare (рост)</strong></p>
+<p>Когда новый генеральный директор присоединился к компании FourSquare, продукт был struggling, B2C-ориентированным предприятием, где пользователи проверяли различные места в мобильном приложении.</p>
+<p>Новый генеральный директор быстро понял, что помимо традиционного пути B2C существует ещё одна крупная возможность: стратегия продукта, ориентированная на API и учитывающая потребности разработчиков для включения информации о местах в их приложениях.</p>
+<p>Это привело к выпуску ряда новых продуктов, ориентированных на разработчиков, включая Places API. FourSquare использовала DevRel, чтобы вывести свой рост на новый уровень.</p>
+<p><strong>AWS, Azure, Google Cloud (полезность)</strong></p>
+<p>AWS и облачные вычисления — это яркие примеры продуктов, полезность которых полностью ориентирована на инженерное сообщество.</p>
+<p>Неудивительно, что эти сектора являются одними из самых агрессивных в своей тактике по привлечению разработчиков.</p>
+<p>AWS ежегодно проводит Global Summit, где лидеры AWS рассказывают о последних способах использования платформы облачных вычислений, а также демонстрируют разработки от разработчиков, пытаясь убедить посетителей принять технологию в своих продуктах.</p>
+<p>Azure и Google проводят аналогичные мероприятия с аналогичными намерениями.</p>
+<p>Это некоторые из способов, с помощью которых компании используют своё влияние, чтобы попытаться привлечь разработчиков и убедить их принять свои продукты. Но как ещё вы можете улучшить DevRel для своего продукта?</p>
+<p>Давайте посмотрим.</p>
+<h4 id="практические-способы-улучшения-отношений-с-разработчиками">Практические способы улучшения отношений с разработчиками</h4>
+<p>Любая продуктовая компания может принять решение улучшить свои отношения с разработчиками, и, как мы уже выяснили, для некоторых продуктов это будет иметь фундаментальное значение для их продуктовой стратегии. Для других это может быть не так критично.</p>
+<p>Если вы решаете, стоит ли удвоить усилия по сосредоточению на DevRel, задайте себе несколько вопросов:</p>
+<ol>
+<li><strong>Рост</strong> — поможет ли установление более тесных связей с сообществом разработчиков значительно увеличить рост моего продукта?</li>
+<li><strong>Зависимости от дорожной карты</strong> — есть ли в моей дорожной карте предстоящие стратегические пункты, реализация которых зависит от установления более тесных связей с сообществом разработчиков?</li>
+<li><strong>Доходы</strong> — открывает ли развитие более тесных связей с сообществом разработчиков возможности для новой монетизации / получения доходов?</li>
+<li><strong>Что произойдёт, если мы этого не сделаем?</strong> Подумайте о стоимости того, что вы не будете активно взаимодействовать с инженерным сообществом и не будете стремиться к более тесным связям с ним. Пострадает ли ваш продукт от этого каким-либо образом?</li>
+</ol>
+<p><strong>Создание внутренних команд, посвящённых DevRel</strong></p>
+<p>Некоторые компании будут относиться к DevRel настолько серьёзно, что создадут внутренние команды, посвящённые DevRel.</p>
+<p>В этом примере FourSquare нанимает на должность «адвоката разработчиков» (Developer Advocate), в обязанности которого входит:</p>
+<ul>
+<li>Формирование присутствия в онлайн-сообществах на ключевых платформах.</li>
+<li>Организация мероприятий для разработчиков.</li>
+<li>Представление интересов сообщества разработчиков внутри компании для влияния на решения о дорожной карте продукта.</li>
+</ul>
+<p>Решение о налаживании отношений с инженерным сообществом редко бывает достаточным; вместо этого вам потребуется выделить на это ресурсы, и один из способов сделать это — нанять людей, специально ориентированных на это.</p>
+<p><strong>Использование нишевых каналов и сообществ</strong></p>
+<p>Разработчики вряд ли будут использовать Facebook для поиска новейших инструментов и технологий. Если вы серьёзно настроены удвоить свои усилия в DevRel, вам, вероятно, понадобится кто-то, кто понимает, где инженеры проводят время в Интернете, чтобы вы могли влиять на мнения и поведение.</p>
+<p>Каналы и сообщества, такие как Reddit, Twitch и Discord, вероятно, станут хорошей ставкой для влияния и формирования мнения, наряду с любыми влиятельными лицами, но эти каналы постоянно развиваются, поэтому вам нужно будет держать руку на пульсе, чтобы понимать, где и когда взаимодействовать с влиятельными разработчиками.</p>
+<p>Конечно, менеджер по продукту — не лучший человек для этого. Скорее всего, вам понадобится оставить это тем, кто знает, где найти инженеров.</p>
+<p><strong>Взаимодействие с сообществом</strong></p>
+<p>Найти, где тусуются инженеры, — это одно, но активно взаимодействовать с ними осмысленным образом — совсем другое. У некоторых гигантов, таких как Microsoft, Apple, AWS и Google, есть ресурсы для проведения масштабных мероприятий, но у большинства небольших компаний их нет.</p>
+<p>В этом случае небольшие компании всё равно могут взаимодействовать с сообществом через онлайн-мероприятия, выделенные каналы Discord, форумы и другие платформы.</p>
+<p>Если у вас есть бета-версия вашего продукта, доступная для тестирования, или если ваша дорожная карта была опубликована, пригласите инженеров, чтобы собрать отзывы и наладить более тесные отношения. Всегда помните, что инженеры — это супертехнологичные люди, поэтому, если ваш продукт не предназначен для использования разработчиками, их отзывы, скорее всего, будут гораздо более ориентированы на технологии, чем отзывы нетехнических пользователей.</p>
+<p><strong>Поддерживайте продукты и документацию в актуальном состоянии</strong></p>
+<p>Взаимодействие и привлечение внимания не стоят ваших усилий, если вы не найдёте время, чтобы сделать сообщество разработчиков счастливыми в основных, но важных аспектах. Что мы имеем в виду под основными, но важными аспектами?</p>
+<p>Ну, скажем, ваша документация по API устарела, или ваши коды ответов бессмысленны. Эти мелочи будут раздражать разработчиков настолько, что независимо от того, сколько модных вебинаров вы для них проведёте, они быстро поймут, что на самом деле вам не так уж важны их потребности.</p>
+<p><strong>Практические способы продемонстрировать разработчикам, что вы серьёзно относитесь к DevRel</strong></p>
+<ol>
+<li><strong>Документация удобна в использовании, проста для понимания и актуальна</strong> — Stripe считается золотым стандартом для документации разработчиков, и компания даже открыла исходный код своих инструментов документации, чтобы вы тоже могли создавать свои версии красиво оформленной, лёгкой для чтения документации.</li>
+<li><strong>Примеры кода и библиотеки</strong> легко доступны для изучения, чтобы инженеры могли быстро увидеть, как технология работает на практике.</li>
+<li><strong>Поддержка клиентов</strong> ориентирована не только на нетехнических клиентов, но и в равной степени доступна для технических пользователей вашего продукта, особенно если ваш продукт имеет техническую полезность или ориентирован на технических пользователей.</li>
+</ol>
+<h4 id="подводя-итог">Подводя итог</h4>
+<p>Выделение времени и ресурсов на развитие отношений с разработчиками — это не новость. Но появление DevRel в качестве потенциального рычага для получения стратегического преимущества перед конкурентами — это новость.</p>
+<p>Как менеджер по продукту, вам не нужно быть человеком, возглавляющим усилия вашей компании в области DevRel, но если ваша продуктовая стратегия предполагает, что установление более тесных отношений с сообществом разработчиков означает, что у вас больше шансов на успех, или что без этого вы потерпите неудачу, то, возможно, пришло время подумать об улучшении ваших усилий в области DevRel.</p>
+<p>С другой стороны, если ваш продукт не ориентирован на инженеров и вряд ли выиграет от тактики, призванной привлечь инженеров на борт, то, возможно, лучше сосредоточиться на нетехнических конечных пользователях вашего продукта. Сосредоточение внимания на нетехнических конечных пользователях не означает, что вы обречены на провал, это просто означает, что вы ясно дали понять, какие пользователи являются приоритетными — просто спросите WordPress.</p>
+
+    </div>
+
+    <div class="tags mt-8">
+      
+
+    </div>
+  </article>
+
+          
+            
+  </main>          
+
+    <script>
+
+        
+        
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const sidebar = document.querySelector('.sidebar');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+        
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                if (entry.isIntersecting) {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.add('active');
+                    });
+                } else {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.remove('active');
+                    });
+                }
+            });
+        }, observerOptions);
+        
+        
+        document.querySelectorAll('h2[id]').forEach(heading => {
+            observer.observe(heading);
+        });
+    </script>
+
+
+  <footer class="px-6 py-12 bg-sky-950 text-white/50">
+    
+<p>P9X.ru 2010 - 2025г. услуги интернет маркетинга</p>
+
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105149615', 'ym');
+
+    ym(105149615, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/105149615" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+  </footer>
+</body>
+</html>

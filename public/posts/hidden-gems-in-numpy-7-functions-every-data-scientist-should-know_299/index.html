@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Скрытые преимущества NumPy: 7 функций, которые должен знать каждый специалист по обработке данных | На пути к науке о данных | Агентство контекстной рекламы</title>
+<meta name="description" content="">
+<meta name="yandex-verification" content="242f5a0ee52d5836" />
+
+<link rel="icon" type="image/x-icon" href="http://localhost:1313/favicon.ico">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+ <style>
+  .content h1 { 
+        font-size: 1.875rem; 
+        font-weight: bold; 
+        margin-bottom: 1rem; 
+    }
+    .content h2 { 
+        font-size: 1.5rem; 
+        font-weight: 600; 
+        margin-bottom: 0.75rem; 
+    }
+    .content h3 { 
+        font-size: 1.25rem; 
+        font-weight: 500; 
+        margin-bottom: 0.5rem; 
+    }
+    .content p { 
+        margin-bottom: 1rem; 
+    }
+    .content ul { 
+        list-style-type: disc; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content ol { 
+        list-style-type: decimal; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content a { 
+        color: #2563eb; 
+    }
+    .content a:hover { 
+        color: #1e40af; 
+    }
+    .content blockquote { 
+        border-left: 4px solid #d1d5db; 
+        padding-left: 1rem; 
+        font-style: italic; 
+    }
+
+    
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.875rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+.dark-mode .content table {
+    border: 1px solid #4b5563;
+}
+
+.content thead {
+    background-color: #eaebec;
+}
+
+.dark-mode .content thead {
+    background-color: #374151;
+}
+
+.content th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.dark-mode .content th {
+    color: #f9fafb;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content th:last-child {
+    border-right: none;  
+}
+
+.content td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    color: #6b7280;
+}
+
+.dark-mode .content td {
+    color: #d1d5db;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content td:last-child {
+    border-right: none;  
+}
+
+.content tbody tr {
+    transition: background-color 0.15s ease-in-out;
+}
+
+.content tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.dark-mode .content tbody tr:hover {
+    background-color: #374151;
+}
+
+.content tbody tr:last-child td {
+    border-bottom: none;
+}
+
+ 
+.content tbody tr:nth-child(even) {
+    background-color: #f4f5f7;
+}
+
+.dark-mode .content tbody tr:nth-child(even) {
+    background-color: #1f2937;
+}
+
+.dark-mode .content tbody tr:nth-child(even):hover {
+    background-color: #374151;
+}
+
+ 
+.content code:not(pre code) {
+    background-color: #f3f4f6;
+    color: #dc2626;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    font-weight: 500;
+    border: 1px solid #e5e7eb;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+}
+
+.dark-mode .content code:not(pre code) {
+    background-color: #224464;
+    color: #f87171;
+    border: 1px solid #4b5563;
+}
+
+ 
+.content pre {
+    background-color: #224464;
+    color: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid #374151;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.dark-mode .content pre {
+    background-color: #111827;
+    border: 1px solid #374151;
+}
+
+ 
+.content pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+    font-weight: normal;
+}
+
+ 
+.content pre code .keyword { color: #f472b6; }  
+.content pre code .function { color: #60a5fa; }  
+.content pre code .string { color: #34d399; }  
+.content pre code .comment { color: #9ca3af; font-style: italic; }  
+.content pre code .number { color: #fbbf24; }  
+.content pre code .class { color: #c084fc; }  
+.content pre code .operator { color: #93c5fd; }  
+
+ 
+.content pre::-webkit-scrollbar {
+    height: 6px;
+}
+
+.content pre::-webkit-scrollbar-track {
+    background: #374151;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.content pre::-webkit-scrollbar-thumb {
+    background: #6b7280;
+    border-radius: 3px;
+}
+
+.content pre::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+ 
+.content h1 code:not(pre code),
+.content h2 code:not(pre code),
+.content h3 code:not(pre code) {
+    font-size: 0.9em;
+    background-color: #fef2f2;
+    color: #dc2626;
+}
+
+.dark-mode .content h1 code:not(pre code),
+.dark-mode .content h2 code:not(pre code),
+.dark-mode .content h3 code:not(pre code) {
+    background-color: #7f1d1d;
+    color: #fca5a5;
+}
+
+ 
+.content a code:not(pre code) {
+    color: inherit;
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+.dark-mode .content a code:not(pre code) {
+    background-color: rgba(96, 165, 250, 0.2);
+}
+        :root {
+            --color-bg: #1a1a1a;
+            --color-text: #e6e6e6;
+            --color-accent: #6b7280;
+            --color-link: #9ca3af;
+            --color-link-hover: #d1d5db;
+        }
+        
+        .light-mode {
+            --color-bg: #f9fafb;
+            --color-text: #1f2937;
+            --color-accent: #6b7280;
+            --color-link: #4b5563;
+            --color-link-hover: #111827;
+        }
+        
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        a {
+            color: var(--color-link);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: var(--color-link-hover);
+        }
+        
+        .sidebar {
+            position: fixed;
+             
+            height: 100vh;
+            overflow-y: auto;
+            
+        }
+        
+        .main-content {
+            margin-left: 350px;
+            
+             
+        }
+        
+        .toc-container {
+            position: fixed;
+            right: 2rem;
+            top: 2rem;
+            width: 250px;
+            display: none;
+        }
+        
+        @media (min-width: 1280px) {
+            .toc-container {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 50;
+            }
+            
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+                 
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: fixed;
+                top: 1rem;
+                left: 1rem;
+                z-index: 100;
+            }
+        }
+        
+        .toc-link.active {
+            color: var(--color-link-hover);
+            font-weight: bold;
+        }
+        
+        .social-icons a {
+            margin-right: 0.5rem;
+        }
+        
+        pre {
+            background-color: rgba(107, 114, 128, 0.1);
+            padding: 1rem;
+            border-radius: 0.25rem;
+            overflow-x: auto;
+        }
+        
+        code {
+            font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+    </style>
+</head>
+  <body class="light-mode">
+      <header>
+    
+  </header>
+    
+    <button class="mobile-menu-btn p-2 bg-gray-800 text-white rounded md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+    
+    <aside class="sidebar border-r-4 border-sky-800  min-w-[350px] py-12 px-10 bg-gradient-to-br from-cyan-200 via-green-100 to-sky-100">
+        <div class="flex flex-col items-center mb-8">
+                
+            
+            <div class="w-24 h-24 mb-4 relative">
+                <a href="/">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ viewBox="0 0 550.000000 385.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,385.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M2780 3000 l0 -300 40 0 40 0 0 260 0 260 1165 0 1165 0 0 -1245 0
+-1245 -1165 0 -1165 0 0 260 0 260 -40 0 -40 0 0 -300 0 -300 1245 0 1245 0 0
+1325 0 1325 -1245 0 -1245 0 0 -300z"/>
+<path d="M700 1975 l0 -635 145 0 145 0 0 245 0 245 383 0 c422 0 426 1 491
+66 60 60 66 88 66 319 0 190 -2 214 -21 255 -25 56 -53 86 -104 113 -39 22
+-49 22 -572 25 l-533 3 0 -636z m940 245 l0 -100 -325 0 -325 0 0 100 0 100
+325 0 325 0 0 -100z"/>
+<path d="M2320 2601 c-69 -22 -112 -58 -146 -121 -17 -31 -19 -60 -19 -260 0
+-211 1 -227 22 -265 27 -51 68 -90 115 -109 32 -14 98 -16 438 -16 l400 0 0
+-245 0 -245 145 0 145 0 0 536 c0 373 -3 548 -11 575 -16 50 -61 105 -112 132
+-41 22 -48 22 -497 24 -250 1 -466 -2 -480 -6z m810 -381 l0 -100 -340 0 -340
+0 0 100 0 100 340 0 340 0 0 -100z"/>
+<path d="M3650 2607 c0 -1 99 -144 219 -317 l219 -314 -63 -91 c-34 -49 -133
+-191 -219 -315 l-157 -225 172 -3 c97 -1 176 2 183 7 6 5 72 97 146 205 74
+107 138 196 141 196 4 0 71 -92 149 -205 l143 -205 173 0 c96 0 174 2 174 4 0
+3 -95 141 -211 308 -116 167 -214 308 -216 315 -3 7 92 151 211 322 119 170
+216 312 216 315 0 3 -78 6 -174 6 l-174 0 -143 -205 c-78 -113 -145 -205 -149
+-205 -3 0 -70 92 -148 205 l-143 205 -174 0 c-96 0 -175 -1 -175 -3z"/>
+</g>
+</svg>
+</a>
+            </div>
+
+            <p class="text-xs text-center text-gray-500 max-w-[200px]">
+                Профессиональное агентство контекстной рекламы с опытом более 18 лет.
+
+            </p>
+        </div>
+
+        
+        <nav class="mb-8">
+          
+        
+            
+  <nav>
+    <ul>
+    <li class="text-lg font-semibold">
+      <a href="/">Контекстная реклама</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/analytics/">web-аналитика</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a aria-current="true" class="ancestor" href="/posts/">Блог</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/about/">О нас</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Категории</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/job/">Вакансии</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Кейсы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/calculators/">Калькуляторы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/contacts/">Контакты</a>
+    </li>
+    </ul>
+  </nav>
+
+           
+
+        </nav>
+
+        
+        <div class="social-icons  mt-auto">
+<div>
+
+<a href="https://t.me/your_link" target="_blank" class="inline-flex 
+items-center justify-center px-3 py-3 text-white bg-[#2AABEE] font-medium text-sm rounded 
+shadow-md hover:bg-[#279fd9] 
+hover:shadow-lg focus:bg-[#2493c8] 
+focus:shadow-lg focus:outline-none 
+focus:ring-0 active:bg-[#2185b3] active:shadow-lg transition duration-150 ease-in-out">
+  
+     
+<svg width="25px" height="25px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" 
+fill="#fff" class="bi bi-telegram pr-1">
+  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>
+</svg>
+                            
+  
+  Открыть в Telegram
+</a>
+
+</div>
+            <div class="pt-6 flex gap-1 justify-left items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                sale@p9x.ru
+            </div>
+        </div>
+        
+        
+        <div class="mt-8 pt-4 text-xs text-gray-500 border-t border-gray-700">
+            <p>Powered by <a href="#" class="hover:underline">Hugo</a> | Themed with <a href="#" class="hover:underline">poison</a></p>
+            <p>© 2010 - 2025 Poison. All rights reserved.</p>
+        </div>
+    </aside>
+
+  <main class="main-content bg-white">
+ 
+            
+            
+  <article class="prose prose-lg py-8 px-4 max-w-[1200px]">
+    <h1 class="text-2xl font-bold mb-4">
+            Скрытые преимущества NumPy: 7 функций, которые должен знать каждый специалист по обработке данных
+    </h1>
+
+    
+    
+    <time class="block mb-6 text-gray-500" datetime="2025-11-19T22:53:35&#43;00:00">November 19, 2025</time>
+
+    <div class="content mb-8 ">
+      <h3 id="анализ-данных-с-помощью-numpy">Анализ данных с помощью NumPy</h3>
+<p>Уже год работаю с анализом данных. На данный момент я могу считать себя уверенным в SQL и Power BI. Переход на Python был довольно увлекательным. Я познакомился с некоторыми интересными и более умными подходами к анализу данных.</p>
+<p>После того как я освежил свои навыки в основах Python, следующим идеальным шагом было начать изучать некоторые библиотеки Python для анализа данных. NumPy — одна из них. Как любитель математики, естественно, мне нравится исследовать эту библиотеку Python.</p>
+<p>Эта библиотека предназначена для людей, которые хотят выполнять математические вычисления с помощью Python, от базовой математики и алгебры до продвинутых понятий, таких как исчисление. NumPy может практически всё это делать.</p>
+<p>В этой статье я хотел познакомить вас с некоторыми функциями NumPy, с которыми я экспериментировал. Независимо от того, являетесь ли вы специалистом по анализу данных, финансовым аналитиком или любителем исследований, эти функции вам очень помогут.</p>
+<h2 id="пример-набора-данных-используется-повсюду">Пример набора данных (используется повсюду)</h2>
+<p>Перед тем как погрузиться, я определю небольшой набор данных, который будет использоваться во всех примерах:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span>temps <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([<span style="color:#ae81ff">30</span>, <span style="color:#ae81ff">32</span>, <span style="color:#ae81ff">29</span>, <span style="color:#ae81ff">35</span>, <span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">33</span>, <span style="color:#ae81ff">31</span>])
+</span></span></code></pre></div><p>Используя этот небольшой набор данных о температуре, я поделюсь 7 функциями, которые упрощают работу с массивами.</p>
+<h3 id="1-npwhere--векторизованный-if-else">1. <code>np.where()</code> — векторизованный if-else</h3>
+<p><strong>Прежде чем я определю, что это за функция, вот краткое её представление:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>arr <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">25</span>, <span style="color:#ae81ff">30</span>])
+</span></span><span style="display:flex;"><span>indices <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>where(arr <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">20</span>)
+</span></span><span style="display:flex;"><span>print(indices)
+</span></span></code></pre></div><p><strong>Вывод: (array([3, 4]),)</strong></p>
+<p><code>np.where</code> — это функция на основе условий. Когда задано условие, она выводит индекс/индексы, где это условие истинно. Например, в примере выше задан массив, и я объявил функцию <code>np.where</code>, которая извлекает записи, где элемент массива больше 20. Вывод — array([3, 4]), потому что это местоположение/индексы, где условие истинно — это будут 25 и 30.</p>
+<h3 id="условный-выборзамена">Условный выбор/замена</h3>
+<p>Это также полезно, когда вы пытаетесь определить пользовательский вывод для выходов, которые соответствуют вашему условию. Это часто используется в анализе данных. Например:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span>arr <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>])
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>where(arr <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>, <span style="color:#960050;background-color:#1e0010">‘</span>even<span style="color:#960050;background-color:#1e0010">’</span>, <span style="color:#960050;background-color:#1e0010">‘</span>odd<span style="color:#960050;background-color:#1e0010">’</span>)
+</span></span><span style="display:flex;"><span>print(result)
+</span></span></code></pre></div><p><strong>Вывод: [‘odd’ ‘even’ ‘odd’ ‘even’ ‘odd’]</strong></p>
+<p>В примере выше пытаются извлечь чётные числа. После извлечения вызывается функция условного выбора/замены, которая добавляет пользовательское имя для наших условий. Если условие истинно, оно заменяется на even, а если условие ложно — на odd.</p>
+<h3 id="проблема-заменить-все-температуры-выше-35-c-на-35-ограничить-экстремальные-значения">Проблема: заменить все температуры выше 35 °C на 35 (ограничить экстремальные значения).</h3>
+<p>В реальных данных, особенно от датчиков, погодных станций или пользовательских вводов, выбросы довольно распространены — внезапные всплески или нереалистичные значения, которые не являются реалистичными.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>adjusted <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>where(temps <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">35</span>, <span style="color:#ae81ff">35</span>, temps)
+</span></span></code></pre></div><p><strong>Вывод: array([30, 32, 29, 35, 35, 33, 31])</strong></p>
+<p>Теперь выглядит намного лучше. С помощью нескольких строк кода мы смогли исправить нереалистичные выбросы в нашем наборе данных.</p>
+<h3 id="2-npclip--сохранение-значений-в-диапазоне">2. <code>np.clip()</code> — сохранение значений в диапазоне</h3>
+<p>Во многих практических наборах данных значения могут выходить за пределы ожидаемого диапазона, вероятно, из-за шума измерений, ошибки пользователя или несоответствия масштабирования.</p>
+<p>Например:</p>
+<ul>
+<li>Датчик температуры может показывать −10 °C, когда минимально возможное значение — 0 °C.</li>
+<li>Модель может прогнозировать вероятности, такие как 1,03 или −0,05 из-за округления.</li>
+<li>При нормализации значений пикселей для изображения некоторые из них могут выходить за пределы 0–255.</li>
+</ul>
+<p>Эти «вне диапазона» значения могут:</p>
+<ul>
+<li>Нарушать последующие вычисления (например, логарифмические или процентные вычисления).</li>
+<li>Вызывать нереалистичные графики или артефакты (особенно при обработке сигналов/изображений).</li>
+<li>Искажать нормализацию и делать метрики ненадёжными.</li>
+</ul>
+<p><code>np.clip()</code> изящно решает эту проблему, ограничивая все элементы массива указанным минимальным и максимальным диапазоном.</p>
+<p><strong>Проблема: обеспечить, чтобы все показания оставались в диапазоне [28, 35].</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>clipped <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>clip(temps, <span style="color:#ae81ff">28</span>, <span style="color:#ae81ff">35</span>)
+</span></span><span style="display:flex;"><span>clipped
+</span></span></code></pre></div><p><strong>Вывод: array([30, 32, 29, 35, 35, 33, 31])</strong></p>
+<p>Здесь происходит следующее:</p>
+<ul>
+<li>Любое значение ниже 28 становится 28.</li>
+<li>Любое значение выше 35 становится 35.</li>
+<li>Всё остальное остаётся прежним.</li>
+</ul>
+<h3 id="3-npptp--найдите-диапазон-ваших-данных-за-один-раз">3. <code>np.ptp()</code> — найдите диапазон ваших данных за один раз</h3>
+<p><code>np.ptp()</code> (peak-to-peak) показывает разницу между максимальным и минимальным элементами.</p>
+<p><strong>Пример:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>arr <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">2</span>],
+</span></span><span style="display:flex;"><span>[<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">7</span>]])
+</span></span><span style="display:flex;"><span>range_all <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>ptp(arr)
+</span></span><span style="display:flex;"><span>print(f<span style="color:#960050;background-color:#1e0010">”</span>Peak<span style="color:#f92672">-</span>to<span style="color:#f92672">-</span>peak range of the entire array: {range_all}<span style="color:#960050;background-color:#1e0010">”</span>)
+</span></span></code></pre></div><p><strong>Вывод: Peak-to-peak range of the entire array: 7</strong></p>
+<p>Понимание того, насколько варьируются ваши данные, часто так же важно, как и среднее значение. В метеорологических данных, например, это показывает, насколько стабильными или изменчивыми были условия.</p>
+<h3 id="4-npdiff--обнаружение-ежедневных-изменений">4. <code>np.diff()</code> — обнаружение ежедневных изменений</h3>
+<p><code>np.diff()</code> — это самый быстрый способ измерить импульс, рост или спад во времени. Он вычисляет различия между элементами в массиве.</p>
+<p><strong>Пример:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>temps <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([<span style="color:#ae81ff">30</span>, <span style="color:#ae81ff">32</span>, <span style="color:#ae81ff">29</span>, <span style="color:#ae81ff">35</span>, <span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">33</span>, <span style="color:#ae81ff">31</span>])
+</span></span><span style="display:flex;"><span>daily_change <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>diff(temps)
+</span></span><span style="display:flex;"><span>print(daily_change)
+</span></span></code></pre></div><p><strong>Вывод: [ 2 -3 6 1 -3 -2]</strong></p>
+<h3 id="5-npgradient--захват-плавных-тенденций-и-наклонов">5. <code>np.gradient()</code> — захват плавных тенденций и наклонов</h3>
+<p><code>np.gradient()</code> вычисляет числовой градиент (сглаженную оценку изменения или наклона) по вашим данным. Он похож на <code>np.diff()</code>, однако <code>np.gradient()</code> работает, даже если ваши x-значения расположены неравномерно (например, нерегулярные временные метки).</p>
+<p><strong>Пример:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>time <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">7</span>])
+</span></span><span style="display:flex;"><span>temp <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([<span style="color:#ae81ff">30</span>, <span style="color:#ae81ff">32</span>, <span style="color:#ae81ff">34</span>, <span style="color:#ae81ff">35</span>, <span style="color:#ae81ff">36</span>])
+</span></span><span style="display:flex;"><span>np<span style="color:#f92672">.</span>gradient(temp, time)
+</span></span></code></pre></div><p><strong>Вывод: array([2. , 2. , 1.5 , 0.43333333, 0.33333333])</strong></p>
+<h3 id="6-nppercentile--обнаружение-выбросов-или-порогов">6. <code>np.percentile()</code> — обнаружение выбросов или порогов</h3>
+<p><code>np.percentile()</code> помогает вам извлекать фрагменты или срезы ваших данных. NumPy определяет это следующим образом: numpy.percentile <strong>вычисляет q-й процентиль данных вдоль указанной оси</strong>, где q — это процентное значение от 0 до 100.</p>
+<p><strong>Пример:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span>sales <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([<span style="color:#ae81ff">45</span>, <span style="color:#ae81ff">50</span>, <span style="color:#ae81ff">52</span>, <span style="color:#ae81ff">48</span>, <span style="color:#ae81ff">60</span>, <span style="color:#ae81ff">62</span>, <span style="color:#ae81ff">58</span>, <span style="color:#ae81ff">70</span>, <span style="color:#ae81ff">72</span>, <span style="color:#ae81ff">66</span>, <span style="color:#ae81ff">63</span>, <span style="color:#ae81ff">80</span>])
+</span></span><span style="display:flex;"><span>np<span style="color:#f92672">.</span>percentile(sales, [<span style="color:#ae81ff">25</span>, <span style="color:#ae81ff">50</span>, <span style="color:#ae81ff">75</span>, <span style="color:#ae81ff">90</span>])
+</span></span></code></pre></div><p><strong>Вывод: [51.0 61.0 67.5 73.0]</strong></p>
+<h3 id="7-npunique--быстрый-поиск-уникальных-значений-и-их-количества">7. <code>np.unique()</code> — быстрый поиск уникальных значений и их количества</h3>
+<p>Эта функция идеально подходит для очистки, суммирования или категоризации данных. <code>np.unique()</code> находит все уникальные элементы в вашем массиве.</p>
+<p><strong>Пример:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span>products <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">‘</span>Shoes<span style="color:#960050;background-color:#1e0010">’</span>, <span style="color:#960050;background-color:#1e0010">‘</span>Bags<span style="color:#960050;background-color:#1e0010">’</span>, <span style="color:#960050;background-color:#1e0010">‘</span>Bags<span style="color:#960050;background-color:#1e0010">’</span>, <span style="color:#960050;background-color:#1e0010">‘</span>Hats<span style="color:#960050;background-color:#1e0010">’</span>,
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">‘</span>Shoes<span style="color:#960050;background-color:#1e0010">’</span>, <span style="color:#960050;background-color:#1e0010">‘</span>Shoes<span style="color:#960050;background-color:#1e0010">’</span>, <span style="color:#960050;background-color:#1e0010">‘</span>Belts<span style="color:#960050;background-color:#1e0010">’</span>, <span style="color:#960050;background-color:#1e0010">‘</span>Hats<span style="color:#960050;background-color:#1e0010">’</span>
+</span></span><span style="display:flex;"><span>])
+</span></span><span style="display:flex;"><span>np<span style="color:#f92672">.</span>unique(products)
+</span></span></code></pre></div><p><strong>Вывод: array([‘Bags’, ‘Belts’, ‘Hats’, ‘Shoes’], dtype=’ &lt;U5′)</strong></p>
+<p>Вы можете сделать ещё один шаг, посчитав количество раз, когда они появляются, используя свойство return_counts:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>np<span style="color:#f92672">.</span>unique(products, return_counts<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span></code></pre></div><p><strong>Вывод: (array([‘Bags’, ‘Belts’, ‘Hats’, ‘Shoes’], dtype=’ &lt;U5′), array([2, 1, 2, 3])</strong></p>
+<h3 id="подводя-итог">Подводя итог</h3>
+<p>Пока что это те функции, с которыми я столкнулся. И я считаю их довольно полезными в анализе данных. Прелесть NumPy в том, что чем больше вы с ним играете, тем больше вы обнаруживаете эти крошечные однострочники, которые заменяют страницы кода. Так что в следующий раз, когда вы будете работать с данными или отлаживать грязный набор данных, на некоторое время откажитесь от Pandas и попробуйте использовать одну из этих функций. Спасибо за чтение!</p>
+
+    </div>
+
+    <div class="tags mt-8">
+      
+
+    </div>
+  </article>
+
+          
+            
+  </main>          
+
+    <script>
+
+        
+        
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const sidebar = document.querySelector('.sidebar');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+        
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                if (entry.isIntersecting) {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.add('active');
+                    });
+                } else {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.remove('active');
+                    });
+                }
+            });
+        }, observerOptions);
+        
+        
+        document.querySelectorAll('h2[id]').forEach(heading => {
+            observer.observe(heading);
+        });
+    </script>
+
+
+  <footer class="px-6 py-12 bg-sky-950 text-white/50">
+    
+<p>P9X.ru 2010 - 2025г. услуги интернет маркетинга</p>
+
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105149615', 'ym');
+
+    ym(105149615, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/105149615" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+  </footer>
+</body>
+</html>

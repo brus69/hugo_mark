@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Создание системы преобразования текста в SQL: повторение подхода Pinterest | Агентство контекстной рекламы</title>
+<meta name="description" content="Научитесь создавать систему преобразования текста в SQL. В нашем руководстве показано, как повторить подход Pinterest к преобразованию естественного языка в SQL.">
+<meta name="yandex-verification" content="242f5a0ee52d5836" />
+
+<link rel="icon" type="image/x-icon" href="http://localhost:1313/favicon.ico">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+ <style>
+  .content h1 { 
+        font-size: 1.875rem; 
+        font-weight: bold; 
+        margin-bottom: 1rem; 
+    }
+    .content h2 { 
+        font-size: 1.5rem; 
+        font-weight: 600; 
+        margin-bottom: 0.75rem; 
+    }
+    .content h3 { 
+        font-size: 1.25rem; 
+        font-weight: 500; 
+        margin-bottom: 0.5rem; 
+    }
+    .content p { 
+        margin-bottom: 1rem; 
+    }
+    .content ul { 
+        list-style-type: disc; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content ol { 
+        list-style-type: decimal; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content a { 
+        color: #2563eb; 
+    }
+    .content a:hover { 
+        color: #1e40af; 
+    }
+    .content blockquote { 
+        border-left: 4px solid #d1d5db; 
+        padding-left: 1rem; 
+        font-style: italic; 
+    }
+
+    
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.875rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+.dark-mode .content table {
+    border: 1px solid #4b5563;
+}
+
+.content thead {
+    background-color: #eaebec;
+}
+
+.dark-mode .content thead {
+    background-color: #374151;
+}
+
+.content th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.dark-mode .content th {
+    color: #f9fafb;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content th:last-child {
+    border-right: none;  
+}
+
+.content td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    color: #6b7280;
+}
+
+.dark-mode .content td {
+    color: #d1d5db;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content td:last-child {
+    border-right: none;  
+}
+
+.content tbody tr {
+    transition: background-color 0.15s ease-in-out;
+}
+
+.content tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.dark-mode .content tbody tr:hover {
+    background-color: #374151;
+}
+
+.content tbody tr:last-child td {
+    border-bottom: none;
+}
+
+ 
+.content tbody tr:nth-child(even) {
+    background-color: #f4f5f7;
+}
+
+.dark-mode .content tbody tr:nth-child(even) {
+    background-color: #1f2937;
+}
+
+.dark-mode .content tbody tr:nth-child(even):hover {
+    background-color: #374151;
+}
+
+ 
+.content code:not(pre code) {
+    background-color: #f3f4f6;
+    color: #dc2626;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    font-weight: 500;
+    border: 1px solid #e5e7eb;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+}
+
+.dark-mode .content code:not(pre code) {
+    background-color: #224464;
+    color: #f87171;
+    border: 1px solid #4b5563;
+}
+
+ 
+.content pre {
+    background-color: #224464;
+    color: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid #374151;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.dark-mode .content pre {
+    background-color: #111827;
+    border: 1px solid #374151;
+}
+
+ 
+.content pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+    font-weight: normal;
+}
+
+ 
+.content pre code .keyword { color: #f472b6; }  
+.content pre code .function { color: #60a5fa; }  
+.content pre code .string { color: #34d399; }  
+.content pre code .comment { color: #9ca3af; font-style: italic; }  
+.content pre code .number { color: #fbbf24; }  
+.content pre code .class { color: #c084fc; }  
+.content pre code .operator { color: #93c5fd; }  
+
+ 
+.content pre::-webkit-scrollbar {
+    height: 6px;
+}
+
+.content pre::-webkit-scrollbar-track {
+    background: #374151;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.content pre::-webkit-scrollbar-thumb {
+    background: #6b7280;
+    border-radius: 3px;
+}
+
+.content pre::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+ 
+.content h1 code:not(pre code),
+.content h2 code:not(pre code),
+.content h3 code:not(pre code) {
+    font-size: 0.9em;
+    background-color: #fef2f2;
+    color: #dc2626;
+}
+
+.dark-mode .content h1 code:not(pre code),
+.dark-mode .content h2 code:not(pre code),
+.dark-mode .content h3 code:not(pre code) {
+    background-color: #7f1d1d;
+    color: #fca5a5;
+}
+
+ 
+.content a code:not(pre code) {
+    color: inherit;
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+.dark-mode .content a code:not(pre code) {
+    background-color: rgba(96, 165, 250, 0.2);
+}
+        :root {
+            --color-bg: #1a1a1a;
+            --color-text: #e6e6e6;
+            --color-accent: #6b7280;
+            --color-link: #9ca3af;
+            --color-link-hover: #d1d5db;
+        }
+        
+        .light-mode {
+            --color-bg: #f9fafb;
+            --color-text: #1f2937;
+            --color-accent: #6b7280;
+            --color-link: #4b5563;
+            --color-link-hover: #111827;
+        }
+        
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        a {
+            color: var(--color-link);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: var(--color-link-hover);
+        }
+        
+        .sidebar {
+            position: fixed;
+             
+            height: 100vh;
+            overflow-y: auto;
+            
+        }
+        
+        .main-content {
+            margin-left: 350px;
+            
+             
+        }
+        
+        .toc-container {
+            position: fixed;
+            right: 2rem;
+            top: 2rem;
+            width: 250px;
+            display: none;
+        }
+        
+        @media (min-width: 1280px) {
+            .toc-container {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 50;
+            }
+            
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+                 
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: fixed;
+                top: 1rem;
+                left: 1rem;
+                z-index: 100;
+            }
+        }
+        
+        .toc-link.active {
+            color: var(--color-link-hover);
+            font-weight: bold;
+        }
+        
+        .social-icons a {
+            margin-right: 0.5rem;
+        }
+        
+        pre {
+            background-color: rgba(107, 114, 128, 0.1);
+            padding: 1rem;
+            border-radius: 0.25rem;
+            overflow-x: auto;
+        }
+        
+        code {
+            font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+    </style>
+</head>
+  <body class="light-mode">
+      <header>
+    
+  </header>
+    
+    <button class="mobile-menu-btn p-2 bg-gray-800 text-white rounded md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+    
+    <aside class="sidebar border-r-4 border-sky-800  min-w-[350px] py-12 px-10 bg-gradient-to-br from-cyan-200 via-green-100 to-sky-100">
+        <div class="flex flex-col items-center mb-8">
+                
+            
+            <div class="w-24 h-24 mb-4 relative">
+                <a href="/">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ viewBox="0 0 550.000000 385.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,385.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M2780 3000 l0 -300 40 0 40 0 0 260 0 260 1165 0 1165 0 0 -1245 0
+-1245 -1165 0 -1165 0 0 260 0 260 -40 0 -40 0 0 -300 0 -300 1245 0 1245 0 0
+1325 0 1325 -1245 0 -1245 0 0 -300z"/>
+<path d="M700 1975 l0 -635 145 0 145 0 0 245 0 245 383 0 c422 0 426 1 491
+66 60 60 66 88 66 319 0 190 -2 214 -21 255 -25 56 -53 86 -104 113 -39 22
+-49 22 -572 25 l-533 3 0 -636z m940 245 l0 -100 -325 0 -325 0 0 100 0 100
+325 0 325 0 0 -100z"/>
+<path d="M2320 2601 c-69 -22 -112 -58 -146 -121 -17 -31 -19 -60 -19 -260 0
+-211 1 -227 22 -265 27 -51 68 -90 115 -109 32 -14 98 -16 438 -16 l400 0 0
+-245 0 -245 145 0 145 0 0 536 c0 373 -3 548 -11 575 -16 50 -61 105 -112 132
+-41 22 -48 22 -497 24 -250 1 -466 -2 -480 -6z m810 -381 l0 -100 -340 0 -340
+0 0 100 0 100 340 0 340 0 0 -100z"/>
+<path d="M3650 2607 c0 -1 99 -144 219 -317 l219 -314 -63 -91 c-34 -49 -133
+-191 -219 -315 l-157 -225 172 -3 c97 -1 176 2 183 7 6 5 72 97 146 205 74
+107 138 196 141 196 4 0 71 -92 149 -205 l143 -205 173 0 c96 0 174 2 174 4 0
+3 -95 141 -211 308 -116 167 -214 308 -216 315 -3 7 92 151 211 322 119 170
+216 312 216 315 0 3 -78 6 -174 6 l-174 0 -143 -205 c-78 -113 -145 -205 -149
+-205 -3 0 -70 92 -148 205 l-143 205 -174 0 c-96 0 -175 -1 -175 -3z"/>
+</g>
+</svg>
+</a>
+            </div>
+
+            <p class="text-xs text-center text-gray-500 max-w-[200px]">
+                Профессиональное агентство контекстной рекламы с опытом более 18 лет.
+
+            </p>
+        </div>
+
+        
+        <nav class="mb-8">
+          
+        
+            
+  <nav>
+    <ul>
+    <li class="text-lg font-semibold">
+      <a href="/">Контекстная реклама</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/analytics/">web-аналитика</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a aria-current="true" class="ancestor" href="/posts/">Блог</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/about/">О нас</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Категории</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/job/">Вакансии</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Кейсы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/calculators/">Калькуляторы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/contacts/">Контакты</a>
+    </li>
+    </ul>
+  </nav>
+
+           
+
+        </nav>
+
+        
+        <div class="social-icons  mt-auto">
+<div>
+
+<a href="https://t.me/your_link" target="_blank" class="inline-flex 
+items-center justify-center px-3 py-3 text-white bg-[#2AABEE] font-medium text-sm rounded 
+shadow-md hover:bg-[#279fd9] 
+hover:shadow-lg focus:bg-[#2493c8] 
+focus:shadow-lg focus:outline-none 
+focus:ring-0 active:bg-[#2185b3] active:shadow-lg transition duration-150 ease-in-out">
+  
+     
+<svg width="25px" height="25px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" 
+fill="#fff" class="bi bi-telegram pr-1">
+  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>
+</svg>
+                            
+  
+  Открыть в Telegram
+</a>
+
+</div>
+            <div class="pt-6 flex gap-1 justify-left items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                sale@p9x.ru
+            </div>
+        </div>
+        
+        
+        <div class="mt-8 pt-4 text-xs text-gray-500 border-t border-gray-700">
+            <p>Powered by <a href="#" class="hover:underline">Hugo</a> | Themed with <a href="#" class="hover:underline">poison</a></p>
+            <p>© 2010 - 2025 Poison. All rights reserved.</p>
+        </div>
+    </aside>
+
+  <main class="main-content bg-white">
+ 
+            
+            
+  <article class="prose prose-lg py-8 px-4 max-w-[1200px]">
+    <h1 class="text-2xl font-bold mb-4">
+            Создание системы преобразования текста в SQL: Руководство по копированию подхода Pinterest
+    </h1>
+
+    
+    
+    <time class="block mb-6 text-gray-500" datetime="2025-11-19T22:53:35&#43;00:00">November 19, 2025</time>
+
+    <div class="content mb-8 ">
+      <p>Данные имеют важное значение для принятия решений в современном бизнесе. Многие сотрудники, однако, не знакомы с SQL. Это создаёт препятствие между вопросами и ответами.</p>
+<p>Система Text-to-SQL решает эту проблему напрямую. Она переводит простые вопросы в запросы к базе данных. В этой статье показано, как создать генератор SQL. Мы будем следовать идеям инженерной команды Pinterest по созданию системы Text-to-SQL. Вы узнаете, как преобразовывать естественный язык в SQL. Мы также будем использовать передовые методы, такие как RAG для выбора таблиц.</p>
+<h3 id="понимание-подхода-pinterest">Понимание подхода Pinterest</h3>
+<p>Pinterest хотел сделать данные доступными для всех. Их сотрудникам нужны были идеи из обширных наборов данных. Большинство из них не были экспертами SQL. Эта задача привела к созданию платформы Pinterest Text-to-SQL. Их путь представляет собой отличную дорожную карту для создания подобных инструментов.</p>
+<h4 id="первая-версия">Первая версия</h4>
+<p>Их первая система была простой. Пользователь задавал вопрос и также указывал таблицы базы данных, которые, по его мнению, были релевантны. Система генерировала SQL-запрос.</p>
+<p>Давайте рассмотрим архитектуру более подробно:</p>
+<ol>
+<li>Пользователь задаёт аналитический вопрос, выбирая таблицы для использования.</li>
+<li>Из хранилища метаданных таблиц извлекаются соответствующие схемы таблиц.</li>
+<li>Вопрос, выбранный диалект SQL и схемы таблиц объединяются в запрос Text-to-SQL.</li>
+<li>Запрос передаётся в LLM.</li>
+<li>Потоковый ответ генерируется и отображается пользователю.</li>
+</ol>
+<p>Этот подход работал, но у него был существенный недостаток. Пользователи часто не имели представления, в каких таблицах содержатся ответы на их вопросы.</p>
+<h4 id="вторая-версия">Вторая версия</h4>
+<p>Чтобы решить эту проблему, их команда создала более интеллектуальную систему. Она использовала технику под названием Retrieval-Augmented Generation (RAG). Вместо того чтобы просить пользователя указать таблицы, система находила их автоматически. Она искала в коллекции описаний таблиц, чтобы найти наиболее релевантные для вопроса. Использование RAG для выбора таблиц сделало инструмент более удобным для пользователя.</p>
+<ol>
+<li>Для создания векторного индекса сводок таблиц и исторических запросов к ним используется автономная работа.</li>
+<li>Предположим, пользователь не указал никаких таблиц. В этом случае его вопрос преобразуется в эмбеддинги, и на основе векторного индекса выполняется поиск сходства для определения N наиболее подходящих таблиц.</li>
+<li>N лучших таблиц вместе со схемой таблицы и аналитическим вопросом объединяются в запрос для LLM, чтобы выбрать K наиболее релевантных таблиц.</li>
+<li>Вверху K таблиц возвращаются пользователю для проверки или изменения.</li>
+<li>Возобновляется стандартный процесс Text-to-SQL с подтверждёнными пользователем таблицами.</li>
+</ol>
+<p>Мы будем воспроизводить этот мощный двухэтапный подход.</p>
+<h3 id="наш-план-упрощённая-репликация">Наш план: упрощённая репликация</h3>
+<p>Это руководство поможет вам создать генератор SQL в двух частях. Сначала мы создадим основной механизм, который преобразует естественный язык в SQL. Затем мы добавим интеллектуальную функцию поиска таблиц.</p>
+<ol>
+<li><strong>Основная система:</strong> мы создадим базовую цепочку. Она принимает вопрос и список имён таблиц для создания SQL-запроса.</li>
+</ol>
+<ul>
+<li><strong>Пользовательский ввод:</strong> предоставляет аналитический вопрос, выбранные таблицы и диалект SQL.</li>
+<li><strong>Извлечение схемы:</strong> система извлекает соответствующие схемы таблиц из хранилища метаданных.</li>
+<li><strong>Сборка запроса:</strong> объединяет вопрос, схемы и диалект в запрос.</li>
+<li><strong>Генерация LLM:</strong> модель выводит SQL-запрос.</li>
+<li><strong>Проверка и выполнение:</strong> запрос проверяется на безопасность, выполняется, и результаты возвращаются.</li>
+</ul>
+<ol start="2">
+<li><strong>Система с улучшением RAG:</strong> мы добавим компонент поиска. Этот компонент автоматически предлагает правильные таблицы для любого вопроса.</li>
+</ol>
+<ul>
+<li><strong>Автономное индексирование:</strong> журналы SQL-запросов суммируются с помощью LLM, встраиваются и сохраняются в векторном индексе с метаданными.</li>
+<li><strong>Пользовательский запрос:</strong> пользователь предоставляет аналитический вопрос на естественном языке.</li>
+<li><strong>Извлечение:</strong> вопрос встраивается, сопоставляется с векторным хранилищем, и возвращаются N лучших таблиц-кандидатов.</li>
+<li><strong>Выбор таблицы:</strong> LLM ранжирует и выбирает K наиболее релевантных таблиц.</li>
+<li><strong>Извлечение схемы и создание запроса:</strong> система извлекает схемы для этих таблиц и создаёт запрос Text-to-SQL.</li>
+<li><strong>Генерация SQL:</strong> LLM генерирует SQL-запрос.</li>
+<li><strong>Проверка и выполнение:</strong> запрос проверяется, выполняется, и результаты + SQL возвращаются пользователю.</li>
+</ul>
+<p>Мы будем использовать Python, LangChain и OpenAI для создания системы Text-to-SQL. В качестве источника данных будет использоваться база данных SQLite в памяти.</p>
+<h3 id="практическое-руководство-создание-собственного-генератора-sql">Практическое руководство: создание собственного генератора SQL</h3>
+<p>Давайте начнём создавать нашу систему. Следуйте этим шагам, чтобы создать работающий прототип.</p>
+<h4 id="шаг-1-настройка-среды">Шаг 1: настройка среды</h4>
+<p>Сначала мы устанавливаем необходимые библиотеки Python. LangChain помогает нам соединить компоненты. Langchain-openai обеспечивает подключение к LLM. FAISS помогает создать наш ретривер, а Pandas отображает данные в удобном виде.</p>
+<pre tabindex="0"><code>!pip install -qU langchain langchain-openai faiss-cpu pandas langchain_community
+</code></pre><p>Далее вы должны настроить свой API-ключ OpenAI. Этот ключ позволяет нашему приложению использовать модели OpenAI.</p>
+<pre tabindex="0"><code>import os
+from getpass import getpass
+
+OPENAI_API_KEY = getpass(&#34;Enter your OpenAI API key: &#34;)
+os.environ[&#34;OPENAI_API_KEY&#34;] = OPENAI_API_KEY
+</code></pre><h4 id="шаг-2-моделирование-базы-данных">Шаг 2: моделирование базы данных</h4>
+<p>Система Text-to-SQL нуждается в базе данных для запросов. Для этого демонстрационного примера мы создадим простую базу данных SQLite в памяти. Она будет содержать три таблицы: users, pins и boards. Эта настройка имитирует базовую версию структуры данных Pinterest.</p>
+<pre tabindex="0"><code>import sqlite3
+import pandas as pd
+
+# Create a connection to an in-memory SQLite database
+conn = sqlite3.connect(&#39;:memory:&#39;)
+cursor = conn.cursor()
+
+# Create tables
+cursor.execute(&#39;&#39;&#39;
+CREATE TABLE users (
+    user_id INTEGER PRIMARY KEY,
+    username TEXT NOT NULL,
+    join_date DATE NOT NULL,
+    country TEXT
+)
+&#39;&#39;&#39;)
+
+cursor.execute(&#39;&#39;&#39;
+CREATE TABLE pins (
+    pin_id INTEGER PRIMARY KEY,
+    user_id INTEGER,
+    board_id INTEGER,
+    image_url TEXT,
+    description TEXT,
+    created_at DATETIME,
+    FOREIGN KEY(user_id) REFERENCES users(user_id),
+    FOREIGN KEY(board_id) REFERENCES boards(board_id)
+)
+&#39;&#39;&#39;)
+
+cursor.execute(&#39;&#39;&#39;
+CREATE TABLE boards (
+    board_id INTEGER PRIMARY KEY,
+    user_id INTEGER,
+    board_name TEXT NOT NULL,
+    category TEXT,
+    FOREIGN KEY(user_id) REFERENCES users(user_id)
+)
+&#39;&#39;&#39;)
+
+# Insert sample data
+cursor.execute(&#34;INSERT INTO users (user_id, username, join_date, country) VALUES (1, &#39;alice&#39;, &#39;2023-01-15&#39;, &#39;USA&#39;)&#34;)
+cursor.execute(&#34;INSERT INTO users (user_id, username, join_date, country) VALUES (2, &#39;bob&#39;, &#39;2023-02-20&#39;, &#39;Canada&#39;)&#34;)
+
+# ... (далее следует вставка данных в таблицы)
+
+conn.commit()
+print(&#34;Database created and populated successfully.&#34;)
+</code></pre><h4 id="шаг-3-создание-основной-цепочки-text-to-sql">Шаг 3: создание основной цепочки Text-to-SQL</h4>
+<p>Языковая модель не может напрямую видеть нашу базу данных. Ей нужно знать структуры таблиц, или схемы. Мы создаём функцию для получения операторов <code>CREATE TABLE</code>. Эта информация сообщает модели о столбцах, типах данных и ключах.</p>
+<pre tabindex="0"><code>def get_table_schemas(conn, table_names):
+    &#34;&#34;&#34;Fetches the CREATE TABLE statement for a list of tables.&#34;&#34;&#34;
+    schemas = []
+    cursor = conn.cursor() # Get cursor from the passed connection
+    for table_name in table_names:
+        query = f&#34;SELECT sql FROM sqlite_master WHERE type=&#39;table&#39; AND name=&#39;{table_name}&#39;;&#34;
+        cursor.execute(query)
+        result = cursor.fetchone()
+        if result:
+            schemas.append(result[0])
+    return &#34;\n\n&#34;.join(schemas)
+
+# Example usage
+sample_schemas = get_table_schemas(conn, [&#39;users&#39;, &#39;pins&#39;])
+print(sample_schemas)
+</code></pre><p>С функцией схемы готово, мы создаём нашу первую цепочку. Шаблон запроса инструктирует модель о её задаче. Он объединяет схемы и вопрос пользователя. Затем мы подключаем этот запрос к модели.</p>
+<pre tabindex="0"><code>from langchain_core.prompts import ChatPromptTemplate
+from langchain_openai import ChatOpenAI
+from langchain_core.output_parsers import StrOutputParser
+from langchain_core.runnables import RunnablePassthrough, RunnableLambda
+import sqlite3 # Import sqlite3
+
+template = &#34;&#34;&#34;
+You are a master SQL expert. Based on the provided table schema and a user&#39;s question, write a syntactically correct SQLite SQL query.
+Only return the SQL query and nothing else.
+Here is the database schema:
+{schema}
+Here is the user&#39;s question:
+{question}
+&#34;&#34;&#34;
+
+prompt = ChatPromptTemplate.from_template(template)
+llm = ChatOpenAI(model=&#34;gpt-4.1-mini&#34;, temperature=0)
+sql_chain = prompt | llm | StrOutputParser()
+
+Let&#39;s test our chain with a question where we explicitly provide the table names.
+
+user_question = &#34;How many pins has alice created?&#34;
+table_names_provided = [&#34;users&#34;, &#34;pins&#34;]
+
+# Retrieve the schema in the main thread before invoking the chain
+schema = get_table_schemas(conn, table_names_provided)
+
+# Pass the schema directly to the chain
+generated_sql = sql_chain.invoke({&#34;schema&#34;: schema, &#34;table_names&#34;: table_names_provided, &#34;question&#34;: user_question})
+
+print(&#34;User Question:&#34;, user_question)
+print(&#34;Generated SQL:&#34;, generated_sql)
+
+# Clean the generated SQL by removing markdown code block syntax
+cleaned_sql = generated_sql.strip()
+if cleaned_sql.startswith(&#34;```sql&#34;):
+    cleaned_sql = cleaned_sql[len(&#34;```sql&#34;):].strip()
+if cleaned_sql.endswith(&#34;```&#34;):
+    cleaned_sql = cleaned_sql[:-len(&#34;```&#34;)].strip()
+
+print(&#34;Cleaned SQL:&#34;, cleaned_sql)
+
+# Let&#39;s run the generated SQL to verify it works
+try:
+    result_df = pd.read_sql_query(cleaned_sql, conn)
+    display(result_df)
+except Exception as e:
+    print(f&#34;Error executing SQL query: {e}&#34;)
+</code></pre><p>Система правильно сгенерировала SQL и нашла правильный ответ.</p>
+<h4 id="шаг-4-улучшение-с-помощью-rag-для-выбора-таблиц">Шаг 4: улучшение с помощью RAG для выбора таблиц</h4>
+<p>Наша основная система работает хорошо, но требует от пользователей знания имён таблиц. Это именно та проблема, которую решила команда Pinterest Text-to-SQL. Мы теперь реализуем RAG для выбора таблиц. Мы начнём с написания простых описаний естественного языка для каждой таблицы. Эти описания отражают смысл содержимого каждой таблицы.</p>
+<pre tabindex="0"><code>table_summaries = {
+    &#34;users&#34;: &#34;Contains information about individual users, including their username, join date, and country of origin.&#34;,
+    &#34;pins&#34;: &#34;Contains data about individual pins, linking to the user who created them and the board they belong to. Includes descriptions and creation timestamps.&#34;,
+    &#34;boards&#34;: &#34;Stores information about user-created boards, including the board&#39;s name, category, and the user who owns it.&#34;
+}
+</code></pre><p>Далее мы создаём векторный магазин. Этот инструмент преобразует наши сводки в числовые представления (вложения). Он позволяет нам находить наиболее релевантные сводки таблиц для вопроса пользователя с помощью поиска по сходству.</p>
+<pre tabindex="0"><code>from langchain_openai import OpenAIEmbeddings
+from langchain_community.vectorstores import FAISS
+from langchain.schema import Document
+
+# Create LangChain Document objects for each summary
+summary_docs = [
+    Document(page_content=summary, metadata={&#34;table_name&#34;: table_name})
+    for table_name, summary in table_summaries.items()
+]
+
+embeddings = OpenAIEmbeddings()
+vector_store = FAISS.from_documents(summary_docs, embeddings)
+retriever = vector_store.as_retriever()
+print(&#34;Vector store created successfully.&#34;)
+</code></pre><h4 id="шаг-5-объединение-всего-в-цепочку-с-поддержкой-rag">Шаг 5: объединение всего в цепочку с поддержкой RAG</h4>
+<p>Теперь мы создаём окончательную интеллектуальную цепочку. Эта цепочка автоматизирует весь процесс. Она принимает вопрос, использует ретривер для поиска релевантных таблиц, извлекает их схемы, а затем передаёт всё нашей <code>sql_chain</code>.</p>
+<pre tabindex="0"><code>def get_table_names_from_docs(docs):
+    &#34;&#34;&#34;Extracts table names from the metadata of retrieved documents.&#34;&#34;&#34;
+    return [doc.metadata[&#39;table_name&#39;] for doc in docs]
+
+# We need a way to get schema using table names and the connection within the chain
+# Use the thread-safe function that recreates the database for each call
+def get_schema_for_rag(x):
+    table_names = get_table_names_from_docs(x[&#39;table_docs&#39;])
+    # Call the thread-safe function to get schemas
+    schema = get_table_schemas(conn, table_names)
+    return {&#34;question&#34;: x[&#39;question&#39;], &#34;table_names&#34;: table_names, &#34;schema&#34;: schema}
+
+full_rag_chain = (
+    RunnablePassthrough.assign(
+        table_docs=lambda x: retriever.invoke(x[&#39;question&#39;])
+    )
+    | RunnableLambda(get_schema_for_rag) # Use RunnableLambda to call the schema fetching function
+    | sql_chain # Pass the dictionary with question, table_names, and schema to sql_chain
+)
+
+Let&#39;s test the complete system. We ask a question without mentioning any tables. The system should handle everything.
+
+user_question_no_tables = &#34;Show me all the boards created by users from the USA.&#34;
+
+# Pass the user question within a dictionary
+final_sql = full_rag_chain.invoke({&#34;question&#34;: user_question_no_tables})
+
+print(&#34;User Question:&#34;, user_question_no_tables)
+print(&#34;Generated SQL:&#34;, final_sql)
+
+# Clean the generated SQL by removing markdown code block syntax, being more robust
+cleaned_sql = final_sql.strip()
+if cleaned_sql.startswith(&#34;```sql&#34;):
+    cleaned_sql = cleaned_sql[len(&#34;```sql&#34;):].strip()
+if cleaned_sql.endswith(&#34;```&#34;):
+    cleaned_sql = cleaned_sql[:-len(&#34;```&#34;)].strip()
+
+# Also handle cases where there might be leading/trailing newlines after cleaning
+cleaned_sql = cleaned_sql.strip()
+
+print(&#34;Cleaned SQL:&#34;, cleaned_sql)
+
+# Verify the generated SQL
+try:
+    result_df = pd.read_sql_query(cleaned_sql, conn)
+    display(result_df)
+except Exception as e:
+    print(f&#34;Error executing SQL query: {e}&#34;)
+</code></pre><h3 id="заключение">Заключение</h3>
+<p>Мы успешно создали прототип, который показывает, как создать генератор SQL. Для переноса этого в производственную среду требуется больше шагов. Вы можете автоматизировать процесс суммирования таблиц. Вы также можете включить исторические запросы в векторный магазин для повышения точности. Это соответствует пути, выбранному командой Pinterest Text-to-SQL. Эта основа представляет собой чёткий путь к созданию мощного инструмента для работы с данными.</p>
+<h3 id="часто-задаваемые-вопросы">Часто задаваемые вопросы</h3>
+<p><strong>Q1. Что такое система Text-to-SQL?</strong></p>
+<p>A. Система Text-to-SQL переводит вопросы, написанные на простом языке (например, на английском), в запросы к базе данных SQL. Это позволяет пользователям, не являющимся техническими специалистами, получать данные без написания кода.</p>
+<p><strong>Q2. Почему RAG полезен для Text-to-SQL?</strong></p>
+<p>A. RAG помогает системе автоматически находить наиболее релевантные таблицы базы данных для вопроса пользователя. Это избавляет пользователей от необходимости знать структуру базы данных.</p>
+<p><strong>Q3. Что такое LangChain?</strong></p>
+<p>A. LangChain — это фреймворк для разработки приложений, основанных на языковых моделях. Он помогает соединять различные компоненты, такие как запросы, модели и ретриверы, в единую цепочку.</p>
+
+    </div>
+
+    <div class="tags mt-8">
+      
+
+    </div>
+  </article>
+
+          
+            
+  </main>          
+
+    <script>
+
+        
+        
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const sidebar = document.querySelector('.sidebar');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+        
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                if (entry.isIntersecting) {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.add('active');
+                    });
+                } else {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.remove('active');
+                    });
+                }
+            });
+        }, observerOptions);
+        
+        
+        document.querySelectorAll('h2[id]').forEach(heading => {
+            observer.observe(heading);
+        });
+    </script>
+
+
+  <footer class="px-6 py-12 bg-sky-950 text-white/50">
+    
+<p>P9X.ru 2010 - 2025г. услуги интернет маркетинга</p>
+
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105149615', 'ym');
+
+    ym(105149615, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/105149615" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+  </footer>
+</body>
+</html>

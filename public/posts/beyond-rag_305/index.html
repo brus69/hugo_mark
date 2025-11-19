@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>RAG мертв? Развитие контекстной инженерии и семантических уровней для агентного ИИ | На пути к науке о данных | Агентство контекстной рекламы</title>
+<meta name="description" content="">
+<meta name="yandex-verification" content="242f5a0ee52d5836" />
+
+<link rel="icon" type="image/x-icon" href="http://localhost:1313/favicon.ico">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+ <style>
+  .content h1 { 
+        font-size: 1.875rem; 
+        font-weight: bold; 
+        margin-bottom: 1rem; 
+    }
+    .content h2 { 
+        font-size: 1.5rem; 
+        font-weight: 600; 
+        margin-bottom: 0.75rem; 
+    }
+    .content h3 { 
+        font-size: 1.25rem; 
+        font-weight: 500; 
+        margin-bottom: 0.5rem; 
+    }
+    .content p { 
+        margin-bottom: 1rem; 
+    }
+    .content ul { 
+        list-style-type: disc; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content ol { 
+        list-style-type: decimal; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content a { 
+        color: #2563eb; 
+    }
+    .content a:hover { 
+        color: #1e40af; 
+    }
+    .content blockquote { 
+        border-left: 4px solid #d1d5db; 
+        padding-left: 1rem; 
+        font-style: italic; 
+    }
+
+    
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.875rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+.dark-mode .content table {
+    border: 1px solid #4b5563;
+}
+
+.content thead {
+    background-color: #eaebec;
+}
+
+.dark-mode .content thead {
+    background-color: #374151;
+}
+
+.content th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.dark-mode .content th {
+    color: #f9fafb;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content th:last-child {
+    border-right: none;  
+}
+
+.content td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    color: #6b7280;
+}
+
+.dark-mode .content td {
+    color: #d1d5db;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content td:last-child {
+    border-right: none;  
+}
+
+.content tbody tr {
+    transition: background-color 0.15s ease-in-out;
+}
+
+.content tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.dark-mode .content tbody tr:hover {
+    background-color: #374151;
+}
+
+.content tbody tr:last-child td {
+    border-bottom: none;
+}
+
+ 
+.content tbody tr:nth-child(even) {
+    background-color: #f4f5f7;
+}
+
+.dark-mode .content tbody tr:nth-child(even) {
+    background-color: #1f2937;
+}
+
+.dark-mode .content tbody tr:nth-child(even):hover {
+    background-color: #374151;
+}
+
+ 
+.content code:not(pre code) {
+    background-color: #f3f4f6;
+    color: #dc2626;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    font-weight: 500;
+    border: 1px solid #e5e7eb;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+}
+
+.dark-mode .content code:not(pre code) {
+    background-color: #224464;
+    color: #f87171;
+    border: 1px solid #4b5563;
+}
+
+ 
+.content pre {
+    background-color: #224464;
+    color: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid #374151;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.dark-mode .content pre {
+    background-color: #111827;
+    border: 1px solid #374151;
+}
+
+ 
+.content pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+    font-weight: normal;
+}
+
+ 
+.content pre code .keyword { color: #f472b6; }  
+.content pre code .function { color: #60a5fa; }  
+.content pre code .string { color: #34d399; }  
+.content pre code .comment { color: #9ca3af; font-style: italic; }  
+.content pre code .number { color: #fbbf24; }  
+.content pre code .class { color: #c084fc; }  
+.content pre code .operator { color: #93c5fd; }  
+
+ 
+.content pre::-webkit-scrollbar {
+    height: 6px;
+}
+
+.content pre::-webkit-scrollbar-track {
+    background: #374151;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.content pre::-webkit-scrollbar-thumb {
+    background: #6b7280;
+    border-radius: 3px;
+}
+
+.content pre::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+ 
+.content h1 code:not(pre code),
+.content h2 code:not(pre code),
+.content h3 code:not(pre code) {
+    font-size: 0.9em;
+    background-color: #fef2f2;
+    color: #dc2626;
+}
+
+.dark-mode .content h1 code:not(pre code),
+.dark-mode .content h2 code:not(pre code),
+.dark-mode .content h3 code:not(pre code) {
+    background-color: #7f1d1d;
+    color: #fca5a5;
+}
+
+ 
+.content a code:not(pre code) {
+    color: inherit;
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+.dark-mode .content a code:not(pre code) {
+    background-color: rgba(96, 165, 250, 0.2);
+}
+        :root {
+            --color-bg: #1a1a1a;
+            --color-text: #e6e6e6;
+            --color-accent: #6b7280;
+            --color-link: #9ca3af;
+            --color-link-hover: #d1d5db;
+        }
+        
+        .light-mode {
+            --color-bg: #f9fafb;
+            --color-text: #1f2937;
+            --color-accent: #6b7280;
+            --color-link: #4b5563;
+            --color-link-hover: #111827;
+        }
+        
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        a {
+            color: var(--color-link);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: var(--color-link-hover);
+        }
+        
+        .sidebar {
+            position: fixed;
+             
+            height: 100vh;
+            overflow-y: auto;
+            
+        }
+        
+        .main-content {
+            margin-left: 350px;
+            
+             
+        }
+        
+        .toc-container {
+            position: fixed;
+            right: 2rem;
+            top: 2rem;
+            width: 250px;
+            display: none;
+        }
+        
+        @media (min-width: 1280px) {
+            .toc-container {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 50;
+            }
+            
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+                 
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: fixed;
+                top: 1rem;
+                left: 1rem;
+                z-index: 100;
+            }
+        }
+        
+        .toc-link.active {
+            color: var(--color-link-hover);
+            font-weight: bold;
+        }
+        
+        .social-icons a {
+            margin-right: 0.5rem;
+        }
+        
+        pre {
+            background-color: rgba(107, 114, 128, 0.1);
+            padding: 1rem;
+            border-radius: 0.25rem;
+            overflow-x: auto;
+        }
+        
+        code {
+            font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+    </style>
+</head>
+  <body class="light-mode">
+      <header>
+    
+  </header>
+    
+    <button class="mobile-menu-btn p-2 bg-gray-800 text-white rounded md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+    
+    <aside class="sidebar border-r-4 border-sky-800  min-w-[350px] py-12 px-10 bg-gradient-to-br from-cyan-200 via-green-100 to-sky-100">
+        <div class="flex flex-col items-center mb-8">
+                
+            
+            <div class="w-24 h-24 mb-4 relative">
+                <a href="/">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ viewBox="0 0 550.000000 385.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,385.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M2780 3000 l0 -300 40 0 40 0 0 260 0 260 1165 0 1165 0 0 -1245 0
+-1245 -1165 0 -1165 0 0 260 0 260 -40 0 -40 0 0 -300 0 -300 1245 0 1245 0 0
+1325 0 1325 -1245 0 -1245 0 0 -300z"/>
+<path d="M700 1975 l0 -635 145 0 145 0 0 245 0 245 383 0 c422 0 426 1 491
+66 60 60 66 88 66 319 0 190 -2 214 -21 255 -25 56 -53 86 -104 113 -39 22
+-49 22 -572 25 l-533 3 0 -636z m940 245 l0 -100 -325 0 -325 0 0 100 0 100
+325 0 325 0 0 -100z"/>
+<path d="M2320 2601 c-69 -22 -112 -58 -146 -121 -17 -31 -19 -60 -19 -260 0
+-211 1 -227 22 -265 27 -51 68 -90 115 -109 32 -14 98 -16 438 -16 l400 0 0
+-245 0 -245 145 0 145 0 0 536 c0 373 -3 548 -11 575 -16 50 -61 105 -112 132
+-41 22 -48 22 -497 24 -250 1 -466 -2 -480 -6z m810 -381 l0 -100 -340 0 -340
+0 0 100 0 100 340 0 340 0 0 -100z"/>
+<path d="M3650 2607 c0 -1 99 -144 219 -317 l219 -314 -63 -91 c-34 -49 -133
+-191 -219 -315 l-157 -225 172 -3 c97 -1 176 2 183 7 6 5 72 97 146 205 74
+107 138 196 141 196 4 0 71 -92 149 -205 l143 -205 173 0 c96 0 174 2 174 4 0
+3 -95 141 -211 308 -116 167 -214 308 -216 315 -3 7 92 151 211 322 119 170
+216 312 216 315 0 3 -78 6 -174 6 l-174 0 -143 -205 c-78 -113 -145 -205 -149
+-205 -3 0 -70 92 -148 205 l-143 205 -174 0 c-96 0 -175 -1 -175 -3z"/>
+</g>
+</svg>
+</a>
+            </div>
+
+            <p class="text-xs text-center text-gray-500 max-w-[200px]">
+                Профессиональное агентство контекстной рекламы с опытом более 18 лет.
+
+            </p>
+        </div>
+
+        
+        <nav class="mb-8">
+          
+        
+            
+  <nav>
+    <ul>
+    <li class="text-lg font-semibold">
+      <a href="/">Контекстная реклама</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/analytics/">web-аналитика</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a aria-current="true" class="ancestor" href="/posts/">Блог</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/about/">О нас</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Категории</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/job/">Вакансии</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Кейсы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/calculators/">Калькуляторы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/contacts/">Контакты</a>
+    </li>
+    </ul>
+  </nav>
+
+           
+
+        </nav>
+
+        
+        <div class="social-icons  mt-auto">
+<div>
+
+<a href="https://t.me/your_link" target="_blank" class="inline-flex 
+items-center justify-center px-3 py-3 text-white bg-[#2AABEE] font-medium text-sm rounded 
+shadow-md hover:bg-[#279fd9] 
+hover:shadow-lg focus:bg-[#2493c8] 
+focus:shadow-lg focus:outline-none 
+focus:ring-0 active:bg-[#2185b3] active:shadow-lg transition duration-150 ease-in-out">
+  
+     
+<svg width="25px" height="25px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" 
+fill="#fff" class="bi bi-telegram pr-1">
+  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>
+</svg>
+                            
+  
+  Открыть в Telegram
+</a>
+
+</div>
+            <div class="pt-6 flex gap-1 justify-left items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                sale@p9x.ru
+            </div>
+        </div>
+        
+        
+        <div class="mt-8 pt-4 text-xs text-gray-500 border-t border-gray-700">
+            <p>Powered by <a href="#" class="hover:underline">Hugo</a> | Themed with <a href="#" class="hover:underline">poison</a></p>
+            <p>© 2010 - 2025 Poison. All rights reserved.</p>
+        </div>
+    </aside>
+
+  <main class="main-content bg-white">
+ 
+            
+            
+  <article class="prose prose-lg py-8 px-4 max-w-[1200px]">
+    <h1 class="text-2xl font-bold mb-4">
+            RAG мертв? Развитие контекстной инженерии и семантических уровней для агентного ИИ
+    </h1>
+
+    
+    
+    <time class="block mb-6 text-gray-500" datetime="2025-11-19T22:09:56&#43;00:00">November 19, 2025</time>
+
+    <div class="content mb-8 ">
+      <h2 id="введение">Введение</h2>
+<p>Генерация с дополнением на основе извлечения (RAG) могла быть необходима для первой волны корпоративного ИИ, но она быстро превращается во что-то гораздо большее.</p>
+<p>За последние два года организации поняли, что простого извлечения текстовых фрагментов с помощью векторного поиска недостаточно. Контекст должен быть управляемым, объяснимым и адаптивным к целям агента.</p>
+<p>В этом посте рассматривается, как происходит эта эволюция и что это значит для лидеров в области данных и ИИ, создающих системы, способные ответственно рассуждать.</p>
+<p>Вы узнаете ответы на несколько ключевых вопросов:</p>
+<p><strong>Как графы знаний улучшают RAG?</strong></p>
+<p>Они придают структуру и смысл корпоративным данным, связывая сущности и отношения между документами и базами данных, чтобы сделать извлечение более точным и объяснимым как для людей, так и для машин.</p>
+<p><strong>Как семантические уровни помогают LLM получать более качественные ответы?</strong></p>
+<p>Семантические уровни стандартизируют определения данных и политики управления, чтобы агенты ИИ могли понимать, извлекать и рассуждать над всеми видами данных, а также над инструментами ИИ, памятью и другими агентами.</p>
+<p><strong>Как развивается RAG в эпоху агентского ИИ?</strong></p>
+<p>Извлечение становится одним из этапов более широкого цикла рассуждений (всё чаще называемого «конструированием контекста»), где агенты динамически пишут, сжимают, изолируют и выбирают контекст из данных и инструментов.</p>
+<p><strong>TL;DR</strong></p>
+<p>(RAG) приобрела известность после запуска ChatGPT и осознания того, что существует ограничение на размер контекстного окна: вы не можете просто скопировать все свои данные в интерфейс чата. Команды использовали RAG и её варианты, такие как GraphRAG (RAG с использованием графовой базы данных), чтобы добавить дополнительный контекст в подсказки во время запроса. Популярность RAG вскоре обнажила её слабые стороны: помещение неверной, нерелевантной или просто слишком большого количества информации в контекстное окно может ухудшить, а не улучшить результаты. Для преодоления этих ограничений были разработаны новые методы, такие как системы переоценки (re-rankers), но RAG не была создана для выживания в новом агентском мире.</p>
+<p>По мере того как ИИ переходит от одиночных запросов к автономным агентам, извлечение и его варианты становятся лишь одним из инструментов в арсенале агента, наряду с написанием, сжатием и изоляцией контекста. По мере усложнения рабочих процессов и информации, необходимой для их выполнения, извлечение будет продолжать развиваться (хотя его могут называть контекстным инжинирингом, RAG 2.0 или агентским извлечением).</p>
+<h3 id="рост-популярности-rag">Рост популярности RAG</h3>
+<h4 id="что-такое-rag">Что такое RAG?</h4>
+<p><em>RAG, или генерация с дополнением на основе извлечения, — это метод извлечения релевантной информации для дополнения запроса, который отправляется в LLM, чтобы улучшить ответ модели.</em></p>
+<p>Вскоре после того, как ChatGPT стал популярным в ноябре 2022 года, пользователи поняли, что LLM не были обучены на их собственных данных. Чтобы восполнить этот пробел, команды начали разрабатывать способы извлечения релевантных данных во время запроса для дополнения запроса — подход, известный как генерация с дополнением на основе извлечения (RAG). Термин появился в статье Meta в 2020 году, но популярность моделей GPT сделала этот термин и практику широко известными.</p>
+<p>Инструменты вроде LangChain и LlamaIndex помогали разработчикам создавать такие конвейеры извлечения. LangChain был запущен примерно в то же время, что и ChatGPT, как способ связать различные компоненты, такие как шаблоны запросов, LLM, агенты и память, для приложений генеративного ИИ. LlamaIndex также был запущен в то же время, чтобы решить проблему ограниченного контекстного окна в GPT3 и тем самым включить RAG.</p>
+<h4 id="что-такое-graphrag">Что такое GraphRAG?</h4>
+<p><em>GraphRAG — это вариация RAG, где в качестве базы данных для извлечения используется граф знаний или графовая база данных.</em></p>
+<p>Одной из вариаций RAG стала особенно популярной: GraphRAG. Идея здесь заключается в том, что данные, дополняющие запросы LLM, хранятся в графе знаний. Это позволяет модели рассуждать над сущностями и отношениями, а не над плоскими текстовыми фрагментами.</p>
+<p>В начале 2023 года исследователи начали публиковать статьи, в которых рассматривалось, как графы знаний и LLM могут дополнять друг друга. В конце 2023 года Хуан Секеда, Дин Аллеманг и Байрон Джейкоб из data.world выпустили статью, демонстрирующую, как графы знаний могут повысить точность и объяснимость LLM. В июле 2024 года Microsoft открыла исходный код своего фреймворка GraphRAG, что сделало графовое извлечение доступным для более широкой аудитории разработчиков и укрепило GraphRAG как узнаваемую категорию в рамках RAG.</p>
+<p>Рост популярности GraphRAG возродил интерес к графам знаний, подобно тому, как Google запустил свой Knowledge Graph в 2012 году. Внезапный спрос на структурированный контекст и объяснимое извлечение придал им новую актуальность.</p>
+<p><strong>С 2023 по 2025 год рынок отреагировал быстро:</strong></p>
+<ul>
+<li><strong>23 января 2023 года — Digital Science приобрела metaphacts</strong>, создателей платформы metaphactory: «платформа, которая поддерживает клиентов в ускорении внедрения графов знаний и продвижении демократизации знаний».</li>
+<li><strong>7 февраля 2023 года — Progress приобрела MarkLogic.</strong> MarkLogic — это мультимодальная NoSQL база данных, особенно сильная в управлении данными RDF, основным форматом данных для графовых технологий.</li>
+<li><strong>18 июля 2024 года — Samsung приобрела Oxford Semantic Technologies</strong>, создателей графовой базы данных RDFox, для обеспечения рассуждений на устройстве и возможностей личного знания.</li>
+<li><strong>23 октября 2024 года — Ontotext и Semantic Web Company объединились, чтобы сформировать Graphwise</strong>, явно ориентируясь на GraphRAG.</li>
+<li><strong>7 мая 2025 года — ServiceNow объявила о своём приобретении data.world</strong>, интегрируя графовый каталог данных и семантический слой в свою корпоративную платформу рабочих процессов.</li>
+</ul>
+<p>Эти события связаны с графами знаний и связанными с ними семантическими технологиями. Если мы расширим это до включения управления метаданными и/или семантических слоёв в более широком смысле, то сделок будет больше, в первую очередь приобретение Salesforce лидера в области метаданных Informatica за 8 миллиардов долларов.</p>
+<p>Эти шаги знаменуют собой явный сдвиг: графы знаний больше не являются просто инструментами управления метаданными — они стали семантической основой для ИИ и приблизились к своим истокам в виде экспертных систем. GraphRAG сделал графы знаний актуальными снова, предоставив им решающую роль в извлечении, рассуждениях и объяснимости.</p>
+<p>В моей повседневной работе в качестве руководителя продукта в компании, занимающейся семантическими данными и ИИ, мы работаем над устранением разрыва между данными и их фактическим значением для некоторых из крупнейших компаний мира. Подготовка их данных для ИИ — это сочетание обеспечения их взаимодействия, обнаружения и использования, чтобы они могли передавать LLM контекстуально релевантную информацию для получения безопасных и точных результатов. Это непростая задача для крупных, строго регулируемых и сложных предприятий, управляющих экспоненциальными объёмами данных.</p>
+<h2 id="падение-rag-и-рост-контекстного-инжиниринга">Падение RAG и рост контекстного инжиниринга</h2>
+<p>RAG мертва? Нет, но она эволюционировала. Первоначальная версия RAG полагалась на однократный плотный векторный поиск и брала верхние результаты для прямой передачи в LLM. GraphRAG основывалась на этом, добавив некоторую графовую аналитику и фильтры сущностей и/или отношений. Эти реализации почти сразу столкнулись с ограничениями, связанными с релевантностью, масштабируемостью и шумом. Эти ограничения подтолкнули RAG к новым эволюциям, известным под многими именами: агентское извлечение, RAG 2.0 и, совсем недавно, контекстный инжиниринг.</p>
+<p>Следуя циклу ажиотажа вокруг RAG в 2024 году, неизбежно наступило разочарование. Хотя можно быстро создать демонстрацию RAG на нескольких документах, масштабирование приложения в корпоративном секторе становится гораздо сложнее.</p>
+<p>Одной из проблем при масштабировании приложения RAG является объём данных, необходимых для извлечения. «Я думаю, что проблема, с которой сталкиваются люди, заключается в масштабировании. Это здорово для 100 документов, но внезапно у меня появляется 100 000 или 1 000 000 документов», — говорит Раджив Шах.</p>
+<p>Но по мере взросления LLM их контекстные окна увеличивались. Размер контекстных окон был первоначальной проблемой, для решения которой и была создана RAG. Это поднимает вопрос о том, нужна ли RAG всё ещё или она полезна.</p>
+<p>Чтобы решить проблему переполнения модели или предоставления неверной или нерелевантной информации, стала популярной переоценка (re-rankers).</p>
+<h3 id="что-такое-контекстный-инжиниринг">Что такое контекстный инжиниринг?</h3>
+<p><em>«Искусство и наука заполнения контекстного окна именно той информацией, которая нужна на каждом этапе траектории агента». Ланс Мартин из LangChain.</em></p>
+<p>Я хочу сосредоточиться на контекстном инжиниринге по двум причинам:</p>
+<ul>
+<li>основатели терминов RAG 2.0 и Agentic Retrieval (Contextual AI и LlamaIndex соответственно) начали использовать термин «контекстный инжиниринг»;</li>
+<li>это более популярный термин, основанный на тенденциях поиска в Google.</li>
+</ul>
+<p>Контекстный инжиниринг можно рассматривать как эволюцию промпт-инжиниринга. Промпт-инжиниринг заключается в составлении запроса таким образом, чтобы получить нужные результаты, а контекстный инжиниринг — в дополнении этого запроса соответствующим контекстом.</p>
+<p>RAG приобрела известность в 2023 году. С тех пор всё стало «агентским». RAG была создана исходя из предположения, что запрос будет сгенерирован человеком, а ответ будет прочитан человеком. С агентами нам нужно переосмыслить, как это работает.</p>
+<p>Ланс Мартин разбивает контекстный инжиниринг на четыре категории: <strong>писать, сжимать, изолировать и выбирать</strong>. Агентам необходимо <strong>писать</strong> (или сохранять или запоминать) информацию от задачи к задаче, как и людям. Агентам часто приходится иметь слишком много контекста при переходе от задачи к задаче, и им нужно каким-то образом <strong>сжимать</strong> или конденсировать его, обычно посредством суммирования или «прореживания».</p>
+<p>Вместо того чтобы давать модели весь контекст, мы можем <strong>изолировать</strong> его или разделить между агентами, чтобы они могли, как описывает Anthropic, «одновременно исследовать разные части проблемы».</p>
+<p>Вместо того чтобы рисковать контекстной гнилью и ухудшением результатов, идея здесь состоит в том, чтобы не давать LLM достаточно верёвки, чтобы повеситься.</p>
+<p>Агентам приходится использовать свою память, когда это необходимо, или обращаться к инструментам для извлечения дополнительной информации, то есть им нужно <strong>выбирать</strong> (извлекать), какой контекст использовать. Одним из таких инструментов может быть векторное извлечение, то есть традиционная RAG. Но это всего лишь один инструмент в наборе инструментов агента.</p>
+<p>Будущее извлечения светлое. Как мы можем гарантировать, что агенты смогут извлекать различные наборы данных в рамках предприятия? От реляционных данных до документов? Ответ всё чаще называют семантическим слоем.</p>
+<h3 id="контекстный-инжиниринг-нуждается-в-семантическом-слое">Контекстный инжиниринг нуждается в семантическом слое</h3>
+<h4 id="что-такое-семантический-слой">Что такое семантический слой?</h4>
+<p><em>Семантический слой — это способ прикрепления метаданных ко всем данным в форме, доступной для чтения как человеком, так и машиной, чтобы люди и компьютеры могли последовательно понимать, извлекать и рассуждать над ними.</em></p>
+<p>Существует недавняя тенденция со стороны тех, кто работает в области реляционных данных, создать семантический слой поверх реляционных данных. Snowflake даже создала инициативу Open Semantic Interchange (OSI), чтобы попытаться стандартизировать способ документирования компаниями своих данных, чтобы подготовить их для ИИ.</p>
+<p>Но фокусировка исключительно на реляционных данных — это узкий взгляд на семантику. Что насчёт неструктурированных данных и полуструктурированных данных? Именно с таким типом данных большие языковые модели справляются лучше всего, и именно он положил начало всей ярости RAG.</p>
+<p>Google десятилетиями извлекал релевантную информацию из всего интернета, используя структурированные данные. Под структурированными данными здесь понимается машиночитаемый метаданные, или, как его описывает Google, «стандартизированный формат для предоставления информации о странице и классификации содержимого страницы».</p>
+<p>Будущее семантического слоя объединит миры реляционных и структурированных данных, сочетая строгость управления реляционными данными с контекстуальной насыщенностью библиотечных наук и графов знаний.</p>
+<h2 id="будущее-rag">Будущее RAG</h2>
+<p>Вот мои прогнозы на будущее RAG:</p>
+<p><strong>RAG будет продолжать развиваться в сторону более агентских паттернов.</strong> Это означает, что извлечение контекста — это лишь часть цикла рассуждений, который также включает в себя написание, сжатие и изоляцию контекста. Извлечение становится итеративным процессом, а не однократным.</p>
+<p><strong>Извлечение будет расширяться и включать все виды данных (мультимодальное извлечение):</strong> реляционные, контентные, а затем изображения, аудио, геоданные и видео.</p>
+<p><strong>Извлечение будет расширяться, чтобы включать метаданные о самих инструментах, а также «памяти».</strong></p>
+<p><strong>Графы знаний будут играть ключевую роль в качестве метаданных между реляционными и неструктурированными данными, заменяя узкое определение семантического слоя, используемого в настоящее время, более надёжной системой управления метаданными.</strong></p>
+<p><strong>Будут набирать популярность показатели оценки контекста извлечения.</strong></p>
+<p><strong>Защитные ограждения в виде политики как кода</strong> обеспечат соблюдение контроля доступа, политик, нормативных требований и лучших практик при извлечении.</p>
+<h2 id="заключение">Заключение</h2>
+<p>RAG никогда не была конечной целью, а только отправной точкой. По мере перехода в эпоху агентского ИИ извлечение превращается в часть полноценной дисциплины: контекстного инжиниринга. Агентам нужно не просто находить документы; они должны понимать, какие данные, инструменты и память актуальны для каждого шага в их рассуждениях. Это понимание требует семантического слоя — способа понимания, извлечения и управления всеми корпоративными данными. Графы знаний, онтологии и семантические модели обеспечат эту связующую ткань.</p>
+<p>Следующее поколение извлечения будет ориентировано не только на скорость и точность; оно также будет ориентировано на объяснимость и доверие. Будущее RAG — это не просто извлечение, а извлечение, которое учитывает контекст, политику и семантическую обоснованность.</p>
+<p><strong>Об авторе:</strong> Стив Хедден — руководитель отдела управления продуктами в TopQuadrant, где он возглавляет стратегию для TopBraid EDG, платформы для управления графами знаний и метаданными. Его работа сосредоточена на преодолении разрыва между управлением корпоративными данными и ИИ с помощью онтологий, таксономий и семантических технологий. Стив регулярно пишет и выступает о графах знаний и развивающейся роли семантики в системах ИИ.</p>
+
+    </div>
+
+    <div class="tags mt-8">
+      
+
+    </div>
+  </article>
+
+          
+            
+  </main>          
+
+    <script>
+
+        
+        
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const sidebar = document.querySelector('.sidebar');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+        
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                if (entry.isIntersecting) {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.add('active');
+                    });
+                } else {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.remove('active');
+                    });
+                }
+            });
+        }, observerOptions);
+        
+        
+        document.querySelectorAll('h2[id]').forEach(heading => {
+            observer.observe(heading);
+        });
+    </script>
+
+
+  <footer class="px-6 py-12 bg-sky-950 text-white/50">
+    
+<p>P9X.ru 2010 - 2025г. услуги интернет маркетинга</p>
+
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105149615', 'ym');
+
+    ym(105149615, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/105149615" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+  </footer>
+</body>
+</html>

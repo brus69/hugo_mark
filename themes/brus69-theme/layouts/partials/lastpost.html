@@ -3,7 +3,7 @@
     <h2 class="text-2xl font-bold text-gray-900 mb-6">Последние записи</h2>
     
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {{ range first 3 (where site.RegularPages "Type" "posts") }}
+        {{ range first 6 (where site.RegularPages "Type" "posts") }}
         
   <article class="bg-white rounded-xl overflow-hidden">
     <div class="p-4">

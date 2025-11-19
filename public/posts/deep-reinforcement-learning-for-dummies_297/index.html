@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Глубокое обучение с подкреплением: от 0 до 100 | На пути к науке о данных | Агентство контекстной рекламы</title>
+<meta name="description" content="">
+<meta name="yandex-verification" content="242f5a0ee52d5836" />
+
+<link rel="icon" type="image/x-icon" href="http://localhost:1313/favicon.ico">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+ <style>
+  .content h1 { 
+        font-size: 1.875rem; 
+        font-weight: bold; 
+        margin-bottom: 1rem; 
+    }
+    .content h2 { 
+        font-size: 1.5rem; 
+        font-weight: 600; 
+        margin-bottom: 0.75rem; 
+    }
+    .content h3 { 
+        font-size: 1.25rem; 
+        font-weight: 500; 
+        margin-bottom: 0.5rem; 
+    }
+    .content p { 
+        margin-bottom: 1rem; 
+    }
+    .content ul { 
+        list-style-type: disc; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content ol { 
+        list-style-type: decimal; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content a { 
+        color: #2563eb; 
+    }
+    .content a:hover { 
+        color: #1e40af; 
+    }
+    .content blockquote { 
+        border-left: 4px solid #d1d5db; 
+        padding-left: 1rem; 
+        font-style: italic; 
+    }
+
+    
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.875rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+.dark-mode .content table {
+    border: 1px solid #4b5563;
+}
+
+.content thead {
+    background-color: #eaebec;
+}
+
+.dark-mode .content thead {
+    background-color: #374151;
+}
+
+.content th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.dark-mode .content th {
+    color: #f9fafb;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content th:last-child {
+    border-right: none;  
+}
+
+.content td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    color: #6b7280;
+}
+
+.dark-mode .content td {
+    color: #d1d5db;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content td:last-child {
+    border-right: none;  
+}
+
+.content tbody tr {
+    transition: background-color 0.15s ease-in-out;
+}
+
+.content tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.dark-mode .content tbody tr:hover {
+    background-color: #374151;
+}
+
+.content tbody tr:last-child td {
+    border-bottom: none;
+}
+
+ 
+.content tbody tr:nth-child(even) {
+    background-color: #f4f5f7;
+}
+
+.dark-mode .content tbody tr:nth-child(even) {
+    background-color: #1f2937;
+}
+
+.dark-mode .content tbody tr:nth-child(even):hover {
+    background-color: #374151;
+}
+
+ 
+.content code:not(pre code) {
+    background-color: #f3f4f6;
+    color: #dc2626;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    font-weight: 500;
+    border: 1px solid #e5e7eb;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+}
+
+.dark-mode .content code:not(pre code) {
+    background-color: #224464;
+    color: #f87171;
+    border: 1px solid #4b5563;
+}
+
+ 
+.content pre {
+    background-color: #224464;
+    color: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid #374151;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.dark-mode .content pre {
+    background-color: #111827;
+    border: 1px solid #374151;
+}
+
+ 
+.content pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+    font-weight: normal;
+}
+
+ 
+.content pre code .keyword { color: #f472b6; }  
+.content pre code .function { color: #60a5fa; }  
+.content pre code .string { color: #34d399; }  
+.content pre code .comment { color: #9ca3af; font-style: italic; }  
+.content pre code .number { color: #fbbf24; }  
+.content pre code .class { color: #c084fc; }  
+.content pre code .operator { color: #93c5fd; }  
+
+ 
+.content pre::-webkit-scrollbar {
+    height: 6px;
+}
+
+.content pre::-webkit-scrollbar-track {
+    background: #374151;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.content pre::-webkit-scrollbar-thumb {
+    background: #6b7280;
+    border-radius: 3px;
+}
+
+.content pre::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+ 
+.content h1 code:not(pre code),
+.content h2 code:not(pre code),
+.content h3 code:not(pre code) {
+    font-size: 0.9em;
+    background-color: #fef2f2;
+    color: #dc2626;
+}
+
+.dark-mode .content h1 code:not(pre code),
+.dark-mode .content h2 code:not(pre code),
+.dark-mode .content h3 code:not(pre code) {
+    background-color: #7f1d1d;
+    color: #fca5a5;
+}
+
+ 
+.content a code:not(pre code) {
+    color: inherit;
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+.dark-mode .content a code:not(pre code) {
+    background-color: rgba(96, 165, 250, 0.2);
+}
+        :root {
+            --color-bg: #1a1a1a;
+            --color-text: #e6e6e6;
+            --color-accent: #6b7280;
+            --color-link: #9ca3af;
+            --color-link-hover: #d1d5db;
+        }
+        
+        .light-mode {
+            --color-bg: #f9fafb;
+            --color-text: #1f2937;
+            --color-accent: #6b7280;
+            --color-link: #4b5563;
+            --color-link-hover: #111827;
+        }
+        
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        a {
+            color: var(--color-link);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: var(--color-link-hover);
+        }
+        
+        .sidebar {
+            position: fixed;
+             
+            height: 100vh;
+            overflow-y: auto;
+            
+        }
+        
+        .main-content {
+            margin-left: 350px;
+            
+             
+        }
+        
+        .toc-container {
+            position: fixed;
+            right: 2rem;
+            top: 2rem;
+            width: 250px;
+            display: none;
+        }
+        
+        @media (min-width: 1280px) {
+            .toc-container {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 50;
+            }
+            
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+                 
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: fixed;
+                top: 1rem;
+                left: 1rem;
+                z-index: 100;
+            }
+        }
+        
+        .toc-link.active {
+            color: var(--color-link-hover);
+            font-weight: bold;
+        }
+        
+        .social-icons a {
+            margin-right: 0.5rem;
+        }
+        
+        pre {
+            background-color: rgba(107, 114, 128, 0.1);
+            padding: 1rem;
+            border-radius: 0.25rem;
+            overflow-x: auto;
+        }
+        
+        code {
+            font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+    </style>
+</head>
+  <body class="light-mode">
+      <header>
+    
+  </header>
+    
+    <button class="mobile-menu-btn p-2 bg-gray-800 text-white rounded md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+    
+    <aside class="sidebar border-r-4 border-sky-800  min-w-[350px] py-12 px-10 bg-gradient-to-br from-cyan-200 via-green-100 to-sky-100">
+        <div class="flex flex-col items-center mb-8">
+                
+            
+            <div class="w-24 h-24 mb-4 relative">
+                <a href="/">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ viewBox="0 0 550.000000 385.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,385.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M2780 3000 l0 -300 40 0 40 0 0 260 0 260 1165 0 1165 0 0 -1245 0
+-1245 -1165 0 -1165 0 0 260 0 260 -40 0 -40 0 0 -300 0 -300 1245 0 1245 0 0
+1325 0 1325 -1245 0 -1245 0 0 -300z"/>
+<path d="M700 1975 l0 -635 145 0 145 0 0 245 0 245 383 0 c422 0 426 1 491
+66 60 60 66 88 66 319 0 190 -2 214 -21 255 -25 56 -53 86 -104 113 -39 22
+-49 22 -572 25 l-533 3 0 -636z m940 245 l0 -100 -325 0 -325 0 0 100 0 100
+325 0 325 0 0 -100z"/>
+<path d="M2320 2601 c-69 -22 -112 -58 -146 -121 -17 -31 -19 -60 -19 -260 0
+-211 1 -227 22 -265 27 -51 68 -90 115 -109 32 -14 98 -16 438 -16 l400 0 0
+-245 0 -245 145 0 145 0 0 536 c0 373 -3 548 -11 575 -16 50 -61 105 -112 132
+-41 22 -48 22 -497 24 -250 1 -466 -2 -480 -6z m810 -381 l0 -100 -340 0 -340
+0 0 100 0 100 340 0 340 0 0 -100z"/>
+<path d="M3650 2607 c0 -1 99 -144 219 -317 l219 -314 -63 -91 c-34 -49 -133
+-191 -219 -315 l-157 -225 172 -3 c97 -1 176 2 183 7 6 5 72 97 146 205 74
+107 138 196 141 196 4 0 71 -92 149 -205 l143 -205 173 0 c96 0 174 2 174 4 0
+3 -95 141 -211 308 -116 167 -214 308 -216 315 -3 7 92 151 211 322 119 170
+216 312 216 315 0 3 -78 6 -174 6 l-174 0 -143 -205 c-78 -113 -145 -205 -149
+-205 -3 0 -70 92 -148 205 l-143 205 -174 0 c-96 0 -175 -1 -175 -3z"/>
+</g>
+</svg>
+</a>
+            </div>
+
+            <p class="text-xs text-center text-gray-500 max-w-[200px]">
+                Профессиональное агентство контекстной рекламы с опытом более 18 лет.
+
+            </p>
+        </div>
+
+        
+        <nav class="mb-8">
+          
+        
+            
+  <nav>
+    <ul>
+    <li class="text-lg font-semibold">
+      <a href="/">Контекстная реклама</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/analytics/">web-аналитика</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a aria-current="true" class="ancestor" href="/posts/">Блог</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/about/">О нас</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Категории</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/job/">Вакансии</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Кейсы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/calculators/">Калькуляторы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/contacts/">Контакты</a>
+    </li>
+    </ul>
+  </nav>
+
+           
+
+        </nav>
+
+        
+        <div class="social-icons  mt-auto">
+<div>
+
+<a href="https://t.me/your_link" target="_blank" class="inline-flex 
+items-center justify-center px-3 py-3 text-white bg-[#2AABEE] font-medium text-sm rounded 
+shadow-md hover:bg-[#279fd9] 
+hover:shadow-lg focus:bg-[#2493c8] 
+focus:shadow-lg focus:outline-none 
+focus:ring-0 active:bg-[#2185b3] active:shadow-lg transition duration-150 ease-in-out">
+  
+     
+<svg width="25px" height="25px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" 
+fill="#fff" class="bi bi-telegram pr-1">
+  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>
+</svg>
+                            
+  
+  Открыть в Telegram
+</a>
+
+</div>
+            <div class="pt-6 flex gap-1 justify-left items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                sale@p9x.ru
+            </div>
+        </div>
+        
+        
+        <div class="mt-8 pt-4 text-xs text-gray-500 border-t border-gray-700">
+            <p>Powered by <a href="#" class="hover:underline">Hugo</a> | Themed with <a href="#" class="hover:underline">poison</a></p>
+            <p>© 2010 - 2025 Poison. All rights reserved.</p>
+        </div>
+    </aside>
+
+  <main class="main-content bg-white">
+ 
+            
+            
+  <article class="prose prose-lg py-8 px-4 max-w-[1200px]">
+    <h1 class="text-2xl font-bold mb-4">
+            Глубокое обучение с подкреплением: от 0 до 100
+    </h1>
+
+    
+    
+    <time class="block mb-6 text-gray-500" datetime="2025-11-19T22:09:56&#43;00:00">November 19, 2025</time>
+
+    <div class="content mb-8 ">
+      <h1 id="как-научить-робота-сажать-дрон-без-программирования-каждого-движения">Как научить робота сажать дрон без программирования каждого движения?</h1>
+<p>Именно это я и решил исследовать. Я потратил несколько недель, создавая игру, в которой виртуальный дрон должен научиться приземляться на платформу — не следуя заранее запрограммированным инструкциям, а учась на основе проб и ошибок, как вы учились кататься на велосипеде.</p>
+<p>Это <strong>обучение с подкреплением (Reinforcement Learning, RL)</strong>, и оно принципиально отличается от других подходов машинного обучения. Вместо того чтобы показывать ИИ тысячи примеров «правильных» посадок, вы даёте ему обратную связь: «Эй, это было неплохо, но, может быть, в следующий раз попробуй быть более осторожным?» или «Ой, ты разбился — наверное, так делать не надо». Благодаря бесчисленным попыткам ИИ выясняет, что работает, а что нет.</p>
+<h2 id="1-обучение-с-подкреплением-обзор">1. Обучение с подкреплением: обзор</h2>
+<p>Многие идеи можно связать с экспериментами Павлова с собакой и Скиннера с крысой. Суть в том, что вы даёте субъекту «вознаграждение», когда он делает то, что вы хотите (положительное подкрепление), и «наказание», когда он делает что-то плохое (отрицательное подкрепление). Благодаря многочисленным повторным попыткам ваш субъект учится на основе обратной связи, постепенно обнаруживая, какие действия приводят к успеху — подобно тому, как крыса Скиннера научилась нажимать на нужный рычаг для получения вознаграждения.</p>
+<h3 id="11-основные-понятия">1.1 Основные понятия</h3>
+<p>Когда мы говорим о системах, которые можно реализовать программно на компьютерах, лучше всего писать чёткие определения для идей, которые можно абстрагировать. В изучении ИИ (и, в частности, обучения с подкреплением) основные идеи можно свести к следующим:</p>
+<ol>
+<li><strong>Агент (или актёр)</strong>: это наш субъект из предыдущего раздела. Это может быть собака, робот, пытающийся перемещаться по огромной фабрике, NPC в видеоигре и т. д.</li>
+<li><strong>Окружение (или мир)</strong>: это может быть место, симуляция с ограничениями, виртуальный игровой мир видеоигры и т. д.</li>
+<li><strong>Политика</strong>: подобно правительствам, компаниям и другим подобным структурам, «политики» диктуют, «какие действия следует предпринять в определённой ситуации».</li>
+<li><strong>Состояние</strong>: это то, что агент «видит» или «знает» о своей текущей ситуации. Представьте это как снимок реальности агента в любой момент — например, как вы видите цвет светофора, свою скорость и расстояние до перекрёстка во время вождения.</li>
+<li><strong>Действие</strong>: теперь, когда наш агент может «видеть» вещи в своём окружении, он может захотеть что-то предпринять в своём состоянии. Например, агент только что проснулся после долгой ночи и теперь хочет выпить кофе. В этом случае первое, что он сделает, — <strong>встанет с кровати</strong>. Это действие, которое агент предпримет для достижения своей цели, например, ПОЛУЧИТЬ КОФЕ!</li>
+<li><strong>Вознаграждение</strong>: каждый раз, когда актёр выполняет действие (по собственному желанию), что-то может измениться в мире. Например, наш агент встал с кровати и пошёл на кухню, но затем, потому что он плохо ходит, он споткнулся и упал. В этой ситуации бог (мы) награждает его наказанием за то, что он плохо ходит (отрицательное вознаграждение). Но затем агент добирается до кухни и берёт кофе, так что бог (мы) награждает его печеньем (положительное вознаграждение).</li>
+</ol>
+<h2 id="2-gym">2. Gym</h2>
+<p>Теперь, когда мы понимаем основы, вы можете задаться вопросом: <strong>как мы на самом деле создаём одну из этих систем?</strong> Позвольте мне показать вам игру, которую я создал.</p>
+<p>Для этой публикации я написал специальную видеоигру, к которой каждый может получить доступ и использовать для обучения своего агента машинного обучения игре.</p>
+<p>Полный код репозитория можно найти на GitHub (пожалуйста, поставьте звезду). Я намерен использовать этот репозиторий для большего количества игр и кода симуляции, а также для более продвинутых техник, которые я буду реализовывать в следующих частях публикаций по RL.</p>
+<h3 id="дрон-доставка">Дрон-доставка</h3>
+<p>Дрон-доставка — это игра, в которой цель — доставить (вероятно, с посылками) дрон на платформу. Чтобы выиграть игру, мы должны приземлиться. Чтобы приземлиться, мы должны выполнить следующие критерии:</p>
+<ol>
+<li>Быть в зоне посадки рядом с платформой.</li>
+<li>Быть достаточно медленным.</li>
+<li>Быть в вертикальном положении (приземление вверх ногами больше похоже на крушение, чем на посадку).</li>
+</ol>
+<p>Всю информацию о том, как запустить игру, можно найти в репозитории GitHub.</p>
+<h3 id="описание-состояния">Описание состояния</h3>
+<p>Дрон наблюдает 15 непрерывных значений, которые полностью описывают его ситуацию:</p>
+<p><strong>Критерии успеха посадки</strong>: дрон должен одновременно достичь:</p>
+<ol>
+<li>Горизонтального выравнивания: в пределах границ платформы (|dx| &lt; 0,0625).</li>
+<li>Безопасной скорости сближения: менее 0,3.</li>
+<li>Уровня ориентации: наклон менее 20° (|angle| &lt; 0,111).</li>
+<li>Правильной высоты: нижняя часть дрона касается верхней части платформы.</li>
+</ol>
+<p>Это похоже на параллельную парковку — вам нужна правильная позиция, правильный угол и движение достаточно медленное, чтобы не столкнуться!</p>
+<h3 id="как-спроектировать-политику">Как спроектировать политику?</h3>
+<p>Существует множество способов спроектировать политику. Она может быть байесовской (поддерживающей вероятностные распределения над убеждениями), может быть простой справочной таблицей для дискретных состояний, системой правил, закодированных вручную («если расстояние &lt; 10, то тормози»), деревом решений или — как мы увидим — нейронной сетью, которая изучает сопоставление состояний с действиями с помощью градиентного спуска.</p>
+<p>По сути, мы хотим что-то, что принимает вышеупомянутое <strong>состояние</strong>, выполняет некоторые вычисления, используя это состояние, и возвращает, какое действие следует выполнить.</p>
+<h3 id="глубокое-обучение-для-построения-политики">Глубокое обучение для построения политики?</h3>
+<p>Так как же спроектировать политику, которая может обрабатывать непрерывные состояния (например, точные позиции дрона) и изучать сложное поведение? <strong>Здесь на помощь приходят нейронные сети.</strong></p>
+<p>В случае нейронных сетей (или глубокого обучения) лучше всего работать с вероятностями действий, то есть <strong>«Какое действие наиболее вероятно, учитывая текущее состояние?»</strong>. Итак, мы можем определить нейронную сеть, которая будет принимать состояние в виде «вектора» или «коллекции векторов» в качестве входных данных. Этот вектор или коллекция векторов должны быть сконструированы из наблюдаемого состояния. Для нашей игры с дроном-доставщиком вектор состояния:</p>
+<p><strong>Вектор состояния (из нашей 2D-игры с дроном)</strong></p>
+<p>Дрон наблюдает своё абсолютное положение, скорости, ориентацию, топливо, положение платформы и производные показатели. Наше непрерывное состояние:</p>
+<p>Где каждый компонент представляет:</p>
+<p>Все компоненты нормализованы примерно в диапазоны [0,1] или [-1,1] для стабильного обучения нейронной сети.</p>
+<p><strong>Пространство действий (три независимых бинарных двигателя)</strong></p>
+<p>Вместо дискретных комбинаций действий мы рассматриваем каждый двигатель независимо:</p>
+<ul>
+<li>Основной двигатель (вверх)</li>
+<li>Левый двигатель (вращение по часовой стрелке)</li>
+<li>Правый двигатель (вращение против часовой стрелки)</li>
+</ul>
+<p>Каждое действие выбирается из распределения Бернулли, что даёт нам 3 независимых бинарных решения за шаг времени.</p>
+<p><strong>Нейронная сеть с вероятностной политикой (с выборкой Бернулли)</strong></p>
+<p>Пусть fθ(s) будет выходом сети после активации сигмоиды. Политика использует независимые распределения Бернулли:</p>
+<p>Минимальный набросок на Python (из нашей реализации):</p>
+<pre tabindex="0"><code>s = np.array([
+    state.drone_x, state.drone_y,
+    state.drone_vx, state.drone_vy,
+    state.drone_angle, state.drone_angular_vel,
+    state.drone_fuel,
+    state.platform_x, state.platform_y,
+    state.distance_to_platform,
+    state.dx_to_platform, state.dy_to_platform,
+    state.speed,
+    float(state.landed), float(state.crashed)
+])
+
+action_probs = policy(torch.tensor(s, dtype=torch.float32))
+
+dist = Bernoulli(probs=action_probs)
+action = dist.sample()
+</code></pre><p>Это показывает, как мы сопоставляем физические наблюдения игры с 15-мерным нормализованным вектором состояния и производим независимые бинарные решения для каждого двигателя.</p>
+<h4 id="настройка-кода-часть-1-импорт-и-настройка-сокета-игры">Настройка кода (часть 1): импорт и настройка сокета игры</h4>
+<p>Сначала мы хотим, чтобы наш игровой сокет-слушатель запустился. Для этого вы можете перейти в каталог delivery_drone в моём репозитории и выполнить следующую команду:</p>
+<pre tabindex="0"><code>pip install -r requirements.txt
+python socket_server.py --render human --port 5555 --num-games 1
+</code></pre><p><strong>ПРИМЕЧАНИЕ: вам понадобится PyTorch для запуска кода. Пожалуйста, убедитесь, что вы настроили его заранее</strong></p>
+<pre tabindex="0"><code>import os
+import torch
+import torch.nn as nn
+import math
+import numpy as np
+from torch.distributions import Bernoulli
+from delivery_drone.game.socket_client import DroneGameClient, DroneState
+
+client = DroneGameClient()
+client.connect()
+</code></pre><h3 id="как-спроектировать-функцию-вознаграждения">Как спроектировать функцию вознаграждения?</h3>
+<p><strong>Что делает хорошую функцию вознаграждения?</strong> Это, пожалуй, самая сложная часть RL (и здесь я потратил много времени на отладку).</p>
+<p>Функция вознаграждения — <strong>это душа любой реализации RL</strong> (и поверьте, если вы сделаете это неправильно, ваш агент будет делать самые странные вещи). В теории она должна определять, какое «хорошее» поведение должно быть изучено, а какое «плохое» поведение не должно быть изучено. Каждое действие, предпринятое нашим агентом, характеризуется общей накопленной наградой за каждое поведенческое качество, продемонстрированное действием. Например, если вы хотите, чтобы дрон приземлялся мягко, вы можете давать положительные награды за приближение к платформе и движение медленно, а также штрафовать за крушения или расход топлива — агент затем учится максимизировать сумму всех этих вознаграждений с течением времени.</p>
+<h4 id="преимущество-лучший-способ-измерить-эффективное-вознаграждение">Преимущество: лучший способ измерить эффективное вознаграждение</h4>
+<p>При обучении нашей политики мы не просто хотим знать, вознаградило ли нас действие — мы хотим знать, было ли оно <strong>лучше, чем обычно</strong>. Это интуиция, стоящая за <strong>преимуществом</strong>.</p>
+<p>Преимущество говорит нам: «Было ли это действие лучше или хуже, чем мы обычно ожидаем?»</p>
+<p>В нашей реализации мы:</p>
+<ol>
+<li>Собираем несколько эпизодов и вычисляем их возвраты (общая дисконтированная награда).</li>
+<li>Вычисляем <strong>базу</strong> как среднее значение возврата по всем эпизодам.</li>
+<li>Вычисляем <strong>преимущество</strong> = возврат – база для каждого шага по времени.</li>
+<li>Нормализуем преимущества, чтобы иметь среднее значение = 0 и стандартное отклонение = 1 (для стабильного обучения).</li>
+</ol>
+<p><strong>Почему это помогает:</strong></p>
+<ul>
+<li>Действия с положительным преимуществом → лучше, чем обычно → увеличивают их вероятность.</li>
+<li>Действия с отрицательным преимуществом → хуже, чем обычно → уменьшают их вероятность.</li>
+<li>Снижает дисперсию в градиентных обновлениях (более стабильное обучение).</li>
+</ul>
+<p>Эта простая база уже даёт нам гораздо лучшее обучение, чем необработанные возвраты! Она пытается взвесить всю последовательность действий с учётом результатов (приземлился или разбился) таким образом, чтобы политика научилась предпринимать действия, которые приводят к лучшему преимуществу.</p>
+<p>После множества проб и ошибок я разработал следующую функцию вознаграждения. Ключевой идеей было <strong>установить вознаграждение в зависимости как от близости, так и от вертикальной позиции</strong> — дрон должен быть выше платформы, чтобы получать положительные вознаграждения, предотвращая стратегии эксплуатации, такие как зависание ниже платформы.</p>
+<p><strong>Краткое примечание об обратном (и нелинейном) масштабировании вознаграждения</strong></p>
+<p>Часто мы хотим вознаграждать поведение, обратно пропорциональное определённым значениям состояния. Например, расстояние до платформы колеблется от 0 до ~1,41 (нормализованное по ширине окна). Мы хотим высокое вознаграждение, когда расстояние ≈ 0, и низкое вознаграждение, когда далеко. Я использую различные масштабирующие функции для этого:</p>
+<p>Примеры других полезных масштабирующих функций:</p>
+<pre tabindex="0"><code>def inverse_quadratic(x, decay=20, scaler=10, shifter=0):
+    &#34;&#34;&#34;Reward decreases quadratically with distance&#34;&#34;&#34;
+    return scaler / (1 + decay * (x - shifter)**2)
+
+def scaled_shifted_negative_sigmoid(x, scaler=10, shift=0, steepness=10):
+    &#34;&#34;&#34;Sigmoid function scaled and shifted&#34;&#34;&#34;
+    return scaler / (1 + np.exp(steepness * (x - shift)))
+
+def calc_velocity_alignment(state: DroneState):
+    &#34;&#34;&#34;
+    Calculate how well the drone&#39;s velocity is aligned with optimal direction to platform.
+    Returns cosine similarity: 1.0 = perfect alignment, -1.0 = opposite direction
+    &#34;&#34;&#34;
+</code></pre><h3 id="настраивая-политику-с-градиентами-политики">Настраивая политику с градиентами политики</h3>
+<h4 id="стратегии-обучения-когда-мы-должны-обновлять">Стратегии обучения: когда мы должны обновлять?</h4>
+<p>Вот вопрос, который меня сбил с толку на раннем этапе: <strong>должны ли мы обновлять политику после каждого действия или подождать и посмотреть, как закончится весь эпизод?</strong> Оказывается, этот выбор имеет большое значение.</p>
+<p>Когда вы пытаетесь оптимизировать, основываясь исключительно на вознаграждении, полученном за действие, это приводит к проблеме высокой дисперсии (по сути, обучающий сигнал очень шумный, и градиенты указывают в случайных направлениях!). То, что я имею в виду под «высокой дисперсией», — это то, что алгоритм оптимизации получает чрезвычайно смешанные сигналы в градиенте, который используется для обновления параметров в нашей сети политики. Для одного и того же действия система может выдать определённое направление градиента, но для слегка другого состояния (но с тем же действием) может выдать что-то совершенно противоположное. Это приводит к медленному и потенциально нулевому обучению.</p>
+<p>Есть три способа обновить нашу политику:</p>
+<p><strong>Обучение после каждого действия (обновления на каждом шаге)</strong></p>
+<p>Дрон запускает свой двигатель один раз, получает небольшое вознаграждение и немедленно обновляет всю свою стратегию. Это как корректировать свою баскетбольную форму после каждого броска — слишком реактивно! Одно удачное действие, которое увеличивает вознаграждение, не обязательно означает, что агент сделал хорошо, а одно неудачное действие не означает, что агент сделал плохо. Обучающий сигнал просто слишком шумный.</p>
+<p><strong>Моё первое испытание</strong> : я попробовал этот подход на раннем этапе. Дрон беспорядочно метался, делал один удачный ход, который немного увеличивал вознаграждение, немедленно подстраивался под этот ход, а затем разбивался, пытаясь воспроизвести его. Было больно наблюдать — как будто кто-то учится неправильному уроку из чистой случайности.</p>
+<p><strong>Обучение после одной полной попытки (обновления по эпизоду)</strong></p>
+<p>Лучше! Теперь мы позволяем дрону попытаться приземлиться (или разбиться), смотрим, как всё закончилось, и затем обновляем. Это как закончить эпизод и затем подумать, что можно улучшить. По крайней мере, теперь мы видим все последствия своих действий. Но вот проблема: что, если один приземление было просто удачным? Или неудачным? Мы всё ещё основываем наше обучение на одной точке данных.</p>
+<p><strong>Обучение на основе нескольких попыток (мультиэпизодные пакетные обновления)</strong></p>
+<p>Это золотая середина. Мы запускаем несколько (6 в моём случае) попыток посадки дрона одновременно, смотрим, как они все прошли, и затем обновляем нашу политику на основе средней производительности. Некоторые попытки могут быть удачными, некоторые — нет, но в среднем мы получаем гораздо более чёткую картину того, что на самом деле работает. Хотя это довольно сильно нагружает компьютер, если вы можете это запустить, работает намного лучше, чем любые из предыдущих методов. Конечно, этот метод не самый лучший, но он достаточно прост для понимания и реализации; есть другие (и лучшие) методы.</p>
+
+    </div>
+
+    <div class="tags mt-8">
+      
+
+    </div>
+  </article>
+
+          
+            
+  </main>          
+
+    <script>
+
+        
+        
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const sidebar = document.querySelector('.sidebar');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+        
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                if (entry.isIntersecting) {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.add('active');
+                    });
+                } else {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.remove('active');
+                    });
+                }
+            });
+        }, observerOptions);
+        
+        
+        document.querySelectorAll('h2[id]').forEach(heading => {
+            observer.observe(heading);
+        });
+    </script>
+
+
+  <footer class="px-6 py-12 bg-sky-950 text-white/50">
+    
+<p>P9X.ru 2010 - 2025г. услуги интернет маркетинга</p>
+
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105149615', 'ym');
+
+    ym(105149615, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/105149615" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+  </footer>
+</body>
+</html>

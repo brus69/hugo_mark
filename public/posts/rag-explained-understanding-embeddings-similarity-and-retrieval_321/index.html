@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>RAG Объяснил: Понимание встраивания, сходства и поиска | На пути к науке о данных | Агентство контекстной рекламы</title>
+<meta name="description" content="">
+<meta name="yandex-verification" content="242f5a0ee52d5836" />
+
+<link rel="icon" type="image/x-icon" href="http://localhost:1313/favicon.ico">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+ <style>
+  .content h1 { 
+        font-size: 1.875rem; 
+        font-weight: bold; 
+        margin-bottom: 1rem; 
+    }
+    .content h2 { 
+        font-size: 1.5rem; 
+        font-weight: 600; 
+        margin-bottom: 0.75rem; 
+    }
+    .content h3 { 
+        font-size: 1.25rem; 
+        font-weight: 500; 
+        margin-bottom: 0.5rem; 
+    }
+    .content p { 
+        margin-bottom: 1rem; 
+    }
+    .content ul { 
+        list-style-type: disc; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content ol { 
+        list-style-type: decimal; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content a { 
+        color: #2563eb; 
+    }
+    .content a:hover { 
+        color: #1e40af; 
+    }
+    .content blockquote { 
+        border-left: 4px solid #d1d5db; 
+        padding-left: 1rem; 
+        font-style: italic; 
+    }
+
+    
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.875rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+.dark-mode .content table {
+    border: 1px solid #4b5563;
+}
+
+.content thead {
+    background-color: #eaebec;
+}
+
+.dark-mode .content thead {
+    background-color: #374151;
+}
+
+.content th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.dark-mode .content th {
+    color: #f9fafb;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content th:last-child {
+    border-right: none;  
+}
+
+.content td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    color: #6b7280;
+}
+
+.dark-mode .content td {
+    color: #d1d5db;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content td:last-child {
+    border-right: none;  
+}
+
+.content tbody tr {
+    transition: background-color 0.15s ease-in-out;
+}
+
+.content tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.dark-mode .content tbody tr:hover {
+    background-color: #374151;
+}
+
+.content tbody tr:last-child td {
+    border-bottom: none;
+}
+
+ 
+.content tbody tr:nth-child(even) {
+    background-color: #f4f5f7;
+}
+
+.dark-mode .content tbody tr:nth-child(even) {
+    background-color: #1f2937;
+}
+
+.dark-mode .content tbody tr:nth-child(even):hover {
+    background-color: #374151;
+}
+
+ 
+.content code:not(pre code) {
+    background-color: #f3f4f6;
+    color: #dc2626;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    font-weight: 500;
+    border: 1px solid #e5e7eb;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+}
+
+.dark-mode .content code:not(pre code) {
+    background-color: #224464;
+    color: #f87171;
+    border: 1px solid #4b5563;
+}
+
+ 
+.content pre {
+    background-color: #224464;
+    color: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid #374151;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.dark-mode .content pre {
+    background-color: #111827;
+    border: 1px solid #374151;
+}
+
+ 
+.content pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+    font-weight: normal;
+}
+
+ 
+.content pre code .keyword { color: #f472b6; }  
+.content pre code .function { color: #60a5fa; }  
+.content pre code .string { color: #34d399; }  
+.content pre code .comment { color: #9ca3af; font-style: italic; }  
+.content pre code .number { color: #fbbf24; }  
+.content pre code .class { color: #c084fc; }  
+.content pre code .operator { color: #93c5fd; }  
+
+ 
+.content pre::-webkit-scrollbar {
+    height: 6px;
+}
+
+.content pre::-webkit-scrollbar-track {
+    background: #374151;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.content pre::-webkit-scrollbar-thumb {
+    background: #6b7280;
+    border-radius: 3px;
+}
+
+.content pre::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+ 
+.content h1 code:not(pre code),
+.content h2 code:not(pre code),
+.content h3 code:not(pre code) {
+    font-size: 0.9em;
+    background-color: #fef2f2;
+    color: #dc2626;
+}
+
+.dark-mode .content h1 code:not(pre code),
+.dark-mode .content h2 code:not(pre code),
+.dark-mode .content h3 code:not(pre code) {
+    background-color: #7f1d1d;
+    color: #fca5a5;
+}
+
+ 
+.content a code:not(pre code) {
+    color: inherit;
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+.dark-mode .content a code:not(pre code) {
+    background-color: rgba(96, 165, 250, 0.2);
+}
+        :root {
+            --color-bg: #1a1a1a;
+            --color-text: #e6e6e6;
+            --color-accent: #6b7280;
+            --color-link: #9ca3af;
+            --color-link-hover: #d1d5db;
+        }
+        
+        .light-mode {
+            --color-bg: #f9fafb;
+            --color-text: #1f2937;
+            --color-accent: #6b7280;
+            --color-link: #4b5563;
+            --color-link-hover: #111827;
+        }
+        
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        a {
+            color: var(--color-link);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: var(--color-link-hover);
+        }
+        
+        .sidebar {
+            position: fixed;
+             
+            height: 100vh;
+            overflow-y: auto;
+            
+        }
+        
+        .main-content {
+            margin-left: 350px;
+            
+             
+        }
+        
+        .toc-container {
+            position: fixed;
+            right: 2rem;
+            top: 2rem;
+            width: 250px;
+            display: none;
+        }
+        
+        @media (min-width: 1280px) {
+            .toc-container {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 50;
+            }
+            
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+                 
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: fixed;
+                top: 1rem;
+                left: 1rem;
+                z-index: 100;
+            }
+        }
+        
+        .toc-link.active {
+            color: var(--color-link-hover);
+            font-weight: bold;
+        }
+        
+        .social-icons a {
+            margin-right: 0.5rem;
+        }
+        
+        pre {
+            background-color: rgba(107, 114, 128, 0.1);
+            padding: 1rem;
+            border-radius: 0.25rem;
+            overflow-x: auto;
+        }
+        
+        code {
+            font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+    </style>
+</head>
+  <body class="light-mode">
+      <header>
+    
+  </header>
+    
+    <button class="mobile-menu-btn p-2 bg-gray-800 text-white rounded md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+    
+    <aside class="sidebar border-r-4 border-sky-800  min-w-[350px] py-12 px-10 bg-gradient-to-br from-cyan-200 via-green-100 to-sky-100">
+        <div class="flex flex-col items-center mb-8">
+                
+            
+            <div class="w-24 h-24 mb-4 relative">
+                <a href="/">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ viewBox="0 0 550.000000 385.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,385.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M2780 3000 l0 -300 40 0 40 0 0 260 0 260 1165 0 1165 0 0 -1245 0
+-1245 -1165 0 -1165 0 0 260 0 260 -40 0 -40 0 0 -300 0 -300 1245 0 1245 0 0
+1325 0 1325 -1245 0 -1245 0 0 -300z"/>
+<path d="M700 1975 l0 -635 145 0 145 0 0 245 0 245 383 0 c422 0 426 1 491
+66 60 60 66 88 66 319 0 190 -2 214 -21 255 -25 56 -53 86 -104 113 -39 22
+-49 22 -572 25 l-533 3 0 -636z m940 245 l0 -100 -325 0 -325 0 0 100 0 100
+325 0 325 0 0 -100z"/>
+<path d="M2320 2601 c-69 -22 -112 -58 -146 -121 -17 -31 -19 -60 -19 -260 0
+-211 1 -227 22 -265 27 -51 68 -90 115 -109 32 -14 98 -16 438 -16 l400 0 0
+-245 0 -245 145 0 145 0 0 536 c0 373 -3 548 -11 575 -16 50 -61 105 -112 132
+-41 22 -48 22 -497 24 -250 1 -466 -2 -480 -6z m810 -381 l0 -100 -340 0 -340
+0 0 100 0 100 340 0 340 0 0 -100z"/>
+<path d="M3650 2607 c0 -1 99 -144 219 -317 l219 -314 -63 -91 c-34 -49 -133
+-191 -219 -315 l-157 -225 172 -3 c97 -1 176 2 183 7 6 5 72 97 146 205 74
+107 138 196 141 196 4 0 71 -92 149 -205 l143 -205 173 0 c96 0 174 2 174 4 0
+3 -95 141 -211 308 -116 167 -214 308 -216 315 -3 7 92 151 211 322 119 170
+216 312 216 315 0 3 -78 6 -174 6 l-174 0 -143 -205 c-78 -113 -145 -205 -149
+-205 -3 0 -70 92 -148 205 l-143 205 -174 0 c-96 0 -175 -1 -175 -3z"/>
+</g>
+</svg>
+</a>
+            </div>
+
+            <p class="text-xs text-center text-gray-500 max-w-[200px]">
+                Профессиональное агентство контекстной рекламы с опытом более 18 лет.
+
+            </p>
+        </div>
+
+        
+        <nav class="mb-8">
+          
+        
+            
+  <nav>
+    <ul>
+    <li class="text-lg font-semibold">
+      <a href="/">Контекстная реклама</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/analytics/">web-аналитика</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a aria-current="true" class="ancestor" href="/posts/">Блог</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/about/">О нас</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Категории</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/job/">Вакансии</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Кейсы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/calculators/">Калькуляторы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/contacts/">Контакты</a>
+    </li>
+    </ul>
+  </nav>
+
+           
+
+        </nav>
+
+        
+        <div class="social-icons  mt-auto">
+<div>
+
+<a href="https://t.me/your_link" target="_blank" class="inline-flex 
+items-center justify-center px-3 py-3 text-white bg-[#2AABEE] font-medium text-sm rounded 
+shadow-md hover:bg-[#279fd9] 
+hover:shadow-lg focus:bg-[#2493c8] 
+focus:shadow-lg focus:outline-none 
+focus:ring-0 active:bg-[#2185b3] active:shadow-lg transition duration-150 ease-in-out">
+  
+     
+<svg width="25px" height="25px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" 
+fill="#fff" class="bi bi-telegram pr-1">
+  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>
+</svg>
+                            
+  
+  Открыть в Telegram
+</a>
+
+</div>
+            <div class="pt-6 flex gap-1 justify-left items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                sale@p9x.ru
+            </div>
+        </div>
+        
+        
+        <div class="mt-8 pt-4 text-xs text-gray-500 border-t border-gray-700">
+            <p>Powered by <a href="#" class="hover:underline">Hugo</a> | Themed with <a href="#" class="hover:underline">poison</a></p>
+            <p>© 2010 - 2025 Poison. All rights reserved.</p>
+        </div>
+    </aside>
+
+  <main class="main-content bg-white">
+ 
+            
+            
+  <article class="prose prose-lg py-8 px-4 max-w-[1200px]">
+    <h1 class="text-2xl font-bold mb-4">
+            RAG Объяснил: Понимание встраиваний, сходства и поиска
+    </h1>
+
+    
+    
+    <time class="block mb-6 text-gray-500" datetime="2025-11-19T22:09:56&#43;00:00">November 19, 2025</time>
+
+    <div class="content mb-8 ">
+      <h3 id="я-прошёл-через-создание-простого-конвейера-rag-с-использованием-api-openai-langchain-и-локальных-файлов-а-также-эффективно-разделил-большие-текстовые-файлы-на-части">Я прошёл через создание простого конвейера RAG с использованием API OpenAI, LangChain и локальных файлов, а также эффективно разделил большие текстовые файлы на части.</h3>
+<p>Эти посты охватывают основы настройки конвейера RAG, способного генерировать ответы на основе содержимого локальных файлов.</p>
+<h3 id="итак-что-такое-вложения-embeddings">Итак, что такое вложения (embeddings)?</h3>
+<p>Чтобы понять, как работает этап извлечения в системе RAG, важно сначала разобраться, как текст преобразуется и представляется во вложениях. Для того чтобы модели обработки естественного языка (LLM) могли работать с любым текстом, он должен быть представлен в виде вектора, и для этого преобразования необходимо использовать модель вложений.</p>
+<p>Вложение — это векторное представление данных (в нашем случае текста), которое отражает его семантическое значение. Каждое слово или предложение исходного текста сопоставляется с высокоразмерным вектором. Модели вложений, используемые для выполнения этого преобразования, разработаны таким образом, что схожие по смыслу векторы оказываются близко друг к другу в векторном пространстве. Например, векторы для слов <em>happy</em> и <em>joyful</em> будут близки друг к другу в векторном пространстве, тогда как вектор для слова <em>sad</em> будет от них далёк.</p>
+<p>Чтобы создать высококачественные вложения, которые эффективно работают в конвейере RAG, необходимо использовать предварительно обученные модели вложений, такие как модели вложений OpenAI. Существует несколько типов вложений:</p>
+<ul>
+<li><strong>Вложения слов (Word Embeddings)</strong>: в них каждому слову присваивается фиксированный вектор независимо от контекста. Популярными моделями для создания этого типа вложений являются Word2Vec и GloVe.</li>
+<li><strong>Контекстуальные вложения (Contextual Embeddings)</strong>: они учитывают, что значение слова может меняться в зависимости от контекста. Например, <em>the bank of a river</em> и <em>opening a bank account</em>. Некоторые модели, которые можно использовать для создания контекстуальных вложений, — это BERT и модели вложений OpenAI.</li>
+<li><strong>Вложения предложений (Sentence Embeddings)</strong>: это вложения, которые захватывают смысл полных предложений. Популярной моделью для создания вложений предложений является Sentence-BERT.</li>
+</ul>
+<p>В любом случае текст должен быть преобразован в векторы, чтобы его можно было использовать в вычислениях. Эти векторы — это просто представления текста. Другими словами, векторы и числа сами по себе не имеют никакого смысла. Вместо этого они полезны, поскольку в математической форме фиксируют сходства и отношения между словами или фразами.</p>
+<p>Например, мы могли бы представить себе небольшой словарь, состоящий из слов <em>king</em>, <em>queen</em>, <em>woman</em> и <em>man</em>, и присвоить каждому из них произвольный вектор.</p>
+<pre tabindex="0"><code>king = [0.25, 0.75]
+queen = [0.23, 0.77]
+man = [0.15, 0.80]
+woman = [0.13, 0.82]
+</code></pre><p>Затем мы могли бы попробовать выполнить некоторые векторные операции, например:</p>
+<pre tabindex="0"><code>king - man + woman
+= [0.25, 0.75] - [0.15, 0.80] + [0.13, 0.82]
+= [0.23, 0.77]
+≈ queen
+</code></pre><p>Обратите внимание, как семантика слов и отношения между ними сохраняются после сопоставления их с векторами, что позволяет нам выполнять операции.</p>
+<p>Таким образом, вложение — это просто сопоставление слов с векторами, направленное на сохранение смысла и отношений между словами и позволяющее выполнять с ними вычисления. Мы даже можем визуализировать эти фиктивные векторы в векторном пространстве, чтобы увидеть, как связанные слова группируются вместе.</p>
+<p>Разница между этими простыми векторными примерами и реальными векторами, создаваемыми моделями вложений, заключается в том, что реальные модели вложений генерируют векторы с <strong>сотнями измерений</strong>. Двумерные векторы полезны для построения интуиции о том, как смысл может быть отображён в векторное пространство, но они слишком низкоразмерны, чтобы отразить сложность реального языка и словарного запаса. Поэтому реальные модели вложений работают с гораздо более высокими размерностями, часто в сотнях или даже тысячах. Например, Word2Vec создаёт 300-мерные векторы, а BERT Base — 768-мерные векторы.</p>
+<h3 id="оценка-сходства-вложений">Оценка сходства вложений</h3>
+<p>После того как текст преобразован во вложения, вывод становится векторной математикой. Именно это позволяет нам идентифицировать и извлекать соответствующие документы на этапе извлечения в системе RAG. Как только мы превратим и запрос пользователя, и документы из базы знаний в векторы с помощью модели вложений, мы сможем вычислить, насколько они похожи, используя соответствующую метрику, такую как косинусное сходство, евклидово расстояние (L2-расстояние) или скалярное произведение.</p>
+<p>Косинусное сходство — это мера того, насколько похожи два вектора (вложения). Даны два вектора A и B, косинусное сходство рассчитывается следующим образом:</p>
+<p>Просто говоря, косинусное сходство рассчитывается как косинус угла между двумя векторами, и оно варьируется от 1 до -1. Более конкретно:</p>
+<ul>
+<li>1 указывает на то, что векторы семантически идентичны (например, <em>car</em> и <em>automobile</em>).</li>
+<li>0 указывает на то, что векторы не имеют семантической связи (например, <em>banana</em> и <em>justice</em>).</li>
+<li>-1 указывает на то, что векторы идеально противоположны, но на практике вложения не дают отрицательных значений сходства даже для антонимов, таких как <em>hot</em> и <em>cold</em>.</li>
+</ul>
+<p>Это связано с тем, что даже семантически противоположные слова (например, <em>hot</em> и <em>cold</em>) часто встречаются в похожих контекстах (например, <em>it’s getting hot</em> и <em>it’s getting cold</em>). Для того чтобы косинусное сходство достигло -1, слова и их контексты должны быть идеально противоположными — что-то, что на самом деле не происходит в естественном языке. В результате даже противоположные слова обычно имеют вложения, которые всё ещё несколько близки по смыслу. На практике значения сходства обычно положительны.</p>
+<p>Другие метрики сходства, помимо косинусного сходства, включают скалярное произведение (внутренний продукт) и евклидово расстояние (L2-расстояние). В отличие от косинусного сходства, скалярное произведение и евклидово расстояние зависят от величины, то есть длина вектора влияет на результат. Чтобы использовать скалярное произведение в качестве меры сходства, эквивалентной косинусному сходству, необходимо сначала нормализовать векторы до единичной длины. Это связано с тем, что косинусное сходство математически равно скалярному произведению двух нормализованных векторов. Таким образом, аналогично косинусному сходству, более похожие векторы будут иметь большее скалярное произведение.</p>
+<p>С другой стороны, евклидово расстояние измеряет прямолинейное расстояние между двумя векторами в пространстве вложений. В этом случае более похожие векторы будут иметь меньшее евклидово расстояние.</p>
+<p>Вернувшись к нашему конвейеру RAG, мы вычисляем оценки сходства между вложениями запроса пользователя и вложениями базы знаний. Таким образом, для каждого текстового фрагмента базы знаний мы получаем оценку между 1 и -1, указывающую на схожесть фрагмента с запросом пользователя.</p>
+<p>После получения оценок сходства мы сортируем их в порядке убывания и выбираем топ-k фрагментов. Эти топ-k фрагментов затем передаются на этап генерации конвейера RAG, что позволяет ему эффективно извлекать релевантную информацию для запроса пользователя.</p>
+<h3 id="поиск-топ-k-похожих-фрагментов">Поиск топ-k похожих фрагментов</h3>
+<p>Итак, после получения вложений базы знаний и вложения(й) для текста запроса пользователя, происходит следующее. Мы вычисляем косинусное сходство между вложением запроса пользователя и вложениями базы знаний. Таким образом, для каждого текстового фрагмента базы знаний мы получаем оценку между 1 и -1, указывающую на схожесть фрагмента с запросом пользователя.</p>
+<p>После получения оценок сходства мы сортируем их в порядке убывания и выбираем топ-k фрагментов. Эти топ-k фрагментов затем передаются на этап генерации конвейера RAG, что позволяет ему эффективно извлекать релевантную информацию для запроса пользователя.</p>
+<p>Чтобы ускорить этот процесс, часто используется поиск приближённых ближайших соседей (ANN). ANN находит векторы, которые почти наиболее похожи, выдавая результаты, близкие к истинным топ-N, но с гораздо большей скоростью, чем методы точного поиска. Конечно, точный поиск более точен; тем не менее, он также более вычислительно затратен и может плохо масштабироваться в реальных приложениях, особенно при работе с огромными наборами данных.</p>
+<p>Кроме того, к оценкам сходства может быть применён порог для фильтрации фрагментов, которые не соответствуют минимальной релевантности. Например, в некоторых случаях фрагмент может быть рассмотрен только в том случае, если его оценка сходства превышает определённый порог (например, косинусное сходство &gt; 0,3).</p>
+<h3 id="так-кто-же-такая-анна-павловна">Так кто же такая Анна Павловна?</h3>
+<p>В примере с <em>«Войной и миром»</em>, как было показано в моём предыдущем посте, мы разделили весь текст на фрагменты и затем создали соответствующие вложения для каждого фрагмента. Затем, когда пользователь отправляет запрос, например <em>«Кто такая Анна Павловна?»</em>, мы также создаём соответствующее вложение(я) для текста запроса пользователя.</p>
+<pre tabindex="0"><code>import os
+from langchain.chat_models import ChatOpenAI
+from langchain.document_loaders import TextLoader
+from langchain.embeddings import OpenAIEmbeddings
+from langchain.vectorstores import FAISS
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain.docstore.document import Document
+
+api_key = &#39;your_api_key&#39;
+
+llm = ChatOpenAI(openai_api_key=api_key, model=&#34;gpt-4o-mini&#34;, temperature=0.3)
+
+embeddings = OpenAIEmbeddings(openai_api_key=api_key)
+
+text_folder =  &#34;RAG files&#34;  
+
+documents = []
+for filename in os.listdir(text_folder):
+    if filename.lower().endswith(&#34;.txt&#34;):
+        file_path = os.path.join(text_folder, filename)
+        loader = TextLoader(file_path)
+        documents.extend(loader.load())
+
+splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
+split_docs = []
+for doc in documents:
+    chunks = splitter.split_text(doc.page_content)
+    for chunk in chunks:
+        split_docs.append(Document(page_content=chunk))
+        
+documents = split_docs
+
+vector_store = FAISS.from_documents(documents, embeddings)
+retriever = vector_store.as_retriever()
+
+def main():
+    print(&#34;Welcome to the RAG Assistant. Type &#39;exit&#39; to quit.\n&#34;)
+
+    while True:
+        user_input = input(&#34;You: &#34;).strip()
+        if user_input.lower() == &#34;exit&#34;:
+            print(&#34;Exiting…&#34;)
+            break
+
+        relevant_docs = retriever.invoke(user_input)
+        retrieved_context = &#34;\n\n&#34;.join([doc.page_content for doc in relevant_docs])
+
+        system_prompt = (
+            &#34;You are a helpful assistant. &#34;
+            &#34;Use ONLY the following knowledge base context to answer the user. &#34;
+            &#34;If the answer is not in the context, say you don&#39;t know.\n\n&#34;
+            f&#34;Context:\n{retrieved_context}&#34;
+        )
+
+        messages = [
+            {&#34;role&#34;: &#34;system&#34;, &#34;content&#34;: system_prompt},
+            {&#34;role&#34;: &#34;user&#34;, &#34;content&#34;: user_input}
+        ]
+
+        response = llm.invoke(messages)
+        assistant_message = response.content.strip()
+        print(f&#34;\nAssistant: {assistant_message}\n&#34;)
+
+if __name__ == &#34;__main__&#34;:
+    main()
+</code></pre><p>В этом скрипте я использую объект-извлекатель LangChain <code>retriever = vector_store.as_retriever()</code>, который по умолчанию использует метрику сходства лежащего в его основе индекса FAISS. FAISS предоставляет два индекса:</p>
+<ul>
+<li><code>IndexFlatL2</code> использует L2-расстояние. При использовании LangChain с FAISS (как мы это делали) индекс по умолчанию обычно <code>IndexFlatL2</code>.</li>
+<li><code>IndexFlatIP</code>, который использует скалярное произведение (внутренний продукт).</li>
+</ul>
+<p>Поэтому в начальном скрипте фрагменты извлекаются с использованием L2-расстояния в качестве метрики. Этот скрипт также извлекает по умолчанию k=4 наиболее похожих фрагмента. Другими словами, мы извлекаем <strong>топ-k наиболее релевантных запросу пользователя фрагментов на основе L2-расстояния.</strong></p>
+<p>Таким образом, чтобы использовать косинусное сходство в качестве метрики извлечения вместо L2, которое было по умолчанию, нам нужно немного изменить наш начальный код. В частности, нам нужно нормализовать вложения (как вложения запроса пользователя, так и вложения базы знаний) и настроить векторную базу данных для использования скалярного произведения (внутреннего произведения) в качестве меры сходства вместо L2-расстояния.</p>
+<p>Для нормализации вложений базы знаний мы можем добавить эту часть после этапа разделения:</p>
+<pre tabindex="0"><code>...
+
+documents = split_docs
+
+import numpy as np
+def normalize(vectors):
+    vectors = np.array(vectors)
+    norms = np.linalg.norm(vectors, axis=1, keepdims=True)
+    return vectors / norms
+
+doc_texts = [doc.page_content for doc in documents]
+doc_embeddings = embeddings.embed_documents(doc_texts)
+doc_embeddings = normalize(doc_embeddings)
+
+import faiss
+dimension = doc_embeddings.shape[1]
+index = faiss.IndexFlatIP(dimension)  
+index.add(doc_embeddings)
+
+vector_store = FAISS(embedding_function=embeddings, index=index, docstore=None, index_to_docstore_id=None)
+vector_store.docstore = {i: doc for i, doc in enumerate(documents)}
+
+retriever = vector_store.as_retriever()
+
+...
+</code></pre><p>Поскольку мы делаем всё вручную, мы можем пока опустить <code>retriever = vector_store.as_retriever()</code>. Нам также нужно добавить следующую часть в нашу функцию <code>main()</code>, чтобы нормализовать запрос пользователя:</p>
+<pre tabindex="0"><code>...
+
+if user_input.lower() == &#34;exit&#34;:
+    print(&#34;Exiting…&#34;)
+    break
+
+query_embedding = embeddings.embed_query(user_input)
+query_embedding = normalize([query_embedding]) 
+
+D, I = index.search(query_embedding, k=2)
+
+relevant_docs = [vector_store.docstore[i] for i in I[0]]
+retrieved_context = &#34;\n\n&#34;.join([doc.page_content for doc in relevant_docs])
+
+...
+</code></pre><p>Обратите внимание, как мы можем явно определить количество извлекаемых фрагментов k, теперь установленное как k=2.</p>
+<p>Кроме того, чтобы вывести косинусные сходства, я собираюсь также добавить следующую часть в функцию <code>main()</code>:</p>
+<pre tabindex="0"><code>...
+retrieved_context = &#34;\n\n&#34;.join([doc.page_content for doc in relevant_docs])
+
+print(&#34;\nTop 5 chunks and their cosine similarity scores:\n&#34;)
+for rank, (idx, score) in enumerate(zip(I[0], D[0]), start=1):
+    print(f&#34;Chunk {rank}:&#34;)
+    print(f&#34;Cosine similarity: {score:.4f}&#34;)
+    print(f&#34;Content:\n{vector_store.docstore[idx].page_content}\n{&#39;-&#39;*40}&#34;)
+...
+</code></pre><p>Наконец, мы можем снова задать вопрос и получить ответ:</p>
+<p>&hellip;</p>
+<p>&hellip; но теперь мы также можем увидеть текстовые фрагменты, на основе которых был создан этот ответ, и соответствующие оценки косинусного сходства&hellip;</p>
+<p>Очевидно, что разные параметры могут привести к разным ответам. Например, мы получим несколько разные ответы при извлечении топ-k=2, k=4 и k=10 результатов. Принимая во внимание дополнительные параметры, которые используются на этапе разделения на фрагменты, такие как размер фрагмента и перекрытие фрагментов, становится очевидно, что параметры играют решающую роль в получении хороших результатов от конвейера RAG.</p>
+
+    </div>
+
+    <div class="tags mt-8">
+      
+
+    </div>
+  </article>
+
+          
+            
+  </main>          
+
+    <script>
+
+        
+        
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const sidebar = document.querySelector('.sidebar');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+        
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                if (entry.isIntersecting) {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.add('active');
+                    });
+                } else {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.remove('active');
+                    });
+                }
+            });
+        }, observerOptions);
+        
+        
+        document.querySelectorAll('h2[id]').forEach(heading => {
+            observer.observe(heading);
+        });
+    </script>
+
+
+  <footer class="px-6 py-12 bg-sky-950 text-white/50">
+    
+<p>P9X.ru 2010 - 2025г. услуги интернет маркетинга</p>
+
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105149615', 'ym');
+
+    ym(105149615, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/105149615" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+  </footer>
+</body>
+</html>

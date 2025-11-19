@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Циклы роста: Выход за рамки AARRR — Перековка | Агентство контекстной рекламы</title>
+<meta name="description" content="Воронки роста были хорошей отправной точкой, но пришло время отказаться от этой устаревшей концепции и сосредоточиться на создании циклов роста.">
+<meta name="yandex-verification" content="242f5a0ee52d5836" />
+
+<link rel="icon" type="image/x-icon" href="http://localhost:1313/favicon.ico">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+ <style>
+  .content h1 { 
+        font-size: 1.875rem; 
+        font-weight: bold; 
+        margin-bottom: 1rem; 
+    }
+    .content h2 { 
+        font-size: 1.5rem; 
+        font-weight: 600; 
+        margin-bottom: 0.75rem; 
+    }
+    .content h3 { 
+        font-size: 1.25rem; 
+        font-weight: 500; 
+        margin-bottom: 0.5rem; 
+    }
+    .content p { 
+        margin-bottom: 1rem; 
+    }
+    .content ul { 
+        list-style-type: disc; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content ol { 
+        list-style-type: decimal; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content a { 
+        color: #2563eb; 
+    }
+    .content a:hover { 
+        color: #1e40af; 
+    }
+    .content blockquote { 
+        border-left: 4px solid #d1d5db; 
+        padding-left: 1rem; 
+        font-style: italic; 
+    }
+
+    
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.875rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+.dark-mode .content table {
+    border: 1px solid #4b5563;
+}
+
+.content thead {
+    background-color: #eaebec;
+}
+
+.dark-mode .content thead {
+    background-color: #374151;
+}
+
+.content th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.dark-mode .content th {
+    color: #f9fafb;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content th:last-child {
+    border-right: none;  
+}
+
+.content td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    color: #6b7280;
+}
+
+.dark-mode .content td {
+    color: #d1d5db;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content td:last-child {
+    border-right: none;  
+}
+
+.content tbody tr {
+    transition: background-color 0.15s ease-in-out;
+}
+
+.content tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.dark-mode .content tbody tr:hover {
+    background-color: #374151;
+}
+
+.content tbody tr:last-child td {
+    border-bottom: none;
+}
+
+ 
+.content tbody tr:nth-child(even) {
+    background-color: #f4f5f7;
+}
+
+.dark-mode .content tbody tr:nth-child(even) {
+    background-color: #1f2937;
+}
+
+.dark-mode .content tbody tr:nth-child(even):hover {
+    background-color: #374151;
+}
+
+ 
+.content code:not(pre code) {
+    background-color: #f3f4f6;
+    color: #dc2626;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    font-weight: 500;
+    border: 1px solid #e5e7eb;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+}
+
+.dark-mode .content code:not(pre code) {
+    background-color: #224464;
+    color: #f87171;
+    border: 1px solid #4b5563;
+}
+
+ 
+.content pre {
+    background-color: #224464;
+    color: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid #374151;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.dark-mode .content pre {
+    background-color: #111827;
+    border: 1px solid #374151;
+}
+
+ 
+.content pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+    font-weight: normal;
+}
+
+ 
+.content pre code .keyword { color: #f472b6; }  
+.content pre code .function { color: #60a5fa; }  
+.content pre code .string { color: #34d399; }  
+.content pre code .comment { color: #9ca3af; font-style: italic; }  
+.content pre code .number { color: #fbbf24; }  
+.content pre code .class { color: #c084fc; }  
+.content pre code .operator { color: #93c5fd; }  
+
+ 
+.content pre::-webkit-scrollbar {
+    height: 6px;
+}
+
+.content pre::-webkit-scrollbar-track {
+    background: #374151;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.content pre::-webkit-scrollbar-thumb {
+    background: #6b7280;
+    border-radius: 3px;
+}
+
+.content pre::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+ 
+.content h1 code:not(pre code),
+.content h2 code:not(pre code),
+.content h3 code:not(pre code) {
+    font-size: 0.9em;
+    background-color: #fef2f2;
+    color: #dc2626;
+}
+
+.dark-mode .content h1 code:not(pre code),
+.dark-mode .content h2 code:not(pre code),
+.dark-mode .content h3 code:not(pre code) {
+    background-color: #7f1d1d;
+    color: #fca5a5;
+}
+
+ 
+.content a code:not(pre code) {
+    color: inherit;
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+.dark-mode .content a code:not(pre code) {
+    background-color: rgba(96, 165, 250, 0.2);
+}
+        :root {
+            --color-bg: #1a1a1a;
+            --color-text: #e6e6e6;
+            --color-accent: #6b7280;
+            --color-link: #9ca3af;
+            --color-link-hover: #d1d5db;
+        }
+        
+        .light-mode {
+            --color-bg: #f9fafb;
+            --color-text: #1f2937;
+            --color-accent: #6b7280;
+            --color-link: #4b5563;
+            --color-link-hover: #111827;
+        }
+        
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        a {
+            color: var(--color-link);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: var(--color-link-hover);
+        }
+        
+        .sidebar {
+            position: fixed;
+             
+            height: 100vh;
+            overflow-y: auto;
+            
+        }
+        
+        .main-content {
+            margin-left: 350px;
+            
+             
+        }
+        
+        .toc-container {
+            position: fixed;
+            right: 2rem;
+            top: 2rem;
+            width: 250px;
+            display: none;
+        }
+        
+        @media (min-width: 1280px) {
+            .toc-container {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 50;
+            }
+            
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+                 
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: fixed;
+                top: 1rem;
+                left: 1rem;
+                z-index: 100;
+            }
+        }
+        
+        .toc-link.active {
+            color: var(--color-link-hover);
+            font-weight: bold;
+        }
+        
+        .social-icons a {
+            margin-right: 0.5rem;
+        }
+        
+        pre {
+            background-color: rgba(107, 114, 128, 0.1);
+            padding: 1rem;
+            border-radius: 0.25rem;
+            overflow-x: auto;
+        }
+        
+        code {
+            font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+    </style>
+</head>
+  <body class="light-mode">
+      <header>
+    
+  </header>
+    
+    <button class="mobile-menu-btn p-2 bg-gray-800 text-white rounded md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+    
+    <aside class="sidebar border-r-4 border-sky-800  min-w-[350px] py-12 px-10 bg-gradient-to-br from-cyan-200 via-green-100 to-sky-100">
+        <div class="flex flex-col items-center mb-8">
+                
+            
+            <div class="w-24 h-24 mb-4 relative">
+                <a href="/">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ viewBox="0 0 550.000000 385.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,385.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M2780 3000 l0 -300 40 0 40 0 0 260 0 260 1165 0 1165 0 0 -1245 0
+-1245 -1165 0 -1165 0 0 260 0 260 -40 0 -40 0 0 -300 0 -300 1245 0 1245 0 0
+1325 0 1325 -1245 0 -1245 0 0 -300z"/>
+<path d="M700 1975 l0 -635 145 0 145 0 0 245 0 245 383 0 c422 0 426 1 491
+66 60 60 66 88 66 319 0 190 -2 214 -21 255 -25 56 -53 86 -104 113 -39 22
+-49 22 -572 25 l-533 3 0 -636z m940 245 l0 -100 -325 0 -325 0 0 100 0 100
+325 0 325 0 0 -100z"/>
+<path d="M2320 2601 c-69 -22 -112 -58 -146 -121 -17 -31 -19 -60 -19 -260 0
+-211 1 -227 22 -265 27 -51 68 -90 115 -109 32 -14 98 -16 438 -16 l400 0 0
+-245 0 -245 145 0 145 0 0 536 c0 373 -3 548 -11 575 -16 50 -61 105 -112 132
+-41 22 -48 22 -497 24 -250 1 -466 -2 -480 -6z m810 -381 l0 -100 -340 0 -340
+0 0 100 0 100 340 0 340 0 0 -100z"/>
+<path d="M3650 2607 c0 -1 99 -144 219 -317 l219 -314 -63 -91 c-34 -49 -133
+-191 -219 -315 l-157 -225 172 -3 c97 -1 176 2 183 7 6 5 72 97 146 205 74
+107 138 196 141 196 4 0 71 -92 149 -205 l143 -205 173 0 c96 0 174 2 174 4 0
+3 -95 141 -211 308 -116 167 -214 308 -216 315 -3 7 92 151 211 322 119 170
+216 312 216 315 0 3 -78 6 -174 6 l-174 0 -143 -205 c-78 -113 -145 -205 -149
+-205 -3 0 -70 92 -148 205 l-143 205 -174 0 c-96 0 -175 -1 -175 -3z"/>
+</g>
+</svg>
+</a>
+            </div>
+
+            <p class="text-xs text-center text-gray-500 max-w-[200px]">
+                Профессиональное агентство контекстной рекламы с опытом более 18 лет.
+
+            </p>
+        </div>
+
+        
+        <nav class="mb-8">
+          
+        
+            
+  <nav>
+    <ul>
+    <li class="text-lg font-semibold">
+      <a href="/">Контекстная реклама</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/analytics/">web-аналитика</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a aria-current="true" class="ancestor" href="/posts/">Блог</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/about/">О нас</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Категории</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/job/">Вакансии</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Кейсы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/calculators/">Калькуляторы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/contacts/">Контакты</a>
+    </li>
+    </ul>
+  </nav>
+
+           
+
+        </nav>
+
+        
+        <div class="social-icons  mt-auto">
+<div>
+
+<a href="https://t.me/your_link" target="_blank" class="inline-flex 
+items-center justify-center px-3 py-3 text-white bg-[#2AABEE] font-medium text-sm rounded 
+shadow-md hover:bg-[#279fd9] 
+hover:shadow-lg focus:bg-[#2493c8] 
+focus:shadow-lg focus:outline-none 
+focus:ring-0 active:bg-[#2185b3] active:shadow-lg transition duration-150 ease-in-out">
+  
+     
+<svg width="25px" height="25px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" 
+fill="#fff" class="bi bi-telegram pr-1">
+  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>
+</svg>
+                            
+  
+  Открыть в Telegram
+</a>
+
+</div>
+            <div class="pt-6 flex gap-1 justify-left items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                sale@p9x.ru
+            </div>
+        </div>
+        
+        
+        <div class="mt-8 pt-4 text-xs text-gray-500 border-t border-gray-700">
+            <p>Powered by <a href="#" class="hover:underline">Hugo</a> | Themed with <a href="#" class="hover:underline">poison</a></p>
+            <p>© 2010 - 2025 Poison. All rights reserved.</p>
+        </div>
+    </aside>
+
+  <main class="main-content bg-white">
+ 
+            
+            
+  <article class="prose prose-lg py-8 px-4 max-w-[1200px]">
+    <h1 class="text-2xl font-bold mb-4">
+            Петли роста - это новые воронки
+    </h1>
+
+    
+    
+    <time class="block mb-6 text-gray-500" datetime="2025-11-19T22:53:35&#43;00:00">November 19, 2025</time>
+
+    <div class="content mb-8 ">
+      <h3 id="это-третья-публикация-в-серии-из-четырёх-написанной-в-соавторстве-брайаном-балфур-кейси-уинтерсом-кевином-квоком-и-эндрю-ченом-чтобы-глубже-изучить-эти-концепции-зарегистрируйтесь-сейчас-чтобы-стать-участником-и-присоединитесь-к-предстоящей-группе-growth-series-retention--engagement-или-advanced-growth-strategy">Это третья публикация в серии из четырёх, написанной в соавторстве Брайаном Балфур, Кейси Уинтерсом, Кевином Квоком и Эндрю Ченом. Чтобы глубже изучить эти концепции, <em>зарегистрируйтесь сейчас</em>, чтобы стать участником, и присоединитесь к предстоящей группе: Growth Series, Retention + Engagement или Advanced Growth Strategy.</h3>
+<p>Начните бесплатную пробную версию сейчас ↗</p>
+<h2 id="самый-важный-вопрос-на-который-должна-уметь-ответить-ваша-команда">Самый важный вопрос, на который должна уметь ответить ваша команда</h2>
+<p>Мы просим участников <strong>программ Reforge</strong> обойти свою компанию и попросить пять разных человек нарисовать на доске ответ на, казалось бы, простой вопрос: <strong>как растёт ваш продукт?</strong></p>
+<p>Этот <strong><em>кажется</em></strong> простым вопросом. Но каждый неизбежно обнаруживает одно или несколько явлений:</p>
+<ul>
+<li>У каждого свой ответ.</li>
+<li>Ответ представляет собой лишь часть головоломки.</li>
+<li>Ответ говорит о результате $$$, но не о факторах использования.</li>
+</ul>
+<p>Это БОЛЬШАЯ проблема. Если у каждого есть разная или неполная картина того, как растёт продукт, то у вас не может быть обсуждений приоритетов, метрик, целей или стратегии на равных. Это приводит к нескольким вещам:</p>
+<ul>
+<li>Люди сосредоточены на разных вещах.</li>
+<li>Команды движутся в противоположных направлениях.</li>
+<li>Люди не на одной волне с генеральным директором/исполнительной командой/другими в отношении того, что наиболее важно.</li>
+</ul>
+<p>«Как растёт ваш продукт?» — это просто самый важный вопрос, на который нужно уметь ответить. Рост — это единственная причина, по которой существуют продукты и компании (особенно в стартапах, поддерживаемых венчурным капиталом). Компании, которые постоянно растут, также обеспечивают наибольшие положительные результаты. Что ещё более важно, лично в вашей карьере, если вы способствуете росту в своей компании, вы получаете вознаграждение по сравнению с другими, кто не способствует росту.</p>
+<p>Так как же лучше всего ответить на этот вопрос?</p>
+<hr>
+<h3 id="воронки-роста--это-не-ответ">Воронки роста — это не ответ</h3>
+<p>Одним из распространённых ответов на вопрос «Как растёт ваш продукт?» является картинка воронки. Структура AARRR была создана Дэйвом МакКлуром. Это была отличная отправная точка. Она помогла мне и миллионам других людей повысить свой уровень. Но эта структура существует &gt; 11 лет, и с тех пор мы узнали много нового о том, как быстрее всего растут программные продукты.</p>
+<p>Самое главное, что мы узнали, — это то, что воронка — это слишком микроскопический взгляд на то, как растёт продукт. Она помогает объяснить отдельный шаг в цикле роста, но упускает более широкую картину самого цикла. Когда воронка применяется на уровне компании и используется для объяснения того, как растёт продукт, это приводит к нескольким общим проблемам:</p>
+<h3 id="1-воронки-создают-стратегические-разрозненности">1. Воронки создают стратегические разрозненности</h3>
+<p>При создании нового продукта наиболее распространённый подход — это «создать отличный продукт», а затем протестировать множество различных каналов, чтобы увидеть, что работает. Это в точности неправильный подход. Это рассматривает стратегию продукта и стратегию привлечения в разрозненности. В более крупных и развитых продуктах вы также видите такое стратегическое планирование. Обычно команда разработчиков планирует стратегию продукта, а затем маркетинг создаёт стратегию привлечения.</p>
+<p>Такое стратегическое мышление приводит к большинству сбоев в распространении. <strong>Соответствие канала продукту</strong> говорит нам, почему. Мы часто забываем, что не контролируем правила каналов. Каналы контролируют правила. В результате мы должны адаптировать наш продукт под каналы, а не наоборот.</p>
+<p>Более того, мы также склонны рассматривать нашу стратегию монетизации в третьем разрозненном слое. Но мы знаем, что из-за <strong>соответствия модели канала</strong> наша модель монетизации включает или отключает определённые каналы.</p>
+<p>Продукт, каналы и монетизация должны рассматриваться вместе. Они взаимосвязаны. Но воронка приводит к тому, что многие команды рассматривают их как разрозненные уровни.</p>
+<h3 id="2-воронки-создают-функциональные-разрозненности">2. Воронки создают функциональные разрозненности</h3>
+<p>Компании часто структурируют команды по уровням воронки. Маркетинг отвечает за привлечение. Продукт отвечает за удержание. Продажи (если B2B) отвечают за доход. Затем каждой из этих команд даётся метрика, соответствующая этому уровню воронки.</p>
+<p>Проблема в том, что команды затем оптимизируют за счёт друг друга, чтобы достичь своих разрозненных целей. Маркетинг привлекает некачественных пользователей/лидов в верхней части воронки, чтобы достичь своей цели, но это снижает удержание или другие показатели воронки. Со временем для исправления этого внедряются всевозможные проверки и балансировки, что усложняет понимание и постановку целей по метрикам.</p>
+<h3 id="3-воронки-работают-в-одном-направлении">3. Воронки работают в одном направлении</h3>
+<p>Воронки работают в одном направлении. Вкладывайте больше в верхнюю часть, получайте больше в нижней. Нет понятия о том, как реинвестировать то, что выходит внизу, чтобы получить больше в верхней части для продолжения подпитки роста с течением времени. Другими словами, нет эффекта накопления. Это означает, что нам приходится постоянно вкладывать больше в верхнюю часть, чтобы получать больше в нижней. Больше денег, больше людей, больше тактик, больше каналов, больше, больше, больше. Это неустойчиво. Понимание связи того, как вы реинвестируете, чтобы получить больше роста, меняет ваш подход к тому, на чём сосредоточиться и во что инвестировать (подробнее об этом ниже).</p>
+<hr>
+<p>Начните бесплатную пробную версию сейчас ↗</p>
+<h3 id="использование-вместо-воронок-циклов-роста">Использование вместо воронок циклов роста</h3>
+<blockquote>
+<p><strong>«Сложные проценты — величайшее изобретение человека». — Эйнштейн</strong></p>
+</blockquote>
+<p>Самые быстрорастущие продукты лучше представить в виде системы циклов, а не воронок. Циклы — это замкнутые системы, где входные данные через какой-то процесс генерируют больше выходных данных, которые можно реинвестировать во входные. Существуют циклы роста, которые служат для создания различной ценности, включая новых пользователей, возвращающихся пользователей, защиту или эффективность.</p>
+<p>Вот несколько примеров:</p>
+<h3 id="pinterest">Pinterest</h3>
+<p>Движущей силой роста Pinterest является следующий цикл:</p>
+<ul>
+<li>Пользователь регистрируется (или возвращается).</li>
+<li>Они активируют вас в продукте с конкретным/релевантным контентом.</li>
+<li>Вы сохраняете новый контент или делаете репост существующего контента, который даёт Pinterest качественные сигналы.</li>
+<li>Pinterest распространяет качественный контент в поисковые системы.</li>
+<li>Пользователь находит контент через поисковые системы и либо регистрируется/возвращается (см. шаг 1).</li>
+</ul>
+<p>Это два из более чем 20 циклов роста, которые мы определили в нашем исследовании для программы Advanced Growth Strategy, которые способствуют привлечению, удержанию, защите, эффективности или их комбинации. Те, кто понимает их и организует свой продукт/команды вокруг них, будут создавать наибольшую ценность.</p>
+<h3 id="циклы-обеспечивают-устойчивый-рост-за-счёт-накопления">Циклы обеспечивают устойчивый рост за счёт накопления</h3>
+<p>Циклы заставляют вас отвечать на вопрос: «Как одна когорта пользователей приводит к другой когорте пользователей?» Вы фокусируетесь на том, как вы реинвестируете выходные данные одного цикла в следующий цикл, чтобы получить больше выходных данных. Это создаёт эффект накопления, который является более устойчивым.</p>
+<p>Не все циклы созданы равными. У вас возникнет соблазн нарисовать множество циклов для вашего продукта, но это обычно означает, что у вас есть множество маломощных циклов, которые не являются устойчивыми. Самые быстрорастущие продукты обычно поддерживаются 1–2 основными циклами, которые меняются со временем. Измерение и понимание мощности/здоровья ваших циклов имеет решающее значение для понимания того, на чём сосредоточиться.</p>
+<h3 id="циклы-более-защищены">Циклы более защищены</h3>
+<p>Циклы объединяют то, как ваш продукт, канал и модель монетизации работают вместе в единой системе, а не рассматривают их как разрозненные. В результате они оказываются более специфичными для вашего продукта и компании, что затрудняет их копирование другими.</p>
+<p>С другой стороны, стратегии и тактики, которые не специфичны для вашего продукта/пользователя/модели, по определению могут быть легко воспроизведены другими. По мере их копирования эффективность снижается и всегда стремится к нулю, требуя от вас постоянного изобретения новых стратегий и тактик. Это не устойчиво в долгосрочной перспективе.</p>
+<hr>
+<p>Начните бесплатную пробную версию сейчас ↗</p>
+<h3 id="как-циклы-роста-меняют-всё">Как циклы роста меняют всё</h3>
+<p>Как только вы начнёте рассматривать вещи через призму цикла, вы начнёте принимать совершенно другой набор решений.</p>
+<h3 id="вы-подходите-к-росту-с-другой-точки-зрения">Вы подходите к росту с другой точки зрения.</h3>
+<p>Как только вы начнёте рассматривать вещи через циклы, вы перестанете подходить к привлечению, продукту и монетизации в разрозненности. Это заставляет вас думать о том, как эти три элемента работают вместе в системе. Вы перестаёте думать о бесконечных циклах дополнительных тактик, дополнительных каналов, всего остального только для того, чтобы продолжать заполнять верхнюю часть воронки, и начинаете думать о том, как то, что вы производите, можно реинвестировать.</p>
+<h3 id="вы-принимаете-инвестиционные-решения-по-другому">Вы принимаете инвестиционные решения по-другому.</h3>
+<p>Если бы у вас было два варианта, какой бы вы выбрали?</p>
+<ul>
+<li><strong>Инициатива А:</strong> Выходные данные инициативы дают вам 500 новых вовлечённых пользователей на этой неделе, но ничего после.</li>
+<li><strong>Инициатива В:</strong> Выходные данные инициативы дают вам 20 новых пользователей на первой неделе, 22 на второй неделе и т. д. (рост на 10% WoW) каждую неделю в будущем.</li>
+</ul>
+<p>Мы очень надеемся, что вы выберете Инициативу В. Это подчёркивает, как вы принимаете инвестиционные решения по-другому. Вместо того чтобы искать краткосрочные удары и сахарные приливы, циклы помогают вам начать искать то, что будет накапливаться с течением времени, обеспечивая гораздо лучшие результаты в долгосрочной перспективе.</p>
+<h3 id="вы-организуете-и-ставите-цели-перед-командами-по-другому">Вы организуете и ставите цели перед командами по-другому.</h3>
+<p>Во второй публикации серии мы говорили о <strong>более острой необходимости в кросс-функциональных командах</strong>, поскольку продукт, данные, разработка и дизайн играют более важную роль в таких результатах, как привлечение, удержание и монетизация. Циклы, как вы можете видеть выше, пересекают типичные функциональные границы. Чтобы включить и улучшить их, вам обычно нужны представители каждой функции, работающие для достижения одной и той же цели — выхода цикла. Это помогает командам согласовываться и организовываться вокруг цикла, а не по функциям, и снижает оптимизацию команд за счёт друг друга, поскольку это будет отражено в выходе цикла.</p>
+<h3 id="применение-циклов-на-практике">Применение циклов на практике</h3>
+<p>Понимание циклов, способов их измерения и сопоставления с вашим продуктом — это только первый шаг. Это феноменальный качественный инструмент, позволяющий изменить ваш подход к росту продукта. Но сложно представить все отдельные рычаги и их влияние на ваши показатели. Вам необходимо перевести ваши циклы в количественную модель роста, чтобы помочь в общении, расстановке приоритетов, принятии стратегических ставок, постановке целей и управлении дорожной картой показателей. Мы поговорим об этом в следующей (и финальной) публикации серии. Подпишитесь здесь, чтобы не пропустить её.</p>
+<p><strong>Углубитесь в циклы роста + модели</strong> в программе Advanced Growth Strategy вместе с другими опытными практиками из Google, Facebook, Spotify, Adobe, HubSpot и многих других. Мы рассмотрим свойства, которые делают цикл, подробные примеры более чем 20 циклов роста, способы измерения/анализа ваших циклов и способы построения количественных моделей.</p>
+<p>Присоединяйтесь к Reforge сегодня ↗</p>
+
+    </div>
+
+    <div class="tags mt-8">
+      
+
+    </div>
+  </article>
+
+          
+            
+  </main>          
+
+    <script>
+
+        
+        
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const sidebar = document.querySelector('.sidebar');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+        
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                if (entry.isIntersecting) {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.add('active');
+                    });
+                } else {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.remove('active');
+                    });
+                }
+            });
+        }, observerOptions);
+        
+        
+        document.querySelectorAll('h2[id]').forEach(heading => {
+            observer.observe(heading);
+        });
+    </script>
+
+
+  <footer class="px-6 py-12 bg-sky-950 text-white/50">
+    
+<p>P9X.ru 2010 - 2025г. услуги интернет маркетинга</p>
+
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105149615', 'ym');
+
+    ym(105149615, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/105149615" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+  </footer>
+</body>
+</html>

@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Увеличьте влияние аналитики: используйте прогнозные показатели! | Агентство контекстной рекламы</title>
+<meta name="description" content="Отчеты, содержащие ретроспективные показатели, могут помочь вам продвинуться далеко вперед. Для преобразования бизнеса крайне важно использовать прогнозные показатели.">
+<meta name="yandex-verification" content="242f5a0ee52d5836" />
+
+<link rel="icon" type="image/x-icon" href="http://localhost:1313/favicon.ico">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+ <style>
+  .content h1 { 
+        font-size: 1.875rem; 
+        font-weight: bold; 
+        margin-bottom: 1rem; 
+    }
+    .content h2 { 
+        font-size: 1.5rem; 
+        font-weight: 600; 
+        margin-bottom: 0.75rem; 
+    }
+    .content h3 { 
+        font-size: 1.25rem; 
+        font-weight: 500; 
+        margin-bottom: 0.5rem; 
+    }
+    .content p { 
+        margin-bottom: 1rem; 
+    }
+    .content ul { 
+        list-style-type: disc; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content ol { 
+        list-style-type: decimal; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content a { 
+        color: #2563eb; 
+    }
+    .content a:hover { 
+        color: #1e40af; 
+    }
+    .content blockquote { 
+        border-left: 4px solid #d1d5db; 
+        padding-left: 1rem; 
+        font-style: italic; 
+    }
+
+    
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.875rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+.dark-mode .content table {
+    border: 1px solid #4b5563;
+}
+
+.content thead {
+    background-color: #eaebec;
+}
+
+.dark-mode .content thead {
+    background-color: #374151;
+}
+
+.content th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.dark-mode .content th {
+    color: #f9fafb;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content th:last-child {
+    border-right: none;  
+}
+
+.content td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    color: #6b7280;
+}
+
+.dark-mode .content td {
+    color: #d1d5db;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content td:last-child {
+    border-right: none;  
+}
+
+.content tbody tr {
+    transition: background-color 0.15s ease-in-out;
+}
+
+.content tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.dark-mode .content tbody tr:hover {
+    background-color: #374151;
+}
+
+.content tbody tr:last-child td {
+    border-bottom: none;
+}
+
+ 
+.content tbody tr:nth-child(even) {
+    background-color: #f4f5f7;
+}
+
+.dark-mode .content tbody tr:nth-child(even) {
+    background-color: #1f2937;
+}
+
+.dark-mode .content tbody tr:nth-child(even):hover {
+    background-color: #374151;
+}
+
+ 
+.content code:not(pre code) {
+    background-color: #f3f4f6;
+    color: #dc2626;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    font-weight: 500;
+    border: 1px solid #e5e7eb;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+}
+
+.dark-mode .content code:not(pre code) {
+    background-color: #224464;
+    color: #f87171;
+    border: 1px solid #4b5563;
+}
+
+ 
+.content pre {
+    background-color: #224464;
+    color: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid #374151;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.dark-mode .content pre {
+    background-color: #111827;
+    border: 1px solid #374151;
+}
+
+ 
+.content pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+    font-weight: normal;
+}
+
+ 
+.content pre code .keyword { color: #f472b6; }  
+.content pre code .function { color: #60a5fa; }  
+.content pre code .string { color: #34d399; }  
+.content pre code .comment { color: #9ca3af; font-style: italic; }  
+.content pre code .number { color: #fbbf24; }  
+.content pre code .class { color: #c084fc; }  
+.content pre code .operator { color: #93c5fd; }  
+
+ 
+.content pre::-webkit-scrollbar {
+    height: 6px;
+}
+
+.content pre::-webkit-scrollbar-track {
+    background: #374151;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.content pre::-webkit-scrollbar-thumb {
+    background: #6b7280;
+    border-radius: 3px;
+}
+
+.content pre::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+ 
+.content h1 code:not(pre code),
+.content h2 code:not(pre code),
+.content h3 code:not(pre code) {
+    font-size: 0.9em;
+    background-color: #fef2f2;
+    color: #dc2626;
+}
+
+.dark-mode .content h1 code:not(pre code),
+.dark-mode .content h2 code:not(pre code),
+.dark-mode .content h3 code:not(pre code) {
+    background-color: #7f1d1d;
+    color: #fca5a5;
+}
+
+ 
+.content a code:not(pre code) {
+    color: inherit;
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+.dark-mode .content a code:not(pre code) {
+    background-color: rgba(96, 165, 250, 0.2);
+}
+        :root {
+            --color-bg: #1a1a1a;
+            --color-text: #e6e6e6;
+            --color-accent: #6b7280;
+            --color-link: #9ca3af;
+            --color-link-hover: #d1d5db;
+        }
+        
+        .light-mode {
+            --color-bg: #f9fafb;
+            --color-text: #1f2937;
+            --color-accent: #6b7280;
+            --color-link: #4b5563;
+            --color-link-hover: #111827;
+        }
+        
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        a {
+            color: var(--color-link);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: var(--color-link-hover);
+        }
+        
+        .sidebar {
+            position: fixed;
+             
+            height: 100vh;
+            overflow-y: auto;
+            
+        }
+        
+        .main-content {
+            margin-left: 350px;
+            
+             
+        }
+        
+        .toc-container {
+            position: fixed;
+            right: 2rem;
+            top: 2rem;
+            width: 250px;
+            display: none;
+        }
+        
+        @media (min-width: 1280px) {
+            .toc-container {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 50;
+            }
+            
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+                 
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: fixed;
+                top: 1rem;
+                left: 1rem;
+                z-index: 100;
+            }
+        }
+        
+        .toc-link.active {
+            color: var(--color-link-hover);
+            font-weight: bold;
+        }
+        
+        .social-icons a {
+            margin-right: 0.5rem;
+        }
+        
+        pre {
+            background-color: rgba(107, 114, 128, 0.1);
+            padding: 1rem;
+            border-radius: 0.25rem;
+            overflow-x: auto;
+        }
+        
+        code {
+            font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+    </style>
+</head>
+  <body class="light-mode">
+      <header>
+    
+  </header>
+    
+    <button class="mobile-menu-btn p-2 bg-gray-800 text-white rounded md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+    
+    <aside class="sidebar border-r-4 border-sky-800  min-w-[350px] py-12 px-10 bg-gradient-to-br from-cyan-200 via-green-100 to-sky-100">
+        <div class="flex flex-col items-center mb-8">
+                
+            
+            <div class="w-24 h-24 mb-4 relative">
+                <a href="/">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ viewBox="0 0 550.000000 385.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,385.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M2780 3000 l0 -300 40 0 40 0 0 260 0 260 1165 0 1165 0 0 -1245 0
+-1245 -1165 0 -1165 0 0 260 0 260 -40 0 -40 0 0 -300 0 -300 1245 0 1245 0 0
+1325 0 1325 -1245 0 -1245 0 0 -300z"/>
+<path d="M700 1975 l0 -635 145 0 145 0 0 245 0 245 383 0 c422 0 426 1 491
+66 60 60 66 88 66 319 0 190 -2 214 -21 255 -25 56 -53 86 -104 113 -39 22
+-49 22 -572 25 l-533 3 0 -636z m940 245 l0 -100 -325 0 -325 0 0 100 0 100
+325 0 325 0 0 -100z"/>
+<path d="M2320 2601 c-69 -22 -112 -58 -146 -121 -17 -31 -19 -60 -19 -260 0
+-211 1 -227 22 -265 27 -51 68 -90 115 -109 32 -14 98 -16 438 -16 l400 0 0
+-245 0 -245 145 0 145 0 0 536 c0 373 -3 548 -11 575 -16 50 -61 105 -112 132
+-41 22 -48 22 -497 24 -250 1 -466 -2 -480 -6z m810 -381 l0 -100 -340 0 -340
+0 0 100 0 100 340 0 340 0 0 -100z"/>
+<path d="M3650 2607 c0 -1 99 -144 219 -317 l219 -314 -63 -91 c-34 -49 -133
+-191 -219 -315 l-157 -225 172 -3 c97 -1 176 2 183 7 6 5 72 97 146 205 74
+107 138 196 141 196 4 0 71 -92 149 -205 l143 -205 173 0 c96 0 174 2 174 4 0
+3 -95 141 -211 308 -116 167 -214 308 -216 315 -3 7 92 151 211 322 119 170
+216 312 216 315 0 3 -78 6 -174 6 l-174 0 -143 -205 c-78 -113 -145 -205 -149
+-205 -3 0 -70 92 -148 205 l-143 205 -174 0 c-96 0 -175 -1 -175 -3z"/>
+</g>
+</svg>
+</a>
+            </div>
+
+            <p class="text-xs text-center text-gray-500 max-w-[200px]">
+                Профессиональное агентство контекстной рекламы с опытом более 18 лет.
+
+            </p>
+        </div>
+
+        
+        <nav class="mb-8">
+          
+        
+            
+  <nav>
+    <ul>
+    <li class="text-lg font-semibold">
+      <a href="/">Контекстная реклама</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/analytics/">web-аналитика</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a aria-current="true" class="ancestor" href="/posts/">Блог</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/about/">О нас</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Категории</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/job/">Вакансии</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Кейсы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/calculators/">Калькуляторы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/contacts/">Контакты</a>
+    </li>
+    </ul>
+  </nav>
+
+           
+
+        </nav>
+
+        
+        <div class="social-icons  mt-auto">
+<div>
+
+<a href="https://t.me/your_link" target="_blank" class="inline-flex 
+items-center justify-center px-3 py-3 text-white bg-[#2AABEE] font-medium text-sm rounded 
+shadow-md hover:bg-[#279fd9] 
+hover:shadow-lg focus:bg-[#2493c8] 
+focus:shadow-lg focus:outline-none 
+focus:ring-0 active:bg-[#2185b3] active:shadow-lg transition duration-150 ease-in-out">
+  
+     
+<svg width="25px" height="25px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" 
+fill="#fff" class="bi bi-telegram pr-1">
+  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>
+</svg>
+                            
+  
+  Открыть в Telegram
+</a>
+
+</div>
+            <div class="pt-6 flex gap-1 justify-left items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                sale@p9x.ru
+            </div>
+        </div>
+        
+        
+        <div class="mt-8 pt-4 text-xs text-gray-500 border-t border-gray-700">
+            <p>Powered by <a href="#" class="hover:underline">Hugo</a> | Themed with <a href="#" class="hover:underline">poison</a></p>
+            <p>© 2010 - 2025 Poison. All rights reserved.</p>
+        </div>
+    </aside>
+
+  <main class="main-content bg-white">
+ 
+            
+            
+  <article class="prose prose-lg py-8 px-4 max-w-[1200px]">
+    <h1 class="text-2xl font-bold mb-4">
+            Увеличьте влияние аналитики: используйте прогнозные показатели!
+    </h1>
+
+    
+    
+    <time class="block mb-6 text-gray-500" datetime="2025-11-19T22:53:35&#43;00:00">November 19, 2025</time>
+
+    <div class="content mb-8 ">
+      <p>Почти все показатели, которые вы сейчас используете, имеют одну общую черту: они почти все ориентированы на прошлое.</p>
+<p>Если вы хотите усилить влияние данных в вашей организации — и своё личное влияние — 30% ваших аналитических усилий должны быть сосредоточены на использовании прогнозных показателей.</p>
+<p>Прогнозные показатели!</p>
+<p>Но сначала давайте сделаем небольшой шаг назад. Что такое показатель?</p>
+<p>Вот определение показателя из моей первой книги: [определение достаточно простое].</p>
+<p>Коэффициент конверсии. Количество пользователей. Показатель отказов. Всё это показатели.</p>
+<p>[Примечание: показатель отказов был исключён из Google Analytics 4 и заменён составным показателем, называемым «сеансы с вовлечением» — количество сеансов, которые длились 10 секунд или дольше, или имели 1 или более событий конверсии, или 2 или более просмотров страниц.]</p>
+<p>Вышеперечисленные три показателя ориентированы на прошлое. Они сообщают нам о том, что произошло в прошлом. Вы уже поняли, что это верно почти для всего, о чём вы сообщаете (если не для всего).</p>
+<p>Но кто не хочет заглянуть в будущее?</p>
+<p>Да, я вижу, что вы подняли руку.</p>
+<p>Проблема в том, что будущее сложно предсказать. Какая цитата… «Никто не разорился, предсказывая прошлое». :)</p>
+<p><strong>Зачем использовать прогнозные показатели?</strong></p>
+<p>Как аналитики, мы каждый день преобразуем данные в инсайты. Отлично. Но только некоторые из этих инсайтов превращаются в действия — по любым причинам (ваше влияние, качество инсайтов, неполные истории и т. д.). Грустный смайлик.</p>
+<p><strong>Один из наиболее эффективных способов обеспечить превращение ваших инсайтов в значимые бизнес-действия — это прогнозирование будущего.</strong></p>
+<p>Рассмотрим этот инсайт, полученный из данных:</p>
+<p><em>Коэффициент конверсии наших email-кампаний составляет 4,5%, в 2 раза выше, чем у Google Поиска.</em></p>
+<p>Теперь рассмотрим этот:</p>
+<p><em>Коэффициент конверсии наших email-кампаний составляет 4,5%, в 2 раза выше, чем у Google Поиска.</em></p>
+<p><em>Наш анализ предполагает, что вы можете перейти с шести email-кампаний в год на девять.</em></p>
+<p>И наконец, рассмотрим этот:</p>
+<p><em>Коэффициент конверсии наших email-кампаний составляет 4,5%, в 2 раза выше, чем у Google Поиска.</em></p>
+<p><em>Наш анализ предполагает, что вы можете перейти с шести email-кампаний в год на девять.</em></p>
+<p><em>Мы прогнозируем, что это приведёт к дополнительному приросту выручки на 3 миллиона долларов.</em></p>
+<p>Прогнозным показателем является <strong>дополнительная выручка</strong>. Не просто это, вы использовали сложную математику, чтобы определить, сколько из прогнозируемой выручки будет дополнительной.</p>
+<p>Какой из этих трёх сценариев гарантирует, что ваш инсайт будет реализован?</p>
+<p>Конечно. Тот, в котором есть прогнозный показатель.</p>
+<p>Потому что это сложно, очень сложно игнорировать ваш совет, когда вы приходите с новостью о дополнительных 3 миллионах долларов выручки!</p>
+<p><strong>Начало вашего пути к прогнозным показателям: легко и просто.</strong></p>
+<p>В восхитительном развитии событий каждый аналитический инструмент, стоящий своего внимания, добавляет прогнозные показатели в свой арсенал. Как способ дифференцировать себя с помощью собственного подхода к этой возможности и принести что-то невероятно ценное для бизнеса любого типа и размера.</p>
+<p>В Google Analytics одной из первых прогнозных метрик была: вероятность конверсии.</p>
+<p>Проще говоря, вероятность конверсии определяет <em>вероятность конверсии пользователя</em> в течение следующих 30 дней!</p>
+<p>Я был так взволнован, когда она впервые появилась.</p>
+<p>Google Analytics в этом случае анализирует все данные о пользователях, выявляет закономерности поведения, которые приводят к конверсиям, теперь смотрит на всех, кто не конвертировался, и от вашего имени даёт оценку от 0 (нет шансов на конверсию) до 100 (очень высокая вероятность конверсии).</p>
+<p>Уф! Это большая работа. :)</p>
+<p>Особенно радует то, что вероятность конверсии рассчитывается для отдельных пользователей.</p>
+<p>Вы можете легко получить доступ к отчёту в GA: Аудитория &gt; Поведение &gt; Вероятность конверсии.</p>
+<p>Очевидное использование этого прогнозного поведения — проведение ремаркетинговой кампании, ориентированной на людей, которым нужен толчок для конверсии, например, 7233 в вышеупомянутом случае.</p>
+<p>Но есть и другие способы использования этих данных для определения эффективности ваших кампаний.</p>
+<p>Например, вот источник трафика, отсортированный по <strong>средней вероятности конверсии</strong>…</p>
+<p>Помимо понимания коэффициента конверсии (последний столбец), теперь вы можете рассмотреть, сколько пользователей пришло через этот канал, которые, вероятно, конвертируются в течение следующих 30 дней.</p>
+<p>Возможно, более приятным является то, что вы можете использовать это для сегментации. Пример: создайте сегмент для вероятности конверсии &gt; 50%, примените его к вашим любимым отчётам, например, к отчётам о контенте.</p>
+<p>Есть ещё много всего, что можно исследовать.</p>
+<p>[Подписчики TMAI Premium, чтобы убедиться, что вы добиваетесь успеха, обязательно просмотрите кластеры A, B, O действенных рекомендаций в #238: «OG аналитики — сегментация!» Если вы не можете его найти, просто напишите мне.]</p>
+<p><strong>Бонус-совет:</strong> я не могу не порекомендовать вам получить доступ к учётной записи Google Merchandise Store Google Analytics. Это полностью работающая, хорошо реализованная реальная GA-данные для реального бизнеса. Доступ бесплатный. Так что отлично подходит для обучения. Снимок экрана выше сделан с этого аккаунта.</p>
+<p><strong>Три потрясающие новые прогнозные метрики!</strong></p>
+<p>С переходом на захватывающий мир Google Analytics 4 вы получите немного больше для добавления в свой арсенал прогнозных показателей.</p>
+<p>Вероятность конверсии будет исключена в GA 4, но не волнуйтесь, вы получите аналогичную замену: <strong>вероятность покупки</strong></p>
+<p><em>Вероятность того, что пользователь, который был активен за последние 28 дней, зарегистрирует конкретное конверсионное событие в течение следующих 7 дней.</em></p>
+<p><em>В настоящее время поддерживаются события покупки/ecommerce_purchase и in_app_purchase.</em></p>
+<p>Вы можете делать всё то же самое, о чём мы говорили выше для вероятности конверсии.</p>
+<p>Чтобы помочь вам сблизиться с вашей финансовой командой — вам действительно нужно быть с ними лучшими друзьями! — вы также получаете прогнозную метрику, которая им понравится: <strong>прогноз выручки</strong></p>
+<p><em>Выручка, ожидаемая от всех конверсий покупок в течение следующих 28 дней от пользователя, который был активен за последние 28 дней.</em></p>
+<p>Вы можете дать волю своему воображению, чтобы понять, что вы можете сделать с этой силой.</p>
+<p>Могу я предложить вам начать с изучения этого прогноза, а затем провести мозговой штурм с вашей маркетинговой командой, как вы можете преодолеть дефицит выручки! Не только используя платные стратегии, но и заработанные и собственные.</p>
+<p>Очевидно, что в редких случаях, когда прогноз выручки превышает целевой, вы все можете взять отпуск и посетить Канкун. (Подождите. Skip Cancun. У этого бренда пятно.)</p>
+<p>Есть ещё одна прогнозная метрика, которой я всегда был взволнован: <strong>вероятность оттока</strong>.</p>
+<p><em>Вероятность того, что пользователь, который был активен в вашем приложении или на сайте в течение последних 7 дней, не будет активен в течение следующих 7 дней.</em></p>
+<p>Что это за цитата? Приобрести нового пользователя стоит в 5000 раз дороже, чем удержать существующего? Возможно, я немного преувеличиваю.</p>
+<p>Для разработчиков мобильных приложений/игр в частности (или для контентных сайтов, или для любого субъекта, для которого актуальность/частота является вопросом жизни и смерти). Отток — это постоянная навязчивая идея, и теперь вы можете заранее узнать о вероятности оттока. Сделайте его основной частью своей аналитической стратегии, чтобы понять поведение, источники, пользователей, которые с большей/меньшей вероятностью уйдут, и действуйте на основе полученных инсайтов.</p>
+<p>GA 4 не просто выдаёт вам эти метрики как попало. Алгоритмам требуется определённое количество пользователей, конверсий и т. д., чтобы обеспечить корректные вычисления от вашего имени.</p>
+<p>Эти три прогнозные метрики иллюстрируют силу, которую для вас несут прогнозные вычисления. Нет предела тому, как далеко вы можете зайти, используя эти подходы, чтобы помочь вашей компании не только оглядываться назад (вы будете застревать с этим 70% времени), но и заглянуть в будущее (стремитесь тратить 30% своего времени здесь).</p>
+<p>И, пожалуйста, рассмотрите возможность сегментации вероятности покупки, вероятности получения дохода и вероятности оттока!</p>
+<p><strong>Бонус-совет:</strong> если вы хотите перейти на бесплатную версию Google Analytics 4, чтобы воспользоваться преимуществами вышеупомянутых вкусных прогнозных метрик, вот полезная статья.</p>
+<p><strong>Нирвана прогнозных показателей — пример.</strong></p>
+<p>Для маркетолога мало что может сравниться с нирваной с точки зрения прогнозных предсказаний от сложного анализа, чем помочь установить весь бюджет на год <strong>включая</strong> распределение этого бюджета по каналам на основе кривых убывающей доходности и будущих возможностей и предсказать: <strong>продажи</strong>, <strong>стоимость за продажу</strong> и <strong>повышение узнаваемости бренда</strong>.</p>
+<p>Очевидно, что во всех этих ячейках есть цифры. Вы поймёте, что делиться с вами этими цифрами было бы карьерным самоубийством с моей стороны. :)</p>
+<p>Я могу сказать, что в этот анализ входят тринадцать различных наборов элементов (запуски продуктов, поведение конкурентов, прошлый анализ эффективности и результативности, базовый маркетинговый медиаплан, предстоящие отраслевые изменения и <strong>очень много данных</strong>).</p>
+<p>Суперкрутые — они же <em>суперсложные</em> — элементы включают в себя возможность связать бренд-маркетинг с краткосрочными, среднесрочными и долгосрочными продажами.</p>
+<p>Прогнозные распределения основаны на симуляциях, которые могут учесть всё вышеперечисленное, чтобы ответить на планы с низким, средним и высоким риском — из которых наш старший руководитель выбирает тот, который, по её мнению, соответствует её стратегическому видению.</p>
+<p>[Примечание: строго говоря, то, что мы делаем выше, ближе к прогнозному моделированию, даже несмотря на то, что у нас есть куча прогнозных показателей. Картошка — По-та-то.]</p>
+<p>Я делюсь нашей работой, чтобы предложить вам обратную связь о том, что мы можем сделать лучше, и в надежде, что если вы начинаете практиковать использование прогнозных показателей, то это может послужить вам ориентиром.</p>
+<p>По опыту могу сказать, что если вы когда-нибудь чувствовали, что у вас как у аналитика нет влияния, что ваша организация игнорирует данные, то нет ничего лучше прогнозных показателей, чтобы усилить ваше влияние и влияние на бизнес.</p>
+<p>Когда люди используют веру для определения будущей стратегии, единственное, чего им не хватает, — это малейшего представления о том, какое влияние окажет их основанная на вере стратегия. Последние три строки выше — вот как вы выделяетесь.</p>
+<p>БУМ!</p>
+<p><strong>Опасность в прогнозировании будущего.</strong></p>
+<p>Вы будете ошибаться.</p>
+<p>Много, поначалу. Затем всё меньше и меньше со временем, когда вы будете становиться всё лучше и лучше в прогнозировании будущего.</p>
+<p>(Здесь пригодится машинное обучение, поскольку оно может усвоить гораздо больше сложностей и выдать сценарии, которые мы просто не можем себе представить.)</p>
+<p>Но вы никогда не будете абсолютно правы. Мир сложен.</p>
+<p>Это не пугает меня по двум причинам, которые я призываю вас рассмотреть:</p>
+<ol>
+<li>
+<p>Очень немногие компании двигались прямо, глядя в зеркало заднего вида. Но именно это вы и пытаетесь делать каждый божий день.</p>
+</li>
+<li>
+<p>Кто прав больше, чем вы? Современная корпорация в основном руководствуется верой. Вы будете использовать данные, обычно их очень много. Обычно это намного лучше, чем вера. И когда вы ошибаетесь, вы можете фактически вернуться назад и обновить свои модели (вера обычно не подлежит обновлению).</p>
+</li>
+</ol>
+<p>Так что. Не бойтесь.</p>
+<p>Каждый раз, когда вы ошибаетесь, это возможность научиться и в будущем быть более правым — даже если совершенство всегда будет недостижимо.</p>
+<p><strong>Суть.</strong></p>
+<p>Моя гипотеза заключается в том, что вы не тратите много времени на прогнозные показатели и прогнозное моделирование. Измените это.</p>
+<p>Это отличный способ внести существенный вклад в свою компанию. Это отличный способ инвестировать в своё личное обучение и рост. Это фантастический способ обеспечить будущее своей карьере.</p>
+<p>Живите в будущем — по крайней мере, часть времени — как аналитик/маркетолог.</p>
+<p>Увидимся там. :)</p>
+<p>Как всегда, теперь ваша очередь.</p>
+<p>Пожалуйста, поделитесь своей критикой, размышлениями, советами и уроками из проектов, которые переводят вашу компанию от использования только ретроспективных показателей к прогнозным показателям, предсказывающим будущее.</p>
+
+    </div>
+
+    <div class="tags mt-8">
+      
+
+    </div>
+  </article>
+
+          
+            
+  </main>          
+
+    <script>
+
+        
+        
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const sidebar = document.querySelector('.sidebar');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+        
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                if (entry.isIntersecting) {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.add('active');
+                    });
+                } else {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.remove('active');
+                    });
+                }
+            });
+        }, observerOptions);
+        
+        
+        document.querySelectorAll('h2[id]').forEach(heading => {
+            observer.observe(heading);
+        });
+    </script>
+
+
+  <footer class="px-6 py-12 bg-sky-950 text-white/50">
+    
+<p>P9X.ru 2010 - 2025г. услуги интернет маркетинга</p>
+
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105149615', 'ym');
+
+    ym(105149615, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/105149615" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+  </footer>
+</body>
+</html>

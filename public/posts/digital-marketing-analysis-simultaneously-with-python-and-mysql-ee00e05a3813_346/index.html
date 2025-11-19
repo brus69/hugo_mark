@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Анализ цифрового маркетинга с помощью Python и MySQL | На пути к науке о данных | Агентство контекстной рекламы</title>
+<meta name="description" content="">
+<meta name="yandex-verification" content="242f5a0ee52d5836" />
+
+<link rel="icon" type="image/x-icon" href="http://localhost:1313/favicon.ico">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+ <style>
+  .content h1 { 
+        font-size: 1.875rem; 
+        font-weight: bold; 
+        margin-bottom: 1rem; 
+    }
+    .content h2 { 
+        font-size: 1.5rem; 
+        font-weight: 600; 
+        margin-bottom: 0.75rem; 
+    }
+    .content h3 { 
+        font-size: 1.25rem; 
+        font-weight: 500; 
+        margin-bottom: 0.5rem; 
+    }
+    .content p { 
+        margin-bottom: 1rem; 
+    }
+    .content ul { 
+        list-style-type: disc; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content ol { 
+        list-style-type: decimal; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content a { 
+        color: #2563eb; 
+    }
+    .content a:hover { 
+        color: #1e40af; 
+    }
+    .content blockquote { 
+        border-left: 4px solid #d1d5db; 
+        padding-left: 1rem; 
+        font-style: italic; 
+    }
+
+    
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.875rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+.dark-mode .content table {
+    border: 1px solid #4b5563;
+}
+
+.content thead {
+    background-color: #eaebec;
+}
+
+.dark-mode .content thead {
+    background-color: #374151;
+}
+
+.content th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.dark-mode .content th {
+    color: #f9fafb;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content th:last-child {
+    border-right: none;  
+}
+
+.content td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    color: #6b7280;
+}
+
+.dark-mode .content td {
+    color: #d1d5db;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content td:last-child {
+    border-right: none;  
+}
+
+.content tbody tr {
+    transition: background-color 0.15s ease-in-out;
+}
+
+.content tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.dark-mode .content tbody tr:hover {
+    background-color: #374151;
+}
+
+.content tbody tr:last-child td {
+    border-bottom: none;
+}
+
+ 
+.content tbody tr:nth-child(even) {
+    background-color: #f4f5f7;
+}
+
+.dark-mode .content tbody tr:nth-child(even) {
+    background-color: #1f2937;
+}
+
+.dark-mode .content tbody tr:nth-child(even):hover {
+    background-color: #374151;
+}
+
+ 
+.content code:not(pre code) {
+    background-color: #f3f4f6;
+    color: #dc2626;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    font-weight: 500;
+    border: 1px solid #e5e7eb;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+}
+
+.dark-mode .content code:not(pre code) {
+    background-color: #224464;
+    color: #f87171;
+    border: 1px solid #4b5563;
+}
+
+ 
+.content pre {
+    background-color: #224464;
+    color: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid #374151;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.dark-mode .content pre {
+    background-color: #111827;
+    border: 1px solid #374151;
+}
+
+ 
+.content pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+    font-weight: normal;
+}
+
+ 
+.content pre code .keyword { color: #f472b6; }  
+.content pre code .function { color: #60a5fa; }  
+.content pre code .string { color: #34d399; }  
+.content pre code .comment { color: #9ca3af; font-style: italic; }  
+.content pre code .number { color: #fbbf24; }  
+.content pre code .class { color: #c084fc; }  
+.content pre code .operator { color: #93c5fd; }  
+
+ 
+.content pre::-webkit-scrollbar {
+    height: 6px;
+}
+
+.content pre::-webkit-scrollbar-track {
+    background: #374151;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.content pre::-webkit-scrollbar-thumb {
+    background: #6b7280;
+    border-radius: 3px;
+}
+
+.content pre::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+ 
+.content h1 code:not(pre code),
+.content h2 code:not(pre code),
+.content h3 code:not(pre code) {
+    font-size: 0.9em;
+    background-color: #fef2f2;
+    color: #dc2626;
+}
+
+.dark-mode .content h1 code:not(pre code),
+.dark-mode .content h2 code:not(pre code),
+.dark-mode .content h3 code:not(pre code) {
+    background-color: #7f1d1d;
+    color: #fca5a5;
+}
+
+ 
+.content a code:not(pre code) {
+    color: inherit;
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+.dark-mode .content a code:not(pre code) {
+    background-color: rgba(96, 165, 250, 0.2);
+}
+        :root {
+            --color-bg: #1a1a1a;
+            --color-text: #e6e6e6;
+            --color-accent: #6b7280;
+            --color-link: #9ca3af;
+            --color-link-hover: #d1d5db;
+        }
+        
+        .light-mode {
+            --color-bg: #f9fafb;
+            --color-text: #1f2937;
+            --color-accent: #6b7280;
+            --color-link: #4b5563;
+            --color-link-hover: #111827;
+        }
+        
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        a {
+            color: var(--color-link);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: var(--color-link-hover);
+        }
+        
+        .sidebar {
+            position: fixed;
+             
+            height: 100vh;
+            overflow-y: auto;
+            
+        }
+        
+        .main-content {
+            margin-left: 350px;
+            
+             
+        }
+        
+        .toc-container {
+            position: fixed;
+            right: 2rem;
+            top: 2rem;
+            width: 250px;
+            display: none;
+        }
+        
+        @media (min-width: 1280px) {
+            .toc-container {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 50;
+            }
+            
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+                 
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: fixed;
+                top: 1rem;
+                left: 1rem;
+                z-index: 100;
+            }
+        }
+        
+        .toc-link.active {
+            color: var(--color-link-hover);
+            font-weight: bold;
+        }
+        
+        .social-icons a {
+            margin-right: 0.5rem;
+        }
+        
+        pre {
+            background-color: rgba(107, 114, 128, 0.1);
+            padding: 1rem;
+            border-radius: 0.25rem;
+            overflow-x: auto;
+        }
+        
+        code {
+            font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+    </style>
+</head>
+  <body class="light-mode">
+      <header>
+    
+  </header>
+    
+    <button class="mobile-menu-btn p-2 bg-gray-800 text-white rounded md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+    
+    <aside class="sidebar border-r-4 border-sky-800  min-w-[350px] py-12 px-10 bg-gradient-to-br from-cyan-200 via-green-100 to-sky-100">
+        <div class="flex flex-col items-center mb-8">
+                
+            
+            <div class="w-24 h-24 mb-4 relative">
+                <a href="/">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ viewBox="0 0 550.000000 385.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,385.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M2780 3000 l0 -300 40 0 40 0 0 260 0 260 1165 0 1165 0 0 -1245 0
+-1245 -1165 0 -1165 0 0 260 0 260 -40 0 -40 0 0 -300 0 -300 1245 0 1245 0 0
+1325 0 1325 -1245 0 -1245 0 0 -300z"/>
+<path d="M700 1975 l0 -635 145 0 145 0 0 245 0 245 383 0 c422 0 426 1 491
+66 60 60 66 88 66 319 0 190 -2 214 -21 255 -25 56 -53 86 -104 113 -39 22
+-49 22 -572 25 l-533 3 0 -636z m940 245 l0 -100 -325 0 -325 0 0 100 0 100
+325 0 325 0 0 -100z"/>
+<path d="M2320 2601 c-69 -22 -112 -58 -146 -121 -17 -31 -19 -60 -19 -260 0
+-211 1 -227 22 -265 27 -51 68 -90 115 -109 32 -14 98 -16 438 -16 l400 0 0
+-245 0 -245 145 0 145 0 0 536 c0 373 -3 548 -11 575 -16 50 -61 105 -112 132
+-41 22 -48 22 -497 24 -250 1 -466 -2 -480 -6z m810 -381 l0 -100 -340 0 -340
+0 0 100 0 100 340 0 340 0 0 -100z"/>
+<path d="M3650 2607 c0 -1 99 -144 219 -317 l219 -314 -63 -91 c-34 -49 -133
+-191 -219 -315 l-157 -225 172 -3 c97 -1 176 2 183 7 6 5 72 97 146 205 74
+107 138 196 141 196 4 0 71 -92 149 -205 l143 -205 173 0 c96 0 174 2 174 4 0
+3 -95 141 -211 308 -116 167 -214 308 -216 315 -3 7 92 151 211 322 119 170
+216 312 216 315 0 3 -78 6 -174 6 l-174 0 -143 -205 c-78 -113 -145 -205 -149
+-205 -3 0 -70 92 -148 205 l-143 205 -174 0 c-96 0 -175 -1 -175 -3z"/>
+</g>
+</svg>
+</a>
+            </div>
+
+            <p class="text-xs text-center text-gray-500 max-w-[200px]">
+                Профессиональное агентство контекстной рекламы с опытом более 18 лет.
+
+            </p>
+        </div>
+
+        
+        <nav class="mb-8">
+          
+        
+            
+  <nav>
+    <ul>
+    <li class="text-lg font-semibold">
+      <a href="/">Контекстная реклама</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/analytics/">web-аналитика</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a aria-current="true" class="ancestor" href="/posts/">Блог</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/about/">О нас</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Категории</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/job/">Вакансии</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Кейсы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/calculators/">Калькуляторы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/contacts/">Контакты</a>
+    </li>
+    </ul>
+  </nav>
+
+           
+
+        </nav>
+
+        
+        <div class="social-icons  mt-auto">
+<div>
+
+<a href="https://t.me/your_link" target="_blank" class="inline-flex 
+items-center justify-center px-3 py-3 text-white bg-[#2AABEE] font-medium text-sm rounded 
+shadow-md hover:bg-[#279fd9] 
+hover:shadow-lg focus:bg-[#2493c8] 
+focus:shadow-lg focus:outline-none 
+focus:ring-0 active:bg-[#2185b3] active:shadow-lg transition duration-150 ease-in-out">
+  
+     
+<svg width="25px" height="25px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" 
+fill="#fff" class="bi bi-telegram pr-1">
+  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>
+</svg>
+                            
+  
+  Открыть в Telegram
+</a>
+
+</div>
+            <div class="pt-6 flex gap-1 justify-left items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                sale@p9x.ru
+            </div>
+        </div>
+        
+        
+        <div class="mt-8 pt-4 text-xs text-gray-500 border-t border-gray-700">
+            <p>Powered by <a href="#" class="hover:underline">Hugo</a> | Themed with <a href="#" class="hover:underline">poison</a></p>
+            <p>© 2010 - 2025 Poison. All rights reserved.</p>
+        </div>
+    </aside>
+
+  <main class="main-content bg-white">
+ 
+            
+            
+  <article class="prose prose-lg py-8 px-4 max-w-[1200px]">
+    <h1 class="text-2xl font-bold mb-4">
+            Анализ цифрового маркетинга с помощью Python и MySQL
+    </h1>
+
+    
+    
+    <time class="block mb-6 text-gray-500" datetime="2025-11-19T22:09:56&#43;00:00">November 19, 2025</time>
+
+    <div class="content mb-8 ">
+      <h2 id="введение">Введение</h2>
+<p>В этом кратком путешествии мы рассмотрим небольшой и простой набор данных с основными метриками маркетинга веб-сайта, такими как «пользователи», «сеансы» и «отскоки», за период в пять месяцев.</p>
+<p>Цель этой настройки — не столько понять производительность веб-сайта, сколько получить базовые, но полезные знания для ответа на ряд обязательных операционных маркетинговых вопросов.</p>
+<p>Мы сосредоточимся на двух мощных и наиболее используемых цифровых инструментах, исследуя два пути, которые приведут нас к одинаковым результатам в конце дня.</p>
+<p>С одной стороны, мы изучим синтаксис <strong>MySQL Workbench</strong> с различными запросами, параллельно для каждого вопроса будем использовать синтаксис <strong>Python</strong> с графическими и визуальными ресурсами. Обе среды будут озаглавлены как # MySQL и # Python соответственно. Для каждого вопроса — примечания и объяснения по обоим кодам для более глубокого понимания.</p>
+<h3 id="mysql">MySQL</h3>
+<pre tabindex="0"><code>SELECT * FROM case_sql;
+</code></pre><h3 id="python">Python</h3>
+<pre tabindex="0"><code>import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+import matplotlib.style as style
+%matplotlib inline
+color = sns.color_palette()
+from pandas.plotting import table 
+from datetime import datetime
+
+df = pd.read_csv(&#34;case.csv&#34;, sep=&#34;;&#34;)
+
+df.shape
+(31507, 7)
+
+df.sample(15)
+</code></pre><h3 id="1-давайте-посмотрим-на-распределение-пользователей-по-типу-устройства">1. Давайте посмотрим на распределение пользователей по типу устройства</h3>
+<h4 id="mysql-1">MySQL</h4>
+<pre tabindex="0"><code>SELECT 
+    device_category, 
+    ROUND(COUNT(users) / (SELECT 
+                COUNT(users)
+            FROM
+                case_sql) * 100,
+            1) AS percent 
+FROM
+    case_sql 
+GROUP BY 1 
+ORDER BY 1; 
+</code></pre><p>Мы видим, что распределение по устройствам показывает <strong>мобильные и настольные устройства</strong> как наиболее частые типы доступа.</p>
+<h4 id="-python"># Python</h4>
+<pre tabindex="0"><code>df.device_category.value_counts(dropna=False).plot(kind=&#39;pie&#39;, figsize=(8,4),
+                                                  explode = (0.02, 0.02, 0.02),
+                                                  autopct=&#39;%1.1f%%&#39;,
+                                                  startangle=150);
+
+plt.xticks(rotation=0, horizontalalignment=&#34;center&#34;)
+plt.title(&#34;Device distribution&#34;, fontsize=10, loc=&#34;right&#34;);
+</code></pre><h3 id="2-каков-этот-сценарий-с-точки-зрения-бренда">2. Каков этот сценарий с точки зрения бренда?</h3>
+<h4 id="mysql-2">MySQL</h4>
+<pre tabindex="0"><code>SELECT 
+    brand, 
+    COUNT(users) AS users, 
+    ROUND(COUNT(users) / (SELECT 
+                COUNT(users)
+            FROM
+                case_sql) * 100,
+            2) AS percent 
+FROM
+    case_sql 
+GROUP BY 1; 
+</code></pre><p>На уровне бренда у бренда 2 наибольшее количество посещений — 56,28 % против 43,72 % от общего числа посещений у бренда 1.</p>
+<h4 id="python-1">Python</h4>
+<pre tabindex="0"><code>absolut = df[&#34;brand&#34;].value_counts().to_frame()
+
+absolut.plot(kind=&#39;pie&#39;, subplots=True, autopct=&#39;%1.2f%%&#39;, 
+             explode= (0.05, 0.05), startangle=20, 
+             legend=False, fontsize=12, figsize=(8,4))
+
+plt.xticks(rotation=0, horizontalalignment=&#34;center&#34;)
+plt.title(&#34;Brand&#39;s distribution&#34;, fontsize=10, loc=&#34;right&#34;);
+
+display(absolut) 
+</code></pre><h3 id="3-в-какой-день-недели-на-сайт-бренда-1-пришло-больше-всего-пользователей">3. В какой день недели на сайт бренда 1 пришло больше всего пользователей?</h3>
+<h4 id="mysql-3">MySQL</h4>
+<pre tabindex="0"><code>SELECT 
+    date, 
+    DAYNAME(date) AS day_name, 
+    SUM(users) AS users 
+FROM
+    case_sql 
+WHERE
+    brand = &#39;Brand 1&#39; 
+GROUP BY 1 
+ORDER BY 3 DESC 
+LIMIT 1; 
+</code></pre><p>Из 298 412 пользователей с сентября 2019 года по январь 2020 года день, когда на сайт <strong>бренда 1</strong> пришло больше всего пользователей, — <strong>22.11.2019</strong>, всего 885 посещений, это была пятница.</p>
+<h4 id="python-2">Python</h4>
+<pre tabindex="0"><code>brand_1 = df[df[&#34;brand&#34;] == &#34;Brand 1&#34;].copy()
+
+&#39;&#39;&#39; sum total users that came from all &#34;channelgrouping&#34; for the same date, 
+assign it &#39;brandgroup&#39; no matter the type of device &#39;&#39;&#39;
+
+brandgroup = brand_1.groupby([&#34;date&#34;,&#34;weekday&#34;])[[&#34;default_channel_grouping&#34;,&#34;users&#34;]].sum()
+
+users = brandgroup[brandgroup[&#34;users&#34;] == brandgroup.users.max()].copy()
+
+users.reset_index([&#34;date&#34;], inplace=True)
+users.reset_index([&#34;weekday&#34;], inplace=True)
+
+print(f&#34;&#34;&#34;Date: {users.date} nnTotal users: {users.users} nnDay of week: {users.weekday}&#34;&#34;&#34;)
+</code></pre><h3 id="31-сколько-пользователей-пришло-на-бренд-2-в-тот-же-день">3.1 Сколько пользователей пришло на бренд 2 в тот же день?</h3>
+<h4 id="mysql-4">MySQL</h4>
+<pre tabindex="0"><code>SELECT 
+    DATE(date) AS date, 
+    DAYNAME(date) AS dayofweek, 
+    SUM(CASE
+        WHEN brand = &#39;Brand 1&#39; THEN users 
+        ELSE NULL
+    END) AS b1_users,
+    SUM(CASE
+        WHEN brand = &#39;Brand 2&#39; THEN users 
+        ELSE NULL
+    END) AS b2_users
+FROM
+    case_sql 
+GROUP BY 1, 2 
+ORDER BY 3 DESC 
+LIMIT 1; 
+</code></pre><p>Фактически, оба бренда зафиксировали наибольшее количество посещений <strong>в один и тот же день</strong>.</p>
+<h4 id="python-3">Python</h4>
+<pre tabindex="0"><code>brand_2 = df[df[&#34;brand&#34;] == &#34;Brand 2&#34;].copy()
+
+brandgroup.rename(columns = {&#39;users&#39;:&#39;brand1_users&#39;}, inplace = True)
+
+brandgroup[&#34;brand2_users&#34;] = brand_2.groupby([&#34;date&#34;,&#34;weekday&#34;])[[&#34;default_channel_grouping&#34;,&#34;users&#34;]].sum()
+
+users2 = brandgroup[brandgroup[&#34;brand2_users&#34;] == brandgroup.brand2_users.max()].copy()
+</code></pre><h3 id="4-из-всех-групп-каналов-какая-внесла-наибольшее-количество-пользователей">4. Из всех групп каналов, какая внесла наибольшее количество пользователей?</h3>
+<h4 id="mysql-5">MySQL</h4>
+<pre tabindex="0"><code>SELECT 
+    default_channel_grouping AS channels,
+    SUM(users) AS total_users,
+    ROUND(SUM(users) / (SELECT 
+                SUM(users)
+            FROM
+                case_sql) * 100,
+            1) AS percent 
+FROM
+    case_sql
+GROUP BY 1
+ORDER BY 2 DESC;
+</code></pre><p><strong>Органический поиск</strong> — это канал, который генерирует больше всего пользователей (почти 141 000), представляя почти половину от общего числа посещений на обоих сайтах, за ним следуют Платный поиск и Прямой. Дисплей занимает 4-е место, а Социальные сети — 6-е, внося 6722 пользователя.</p>
+<h4 id="python-4">Python</h4>
+<pre tabindex="0"><code>ax = df.groupby(&#34;default_channel_grouping&#34;)[&#34;users&#34;].sum().sort_values(ascending=True)
+.plot(kind=&#34;bar&#34;, figsize=(9,6), fontsize=12, linewidth=2, 
+      color=sns.color_palette(&#34;rocket&#34;), grid=False, table=False)
+
+for p in ax.patches:
+    ax.annotate(&#34;%.0f&#34; % p.get_height(), (p.get_x() + p.get_width() / 2., p.get_height()),
+                ha=&#39;center&#39;, va=&#39;center&#39;, xytext=(0, 7), textcoords=&#39;offset points&#39;)
+
+plt.xlabel(&#34;Channel groups&#34;, fontsize=10)
+plt.xticks(rotation=90, horizontalalignment=&#34;center&#34;)
+plt.ylabel(&#34;Absolute values&#34;, fontsize=10)
+plt.title(&#34;Best channel group (highest number of users)&#34;, fontsize=10, loc=&#34;right&#34;);
+</code></pre><h3 id="41-из-всех-групп-каналов-какая-внесла-наибольшее-количество-пользователей-с-разбивкой-по-брендам">4.1 Из всех групп каналов, какая внесла наибольшее количество пользователей с разбивкой по брендам?</h3>
+<h4 id="mysql-6">MySQL</h4>
+<pre tabindex="0"><code>SELECT 
+    default_channel_grouping AS channels,
+    SUM(CASE 
+        WHEN brand = &#39;brand 1&#39; THEN users 
+        ELSE NULL 
+    END) AS Brand_1, 
+    SUM(CASE 
+        WHEN brand = &#39;brand 2&#39; THEN users 
+        ELSE NULL 
+    END) AS Brand_2 
+FROM
+    case_sql
+GROUP BY 1 
+ORDER BY 3 DESC; 
+</code></pre><h4 id="python-5">Python</h4>
+<pre tabindex="0"><code>type_pivot = df.pivot_table(
+    columns=&#34;brand&#34;,
+    index=&#34;default_channel_grouping&#34;,
+    values=&#34;users&#34;, aggfunc=sum)
+
+display(type_pivot)
+
+type_pivot.sort_values(by=[&#34;Brand 2&#34;], ascending=True).plot(kind=&#34;bar&#34;, figsize=(12,8) ,fontsize = 15)
+plt.xlabel(&#34;Channel groups&#34;, fontsize=10)
+plt.xticks(rotation=90, horizontalalignment=&#34;center&#34;)
+plt.ylabel(&#34;Absolute values&#34;, fontsize=10)
+plt.title(&#34;Channel groups by brand (highest number of users)&#34;, fontsize=10, loc=&#34;right&#34;);
+</code></pre><p><strong>Органический поиск</strong> привлёк 105 062 пользователей для бренда 2 и 35 911 пользователей для бренда 1. За исключением «Other», в котором бренд 1 превосходит, бренд 2 вносит наибольший вклад, привлекая пользователей на сайт по всем каналам.</p>
+<h3 id="5-среди-всех-каналов-какой-бренд-внёс-процент-платных-сеансов-не-менее-5--в-течение-2019-года">5. Среди всех каналов, какой бренд внёс процент платных сеансов не менее 5 % в течение 2019 года?</h3>
+<h4 id="mysql-7">MySQL</h4>
+<pre tabindex="0"><code>SELECT 
+    brand,
+    default_channel_grouping AS channels,
+    ROUND(SUM(sessions) / (SELECT 
+                SUM(sessions)
+            FROM
+                case_sql) * 100,
+            1) AS percent
+FROM
+    case_sql
+WHERE
+    default_channel_grouping IN (&#39;Paid Search&#39; , &#39;Paid Social&#39;, &#39;Display&#39;, &#39;Other Advertising&#39;) 
+        AND date &lt; &#39;2020-01-01&#39; 
+GROUP BY 1 , 2
+HAVING percent &gt; 5 
+ORDER BY 1 , 3 DESC
+</code></pre><h4 id="python-6">Python</h4>
+<pre tabindex="0"><code>df = df.groupby([&#34;date&#34;,&#34;brand&#34;,&#34;default_channel_grouping&#34;])[&#34;sessions&#34;].sum().to_frame().copy()
+
+df[&#34;percent&#34;] = (df.apply(lambda x: x/x.sum())*100).round(2)
+
+df = df.reset_index().copy()
+
+df.sample(5)
+</code></pre><h3 id="6-сколько-посещений-получили-оба-бренда-по-типу-устройства">6. Сколько посещений получили оба бренда по типу устройства?</h3>
+<h4 id="mysql-8">MySQL</h4>
+<pre tabindex="0"><code>SELECT 
+    brand,
+    SUM(CASE
+        WHEN device_category = &#39;Desktop&#39; THEN users
+        ELSE NULL
+    END) AS desktop,
+    SUM(CASE
+        WHEN device_category = &#39;Mobile&#39; THEN users
+        ELSE NULL
+    END) AS mobile,
+    SUM(CASE
+        WHEN device_category = &#39;Tablet&#39; THEN users
+        ELSE NULL
+    END) AS tablet
+FROM
+    case_sql
+GROUP BY 1
+ORDER BY 1;
+</code></pre><h4 id="python-7">Python</h4>
+<pre tabindex="0"><code>type_pivot = df.pivot_table(
+    columns=&#34;device_category&#34;,
+    index=&#34;brand&#34;,
+    values=&#34;users&#34;, aggfunc=sum)
+
+display(type_pivot)
+
+ax = type_pivot.sort_values(by=[&#34;brand&#34;], ascending=False).plot(kind=&#34;bar&#34;, figsize=(12,8) ,fontsize = 15);
+
+for p in ax.patches:
+    ax.annotate(&#34;%.0f&#34; % p.get_height(), (p.get_x() + p.get_width() / 2., p.get_height()), ha=&#39;center&#39;, va=&#39;center&#39;, xytext=(0, 7), textcoords=&#39;offset points&#39;)
+
+plt.xlabel(&#34;Brands&#34;, fontsize=10)
+plt.xticks(rotation=0, horizontalalignment=&#34;center&#34;)
+plt.ylabel(&#34;Absolute values&#34;, fontsize=10)
+plt.title(&#34;Brand by type of device&#34;, fontsize=10, loc=&#34;right&#34;)
+plt.legend([&#34;Desktop&#34;,&#34;Mobile&#34;,&#34;Tablet&#34;]);
+</code></pre><h3 id="61-каков-средний-уровень-использования-устройства-по-каналам">6.1 Каков средний уровень использования устройства по каналам?</h3>
+<h4 id="mysql-9">MySQL</h4>
+<pre tabindex="0"><code>SELECT 
+    default_channel_grouping,
+    AVG(CASE
+        WHEN device_category = &#39;Desktop&#39; THEN users
+        ELSE NULL
+    END) AS desktop,
+    AVG(CASE
+        WHEN device_category = &#39;Mobile&#39; THEN users
+        ELSE NULL
+    END) AS mobile,
+    AVG(CASE
+        WHEN device_category = &#39;Tablet&#39; THEN users
+        ELSE NULL
+    END) AS tablet
+FROM
+    case_sql
+GROUP BY 1
+ORDER BY 1;
+</code></pre><h4 id="python-8">Python</h4>
+<pre tabindex="0"><code>type_pivot = df.pivot_table(
+    columns=&#34;device_category&#34;,
+    index=&#34;default_channel_grouping&#34;,
+    values=&#34;users&#34;, aggfunc=np.mean)
+
+display(type_pivot)
+
+type_pivot.sort_values(by=[&#34;default_channel_grouping&#34;], ascending=False).plot(kind=&#34;bar&#34;, figsize=(12,8) ,fontsize = 15);
+
+plt.xlabel(&#34;Date&#34;, fontsize=10)
+plt.xticks(rotation=90, horizontalalignment=&#34;center&#34;)
+plt.ylabel(&#34;Absolute values&#34;, fontsize=10)
+plt.title(&#34;Average use of device types by channel grouping&#34;, fontsize=10, loc=&#34;right&#34;)
+plt.legend([&#34;Desktop&#34;,&#34;Mobile&#34;,&#34;Tablet&#34;]);
+</code></pre><h3 id="7-как-оценить-показатель-отказов-групп-каналов">7. Как оценить показатель отказов групп каналов?</h3>
+<p>Показатель отказов рассчитывается как общее количество отказов, делённое на общее количество сеансов.</p>
+<h4 id="mysql-10">MySQL</h4>
+<pre tabindex="0"><code>SELECT 
+    default_channel_grouping,
+    SUM(sessions) AS sessions,
+    SUM(bounces) AS bounces,
+    ROUND(SUM(bounces) / SUM(sessions) * 100, 2) AS bounces_r
+FROM
+    case_sql
+GROUP BY 1
+ORDER BY 4 DESC;
+</code></pre><p><strong>Средний показатель отказов: 54,93 %</strong> (avg_bounces_r)</p>
+<pre tabindex="0"><code>SELECT 
+    SUM(sessions) AS sessions,
+    SUM(bounces) AS bounces,
+    ROUND(SUM(bounces) / SUM(sessions) * 100, 2) AS bounces_r,
+    AVG(ROUND(bounces/sessions*100, 2)) AS avg_bounces_r
+FROM
+    case_sql;
+</code></pre><h4 id="python-9">Python</h4>
+<pre tabindex="0"><code>dfbounce = df.groupby(&#34;default_channel_grouping&#34;)[&#34;users&#34;].sum().to_frame()
+
+dfbounce[&#34;sessions&#34;] = df.groupby(&#34;default_channel_grouping&#34;)[&#34;sessions&#34;].sum()
+
+dfbounce[&#34;bounces&#34;] = df.groupby(&#34;default_channel_grouping&#34;)[&#34;bounces&#34;].sum()
+
+dfbounce[&#34;bounces_r&#34;] = dfbounce.apply(lambda x: 0.0 if x[&#34;sessions&#34;] == 0.0 else (x[&#34;bounces&#34;] / x[&#34;sessions&#34;])*100, axis=1).round(2)
+
+dff = dfbounce.copy()
+
+dfbounce.drop([&#34;users&#34;],axis=1,inplace=True)
+
+dfbounce.sort_values(by=&#34;bounces_r&#34;, ascending=False)
+</code></pre><h3 id="71-похоже-ли-что-показатель-отказов-на-сайте-улучшается-или-ухудшается-с-течением-времени">7.1 Похоже ли, что показатель отказов на сайте улучшается или ухудшается с течением времени?</h3>
+<h4 id="mysql-11">MySQL</h4>
+<pre tabindex="0"><code>SELECT 
+    YEAR(date) AS year, 
+    MONTH(date) AS month,  
+    DATE_FORMAT(date, &#39;%b&#39;) AS month_,   
+    ROUND(SUM(bounces) / SUM(sessions) * 100, 2) AS bounces_r  
+    case_sql                        
+GROUP BY 1 , 2 , 3                  
+ORDER BY 1 , 2 , 3;                 
+</code></pre><h4 id="python-10">Python</h4>
+<pre tabindex="0"><code>df_date = df.groupby(&#34;date&#34;)[[&#39;sessions&#39;,&#39;bounces&#39;]].sum()
+
+&#39;&#39;&#39; create function to assess the bounce rate, assign it as &#39;bounce_r&#39;
+Return 0 if session&#39;s value is 0, else divide the bounces by sessions 
+for each date and multiply it by 100 to get the percentage &#39;&#39;&#39;
+
+def div(bounces, sessions):
+    return lambda row: 0.0 if row[sessions] == 0.0 else float((row[bounces]/(row[sessions])))*100
+
+df_date[&#34;bounce_r&#34;] = (df_date.apply(div(&#39;bounces&#39;, &#39;sessions&#39;), axis=1)).round(1)
+
+df_date.drop([&#34;sessions&#34;,&#34;bounces&#34;], axis=1, inplace=True)
+
+ax = df_date.plot(kind=&#34;line&#34;, figsize=(14,6), fontsize=12, linewidth=2)
+
+plt.xlabel(&#34;Date&#34;, fontsize=10)
+plt.xticks(rotation=90, horizontalalignment=&#34;center&#34;)
+plt.ylabel(&#34;Rate&#34;, fontsize=10)
+plt.title(&#34;Evolution of the bounce rate over time&#34;, fontsize=10, loc=&#34;right&#34;);
+</code></pre><p>Показатель отказов на сайте <strong>улучшается</strong> с течением времени.</p>
+<h3 id="72-показатель-отказов-по-каналам-и-брендам">7.2 Показатель отказов по каналам и брендам</h3>
+<h4 id="python-11">Python</h4>
+<pre tabindex="0"><code>b1 = df[df[&#34;brand&#34;] == &#34;Brand 1&#34;]
+b2 = df[df[&#34;brand&#34;] == &#34;Brand 2&#34;]
+
+dfbrand = b1.groupby(&#34;default_channel_grouping&#34;)[&#34;sessions&#34;].sum().to_frame()
+dfbrand.rename(columns={&#34;sessions&#34;:&#34;sessions1&#34;}, inplace=True)
+
+dfbrand[&#34;bounces1&#34;] = b1.groupby(&#34;default_channel_grouping&#34;)[&#34;bounces&#34;].sum()
+
+dfbrand[&#34;1bounces_r&#34;] = dfbrand.apply(lambda x: 0.0 if x[&#34;sessions1&#34;] == 0.0 else (x[&#34;bounces1&#34;] / x[&#34;sessions1&#34;]*100), axis=1).round(2)
+
+dfbrand[&#34;sessions2&#34;] = b2.groupby(&#34;default_channel_grouping&#34;)[&#34;sessions&#34;].sum()
+
+dfbrand[&#34;bounces2&#34;] = b2.groupby(&#34;default_channel_grouping&#34;)[&#34;bounces&#34;].sum()
+
+dfbrand[&#34;2bounces_r&#34;] = dfbrand.apply(lambda x: 0.0 if x[&#34;sessions2&#34;] == 0.0 else (x[&#34;bounces2&#34;] / x[&#34;sessions2&#34;]*100), axis=1).round(2)
+
+dfbrand.sort_values(by=&#34;1bounces_r&#34;, ascending=False)
+</code></pre><h3 id="8-пропорции-между-входящими-и-платными-медиа">8. Пропорции между входящими и платными медиа</h3>
+<h4 id="mysql-12">MySQL</h4>
+<pre tabindex="0"><code>SELECT 
+    brand,
+    CASE
+        WHEN
+            default_channel_grouping IN (&#39;Paid Search&#39;, 
+                &#39;Paid Social&#39;,
+                &#39;Display&#39;,
+                &#39;Other Advertising&#39;)
+        THEN
+            &#39;Paid&#39;
+        WHEN
+            default_channel_grouping IN (&#39;Direct&#39;,
+                &#39;Native&#39;,
+                &#39;Organic Search&#39;,
+                &#39;Referral&#39;,
+                &#39;Social&#39;,
+                &#39;Email&#39;,
+                &#39;(Other)&#39;)
+        THEN
+            &#39;Organic&#39;
+        ELSE NULL
+    END AS media,
+    ROUND(SUM(bounces) / SUM(sessions) * 100, 2) AS bounce_r
+FROM
+    case_sql
+GROUP BY brand , media
+ORDER BY 1;
+</code></pre><h4 id="python-12">Python</h4>
+<pre tabindex="0"><code>media_dict = 
+{
+    &#39;Display&#39;: &#39;paid&#39;,
+    &#39;Paid Search&#39;: &#39;paid&#39;,
+    &#39;Paid Social&#39;: &#39;paid&#39;,
+    &#39;Other Advertising&#39;: &#39;paid&#39;,
+    &#39;Direct&#39;: &#39;organic&#39;,
+    &#39;Native&#39;: &#39;organic&#39;,
+    &#39;Organic Search&#39;: &#39;organic&#39;,
+    &#39;Referral&#39;: &#39;organic&#39;,
+    &#39;Social&#39;: &#39;organic&#39;,
+    &#39;Email&#39;: &#39;organic&#39;,
+    &#39;(Other)&#39;: &#39;organic&#39;
+}
+
+df[&#39;media&#39;] = df[&#39;default_channel_grouping&#39;].map(media_dict)
+
+cols = [&#39;brand&#39;,&#39;media&#39;,&#39;sessions&#39;,&#39;bounces&#39;]
+
+df = df.reindex(columns = cols)
+
+df = df.groupby([&#34;brand&#34;,&#34;media&#34;])[[&#34;sessions&#34;,&#34;bounces&#34;]].sum()
+
+df[&#34;bounces_r&#34;] = df.apply(lambda x: 0.0 if x[&#34;sessions&#34;] == 0.0 else (x[&#34;bounces&#34;] / x[&#34;sessions&#34;])*100, axis=1).round(2)
+</code></pre><h3 id="заключение">Заключение</h3>
+<p>Как и было обещано, мы рассмотрели пошаговый подход к проведению простого цифрового маркетингового анализа, используя MySQL Workbench и Python.</p>
+<p>Оба инструмента имеют свои особенности, требования, но рассуждения относительно схожи, если не учитывать их графические возможности и ограничения.</p>
+<p>Не стесняйтесь загружать наборы данных и исследовать их, практикуясь в технических деталях, рассмотренных здесь, и реализуя новый код для дальнейших маркетинговых вопросов.</p>
+
+    </div>
+
+    <div class="tags mt-8">
+      
+
+    </div>
+  </article>
+
+          
+            
+  </main>          
+
+    <script>
+
+        
+        
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const sidebar = document.querySelector('.sidebar');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+        
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                if (entry.isIntersecting) {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.add('active');
+                    });
+                } else {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.remove('active');
+                    });
+                }
+            });
+        }, observerOptions);
+        
+        
+        document.querySelectorAll('h2[id]').forEach(heading => {
+            observer.observe(heading);
+        });
+    </script>
+
+
+  <footer class="px-6 py-12 bg-sky-950 text-white/50">
+    
+<p>P9X.ru 2010 - 2025г. услуги интернет маркетинга</p>
+
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105149615', 'ym');
+
+    ym(105149615, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/105149615" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+  </footer>
+</body>
+</html>

@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Анализ ожидаемой ценности в управлении продуктами искусственного интеллекта | На пути к науке о данных | Агентство контекстной рекламы</title>
+<meta name="description" content="">
+<meta name="yandex-verification" content="242f5a0ee52d5836" />
+
+<link rel="icon" type="image/x-icon" href="http://localhost:1313/favicon.ico">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+ <style>
+  .content h1 { 
+        font-size: 1.875rem; 
+        font-weight: bold; 
+        margin-bottom: 1rem; 
+    }
+    .content h2 { 
+        font-size: 1.5rem; 
+        font-weight: 600; 
+        margin-bottom: 0.75rem; 
+    }
+    .content h3 { 
+        font-size: 1.25rem; 
+        font-weight: 500; 
+        margin-bottom: 0.5rem; 
+    }
+    .content p { 
+        margin-bottom: 1rem; 
+    }
+    .content ul { 
+        list-style-type: disc; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content ol { 
+        list-style-type: decimal; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content a { 
+        color: #2563eb; 
+    }
+    .content a:hover { 
+        color: #1e40af; 
+    }
+    .content blockquote { 
+        border-left: 4px solid #d1d5db; 
+        padding-left: 1rem; 
+        font-style: italic; 
+    }
+
+    
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.875rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+.dark-mode .content table {
+    border: 1px solid #4b5563;
+}
+
+.content thead {
+    background-color: #eaebec;
+}
+
+.dark-mode .content thead {
+    background-color: #374151;
+}
+
+.content th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.dark-mode .content th {
+    color: #f9fafb;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content th:last-child {
+    border-right: none;  
+}
+
+.content td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    color: #6b7280;
+}
+
+.dark-mode .content td {
+    color: #d1d5db;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content td:last-child {
+    border-right: none;  
+}
+
+.content tbody tr {
+    transition: background-color 0.15s ease-in-out;
+}
+
+.content tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.dark-mode .content tbody tr:hover {
+    background-color: #374151;
+}
+
+.content tbody tr:last-child td {
+    border-bottom: none;
+}
+
+ 
+.content tbody tr:nth-child(even) {
+    background-color: #f4f5f7;
+}
+
+.dark-mode .content tbody tr:nth-child(even) {
+    background-color: #1f2937;
+}
+
+.dark-mode .content tbody tr:nth-child(even):hover {
+    background-color: #374151;
+}
+
+ 
+.content code:not(pre code) {
+    background-color: #f3f4f6;
+    color: #dc2626;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    font-weight: 500;
+    border: 1px solid #e5e7eb;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+}
+
+.dark-mode .content code:not(pre code) {
+    background-color: #224464;
+    color: #f87171;
+    border: 1px solid #4b5563;
+}
+
+ 
+.content pre {
+    background-color: #224464;
+    color: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid #374151;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.dark-mode .content pre {
+    background-color: #111827;
+    border: 1px solid #374151;
+}
+
+ 
+.content pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+    font-weight: normal;
+}
+
+ 
+.content pre code .keyword { color: #f472b6; }  
+.content pre code .function { color: #60a5fa; }  
+.content pre code .string { color: #34d399; }  
+.content pre code .comment { color: #9ca3af; font-style: italic; }  
+.content pre code .number { color: #fbbf24; }  
+.content pre code .class { color: #c084fc; }  
+.content pre code .operator { color: #93c5fd; }  
+
+ 
+.content pre::-webkit-scrollbar {
+    height: 6px;
+}
+
+.content pre::-webkit-scrollbar-track {
+    background: #374151;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.content pre::-webkit-scrollbar-thumb {
+    background: #6b7280;
+    border-radius: 3px;
+}
+
+.content pre::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+ 
+.content h1 code:not(pre code),
+.content h2 code:not(pre code),
+.content h3 code:not(pre code) {
+    font-size: 0.9em;
+    background-color: #fef2f2;
+    color: #dc2626;
+}
+
+.dark-mode .content h1 code:not(pre code),
+.dark-mode .content h2 code:not(pre code),
+.dark-mode .content h3 code:not(pre code) {
+    background-color: #7f1d1d;
+    color: #fca5a5;
+}
+
+ 
+.content a code:not(pre code) {
+    color: inherit;
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+.dark-mode .content a code:not(pre code) {
+    background-color: rgba(96, 165, 250, 0.2);
+}
+        :root {
+            --color-bg: #1a1a1a;
+            --color-text: #e6e6e6;
+            --color-accent: #6b7280;
+            --color-link: #9ca3af;
+            --color-link-hover: #d1d5db;
+        }
+        
+        .light-mode {
+            --color-bg: #f9fafb;
+            --color-text: #1f2937;
+            --color-accent: #6b7280;
+            --color-link: #4b5563;
+            --color-link-hover: #111827;
+        }
+        
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        a {
+            color: var(--color-link);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: var(--color-link-hover);
+        }
+        
+        .sidebar {
+            position: fixed;
+             
+            height: 100vh;
+            overflow-y: auto;
+            
+        }
+        
+        .main-content {
+            margin-left: 350px;
+            
+             
+        }
+        
+        .toc-container {
+            position: fixed;
+            right: 2rem;
+            top: 2rem;
+            width: 250px;
+            display: none;
+        }
+        
+        @media (min-width: 1280px) {
+            .toc-container {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 50;
+            }
+            
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+                 
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: fixed;
+                top: 1rem;
+                left: 1rem;
+                z-index: 100;
+            }
+        }
+        
+        .toc-link.active {
+            color: var(--color-link-hover);
+            font-weight: bold;
+        }
+        
+        .social-icons a {
+            margin-right: 0.5rem;
+        }
+        
+        pre {
+            background-color: rgba(107, 114, 128, 0.1);
+            padding: 1rem;
+            border-radius: 0.25rem;
+            overflow-x: auto;
+        }
+        
+        code {
+            font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+    </style>
+</head>
+  <body class="light-mode">
+      <header>
+    
+  </header>
+    
+    <button class="mobile-menu-btn p-2 bg-gray-800 text-white rounded md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+    
+    <aside class="sidebar border-r-4 border-sky-800  min-w-[350px] py-12 px-10 bg-gradient-to-br from-cyan-200 via-green-100 to-sky-100">
+        <div class="flex flex-col items-center mb-8">
+                
+            
+            <div class="w-24 h-24 mb-4 relative">
+                <a href="/">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ viewBox="0 0 550.000000 385.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,385.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M2780 3000 l0 -300 40 0 40 0 0 260 0 260 1165 0 1165 0 0 -1245 0
+-1245 -1165 0 -1165 0 0 260 0 260 -40 0 -40 0 0 -300 0 -300 1245 0 1245 0 0
+1325 0 1325 -1245 0 -1245 0 0 -300z"/>
+<path d="M700 1975 l0 -635 145 0 145 0 0 245 0 245 383 0 c422 0 426 1 491
+66 60 60 66 88 66 319 0 190 -2 214 -21 255 -25 56 -53 86 -104 113 -39 22
+-49 22 -572 25 l-533 3 0 -636z m940 245 l0 -100 -325 0 -325 0 0 100 0 100
+325 0 325 0 0 -100z"/>
+<path d="M2320 2601 c-69 -22 -112 -58 -146 -121 -17 -31 -19 -60 -19 -260 0
+-211 1 -227 22 -265 27 -51 68 -90 115 -109 32 -14 98 -16 438 -16 l400 0 0
+-245 0 -245 145 0 145 0 0 536 c0 373 -3 548 -11 575 -16 50 -61 105 -112 132
+-41 22 -48 22 -497 24 -250 1 -466 -2 -480 -6z m810 -381 l0 -100 -340 0 -340
+0 0 100 0 100 340 0 340 0 0 -100z"/>
+<path d="M3650 2607 c0 -1 99 -144 219 -317 l219 -314 -63 -91 c-34 -49 -133
+-191 -219 -315 l-157 -225 172 -3 c97 -1 176 2 183 7 6 5 72 97 146 205 74
+107 138 196 141 196 4 0 71 -92 149 -205 l143 -205 173 0 c96 0 174 2 174 4 0
+3 -95 141 -211 308 -116 167 -214 308 -216 315 -3 7 92 151 211 322 119 170
+216 312 216 315 0 3 -78 6 -174 6 l-174 0 -143 -205 c-78 -113 -145 -205 -149
+-205 -3 0 -70 92 -148 205 l-143 205 -174 0 c-96 0 -175 -1 -175 -3z"/>
+</g>
+</svg>
+</a>
+            </div>
+
+            <p class="text-xs text-center text-gray-500 max-w-[200px]">
+                Профессиональное агентство контекстной рекламы с опытом более 18 лет.
+
+            </p>
+        </div>
+
+        
+        <nav class="mb-8">
+          
+        
+            
+  <nav>
+    <ul>
+    <li class="text-lg font-semibold">
+      <a href="/">Контекстная реклама</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/analytics/">web-аналитика</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a aria-current="true" class="ancestor" href="/posts/">Блог</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/about/">О нас</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Категории</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/job/">Вакансии</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Кейсы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/calculators/">Калькуляторы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/contacts/">Контакты</a>
+    </li>
+    </ul>
+  </nav>
+
+           
+
+        </nav>
+
+        
+        <div class="social-icons  mt-auto">
+<div>
+
+<a href="https://t.me/your_link" target="_blank" class="inline-flex 
+items-center justify-center px-3 py-3 text-white bg-[#2AABEE] font-medium text-sm rounded 
+shadow-md hover:bg-[#279fd9] 
+hover:shadow-lg focus:bg-[#2493c8] 
+focus:shadow-lg focus:outline-none 
+focus:ring-0 active:bg-[#2185b3] active:shadow-lg transition duration-150 ease-in-out">
+  
+     
+<svg width="25px" height="25px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" 
+fill="#fff" class="bi bi-telegram pr-1">
+  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>
+</svg>
+                            
+  
+  Открыть в Telegram
+</a>
+
+</div>
+            <div class="pt-6 flex gap-1 justify-left items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                sale@p9x.ru
+            </div>
+        </div>
+        
+        
+        <div class="mt-8 pt-4 text-xs text-gray-500 border-t border-gray-700">
+            <p>Powered by <a href="#" class="hover:underline">Hugo</a> | Themed with <a href="#" class="hover:underline">poison</a></p>
+            <p>© 2010 - 2025 Poison. All rights reserved.</p>
+        </div>
+    </aside>
+
+  <main class="main-content bg-white">
+ 
+            
+            
+  <article class="prose prose-lg py-8 px-4 max-w-[1200px]">
+    <h1 class="text-2xl font-bold mb-4">
+            Анализ ожидаемой ценности в управлении продуктами с использованием искусственного интеллекта
+    </h1>
+
+    
+    
+    <time class="block mb-6 text-gray-500" datetime="2025-11-19T22:09:56&#43;00:00">November 19, 2025</time>
+
+    <div class="content mb-8 ">
+      <p>Принятие решений в условиях неопределённости — центральная задача для продуктовых команд. Крупные и мелкие решения часто приходится принимать в сжатые сроки, несмотря на неполную — и потенциально неточную — информацию о проблеме и пространстве решений.</p>
+<p>Это может быть связано с отсутствием соответствующих исследований пользователей, ограниченными знаниями о тонкостях бизнес-контекста (обычно это наблюдается в компаниях, которые уделяют слишком мало внимания ориентации на клиента и межкомандному сотрудничеству) и/или ошибочным пониманием того, что может и чего не может делать определённая технология (особенно при создании инновационных продуктов с использованием новых, непроверенных технологий).</p>
+<p>Ситуация особенно сложна для команд, занимающихся разработкой продуктов на основе искусственного интеллекта, по крайней мере, по трём причинам. Во-первых, многие алгоритмы искусственного интеллекта по своей природе вероятностны и, таким образом, дают неопределённые результаты (например, прогнозы модели могут быть верными или неверными с определённой вероятностью). Во-вторых, не всегда доступно достаточное количество высококачественных и релевантных данных для надлежащего обучения систем искусственного интеллекта. В-третьих, недавний всплеск ажиотажа вокруг искусственного интеллекта — и особенно генеративного искусственного интеллекта — привёл к нереалистичным ожиданиям среди клиентов, аналитиков Уолл-стрит и (неизбежно) лиц, принимающих решения в высшем руководстве; создаётся впечатление, что практически любую задачу теперь можно легко решить с помощью искусственного интеллекта. Разумеется, продуктовым командам может быть сложно управлять такими ожиданиями.</p>
+<h3 id="что-же-остаётся-надеяться-командам-занимающимся-разработкой-продуктов-на-основе-искусственного-интеллекта">Что же остаётся надеяться командам, занимающимся разработкой продуктов на основе искусственного интеллекта?</h3>
+<p>Хотя универсального решения не существует, в этой статье читателей знакомят с понятием <em>ожидаемой ценности</em> и тем, как её можно использовать для принятия решений в управлении продуктами на основе искусственного интеллекта. После краткого обзора ключевых теоретических концепций мы рассмотрим три реальных примера из практики, которые подчёркивают, как анализ ожидаемой ценности может помочь командам, занимающимся разработкой продуктов на основе искусственного интеллекта, принимать стратегические решения в условиях неопределённости на протяжении всего жизненного цикла продукта. Учитывая основополагающий характер предмета, целевая аудитория этой статьи включает специалистов по работе с данными, менеджеров по продуктам на основе искусственного интеллекта, инженеров, исследователей UX и дизайнеров, менеджеров и всех, кто стремится разрабатывать отличные продукты на основе искусственного интеллекта.</p>
+<h4 id="ожидаемая-ценность">Ожидаемая ценность</h4>
+<p>Прежде чем рассматривать формальное определение ожидаемой ценности, давайте рассмотрим две простые игры, чтобы развить интуицию.</p>
+<h3 id="игра-в-кости">Игра в кости</h3>
+<p>В первой игре представьте, что вы соревнуетесь со своими друзьями в конкурсе по метанию костей. Каждый из вас бросает честную шестигранную кость <em>N</em> раз. Результат каждого броска определяется количеством точек, выпавших на верхней грани кости после броска; 1, 2, 3, 4, 5 и 6 — единственные достижимые результаты для любого броска. Игрок с наибольшим общим счётом в конце <em>N</em> бросков выигрывает игру. Предполагая, что <em>N</em> — большое число (скажем, 500), что мы должны ожидать увидеть в конце игры? Будет ли явный победитель или ничья?</p>
+<p>Оказывается, что при большом <em>N</em> общие результаты каждого из игроков, вероятно, будут сходиться к 3,5*<em>N</em>. Например, после 500 бросков общие результаты вас и ваших друзей, вероятно, составят около 3,5*500 = 1750. Чтобы понять почему, заметим, что для честной шестигранной кости вероятность выпадения любой грани после броска равна 1/6. В среднем результат отдельного броска будет равен (1 + 2 + 3 + 4 + 5 + 6)/6 = 3,5, то есть среднему значению всех достижимых результатов за бросок — это также <em>ожидаемая ценность</em> броска кости. Предполагая, что результаты всех бросков независимы друг от друга, мы ожидаем, что средний результат <em>N</em> бросков составит 3,5.</p>
+<h3 id="игра-в-рулетку">Игра в рулетку</h3>
+<p>Далее рассмотрим рулетку, популярную игру в казино. Представьте, что вы играете в упрощённую версию рулетки против друга следующим образом. Колесо рулетки имеет 38 карманов, и игра заканчивается после <em>N</em> раундов. В каждом раунде вы должны выбрать целое число от 1 до 38, после чего ваш друг раскрутит колесо рулетки и бросит маленький шарик на вращающееся колесо. Как только колесо остановится, если шарик окажется в кармане с номером, который вы выбрали, ваш друг заплатит вам 35 долларов; если же шарик окажется в любом другом кармане, вы должны будете заплатить своему другу 1 доллар. Сколько денег вы ожидаете заработать или проиграть после <em>N</em> раундов?</p>
+<p>Вы можете подумать, что, поскольку 35 долларов намного больше 1 доллара, ваш друг в конечном итоге заплатит вам довольно много денег к тому времени, когда игра закончится — но не так быстро. Давайте применим тот же базовый подход, который мы использовали в игре с костями, для анализа этой, казалось бы, прибыльной игры в рулетку. Для любого данного раунда вероятность того, что шарик окажется в кармане с номером, который вы выбрали, равна 1/38. Вероятность того, что шарик окажется в любом другом кармане, равна 37/38. С вашей точки зрения, средний результат за раунд составляет 35<em>1/38 – 1</em>37/38 = -0,0526 доллара. Таким образом, кажется, что вы фактически будете должны своему другу чуть больше никеля после каждого раунда. После <em>N</em> раундов вы потратите примерно 0,0526*<em>N</em> долларов. Если вы сыграете 500 раундов, как в игре с костями выше, вы в итоге заплатите своему другу примерно 26 долларов. Это пример игры, которая устроена так, чтобы приносить пользу «дому» (то есть казино, или в данном случае вашему другу).</p>
+<h3 id="формальное-определение">Формальное определение</h3>
+<p>Пусть <em>X</em> — случайная величина, которая может дать любое из <em>k</em> значений результата, <em>x</em> 1, <em>x</em> 2, …, <em>x</em> k, каждое с вероятностями <em>p</em> 1, <em>p</em> 2, …, <em>p</em> k наступления соответственно. <em>Ожидаемая ценность</em>, <em>E(X)</em>, <em>X</em> — это сумма значений результатов, взвешенных по соответствующим вероятностям их наступления:</p>
+<p>Общее ожидаемое значение <em>N</em> независимых вхождений <em>X</em> будет <em>N*E(X)</em>.</p>
+<h3 id="пример-1-обнаружение-мошенничества-в-электронной-коммерции">Пример 1: Обнаружение мошенничества в электронной коммерции</h3>
+<p><em>Cars Online</em> — это онлайн-платформа для перепродажи подержанных автомобилей по всей Европе. Законные автосалоны и частные владельцы подержанных автомобилей могут размещать свои автомобили на продажу на <em>Cars Online</em>. Типичное объявление будет включать запрашиваемую цену продавца, факты о автомобиле (например, его основные свойства, специальные функции и сведения о любых повреждениях/износе) и фотографии интерьера и экстерьера автомобиля. Покупатели могут просматривать многочисленные объявления на платформе, и, найдя то, которое им нравится, могут нажать на кнопку на странице объявления, чтобы связаться с продавцом и договориться о просмотре, а в конечном итоге совершить покупку. <em>Cars Online</em> взимает с продавцов небольшую ежемесячную плату за размещение объявлений на платформе. Чтобы стимулировать такой подписной доход, процесс регистрации продавцов на платформе и создания объявлений максимально упрощён.</p>
+<p>Проблема в том, что некоторые объявления на платформе могут быть поддельными. Непредвиденным следствием снижения барьеров для создания объявлений является то, что злоумышленники могут создавать поддельные учётные записи продавцов и создавать поддельные объявления (часто выдавая себя за законные автосалоны), чтобы заманить и потенциально обмануть ничего не подозревающих покупателей.</p>
+<h3 id="пример-2-автоматическое-заполнение-заказов-на-покупку">Пример 2: Автоматическое заполнение заказов на покупку</h3>
+<p>Отдел закупок <em>ACME Auto</em>, американского производителя автомобилей, ежемесячно создаёт значительное количество заказов на покупку. Создание одного автомобиля требует нескольких тысяч отдельных деталей, которые необходимо закупать вовремя и с соответствующим стандартом качества у утверждённых поставщиков. Команда закупщиков несёт ответственность за ручное создание заказов на покупку; это включает в себя заполнение онлайн-формы, состоящей из нескольких полей данных, которые определяют точные спецификации и количество каждого товара, подлежащего закупке по заказу.</p>
+<p>Чтобы обеспечить высокое качество, команда продукта хотела бы установить порог для показателей достоверности модели, чтобы только прогнозы с показателями достоверности выше этого предопределённого порога отображались пользователю (то есть использовались для автоматического заполнения формы заказа на покупку). Вопрос в том, какое пороговое значение следует выбрать?</p>
+<h3 id="пример-3-стандартизация-рекомендаций-по-дизайну-на-основе-искусственного-интеллекта">Пример 3: Стандартизация рекомендаций по дизайну на основе искусственного интеллекта</h3>
+<p>Генеральный директор <em>Ex Corp</em>, глобального поставщика корпоративного программного обеспечения, недавно заявил о своём намерении сделать компанию «ориентированной на искусственный интеллект» и внедрить функции искусственного интеллекта высокой ценности во все свои продукты и услуги. Чтобы поддержать эти усилия по трансформации всей компании, директор по продукту поручил центральной команде дизайнеров <em>Ex Corp</em> создать согласованный набор рекомендаций по дизайну, чтобы помочь командам создавать продукты на основе искусственного интеллекта, которые улучшают взаимодействие с пользователем.</p>
+<p>Ключевой задачей является управление компромиссом между созданием рекомендаций, которые являются слишком слабыми/высокоуровневыми (предоставляя отдельным продуктовым командам большую свободу интерпретации, рискуя при этом непоследовательным применением рекомендаций по командам продуктов) и рекомендациями, которые являются слишком строгими (обеспечивая стандартизацию по командам продуктов без должного учёта особенностей конкретных продуктов или потребностей в настройке).</p>
+<p>Один из хорошо продуманных советов, который изначально предложила центральная команда дизайнеров, включает в себя отображение меток рядом с прогнозами в пользовательском интерфейсе (например, «лучший вариант», «хороший вариант» или аналогичные), чтобы дать пользователям некоторое представление об ожидаемом качестве/релевантности прогнозов. Считается, что отображение таких качественных меток поможет пользователям принимать обоснованные решения во время их взаимодействия с продуктами на основе искусственного интеллекта, не перегружая их статистикой, которую трудно интерпретировать, например показателями достоверности модели.</p>
+
+    </div>
+
+    <div class="tags mt-8">
+      
+
+    </div>
+  </article>
+
+          
+            
+  </main>          
+
+    <script>
+
+        
+        
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const sidebar = document.querySelector('.sidebar');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+        
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                if (entry.isIntersecting) {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.add('active');
+                    });
+                } else {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.remove('active');
+                    });
+                }
+            });
+        }, observerOptions);
+        
+        
+        document.querySelectorAll('h2[id]').forEach(heading => {
+            observer.observe(heading);
+        });
+    </script>
+
+
+  <footer class="px-6 py-12 bg-sky-950 text-white/50">
+    
+<p>P9X.ru 2010 - 2025г. услуги интернет маркетинга</p>
+
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105149615', 'ym');
+
+    ym(105149615, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/105149615" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+  </footer>
+</body>
+</html>

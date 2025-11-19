@@ -39,5 +39,5 @@ module:
 
 pagination:
   disableAliases: false
-  pagerSize: 2
+  pagerSize: 20
   path: page

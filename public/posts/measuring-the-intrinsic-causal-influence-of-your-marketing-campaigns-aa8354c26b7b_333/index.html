@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Измерение Внутреннего Причинно-Следственного Влияния Ваших Маркетинговых Кампаний | На Пути К Науке О Данных | Агентство контекстной рекламы</title>
+<meta name="description" content="">
+<meta name="yandex-verification" content="242f5a0ee52d5836" />
+
+<link rel="icon" type="image/x-icon" href="http://localhost:1313/favicon.ico">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+ <style>
+  .content h1 { 
+        font-size: 1.875rem; 
+        font-weight: bold; 
+        margin-bottom: 1rem; 
+    }
+    .content h2 { 
+        font-size: 1.5rem; 
+        font-weight: 600; 
+        margin-bottom: 0.75rem; 
+    }
+    .content h3 { 
+        font-size: 1.25rem; 
+        font-weight: 500; 
+        margin-bottom: 0.5rem; 
+    }
+    .content p { 
+        margin-bottom: 1rem; 
+    }
+    .content ul { 
+        list-style-type: disc; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content ol { 
+        list-style-type: decimal; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content a { 
+        color: #2563eb; 
+    }
+    .content a:hover { 
+        color: #1e40af; 
+    }
+    .content blockquote { 
+        border-left: 4px solid #d1d5db; 
+        padding-left: 1rem; 
+        font-style: italic; 
+    }
+
+    
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.875rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+.dark-mode .content table {
+    border: 1px solid #4b5563;
+}
+
+.content thead {
+    background-color: #eaebec;
+}
+
+.dark-mode .content thead {
+    background-color: #374151;
+}
+
+.content th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.dark-mode .content th {
+    color: #f9fafb;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content th:last-child {
+    border-right: none;  
+}
+
+.content td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    color: #6b7280;
+}
+
+.dark-mode .content td {
+    color: #d1d5db;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content td:last-child {
+    border-right: none;  
+}
+
+.content tbody tr {
+    transition: background-color 0.15s ease-in-out;
+}
+
+.content tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.dark-mode .content tbody tr:hover {
+    background-color: #374151;
+}
+
+.content tbody tr:last-child td {
+    border-bottom: none;
+}
+
+ 
+.content tbody tr:nth-child(even) {
+    background-color: #f4f5f7;
+}
+
+.dark-mode .content tbody tr:nth-child(even) {
+    background-color: #1f2937;
+}
+
+.dark-mode .content tbody tr:nth-child(even):hover {
+    background-color: #374151;
+}
+
+ 
+.content code:not(pre code) {
+    background-color: #f3f4f6;
+    color: #dc2626;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    font-weight: 500;
+    border: 1px solid #e5e7eb;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+}
+
+.dark-mode .content code:not(pre code) {
+    background-color: #224464;
+    color: #f87171;
+    border: 1px solid #4b5563;
+}
+
+ 
+.content pre {
+    background-color: #224464;
+    color: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid #374151;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.dark-mode .content pre {
+    background-color: #111827;
+    border: 1px solid #374151;
+}
+
+ 
+.content pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+    font-weight: normal;
+}
+
+ 
+.content pre code .keyword { color: #f472b6; }  
+.content pre code .function { color: #60a5fa; }  
+.content pre code .string { color: #34d399; }  
+.content pre code .comment { color: #9ca3af; font-style: italic; }  
+.content pre code .number { color: #fbbf24; }  
+.content pre code .class { color: #c084fc; }  
+.content pre code .operator { color: #93c5fd; }  
+
+ 
+.content pre::-webkit-scrollbar {
+    height: 6px;
+}
+
+.content pre::-webkit-scrollbar-track {
+    background: #374151;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.content pre::-webkit-scrollbar-thumb {
+    background: #6b7280;
+    border-radius: 3px;
+}
+
+.content pre::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+ 
+.content h1 code:not(pre code),
+.content h2 code:not(pre code),
+.content h3 code:not(pre code) {
+    font-size: 0.9em;
+    background-color: #fef2f2;
+    color: #dc2626;
+}
+
+.dark-mode .content h1 code:not(pre code),
+.dark-mode .content h2 code:not(pre code),
+.dark-mode .content h3 code:not(pre code) {
+    background-color: #7f1d1d;
+    color: #fca5a5;
+}
+
+ 
+.content a code:not(pre code) {
+    color: inherit;
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+.dark-mode .content a code:not(pre code) {
+    background-color: rgba(96, 165, 250, 0.2);
+}
+        :root {
+            --color-bg: #1a1a1a;
+            --color-text: #e6e6e6;
+            --color-accent: #6b7280;
+            --color-link: #9ca3af;
+            --color-link-hover: #d1d5db;
+        }
+        
+        .light-mode {
+            --color-bg: #f9fafb;
+            --color-text: #1f2937;
+            --color-accent: #6b7280;
+            --color-link: #4b5563;
+            --color-link-hover: #111827;
+        }
+        
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        a {
+            color: var(--color-link);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: var(--color-link-hover);
+        }
+        
+        .sidebar {
+            position: fixed;
+             
+            height: 100vh;
+            overflow-y: auto;
+            
+        }
+        
+        .main-content {
+            margin-left: 350px;
+            
+             
+        }
+        
+        .toc-container {
+            position: fixed;
+            right: 2rem;
+            top: 2rem;
+            width: 250px;
+            display: none;
+        }
+        
+        @media (min-width: 1280px) {
+            .toc-container {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 50;
+            }
+            
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+                 
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: fixed;
+                top: 1rem;
+                left: 1rem;
+                z-index: 100;
+            }
+        }
+        
+        .toc-link.active {
+            color: var(--color-link-hover);
+            font-weight: bold;
+        }
+        
+        .social-icons a {
+            margin-right: 0.5rem;
+        }
+        
+        pre {
+            background-color: rgba(107, 114, 128, 0.1);
+            padding: 1rem;
+            border-radius: 0.25rem;
+            overflow-x: auto;
+        }
+        
+        code {
+            font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+    </style>
+</head>
+  <body class="light-mode">
+      <header>
+    
+  </header>
+    
+    <button class="mobile-menu-btn p-2 bg-gray-800 text-white rounded md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+    
+    <aside class="sidebar border-r-4 border-sky-800  min-w-[350px] py-12 px-10 bg-gradient-to-br from-cyan-200 via-green-100 to-sky-100">
+        <div class="flex flex-col items-center mb-8">
+                
+            
+            <div class="w-24 h-24 mb-4 relative">
+                <a href="/">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ viewBox="0 0 550.000000 385.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,385.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M2780 3000 l0 -300 40 0 40 0 0 260 0 260 1165 0 1165 0 0 -1245 0
+-1245 -1165 0 -1165 0 0 260 0 260 -40 0 -40 0 0 -300 0 -300 1245 0 1245 0 0
+1325 0 1325 -1245 0 -1245 0 0 -300z"/>
+<path d="M700 1975 l0 -635 145 0 145 0 0 245 0 245 383 0 c422 0 426 1 491
+66 60 60 66 88 66 319 0 190 -2 214 -21 255 -25 56 -53 86 -104 113 -39 22
+-49 22 -572 25 l-533 3 0 -636z m940 245 l0 -100 -325 0 -325 0 0 100 0 100
+325 0 325 0 0 -100z"/>
+<path d="M2320 2601 c-69 -22 -112 -58 -146 -121 -17 -31 -19 -60 -19 -260 0
+-211 1 -227 22 -265 27 -51 68 -90 115 -109 32 -14 98 -16 438 -16 l400 0 0
+-245 0 -245 145 0 145 0 0 536 c0 373 -3 548 -11 575 -16 50 -61 105 -112 132
+-41 22 -48 22 -497 24 -250 1 -466 -2 -480 -6z m810 -381 l0 -100 -340 0 -340
+0 0 100 0 100 340 0 340 0 0 -100z"/>
+<path d="M3650 2607 c0 -1 99 -144 219 -317 l219 -314 -63 -91 c-34 -49 -133
+-191 -219 -315 l-157 -225 172 -3 c97 -1 176 2 183 7 6 5 72 97 146 205 74
+107 138 196 141 196 4 0 71 -92 149 -205 l143 -205 173 0 c96 0 174 2 174 4 0
+3 -95 141 -211 308 -116 167 -214 308 -216 315 -3 7 92 151 211 322 119 170
+216 312 216 315 0 3 -78 6 -174 6 l-174 0 -143 -205 c-78 -113 -145 -205 -149
+-205 -3 0 -70 92 -148 205 l-143 205 -174 0 c-96 0 -175 -1 -175 -3z"/>
+</g>
+</svg>
+</a>
+            </div>
+
+            <p class="text-xs text-center text-gray-500 max-w-[200px]">
+                Профессиональное агентство контекстной рекламы с опытом более 18 лет.
+
+            </p>
+        </div>
+
+        
+        <nav class="mb-8">
+          
+        
+            
+  <nav>
+    <ul>
+    <li class="text-lg font-semibold">
+      <a href="/">Контекстная реклама</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/analytics/">web-аналитика</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a aria-current="true" class="ancestor" href="/posts/">Блог</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/about/">О нас</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Категории</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/job/">Вакансии</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Кейсы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/calculators/">Калькуляторы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/contacts/">Контакты</a>
+    </li>
+    </ul>
+  </nav>
+
+           
+
+        </nav>
+
+        
+        <div class="social-icons  mt-auto">
+<div>
+
+<a href="https://t.me/your_link" target="_blank" class="inline-flex 
+items-center justify-center px-3 py-3 text-white bg-[#2AABEE] font-medium text-sm rounded 
+shadow-md hover:bg-[#279fd9] 
+hover:shadow-lg focus:bg-[#2493c8] 
+focus:shadow-lg focus:outline-none 
+focus:ring-0 active:bg-[#2185b3] active:shadow-lg transition duration-150 ease-in-out">
+  
+     
+<svg width="25px" height="25px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" 
+fill="#fff" class="bi bi-telegram pr-1">
+  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>
+</svg>
+                            
+  
+  Открыть в Telegram
+</a>
+
+</div>
+            <div class="pt-6 flex gap-1 justify-left items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                sale@p9x.ru
+            </div>
+        </div>
+        
+        
+        <div class="mt-8 pt-4 text-xs text-gray-500 border-t border-gray-700">
+            <p>Powered by <a href="#" class="hover:underline">Hugo</a> | Themed with <a href="#" class="hover:underline">poison</a></p>
+            <p>© 2010 - 2025 Poison. All rights reserved.</p>
+        </div>
+    </aside>
+
+  <main class="main-content bg-white">
+ 
+            
+            
+  <article class="prose prose-lg py-8 px-4 max-w-[1200px]">
+    <h1 class="text-2xl font-bold mb-4">
+            Измерение Внутреннего Причинно-Следственного Влияния Ваших Маркетинговых Кампаний
+    </h1>
+
+    
+    
+    <time class="block mb-6 text-gray-500" datetime="2025-11-19T22:09:56&#43;00:00">November 19, 2025</time>
+
+    <div class="content mb-8 ">
+      <h2 id="о-чём-эта-серия-статей">О чём эта серия статей?</h2>
+<p>Добро пожаловать в мою серию статей о причинно-следственном искусственном интеллекте, где мы рассмотрим интеграцию причинно-следственных рассуждений в модели машинного обучения. Ожидайте изучения ряда практических приложений в различных бизнес-контекстах.</p>
+<p>В последней статье мы рассмотрели <em>оптимизацию нелинейных эффектов лечения в ценообразовании и продвижении</em>. На этот раз мы рассмотрим <em>измерение внутреннего причинного влияния ваших маркетинговых кампаний</em>.</p>
+<p>Если вы пропустили последнюю статью о нелинейных эффектах лечения в ценообразовании и продвижении, ознакомьтесь с ней здесь:</p>
+<blockquote>
+<p><strong>Оптимизация нелинейных эффектов лечения в ценообразовании и продвижении</strong></p>
+</blockquote>
+<h2 id="введение">Введение</h2>
+<p>В этой статье я помогу вам понять, как можно измерить внутреннее причинное влияние ваших маркетинговых кампаний.</p>
+<p><strong>Будут рассмотрены следующие аспекты:</strong></p>
+<ul>
+<li>Каковы проблемы, связанные с измерением маркетинга?</li>
+<li>Что такое внутреннее причинное влияние и как оно работает?</li>
+<li>Практический пример в Python, показывающий, как мы можем использовать внутреннее причинное влияние, чтобы отдать должное маркетинговым кампаниям.</li>
+</ul>
+<p>Полную записную книжку можно найти здесь:</p>
+<blockquote>
+<p><strong>causal_ai/notebooks/понимание внутреннего причинного влияния ваших маркетинговых кампаний.ipynb…</strong></p>
+</blockquote>
+<h2 id="каковы-проблемы-связанные-с-измерением-маркетинга">Каковы проблемы, связанные с измерением маркетинга?</h2>
+<h3 id="какие-существуют-типы-маркетинговых-кампаний">Какие существуют типы маркетинговых кампаний?</h3>
+<p>Организации используют маркетинг для развития бизнеса, привлекая новых клиентов и удерживая существующих. Маркетинговые кампании часто делятся на 3 основные категории:</p>
+<ul>
+<li>Бренды;</li>
+<li>Производительность;</li>
+<li>Удержание.</li>
+</ul>
+<p>У каждой из них есть свои уникальные проблемы, связанные с измерением — понимание этих проблем имеет решающее значение.</p>
+<h3 id="бренды">Бренды</h3>
+<p>Цель брендовых кампаний — повысить узнаваемость вашего бренда среди новой аудитории. Они часто проводятся на телевидении и в социальных сетях, причём последние часто в формате видео. У них обычно нет прямого призыва к действию, например, «наш продукт прослужит вам всю жизнь».</p>
+<p>Проблема с измерением телевидения очевидна — мы не можем отследить, кто видел телевизионную рекламу! Но у нас есть аналогичные проблемы и с социальными сетями — если я смотрю видео в Facebook, а затем органически захожу на сайт и покупаю продукт на следующий день, очень маловероятно, что мы сможем связать эти два события.</p>
+<p>Существует также вторичная проблема отсроченного эффекта. При повышении осведомлённости среди новой аудитории может потребоваться несколько дней/недель/месяцев, чтобы они дошли до момента, когда начнут рассматривать возможность покупки вашего продукта.</p>
+<p>Существует спорный аргумент, что брендовые кампании выполняют всю тяжёлую работу — однако, когда дело доходит до измерения маркетинга, они часто недооцениваются из-за некоторых проблем, которые мы выделили выше.</p>
+<h3 id="кампании-по-производительности">Кампании по производительности</h3>
+<p>В целом кампании по производительности нацелены на клиентов, заинтересованных в вашем продукте. Они проводятся через платные поисковые системы, социальные сети и партнёрские каналы. У них обычно есть призыв к действию, например, «нажмите сейчас, чтобы получить скидку 5% на вашу первую покупку».</p>
+<p>Когда дело доходит до кампаний по производительности, не сразу очевидно, почему их сложно измерить. Вполне вероятно, что мы сможем связать событие, когда клиент нажимает на кампанию по производительности, и покупку этого клиента в тот же день.</p>
+<p>Но нажал бы он, если бы не был знаком с брендом? Как он познакомился с брендом? Купили бы они органически, если бы мы не показали им кампанию? На эти вопросы сложно ответить с точки зрения науки о данных!</p>
+<h3 id="кампании-по-удержанию">Кампании по удержанию</h3>
+<p>Другая категория кампаний — удержание. Это маркетинг, направленный на удержание существующих клиентов. Мы обычно проводим A/B-тесты для измерения этих кампаний.</p>
+<h3 id="график-приобретения-маркетинга">График приобретения маркетинга</h3>
+<p>Обычно брендовые и производительные кампании называют маркетингом для привлечения клиентов. Как я уже упоминал ранее, сложно измерить брендовые и производительные кампании — мы часто недооцениваем брендовые кампании и переоцениваем производительные.</p>
+<p>График ниже является мотивирующим (но упрощённым) примером того, как работает маркетинг для привлечения клиентов:</p>
+<p>[Изображение]</p>
+<p>Как мы можем (справедливо) оценить, какой вклад внёс каждый узел в доход? Здесь в игру вступает внутреннее причинное влияние — давайте разберёмся, что это такое в следующем разделе!</p>
+<h2 id="что-такое-внутреннее-причинное-влияние-и-как-оно-работает">Что такое внутреннее причинное влияние и как оно работает?</h2>
+<h3 id="откуда-взялась-концепция">Откуда взялась концепция?</h3>
+<p>Концепция была первоначально предложена в статье в 2020 году, с обновлением в этом году:</p>
+<blockquote>
+<p><strong>Количественная оценка внутренних причинных вкладов посредством структурных вмешательств, сохраняющих структуру</strong></p>
+</blockquote>
+<p>Она реализована в модуле GCM в рамках пакета Python DoWhy:</p>
+<blockquote>
+<p><strong>Количественная оценка внутреннего причинного влияния — документация DoWhy</strong></p>
+</blockquote>
+<p>Я лично обнаружил, что эту концепцию поначалу было довольно сложно понять, поэтому в следующем разделе давайте разберём её шаг за шагом.</p>
+<h3 id="краткий-обзор-о-причинных-графах">Краткий обзор о причинных графах</h3>
+<p>Прежде чем мы попытаемся понять внутреннее причинное влияние, важно иметь представление о причинных графах, структурных причинных моделях (SCM) и аддитивных шумовых моделях (ANM). Моя статья ранее в этой серии должна помочь вам ознакомиться с ними:</p>
+<blockquote>
+<p><strong>Использование причинных графов для ответа на причинные вопросы</strong></p>
+</blockquote>
+<p>Каждый узел в причинном графе можно рассматривать как цель в модели, где его прямые родители используются в качестве признаков. Обычно для каждого неукоренившегося узла используется аддитивная шумовая модель:</p>
+<p>[Изображение]</p>
+<h3 id="что-на-самом-деле-представляет-собой-внутреннее-причинное-влияние">Что на самом деле представляет собой внутреннее причинное влияние?</h3>
+<p>Теперь, когда мы повторили основные моменты о причинных графах, давайте начнём разбираться, что такое внутреннее причинное влияние&hellip;</p>
+<p>Словарное определение слова «внутренний» — «принадлежит естественно». В моей голове я думаю о воронке, и то, что находится наверху воронки, выполняет большую часть работы — мы хотим приписать им ту причинную связь, которую они заслуживают.</p>
+<p>Давайте рассмотрим пример ниже, чтобы помочь нам разобраться во внутреннем причинном влиянии:</p>
+<p>[Изображение]</p>
+<ul>
+<li>A, B и C — корневые узлы.</li>
+<li>D — неукоренившийся узел, который мы можем смоделировать, используя его прямых родителей (A, B, C) и шумовой термин.</li>
+<li>E — неукоренившийся узел, который, как и D, мы можем смоделировать, используя его прямых родителей (A, B, C) и шумовой термин.</li>
+<li>F — целевой узел, который мы можем смоделировать, используя его прямых родителей (D, E) и шумовой термин.</li>
+</ul>
+<p>Давайте сосредоточимся на узле D. Он наследует часть своего влияния на узел F от узлов A, B и C. Внутренняя часть его влияния на узел F, та часть, которая не была просто «унаследована» от A, B и C, исходит от шумового термина. Поэтому мы говорим, что каждый шумовой термин узла может быть использован для оценки внутреннего причинного влияния на целевой узел. Стоит отметить, что корневые узлы состоят только из шума.</p>
+<p>В кейсе мы углубимся в то, как именно рассчитать внутреннее причинное влияние.</p>
+<h3 id="как-это-может-помочь-нам-измерить-наши-маркетинговые-кампании">Как это может помочь нам измерить наши маркетинговые кампании?</h3>
+<p>Надеюсь, вы уже видите связь между примером маркетинга для привлечения клиентов и внутренним причинным влиянием — может ли внутреннее причинное влияние помочь нам перестать недооценивать брендовые кампании и перестать переоценивать производительные кампании? Давайте узнаем в примере!</p>
+<h2 id="пример">Пример</h2>
+<h3 id="предыстория">Предыстория</h3>
+<p>Приближается конец года, и директор по маркетингу находится под давлением со стороны финансового отдела, который требует объяснить, зачем тратить столько денег на маркетинг в следующем году. Финансовый отдел использует модель последнего клика, в которой выручка приписывается последнему просмотренному клиентом элементу. Они задаются вопросом, зачем вообще тратить деньги на телевидение, когда все приходят через органические или социальные каналы!</p>
+<p>Перед командой Data Science поставлена задача оценить внутреннее причинное влияние каждого маркетингового канала.</p>
+<h3 id="настройка-графа-dag">Настройка графа (DAG)</h3>
+<p>Мы начинаем с настройки DAG, используя экспертные знания в предметной области, повторно используя пример маркетинга для привлечения клиентов, который мы рассматривали ранее:</p>
+<pre><code>node_lookup = {0: 'Спрос',
+               1: 'ТВ-расходы',
+               2: 'Социальные расходы', 
+               3: 'Органические клики',                   
+               4: 'Социальные клики',
+               5: 'Выручка'                                                                             
+ }
+
+total_nodes = len(node_lookup)
+
+
+graph_actual = np.zeros((total_nodes, total_nodes))
+
+
+graph_actual[0, 3] = 1.0 
+graph_actual[0, 4] = 1.0 
+graph_actual[1, 3] = 1.0 
+graph_actual[2, 3] = 1.0 
+graph_actual[1, 4] = 1.0 
+graph_actual[2, 4] = 1.0 
+graph_actual[3, 5] = 1.0 
+graph_actual[4, 5] = 1.0 
+</code></pre>
+<p>По сути, модель последнего клика, которую использует финансовый отдел, использует только прямых родителей выручки для измерения маркетинга.</p>
+<p>[Изображение]</p>
+<h3 id="процесс-генерации-данных">Процесс генерации данных</h3>
+<p>Мы создаём несколько выборок данных, следуя процессу генерации данных DAG:</p>
+<ul>
+<li>
+<p>3 корневых узла, состоящих из шумовых терминов; спрос, расходы на бренд и социальные расходы.</p>
+</li>
+<li>
+<p>2 неукоренившихся узла, наследующие влияние от 3 корневых узлов плюс некоторые шумовые термины; органические клики, социальные клики.</p>
+</li>
+<li>
+<p>1 целевой узел, наследующий влияние от 2 неукоренившихся узлов плюс шумовой термин; выручка.</p>
+<p>df = pd.DataFrame(columns=node_lookup.values())</p>
+<p>df[node_lookup[0]] = np.random.normal(100000, 25000, size=(20000))
+df[node_lookup[1]] = np.random.normal(100000, 20000, size=(20000))
+df[node_lookup[2]] = np.random.normal(100000, 25000, size=(20000))
+df[node_lookup[3]] = 0.75 * df[node_lookup[0]] + 0.50 * df[node_lookup[1]] + 0.25 * df[node_lookup[2]] + np.random.normal(loc=0, scale=2000, size=20000)
+df[node_lookup[4]] = 0.30 * df[node_lookup[0]] + 0.50 * df[node_lookup[1]] + 0.70 * df[node_lookup[2]] + np.random.normal(100000, 25000, size=(20000))
+df[node_lookup[5]] = df[node_lookup[3]] + df[node_lookup[4]] + np.random.normal(loc=0, scale=2000, size=20000)</p>
+</li>
+</ul>
+<h3 id="обучение-scm">Обучение SCM</h3>
+<p>Теперь мы можем обучить SCM, используя модуль GCM из пакета Python DoWhy. Мы настраиваем процесс генерации данных с линейными отношениями, поэтому мы можем использовать гребневую регрессию в качестве причинного механизма для каждого неукоренившегося узла:</p>
+<pre><code>graph = nx.from_numpy_array(graph_actual, create_using=nx.DiGraph)
+graph = nx.relabel_nodes(graph, node_lookup)
+
+
+causal_model = gcm.InvertibleStructuralCausalModel(graph)
+
+causal_model.set_causal_mechanism('Demand', gcm.EmpiricalDistribution()) 
+causal_model.set_causal_mechanism('TV spend', gcm.EmpiricalDistribution()) 
+causal_model.set_causal_mechanism('Social spend', gcm.EmpiricalDistribution()) 
+
+causal_model.set_causal_mechanism('Organic clicks', gcm.AdditiveNoiseModel(gcm.ml.create_ridge_regressor())) 
+causal_model.set_causal_mechanism('Social clicks', gcm.AdditiveNoiseModel(gcm.ml.create_ridge_regressor())) 
+causal_model.set_causal_mechanism('Revenue', gcm.AdditiveNoiseModel(gcm.ml.create_ridge_regressor())) 
+
+gcm.fit(causal_model, df)
+</code></pre>
+<p>Альтернативно мы можем использовать функцию auto_assignment для автоматического назначения моделей (вместо их ручного определения).</p>
+<p>Я пропущу оценку модели, так как это не в центре внимания моей статьи. Однако мы можем оценить причинную модель, используя GCM:</p>
+<blockquote>
+<p><strong>Оценка GCM — документация DoWhy</strong></p>
+</blockquote>
+<h3 id="внутреннее-причинное-влияние">Внутреннее причинное влияние</h3>
+<p>Мы можем легко вычислить внутреннее причинное влияние, используя модуль GCM. Мы делаем это и преобразуем вклады в проценты:</p>
+<pre><code>ici = gcm.intrinsic_causal_influence(causal_model, target_node='Revenue')
+
+def convert_to_percentage(value_dictionary):
+    total_absolute_sum = np.sum([abs(v) for v in value_dictionary.values()])
+    return {k: round(abs(v) / total_absolute_sum * 100, 1) for k, v in value_dictionary.items()}
+
+convert_to_percentage(ici)
+</code></pre>
+<p>[Изображение]</p>
+<p>Давайте покажем это на гистограмме:</p>
+<pre><code>df = pd.DataFrame(list(ici.items()), columns=['Node', 'Внутреннее причинное влияние'])
+
+
+plt.figure(figsize=(10, 6))
+sns.barplot(x='Node', y='Внутреннее причинное влияние', data=df)
+
+
+plt.xticks(rotation=45)
+plt.title('Гистограмма из данных словаря')
+plt.show()
+</code></pre>
+<p>[Изображение]</p>
+<p>Являются ли наши результаты интуитивно понятными? Если вы посмотрите на код, генерирующий данные, вы увидите, что они такие! Обратите внимание на то, что наследуется каждым неукоренившимся узлом и какой дополнительный шум добавляется.</p>
+<p>Модуль внутреннего причинного влияния действительно прост в использовании, но он не помогает нам понять метод, лежащий в его основе — чтобы закончить, давайте разберёмся, как работает внутреннее причинное влияние!</p>
+<h3 id="внутреннее-причинное-влияние--как-это-работает">Внутреннее причинное влияние — как это работает?</h3>
+<p>Мы хотим оценить, какой вклад вносит шумовой термин каждого узла в целевой узел:</p>
+<ul>
+<li>Стоит помнить, что корневые узлы состоят только из шумового термина.</li>
+<li>В неукоренившихся узлах мы отделяем шумовой термин от того, что было унаследовано от родителей.</li>
+<li>Мы также включаем шумовой термин из целевого узла — это можно интерпретировать как вклад ненаблюдаемых конфаундеров или невидимых факторов, влияющих на выручку, но не на узлы выше по течению (хотя это также может быть связано с неправильной спецификацией модели).</li>
+<li>Шумовые термины затем используются для объяснения дисперсии в целевом узле — это можно увидеть как модель с шумовыми терминами в качестве признаков и целевым узлом в качестве результата.</li>
+<li>Модель используется для оценки условного распределения целевого узла при заданных подмножествах шумовых переменных.</li>
+<li>Затем используется Shapley для оценки вклада каждого шумового термина — если изменение шумового термина мало влияет на цель, то внутреннее причинное влияние будет очень маленьким.</li>
+</ul>
+<h2 id="заключительные-мысли">Заключительные мысли</h2>
+<p>Сегодня мы рассмотрели, как можно оценить внутреннее причинное влияние ваших маркетинговых кампаний. Вот несколько заключительных мыслей:</p>
+<ul>
+<li>Внутреннее причинное влияние — это мощная концепция, которую можно применять в разных случаях использования, а не только в маркетинге.</li>
+<li>Понимание внутренней работы поможет вам применять его более эффективно.</li>
+<li>Выявление DAG и точная оценка графика являются ключом к получению разумных оценок внутреннего причинного влияния.</li>
+<li>В примере с маркетингом для привлечения клиентов вы можете подумать о добавлении запаздывающих эффектов для брендового маркетинга.</li>
+</ul>
+<hr>
+<p>Подписывайтесь на меня, если хотите продолжить это путешествие в мир причинно-следственного искусственного интеллекта — в следующей статье мы рассмотрим, как можно проверить и откалибровать наши причинные модели, используя синтетический контроль.</p>
+<h2 id="ссылки">Ссылки</h2>
+<ul>
+<li>Dominik Janzing, Patrick Blöbaum, Atalanti A Mastakouri, Philipp M Faller, Lenon Minorics, Kailash Budhathoki. &ldquo;Quantifying intrinsic causal contributions via structure preserving interventions&rdquo;; Proceedings of The 27th International Conference on Artificial Intelligence and Statistics, PMLR 238:2188–2196: <a href="https://proceedings.mlr.press/v238/janzing24a.html">https://proceedings.mlr.press/v238/janzing24a.html</a></li>
+<li>Patrick Blöbaum, Peter Götz, Kailash Budhathoki, Atalanti A. Mastakouri, Dominik Janzing. &ldquo;DoWhy-GCM: An Extension of DoWhy for Causal Inference in Graphical Causal Models&rdquo;; Journal of Machine Learning Research, MLOSS 25(147):1−7, 2024: <a href="https://jmlr.org/papers/v25/22-1258.html">https://jmlr.org/papers/v25/22-1258.html</a></li>
+</ul>
+
+    </div>
+
+    <div class="tags mt-8">
+      
+
+    </div>
+  </article>
+
+          
+            
+  </main>          
+
+    <script>
+
+        
+        
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const sidebar = document.querySelector('.sidebar');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+        
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                if (entry.isIntersecting) {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.add('active');
+                    });
+                } else {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.remove('active');
+                    });
+                }
+            });
+        }, observerOptions);
+        
+        
+        document.querySelectorAll('h2[id]').forEach(heading => {
+            observer.observe(heading);
+        });
+    </script>
+
+
+  <footer class="px-6 py-12 bg-sky-950 text-white/50">
+    
+<p>P9X.ru 2010 - 2025г. услуги интернет маркетинга</p>
+
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105149615', 'ym');
+
+    ym(105149615, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/105149615" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+  </footer>
+</body>
+</html>

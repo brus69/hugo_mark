@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Что такое OKR? Полное Руководство С Примерами | Агентство контекстной рекламы</title>
+<meta name="description" content="OKR позволяют командам ставить амбициозные цели и структурированно отслеживать прогресс. Здесь мы обсуждаем OKR и приводим примеры из реальной жизни.">
+<meta name="yandex-verification" content="242f5a0ee52d5836" />
+
+<link rel="icon" type="image/x-icon" href="http://localhost:1313/favicon.ico">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+ <style>
+  .content h1 { 
+        font-size: 1.875rem; 
+        font-weight: bold; 
+        margin-bottom: 1rem; 
+    }
+    .content h2 { 
+        font-size: 1.5rem; 
+        font-weight: 600; 
+        margin-bottom: 0.75rem; 
+    }
+    .content h3 { 
+        font-size: 1.25rem; 
+        font-weight: 500; 
+        margin-bottom: 0.5rem; 
+    }
+    .content p { 
+        margin-bottom: 1rem; 
+    }
+    .content ul { 
+        list-style-type: disc; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content ol { 
+        list-style-type: decimal; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content a { 
+        color: #2563eb; 
+    }
+    .content a:hover { 
+        color: #1e40af; 
+    }
+    .content blockquote { 
+        border-left: 4px solid #d1d5db; 
+        padding-left: 1rem; 
+        font-style: italic; 
+    }
+
+    
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.875rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+.dark-mode .content table {
+    border: 1px solid #4b5563;
+}
+
+.content thead {
+    background-color: #eaebec;
+}
+
+.dark-mode .content thead {
+    background-color: #374151;
+}
+
+.content th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.dark-mode .content th {
+    color: #f9fafb;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content th:last-child {
+    border-right: none;  
+}
+
+.content td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    color: #6b7280;
+}
+
+.dark-mode .content td {
+    color: #d1d5db;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content td:last-child {
+    border-right: none;  
+}
+
+.content tbody tr {
+    transition: background-color 0.15s ease-in-out;
+}
+
+.content tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.dark-mode .content tbody tr:hover {
+    background-color: #374151;
+}
+
+.content tbody tr:last-child td {
+    border-bottom: none;
+}
+
+ 
+.content tbody tr:nth-child(even) {
+    background-color: #f4f5f7;
+}
+
+.dark-mode .content tbody tr:nth-child(even) {
+    background-color: #1f2937;
+}
+
+.dark-mode .content tbody tr:nth-child(even):hover {
+    background-color: #374151;
+}
+
+ 
+.content code:not(pre code) {
+    background-color: #f3f4f6;
+    color: #dc2626;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    font-weight: 500;
+    border: 1px solid #e5e7eb;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+}
+
+.dark-mode .content code:not(pre code) {
+    background-color: #224464;
+    color: #f87171;
+    border: 1px solid #4b5563;
+}
+
+ 
+.content pre {
+    background-color: #224464;
+    color: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid #374151;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.dark-mode .content pre {
+    background-color: #111827;
+    border: 1px solid #374151;
+}
+
+ 
+.content pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+    font-weight: normal;
+}
+
+ 
+.content pre code .keyword { color: #f472b6; }  
+.content pre code .function { color: #60a5fa; }  
+.content pre code .string { color: #34d399; }  
+.content pre code .comment { color: #9ca3af; font-style: italic; }  
+.content pre code .number { color: #fbbf24; }  
+.content pre code .class { color: #c084fc; }  
+.content pre code .operator { color: #93c5fd; }  
+
+ 
+.content pre::-webkit-scrollbar {
+    height: 6px;
+}
+
+.content pre::-webkit-scrollbar-track {
+    background: #374151;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.content pre::-webkit-scrollbar-thumb {
+    background: #6b7280;
+    border-radius: 3px;
+}
+
+.content pre::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+ 
+.content h1 code:not(pre code),
+.content h2 code:not(pre code),
+.content h3 code:not(pre code) {
+    font-size: 0.9em;
+    background-color: #fef2f2;
+    color: #dc2626;
+}
+
+.dark-mode .content h1 code:not(pre code),
+.dark-mode .content h2 code:not(pre code),
+.dark-mode .content h3 code:not(pre code) {
+    background-color: #7f1d1d;
+    color: #fca5a5;
+}
+
+ 
+.content a code:not(pre code) {
+    color: inherit;
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+.dark-mode .content a code:not(pre code) {
+    background-color: rgba(96, 165, 250, 0.2);
+}
+        :root {
+            --color-bg: #1a1a1a;
+            --color-text: #e6e6e6;
+            --color-accent: #6b7280;
+            --color-link: #9ca3af;
+            --color-link-hover: #d1d5db;
+        }
+        
+        .light-mode {
+            --color-bg: #f9fafb;
+            --color-text: #1f2937;
+            --color-accent: #6b7280;
+            --color-link: #4b5563;
+            --color-link-hover: #111827;
+        }
+        
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        a {
+            color: var(--color-link);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: var(--color-link-hover);
+        }
+        
+        .sidebar {
+            position: fixed;
+             
+            height: 100vh;
+            overflow-y: auto;
+            
+        }
+        
+        .main-content {
+            margin-left: 350px;
+            
+             
+        }
+        
+        .toc-container {
+            position: fixed;
+            right: 2rem;
+            top: 2rem;
+            width: 250px;
+            display: none;
+        }
+        
+        @media (min-width: 1280px) {
+            .toc-container {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 50;
+            }
+            
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+                 
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: fixed;
+                top: 1rem;
+                left: 1rem;
+                z-index: 100;
+            }
+        }
+        
+        .toc-link.active {
+            color: var(--color-link-hover);
+            font-weight: bold;
+        }
+        
+        .social-icons a {
+            margin-right: 0.5rem;
+        }
+        
+        pre {
+            background-color: rgba(107, 114, 128, 0.1);
+            padding: 1rem;
+            border-radius: 0.25rem;
+            overflow-x: auto;
+        }
+        
+        code {
+            font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+    </style>
+</head>
+  <body class="light-mode">
+      <header>
+    
+  </header>
+    
+    <button class="mobile-menu-btn p-2 bg-gray-800 text-white rounded md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+    
+    <aside class="sidebar border-r-4 border-sky-800  min-w-[350px] py-12 px-10 bg-gradient-to-br from-cyan-200 via-green-100 to-sky-100">
+        <div class="flex flex-col items-center mb-8">
+                
+            
+            <div class="w-24 h-24 mb-4 relative">
+                <a href="/">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ viewBox="0 0 550.000000 385.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,385.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M2780 3000 l0 -300 40 0 40 0 0 260 0 260 1165 0 1165 0 0 -1245 0
+-1245 -1165 0 -1165 0 0 260 0 260 -40 0 -40 0 0 -300 0 -300 1245 0 1245 0 0
+1325 0 1325 -1245 0 -1245 0 0 -300z"/>
+<path d="M700 1975 l0 -635 145 0 145 0 0 245 0 245 383 0 c422 0 426 1 491
+66 60 60 66 88 66 319 0 190 -2 214 -21 255 -25 56 -53 86 -104 113 -39 22
+-49 22 -572 25 l-533 3 0 -636z m940 245 l0 -100 -325 0 -325 0 0 100 0 100
+325 0 325 0 0 -100z"/>
+<path d="M2320 2601 c-69 -22 -112 -58 -146 -121 -17 -31 -19 -60 -19 -260 0
+-211 1 -227 22 -265 27 -51 68 -90 115 -109 32 -14 98 -16 438 -16 l400 0 0
+-245 0 -245 145 0 145 0 0 536 c0 373 -3 548 -11 575 -16 50 -61 105 -112 132
+-41 22 -48 22 -497 24 -250 1 -466 -2 -480 -6z m810 -381 l0 -100 -340 0 -340
+0 0 100 0 100 340 0 340 0 0 -100z"/>
+<path d="M3650 2607 c0 -1 99 -144 219 -317 l219 -314 -63 -91 c-34 -49 -133
+-191 -219 -315 l-157 -225 172 -3 c97 -1 176 2 183 7 6 5 72 97 146 205 74
+107 138 196 141 196 4 0 71 -92 149 -205 l143 -205 173 0 c96 0 174 2 174 4 0
+3 -95 141 -211 308 -116 167 -214 308 -216 315 -3 7 92 151 211 322 119 170
+216 312 216 315 0 3 -78 6 -174 6 l-174 0 -143 -205 c-78 -113 -145 -205 -149
+-205 -3 0 -70 92 -148 205 l-143 205 -174 0 c-96 0 -175 -1 -175 -3z"/>
+</g>
+</svg>
+</a>
+            </div>
+
+            <p class="text-xs text-center text-gray-500 max-w-[200px]">
+                Профессиональное агентство контекстной рекламы с опытом более 18 лет.
+
+            </p>
+        </div>
+
+        
+        <nav class="mb-8">
+          
+        
+            
+  <nav>
+    <ul>
+    <li class="text-lg font-semibold">
+      <a href="/">Контекстная реклама</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/analytics/">web-аналитика</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a aria-current="true" class="ancestor" href="/posts/">Блог</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/about/">О нас</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Категории</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/job/">Вакансии</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Кейсы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/calculators/">Калькуляторы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/contacts/">Контакты</a>
+    </li>
+    </ul>
+  </nav>
+
+           
+
+        </nav>
+
+        
+        <div class="social-icons  mt-auto">
+<div>
+
+<a href="https://t.me/your_link" target="_blank" class="inline-flex 
+items-center justify-center px-3 py-3 text-white bg-[#2AABEE] font-medium text-sm rounded 
+shadow-md hover:bg-[#279fd9] 
+hover:shadow-lg focus:bg-[#2493c8] 
+focus:shadow-lg focus:outline-none 
+focus:ring-0 active:bg-[#2185b3] active:shadow-lg transition duration-150 ease-in-out">
+  
+     
+<svg width="25px" height="25px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" 
+fill="#fff" class="bi bi-telegram pr-1">
+  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>
+</svg>
+                            
+  
+  Открыть в Telegram
+</a>
+
+</div>
+            <div class="pt-6 flex gap-1 justify-left items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                sale@p9x.ru
+            </div>
+        </div>
+        
+        
+        <div class="mt-8 pt-4 text-xs text-gray-500 border-t border-gray-700">
+            <p>Powered by <a href="#" class="hover:underline">Hugo</a> | Themed with <a href="#" class="hover:underline">poison</a></p>
+            <p>© 2010 - 2025 Poison. All rights reserved.</p>
+        </div>
+    </aside>
+
+  <main class="main-content bg-white">
+ 
+            
+            
+  <article class="prose prose-lg py-8 px-4 max-w-[1200px]">
+    <h1 class="text-2xl font-bold mb-4">
+            Что такое OKR? Полное Руководство С Примерами
+    </h1>
+
+    
+    
+    <time class="block mb-6 text-gray-500" datetime="2025-11-19T22:09:56&#43;00:00">November 19, 2025</time>
+
+    <div class="content mb-8 ">
+      <p>Несмотря на наличие отличного продукта, рынка и команды, компании часто оказываются без надёжного компаса, который указывал бы им правильное направление.</p>
+<p>Этот компас должен быть более конкретным, чем общие термины вроде «рост» или «успех» — и вот тут в игру вступают цели и ключевые результаты (OKR).</p>
+<p>OKR существуют для того, чтобы помочь предприятиям устанавливать измеримые цели адаптивным образом, оставаясь при этом количественно определяемыми и облегчая управление целями в командах. Этот термин отличается от ключевых показателей эффективности (KPI) тем, что фокусируется на конкретных целях компании, а не на статических показателях.</p>
+<h3 id="понимание-структуры-okr">Понимание структуры OKR</h3>
+<p>Структура OKR начинается с чётких, ориентированных на действие целей, которые ключевые заинтересованные стороны могут легко понять и вписать в контекст своих повседневных задач.</p>
+<p>Чтобы получить общее представление о целях OKR, обратитесь к Энди Гроуву или к тому, что Джон Доэрр говорит в своём легендарном эссе «Измеряй то, что имеет значение». Лучшие OKR — это мощные инструменты лидерства, которые дают командам «Полярную звезду» на определённый период времени, будь то постановка целей, сосредоточенность на показателях или использование программного обеспечения OKR для того, чтобы оставаться на правильном пути.</p>
+<p>Ещё одна ключевая концепция мышления OKR — борьба с двусмысленностью или недопониманием, которое часто может возникать между командами и лицами, принимающими решения. С сильными, тщательно отобранными OKR для согласования команд, у них теперь есть общий словарь успеха, который поможет им не сбиться с пути в течение недель, месяцев и лет.</p>
+<p>Наконец, структуры OKR должны быть структурированы именно так, как предполагает название; именно ключевые результаты работают как показатели, определяющие прогресс конечной цели. Такое видение позволяет командам выходить за рамки цифр и нацеливаться на амбициозные проекты, которые могут поднять бизнес на новый уровень успеха.</p>
+<h3 id="в-чём-разница-между-okr-и-kpi">В чём разница между OKR и KPI?</h3>
+<p>OKR и KPI часто объединяют в один разговор, и на это есть веские причины. Оба играют роль в передаче идей о производительности бизнеса и о том, куда нужно двигаться, и между ними, безусловно, может быть некоторое совпадение.</p>
+<p>Однако у OKR и KPI есть различия, которые необходимо признать, чтобы получить лучшее от обоих миров. Например, OKR являются совместными и сборными, что позволяет использовать их в более широком диапазоне приложений, которые могут выходить за рамки статического набора KPI. С другой стороны, хорошие KPI предоставляют заинтересованным сторонам надёжный набор показателей, которым они могут доверять, продвигая проекты и инвестиции вперёд.</p>
+<p>Если вы уже управляете компанией или командой, вы, вероятно, используете ту или иную форму OKR — вы просто можете пока не знать об этом. Это ваш шанс использовать OKR правильно и внедрить их таким образом, чтобы расширить возможности членов команды и вписать их в более широкую картину того, чего компания стремится достичь.</p>
+<h3 id="7-шаблонов-okr-для-компаний-и-команд-созданных-ведущими-техническими-умами">7 шаблонов OKR для компаний и команд, созданных ведущими техническими умами</h3>
+<p>Преимущества OKR могут стать более понятными, если рассматривать их в контексте реальных бизнес-целей на уровне компании. Здесь мы описываем методологию OKR на практических примерах, которые использовались для измерения прогресса, определения этапов и поддержания движения цикла OKR.</p>
+<h4 id="1-визуальная-дорожная-карта-okr-сейчасдалеепозже-в-vertical-city">1. Визуальная дорожная карта OKR «Сейчас/Далее/Позже» в Vertical City</h4>
+<p>Как директор по управлению проектами в Vertical City, Эндрю Уильямс имел работоспособную дорожную карту для своей команды. Однако ему не хватало чётких показателей, которые можно было бы легко донести до всех, поэтому он добавил OKR в дорожную карту и обеспечил совместную работу команд для достижения согласованных целей компании.</p>
+<p>Эта дорожная карта использовала структуру «Сейчас/Далее/Позже», добавив столь необходимый визуальный элемент, над которым команды могли бы сотрудничать и использовать каждый день. С помощью цветового кодирования и чётких сроков выполнения работ Vertical City объединяла команды по ключевым целям, даже когда разные продуктовые команды работали над разными задачами.</p>
+<h4 id="2-нарративы-обязательства-и-задачи-в-outpace">2. Нарративы, обязательства и задачи в Outpace</h4>
+<p>Когда менеджеры по продуктам ориентированы на чёткие OKR, происходит волшебство. Это обнаружил соучредитель и генеральный директор Outpace Рави Мехта, используя структуру OKR «Нарративы, обязательства и задачи» для постановки целей для компании во время запуска их мобильного продукта.</p>
+<p>Эта история успеха демонстрирует силу OKR в ключевых моментах, таких как запуск продукта или ребрендинг, когда компании могут быть уязвимы к ошибкам или недопониманию. Мехта зашёл так далеко, что задокументировал команде не только цели, но и не-цели, чтобы добавить ещё один уровень уверенности и заставить всех работать над показателями, которые действительно имели значение в то время.</p>
+<h4 id="3-квартальные-okr-для-команды-роста-в-ladderio">3. Квартальные OKR для команды роста в Ladder.io</h4>
+<p>Визуальный компонент структур OKR особенно эффективен, когда ключевые заинтересованные стороны могут видеть, как их проекты способствуют достижению более широких бизнес-целей. Адам Весоловски из Ladder.io наблюдал, как это происходит в режиме реального времени, когда он использовал OKR в качестве лидера команды роста, разъясняя смысл KPI и способы продвижения этих измеримых ключевых результатов вперёд.</p>
+<p>Этот пример также является напоминанием об эволюционирующей природе отличных OKR — они должны быть прозрачными и подлежать изменению, чтобы не стать устаревшими. Весоловски также обнаружил, что система оценок помогла измерить прогресс и установить реалистичные цели, которые всё ещё были амбициозными и подталкивали членов команды работать наилучшим образом.</p>
+<h4 id="4-введение-okr-для-нетехнических-команд">4. Введение OKR для нетехнических команд</h4>
+<p>Обычно OKR используются для того, чтобы привести технические команды в соответствие с более широкими целями компании, но маркетолог по развитию роста Эрика Терранова обнаружила, что они так же эффективны и для нетехнических команд, если применять их правильно. Она внедрила OKR и гибкие ритуалы, чтобы повысить эффективность своей маркетинговой команды и согласовать маркетологов с другими отделами по всей организации.</p>
+<p>Она также предложила членам команды написать собственные OKR, доказав, что это упражнение весьма адаптируемо и ценно для всех участников.</p>
+<h4 id="5-команда-поддержки-для-квартальных-okr-в-whimsical">5. Команда поддержки для квартальных OKR в Whimsical</h4>
+<p>Поскольку удовлетворённость клиентов является ключом к успеху сегодняшних технологических компаний, установка OKR может иметь решающее значение для команд, занимающихся поддержкой клиентов. Джейд Ширстон обнаружила, что её команда процветает при использовании квартальных OKR, отслеживая цели, ключевые результаты и инициативы на уровне компании.</p>
+<p>Пока основная команда использовала OKR ежедневно, они были видны всей компании, чтобы каждый мог внести свой вклад, добавив уровень прозрачности, который согласовывал несколько отделов одновременно. Используя цветовые схемы, команда могла более чётко сообщать о целях и предотвращать недопонимание в критические моменты.</p>
+<h4 id="6-асинхронный-обзор-okr-в-tidio">6. Асинхронный обзор OKR в Tidio</h4>
+<p>Поскольку многие команды занимаются несколькими проектами, весенние обзоры отнимали слишком много времени и энергии в Tidio. Руководитель проекта Пшемык Шустка использовал систему обзора OKR, чтобы асинхронные встречи могли проходить для экономии времени, сохраняя при этом движение проектов.</p>
+<p>Этот шаблон включает видео и фокусируется на результатах и целях, позволяя нескольким командам выпускать свои продукты по своему графику, оставаясь при этом в соответствии с общей картиной. Этот пример показал, что хорошие OKR высокоэффективны как на уровне небольшой команды, так и в масштабе всей компании, а также устраняют разрыв между ними с помощью общих целей и языка.</p>
+<h4 id="7-еженедельный-мониторингкомандные-проверки-в-bonsai">7. Еженедельный мониторинг/командные проверки в Bonsai</h4>
+<p>В Bonsai вице-президент по маркетингу Ева Тувенот увидела, что командные проверки проходят не так гладко, как хотелось бы. С помощью еженедельного мониторинга и проверок в формате шаблона OKR она смогла более эффективно структурировать встречи и более организованно привлекать членов команды к ответственности.</p>
+<p>Поскольку встречи являются неотъемлемой частью повседневной жизни в такой стартап-компании, как Bonsai, внедрение этой системы OKR стало настоящим изменением правил игры. Ева предлагает руководителям команд использовать раздел обратной связи в OKR, чтобы гарантировать, что все члены команды получают необходимую поддержку от высшего руководства.</p>
+<h3 id="советы-по-созданию-собственных-okr">Советы по созданию собственных OKR</h3>
+<p>Создание OKR может показаться сложной задачей, но артефакты Reforge — отличный способ запустить творческий процесс, оставив при этом достаточно места для персонализации и адаптации.</p>
+<p>Более того, лучшие OKR не бывают многословными или сложными. Вместо этого они должны быть краткими, лаконичными и иметь чёткую цель, которую члены команды могут сразу понять и реализовать. На самом деле, выигрышные OKR — это те, которые члены команды захотят использовать ежедневно, а не воспринимать как рутину — это помогает командам быть согласованными и работать над достижением целей без OKR, не замедляя при этом прогресс.</p>
+<p>Короче говоря, OKR должны быть вдохновляющими, расширяющими возможности и помогать командам достичь следующего уровня успеха, не замедляя их. Вот почему шаблоны и артефакты от Reforge так ценны, позволяя вашей команде быстро внедрить OKR, которые имеют значение, а не просто добавляют ненужную сложность.</p>
+
+    </div>
+
+    <div class="tags mt-8">
+      
+
+    </div>
+  </article>
+
+          
+            
+  </main>          
+
+    <script>
+
+        
+        
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const sidebar = document.querySelector('.sidebar');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+        
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                if (entry.isIntersecting) {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.add('active');
+                    });
+                } else {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.remove('active');
+                    });
+                }
+            });
+        }, observerOptions);
+        
+        
+        document.querySelectorAll('h2[id]').forEach(heading => {
+            observer.observe(heading);
+        });
+    </script>
+
+
+  <footer class="px-6 py-12 bg-sky-950 text-white/50">
+    
+<p>P9X.ru 2010 - 2025г. услуги интернет маркетинга</p>
+
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105149615', 'ym');
+
+    ym(105149615, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/105149615" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+  </footer>
+</body>
+</html>
