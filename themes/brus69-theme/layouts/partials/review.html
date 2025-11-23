@@ -1,68 +1,140 @@
-<div class="bg-white p-8">
-  <!-- Header -->
-  <div class="flex items-center justify-between mb-6">
-    <h2 class="text-2xl font-bold text-gray-800">Что о нас говорят</h2>
-    
-    <!-- Rating Badges -->
-    <div class="flex space-x-4">
-      <div class="flex items-center bg-white border border-gray-200 rounded-lg px-4 py-2">
-        <img src="https://placehold.co/20x20/FFD700/white?text=Y" alt="Yandex" class="w-5 h-5 mr-2">
-        <span class="text-sm font-medium">Yandex 4.8</span>
-        <span class="text-yellow-500 ml-1">★★★★★</span>
-      </div>
-      <div class="flex items-center bg-white border border-gray-200 rounded-lg px-4 py-2">
-        <img src="https://placehold.co/20x20/4285F4/white?text=G" alt="Google" class="w-5 h-5 mr-2">
-        <span class="text-sm font-medium">Google 4.9</span>
-        <span class="text-yellow-500 ml-1">★★★★★</span>
-      </div>
-    </div>
+<div class="min-h-full bg-gradient-to-b from-white to-slate-50 text-slate-800">
+    <main class="max-w-7xl mx-auto px-6 py-16">
+      <section aria-labelledby="reviews-title" class="relative overflow-hidden">
+        <div class="absolute inset-0 -z-10 bg-gradient-to-br from-brand-50 via-white to-slate-100"></div>
+        <header class="text-center">
+          <h1 id="reviews-title" class="text-3xl sm:text-4xl font-bold tracking-tight">Отзывы наших клиентов</h1>
+          <p class="mt-4 text-slate-600 max-w-2xl mx-auto">
+            Мы ценим обратную связь и делаем всё, чтобы сотрудничество было удобным, прозрачным и результативным.
+          </p>
+          <div class="mx-auto mt-6 h-1 w-20 bg-brand-500 rounded-full"></div>
+        </header>
+
+        <!-- Сетка отзывов -->
+        <ul role="list" aria-label="Отзывы клиентов" class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Отзыв 1 -->
+          <li class="">
+            <article class="h-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-soft">
+              <div class="flex items-center gap-3">
+                <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-600 text-white font-semibold">ВСК</span>
+                <div>
+                  <h3 class="font-semibold text-slate-900">ГК ВСК</h3>
+                  <p class="text-sm text-slate-500">промышленность</p>
+                </div>
+              </div>
+              <div class="mt-4 flex items-center gap-1 text-amber-400" aria-label="Оценка 5 из 5">
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.802 2.035a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.538 1.118L12.4 14.347a1 1 0 00-1.175 0l-2.977 2.136c-.783.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L3.61 8.72c-.783-.57-.38-1.81.588-1.81h3.462a1 1 0 00.95-.69l1.44-3.292z"/></svg>
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.802 2.035a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.538 1.118L12.4 14.347a1 1 0 00-1.175 0l-2.977 2.136c-.783.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L3.61 8.72c-.783-.57-.38-1.81.588-1.81h3.462a1 1 0 00.95-.69l1.44-3.292z"/></svg>
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.802 2.035a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.538 1.118L12.4 14.347a1 1 0 00-1.175 0l-2.977 2.136c-.783.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L3.61 8.72c-.783-.57-.38-1.81.588-1.81h3.462a1 1 0 00.95-.69l1.44-3.292z"/></svg>
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.802 2.035a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.538 1.118L12.4 14.347a1 1 0 00-1.175 0l-2.977 2.136c-.783.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L3.61 8.72c-.783-.57-.38-1.81.588-1.81h3.462a1 1 0 00.95-.69l1.44-3.292z"/></svg>
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.802 2.035a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.538 1.118L12.4 14.347a1 1 0 00-1.175 0l-2.977 2.136c-.783.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L3.61 8.72c-.783-.57-.38-1.81.588-1.81h3.462a1 1 0 00.95-.69l1.44-3.292z"/></svg>
+              </div>
+              <blockquote class="mt-3 text-slate-700">Сотрудничаем более года — команда быстро реагирует, предлагает понятные решения и соблюдает сроки.</blockquote>
+              <p class="mt-4 text-sm text-slate-500">— Руководитель проектов</p>
+            </article>
+          </li>
+
+          <!-- Отзыв 2 -->
+          <li>
+            <article class="h-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-soft">
+              <div class="flex items-center gap-3">
+                <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-600 text-white font-semibold">ГС</span>
+                <div>
+                  <h3 class="font-semibold text-slate-900">Геосуппорт</h3>
+                  <p class="text-sm text-slate-500">промышленность</p>
+                </div>
+              </div>
+              <div class="mt-4 flex items-center gap-1 text-amber-400" aria-label="Оценка 5 из 5">
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927..."/></svg>
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927..."/></svg>
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927..."/></svg>
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927..."/></svg>
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927..."/></svg>
+              </div>
+              <blockquote class="mt-3 text-slate-700">Отличная коммуникация и аккуратная работа с дизайном. Рекомендуем!</blockquote>
+              <p class="mt-4 text-sm text-slate-500">— Маркетинг-директор</p>
+            </article>
+          </li>
+
+          <!-- Отзыв 3 -->
+          <li>
+            <article class="h-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-soft">
+              <div class="flex items-center gap-3">
+                <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-600 text-white font-semibold">ПАР</span>
+                <div>
+                  <h3 class="font-semibold text-slate-900">Группа Партнер</h3>
+                  <p class="text-sm text-slate-500">промышленность</p>
+                </div>
+              </div>
+              <div class="mt-4 flex items-center gap-1 text-amber-400" aria-label="Оценка 4 из 5">
+                <span class="sr-only">Рейтинг: 4</span>
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927..."/></svg>
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927..."/></svg>
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927..."/></svg>
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927..."/></svg>
+                <svg class="h-5 w-5 text-slate-300" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927..."/></svg>
+              </div>
+              <blockquote class="mt-3 text-slate-700">Сильная экспертность и внимание к деталям. Запуск прошёл без срывов.</blockquote>
+              <p class="mt-4 text-sm text-slate-500">— Руководитель IT</p>
+            </article>
+          </li>
+
+          <!-- Отзыв 4 -->
+          <li>
+            <article class="h-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-soft">
+              <div class="flex items-center gap-3">
+                <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-600 text-white font-semibold">СПС</span>
+                <div>
+                  <h3 class="font-semibold text-slate-900">Спецпромсервис</h3>
+                  <p class="text-sm text-slate-500">промышленность</p>
+                </div>
+              </div>
+              <div class="mt-4 flex items-center gap-1 text-amber-400" aria-label="Оценка 5 из 5">
+                <span class="sr-only">Рейтинг: 5</span>
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927..."/></svg>
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927..."/></svg>
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927..."/></svg>
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927..."/></svg>
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927..."/></svg>
+              </div>
+              <blockquote class="mt-3 text-slate-700">Быстрые правки, понятные отчёты и хорошее качество на выходе.</blockquote>
+              <p class="mt-4 text-sm text-slate-500">— Операционный директор</p>
+            </article>
+          </li>
+
+          <!-- Отзыв 5 -->
+          <li>
+            <article class="h-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-soft">
+              <div class="flex items-center gap-3">
+                <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-600 text-white font-semibold">RGH</span>
+                <div>
+                  <h3 class="font-semibold text-slate-900">R Group Holding</h3>
+                  <p class="text-sm text-slate-500">промышленность</p>
+                </div>
+              </div>
+              <div class="mt-4 flex items-center gap-1 text-amber-400" aria-label="Оценка 5 из 5"></div>
+              <blockquote class="mt-3 text-slate-700">Гибкий подход к задачам и грамотные консультации на каждом этапе.</blockquote>
+              <p class="mt-4 text-sm text-slate-500">— Руководитель направления</p>
+            </article>
+          </li>
+
+          <!-- Отзыв 6 -->
+          <li>
+            <article class="h-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-soft">
+              <div class="flex items-center gap-3">
+                <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-600 text-white font-semibold">ЛК</span>
+                <div>
+                  <h3 class="font-semibold text-slate-900">ГК Лукойл</h3>
+                  <p class="text-sm text-slate-500">промышленность</p>
+                </div>
+              </div>
+              <div class="mt-4 flex items-center gap-1 text-amber-400" aria-label="Оценка 5 из 5"></div>
+              <blockquote class="mt-3 text-slate-700">Высокая надёжность и прозрачность процессов. Команда на связи 24/7.</blockquote>
+              <p class="mt-4 text-sm text-slate-500">— Руководитель подразделения</p>
+            </article>
+          </li>
+        </ul>
+
+      </section>
+    </main>
   </div>
-  
-  <!-- Reviews Grid -->
-  <div class="grid grid-cols-3 gap-6">
-    <!-- Review 1 -->
-    <div class="border border-gray-200 rounded-xl p-6">
-      <div class="flex items-center mb-4">
-        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-blue-400 to-purple-500 flex items-center justify-center text-white font-bold text-lg mr-3">
-          А
-        </div>
-        <div>
-          <div class="font-medium text-gray-800">Анна С.</div>
-          <div class="text-sm text-gray-500">Маркетолог</div>
-        </div>
-        <div class="ml-auto text-yellow-500">★★★★★</div>
-      </div>
-      <p class="text-gray-600 text-sm">Сервис помогает быстро анализировать эффективность рекламных кампаний. Очень удобный интерфейс и подробная аналитика.</p>
-    </div>
-    
-    <!-- Review 2 -->
-    <div class="border border-gray-200 rounded-xl p-6">
-      <div class="flex items-center mb-4">
-        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-green-400 to-blue-500 flex items-center justify-center text-white font-bold text-lg mr-3">
-          Д
-        </div>
-        <div>
-          <div class="font-medium text-gray-800">Дмитрий К.</div>
-          <div class="text-sm text-gray-500">Руководитель агентства</div>
-        </div>
-        <div class="ml-auto text-yellow-500">★★★★★</div>
-      </div>
-      <p class="text-gray-600 text-sm">Используем платформу уже год. Помогает принимать правильные решения по бюджетам и значительно экономит время на анализ.</p>
-    </div>
-    
-    <!-- Review 3 -->
-    <div class="border border-gray-200 rounded-xl p-6">
-      <div class="flex items-center mb-4">
-        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-purple-400 to-pink-500 flex items-center justify-center text-white font-bold text-lg mr-3">
-          М
-        </div>
-        <div>
-          <div class="font-medium text-gray-800">Мария В.</div>
-          <div class="text-sm text-gray-500">Владелец бизнеса</div>
-        </div>
-        <div class="ml-auto text-yellow-500">★★★★★</div>
-      </div>
-      <p class="text-gray-600 text-sm">Отличный инструмент для контроля маркетинговых расходов. Видим четкую связь между рекламой и прибылью.</p>
-    </div>
-  </div>
-</div>

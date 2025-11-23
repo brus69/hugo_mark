@@ -107,12 +107,14 @@ fill="#fff" class="bi bi-telegram pr-1">
         </div>
     </aside>
 
-  <main class="main-content bg-white">
+  <main class="main-content">
  
             
             {{ block "main" . }}{{ end }}
           
-            
+<footer class="px-6 py-12 bg-sky-950 text-white/50">
+    {{ partial "footer.html" . }}
+  </footer>
   </main>          
 
     <script>
@@ -155,8 +157,6 @@ fill="#fff" class="bi bi-telegram pr-1">
     </script>
 
 
-  <footer class="px-6 py-12 bg-sky-950 text-white/50">
-    {{ partial "footer.html" . }}
-  </footer>
+
 </body>
 </html>

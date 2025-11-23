@@ -1,66 +1,77 @@
-<div class="bg-sky-950 p-4">
-  <!-- -->
-  <div class="max-w-[1180px]">
-<div class="bg-white rounded-xl p-6 mb-3">
-  <div class="flex justify-between items-start">
-    <!-- Left Content -->
-    <div class="w-2/3">
-      <h1 class="
-      sm:text-4xl
-      md:text-[100px]/30 
-      font-bold 
-      text-gray-800 
-      mb-8">
-        Агентство контекстной рекламы
-      </h1>
-    </div>
-    
-    <!-- Right Content -->
-    <div class="w-1/3 flex items-center space-x-4 hidden sm:block">
-      <!-- Coins Illustration -->
+<section class="reveal relative overflow-hidden border-gray-200 bg-gradient-to-b from-sky-50/60 to-transparent">
+  <!-- Градиентные акценты -->
+  <div class="absolute top-0 left-0 w-[1200px] h-[600px] bg-gradient-to-br from-sky-500/18 to-transparent -translate-x-1/2 -translate-y-1/2"></div>
+  <div class="absolute top-0 right-0 w-[800px] h-[400px] bg-gradient-to-bl from-cyan-500/18 to-transparent translate-x-1/2 -translate-y-1/2"></div>
+  
+  <!-- Маска для создания эффекта свечения -->
+  <div class="absolute inset-0 bg-gradient-to-t from-white/70 via-white/0 to-transparent pointer-events-none"></div>
+  
+  <!-- УБЕРИТЕ bg-white отсюда -->
+  <div class="relative z-10 p-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+      <!-- Левая колонка - контент -->
+      <div>
+        <div class="flex flex-wrap gap-2 mb-2">
+          <span class="badge inline-flex items-center gap-1.5 px-2.5 py-1 border border-gray-200 rounded-full bg-white text-gray-700 text-sm">PPC‑агентство</span>
+          <span class="badge inline-flex items-center gap-1.5 px-2.5 py-1 border border-gray-200 rounded-full bg-white text-gray-700 text-sm">Google/Yandex Ads</span>
+          <span class="badge inline-flex items-center gap-1.5 px-2.5 py-1 border border-gray-200 rounded-full bg-white text-gray-700 text-sm">Smart/PMAX</span>
+        </div>
+        
+        <h1 class="hero-title text-4xl md:text-5xl lg:text-6xl font-black tracking-tight">Увеличиваем прибыль вашего бизнеса с помощью эффективных PPC‑кампаний</h1>
+        
+        <p class="hero-sub mt-2 text-gray-600 max-w-[70ch]">Комплексная настройка и управление контекстной рекламой с фокусом на маржинальность: прозрачная атрибуция, устойчивый трекинг и A/B‑тесты креативов.</p>
+        
+        <ul class="benefits mt-3 space-y-1.5">
+          <li class="flex items-start gap-2 text-gray-900">
+            <span class="check w-5 h-5 rounded-md bg-sky-500 text-white flex items-center justify-center flex-shrink-0 shadow-lg">✓</span>
+            <span>Рост конверсий и снижение CPA за счёт микросегментации и Smart/PMAX</span>
+          </li>
+          <li class="flex items-start gap-2 text-gray-900">
+            <span class="check w-5 h-5 rounded-md bg-sky-500 text-white flex items-center justify-center flex-shrink-0 shadow-lg">✓</span>
+            <span>Прозрачная атрибуция: онлайн‑заказы, звонки и офлайн продажи</span>
+          </li>
+          <li class="flex items-start gap-2 text-gray-900">
+            <span class="check w-5 h-5 rounded-md bg-sky-500 text-white flex items-center justify-center flex-shrink-0 shadow-lg">✓</span>
+            <span>Серверные события и стабильные конверсии для оптимизации ставок</span>
+          </li>
+        </ul>
+        
+        <div class="mt-4 flex items-center gap-3 flex-wrap">
+          <a href="/contacts/" class="cta inline-flex items-center gap-2.5 px-4 py-3 rounded-xl bg-sky-500 text-white font-semibold shadow-lg hover:bg-sky-600 transition-colors">Получить бесплатный аудит рекламных кампаний</a>
+        </div>
+      </div>
       
-      <!-- Stats Card -->
-      <div class="bg-gradient-to-br from-sky-200 to-blue-50 rounded-xl p-4 w-full">
-        <div class="bg-sky-800 text-white rounded-lg p-3 mb-3">
-          <div class="flex items-center text-xs mb-1">
-            Сэкономили деньги рекламадателям от скликивания
+      <!-- Правая колонка - визуализации -->
+      <div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <!-- График -->
+          <div class="chart-card border border-gray-200 rounded-2xl bg-white shadow-sm p-5">
+            <h3 class="font-semibold text-gray-900">Динамика эффективности</h3>
+            <svg viewBox="0 0 320 160" width="100%" height="160" role="img" aria-label="Линейный график роста">
+              <defs>
+                <linearGradient id="grad-line" x1="0" x2="0" y1="0" y2="1">
+                  <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.5" />
+                  <stop offset="100%" stop-color="#0ea5e9" stop-opacity="0" />
+                </linearGradient>
+              </defs>
+              <rect x="0" y="0" width="320" height="160" fill="#ffffff" />
+              <path d="M10 120 L60 110 L110 95 L160 90 L210 75 L260 60 L310 50" stroke="#0ea5e9" stroke-width="3" fill="none" />
+              <path d="M10 120 L60 110 L110 95 L160 90 L210 75 L260 60 L310 50 L310 160 L10 160 Z" fill="url(#grad-line)" />
+              <text x="12" y="20" fill="#64748b" font-size="12">ROAS ↑</text>
+            </svg>
           </div>
-          <div class="text-2xl font-bold">≈ 18 938 000₽</div>
+          
+          <!-- Логотипы клиентов -->
+          <div class="logo-wall border border-gray-200 rounded-2xl bg-white shadow-sm p-5 grid grid-cols-3 gap-3 items-center" aria-label="Логотипы клиентов">
+            <div class="logo h-12 rounded-lg border border-gray-200 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center text-gray-600 font-semibold">ACME</div>
+            <div class="logo h-12 rounded-lg border border-gray-200 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center text-gray-600 font-semibold">NOVO</div>
+            <div class="logo h-12 rounded-lg border border-gray-200 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center text-gray-600 font-semibold">E‑SHOP</div>
+            <div class="logo h-12 rounded-lg border border-gray-200 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center text-gray-600 font-semibold">B2B</div>
+            <div class="logo h-12 rounded-lg border border-gray-200 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center text-gray-600 font-semibold">LOCAL</div>
+            <div class="logo h-12 rounded-lg border border-gray-200 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center text-gray-600 font-semibold">SAAS</div>
+          </div>
         </div>
-        <div class="text-xs text-gray-600 mt-2">
-          <div>Cредний CPL — 2 200 ₽</div>
-          <div>Cредний CPO — 4 600 ₽</div>
-        </div>
-         <p class="text-sm text-gray-800 pt-12 mb-4">Первым клиентам скидка 50%</p>
-      <button class="bg-gray-800 text-white px-4 py-2 rounded-md hover:bg-gray-700 transition-colors">
-        Консультация
-      </button>
       </div>
     </div>
   </div>
-</div>
-
-<!-- Three Feature Blocks -->
-<div class="grid md:grid-cols-3 sm:grid-cols-1 gap-3">
-  <!-- Block 1 -->
-  <div class="bg-white rounded-xl p-5 ">
-    <h3 class="font-bold text-gray-800 mb-3">Управляйте бюджетами клиентов в одном окне</h3>
-    <p class="text-sm text-gray-600">Пополняйте рекламный кабинет в пару кликов и давайте сотрудникам разные уровни доступов</p>
-  </div>
-  
-  <!-- Block 2 -->
-  <div class="bg-white rounded-xl p-5 ">
-    <h3 class="font-bold text-gray-800 mb-3">Получайте постоплату для клиентов, которые не работают по предоплате</h3>
-    <p class="text-sm text-gray-600">Отсрочка до 30 дней без процентов и комиссий</p>
-  </div>
-  
-  <!-- Block 3 -->
-  <div class="bg-white rounded-xl p-5 ">
-    <h3 class="font-bold text-gray-800 mb-3">Маркируйте рекламу клиентов во всех рекламных системах</h3>
-    <p class="text-sm text-gray-600">Автоматически получаем токены, размещаем рекламу и отправляем отчеты в ЕРИР</p>
-  </div>
-</div>
-</div>
-<!-- -->
-</div>
-
+</section>

@@ -10,7 +10,7 @@
 
 <link rel="icon" type="image/x-icon" href="http://localhost:1313/favicon.ico">
 
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  
  <style>
   .content h1 { 
         font-size: 1.875rem; 
@@ -350,6 +350,26 @@
             font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
         }
     </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+   <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: '#eff6ff',
+                100: '#dbeafe',
+                500: '#0ea5e9',
+                600: '#0284c7',
+              },
+            },
+            boxShadow: {
+              soft: '0 8px 24px rgba(2, 132, 199, 0.08)'
+            }
+          },
+        },
+      }
+    </script>
 </head>
   <body class="light-mode">
       <header>
@@ -482,82 +502,308 @@ fill="#fff" class="bi bi-telegram pr-1">
         </div>
     </aside>
 
-  <main class="main-content bg-white">
+  <main class="main-content">
  
             
             
 
-<div class="bg-sky-950 p-4">
+<section class="reveal relative overflow-hidden border-gray-200 bg-gradient-to-b from-sky-50/60 to-transparent">
   
-  <div class="max-w-[1180px]">
-<div class="bg-white rounded-xl p-6 mb-3">
-  <div class="flex justify-between items-start">
-    
-    <div class="w-2/3">
-      <h1 class="
-      sm:text-4xl
-      md:text-[100px]/30 
-      font-bold 
-      text-gray-800 
-      mb-8">
-        Агентство контекстной рекламы
-      </h1>
-    </div>
-    
-    
-    <div class="w-1/3 flex items-center space-x-4 hidden sm:block">
+  <div class="absolute top-0 left-0 w-[1200px] h-[600px] bg-gradient-to-br from-sky-500/18 to-transparent -translate-x-1/2 -translate-y-1/2"></div>
+  <div class="absolute top-0 right-0 w-[800px] h-[400px] bg-gradient-to-bl from-cyan-500/18 to-transparent translate-x-1/2 -translate-y-1/2"></div>
+  
+  
+  <div class="absolute inset-0 bg-gradient-to-t from-white/70 via-white/0 to-transparent pointer-events-none"></div>
+  
+  
+  <div class="relative z-10 p-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+      
+      <div>
+        <div class="flex flex-wrap gap-2 mb-2">
+          <span class="badge inline-flex items-center gap-1.5 px-2.5 py-1 border border-gray-200 rounded-full bg-white text-gray-700 text-sm">PPC‑агентство</span>
+          <span class="badge inline-flex items-center gap-1.5 px-2.5 py-1 border border-gray-200 rounded-full bg-white text-gray-700 text-sm">Google/Yandex Ads</span>
+          <span class="badge inline-flex items-center gap-1.5 px-2.5 py-1 border border-gray-200 rounded-full bg-white text-gray-700 text-sm">Smart/PMAX</span>
+        </div>
+        
+        <h1 class="hero-title text-4xl md:text-5xl lg:text-6xl font-black tracking-tight">Увеличиваем прибыль вашего бизнеса с помощью эффективных PPC‑кампаний</h1>
+        
+        <p class="hero-sub mt-2 text-gray-600 max-w-[70ch]">Комплексная настройка и управление контекстной рекламой с фокусом на маржинальность: прозрачная атрибуция, устойчивый трекинг и A/B‑тесты креативов.</p>
+        
+        <ul class="benefits mt-3 space-y-1.5">
+          <li class="flex items-start gap-2 text-gray-900">
+            <span class="check w-5 h-5 rounded-md bg-sky-500 text-white flex items-center justify-center flex-shrink-0 shadow-lg">✓</span>
+            <span>Рост конверсий и снижение CPA за счёт микросегментации и Smart/PMAX</span>
+          </li>
+          <li class="flex items-start gap-2 text-gray-900">
+            <span class="check w-5 h-5 rounded-md bg-sky-500 text-white flex items-center justify-center flex-shrink-0 shadow-lg">✓</span>
+            <span>Прозрачная атрибуция: онлайн‑заказы, звонки и офлайн продажи</span>
+          </li>
+          <li class="flex items-start gap-2 text-gray-900">
+            <span class="check w-5 h-5 rounded-md bg-sky-500 text-white flex items-center justify-center flex-shrink-0 shadow-lg">✓</span>
+            <span>Серверные события и стабильные конверсии для оптимизации ставок</span>
+          </li>
+        </ul>
+        
+        <div class="mt-4 flex items-center gap-3 flex-wrap">
+          <a href="/contacts/" class="cta inline-flex items-center gap-2.5 px-4 py-3 rounded-xl bg-sky-500 text-white font-semibold shadow-lg hover:bg-sky-600 transition-colors">Получить бесплатный аудит рекламных кампаний</a>
+        </div>
+      </div>
       
       
-      
-      <div class="bg-gradient-to-br from-sky-200 to-blue-50 rounded-xl p-4 w-full">
-        <div class="bg-sky-800 text-white rounded-lg p-3 mb-3">
-          <div class="flex items-center text-xs mb-1">
-            Сэкономили деньги рекламадателям от скликивания
+      <div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          
+          <div class="chart-card border border-gray-200 rounded-2xl bg-white shadow-sm p-5">
+            <h3 class="font-semibold text-gray-900">Динамика эффективности</h3>
+            <svg viewBox="0 0 320 160" width="100%" height="160" role="img" aria-label="Линейный график роста">
+              <defs>
+                <linearGradient id="grad-line" x1="0" x2="0" y1="0" y2="1">
+                  <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.5" />
+                  <stop offset="100%" stop-color="#0ea5e9" stop-opacity="0" />
+                </linearGradient>
+              </defs>
+              <rect x="0" y="0" width="320" height="160" fill="#ffffff" />
+              <path d="M10 120 L60 110 L110 95 L160 90 L210 75 L260 60 L310 50" stroke="#0ea5e9" stroke-width="3" fill="none" />
+              <path d="M10 120 L60 110 L110 95 L160 90 L210 75 L260 60 L310 50 L310 160 L10 160 Z" fill="url(#grad-line)" />
+              <text x="12" y="20" fill="#64748b" font-size="12">ROAS ↑</text>
+            </svg>
           </div>
-          <div class="text-2xl font-bold">≈ 18 938 000₽</div>
+          
+          
+          <div class="logo-wall border border-gray-200 rounded-2xl bg-white shadow-sm p-5 grid grid-cols-3 gap-3 items-center" aria-label="Логотипы клиентов">
+            <div class="logo h-12 rounded-lg border border-gray-200 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center text-gray-600 font-semibold">ACME</div>
+            <div class="logo h-12 rounded-lg border border-gray-200 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center text-gray-600 font-semibold">NOVO</div>
+            <div class="logo h-12 rounded-lg border border-gray-200 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center text-gray-600 font-semibold">E‑SHOP</div>
+            <div class="logo h-12 rounded-lg border border-gray-200 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center text-gray-600 font-semibold">B2B</div>
+            <div class="logo h-12 rounded-lg border border-gray-200 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center text-gray-600 font-semibold">LOCAL</div>
+            <div class="logo h-12 rounded-lg border border-gray-200 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center text-gray-600 font-semibold">SAAS</div>
+          </div>
         </div>
-        <div class="text-xs text-gray-600 mt-2">
-          <div>Cредний CPL — 2 200 ₽</div>
-          <div>Cредний CPO — 4 600 ₽</div>
-        </div>
-         <p class="text-sm text-gray-800 pt-12 mb-4">Первым клиентам скидка 50%</p>
-      <button class="bg-gray-800 text-white px-4 py-2 rounded-md hover:bg-gray-700 transition-colors">
-        Консультация
-      </button>
       </div>
     </div>
   </div>
+</section>
+
+
+
+
+<div class="min-h-full bg-gradient-to-b from-white to-slate-50 text-slate-800">
+    <div class="max-w-7x px-6 py-16">
+      <section aria-labelledby="clients-title">
+        <header class="flex flex-col gap-3">
+          <h2 id="clients-title" class="text-3xl sm:text-4xl font-bold tracking-tight">
+            Клиенты
+          </h2>
+          <div class="h-1 w-16 bg-brand-500 rounded-full"></div>
+          <p class="text-slate-600 max-w-2xl">
+            Компании, которые доверяют нам. Мы ценим долгосрочное сотрудничество и
+            поддерживаем партнёров в развитии.
+          </p>
+        </header>
+
+        <ul role="list" aria-label="Список клиентов" class="mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+          
+          <li class="group">
+            <div class="rounded-xl border border-slate-200 bg-white/70 backdrop-blur-sm p-5 shadow-sm transition hover:shadow-soft hover:border-brand-100">
+              <h3 class="font-semibold text-slate-900">ГК ВСК</h3>
+              <span class="mt-1 inline-flex items-center gap-2 text-sm text-slate-500">
+                <span class="h-1.5 w-1.5 rounded-full bg-brand-500"></span>
+                промышленность
+              </span>
+            </div>
+          </li>
+
+          
+          <li class="group">
+            <div class="rounded-xl border border-slate-200 bg-white/70 backdrop-blur-sm p-5 shadow-sm transition hover:shadow-soft hover:border-brand-100">
+              <h3 class="font-semibold text-slate-900">Геосуппорт</h3>
+              <span class="mt-1 inline-flex items-center gap-2 text-sm text-slate-500">
+                <span class="h-1.5 w-1.5 rounded-full bg-brand-500"></span>
+                промышленность
+              </span>
+            </div>
+          </li>
+
+          
+          <li class="group">
+            <div class="rounded-xl border border-slate-200 bg-white/70 backdrop-blur-sm p-5 shadow-sm transition hover:shadow-soft hover:border-brand-100">
+              <h3 class="font-semibold text-slate-900">Группа Партнер</h3>
+              <span class="mt-1 inline-flex items-center gap-2 text-sm text-slate-500">
+                <span class="h-1.5 w-1.5 rounded-full bg-brand-500"></span>
+                промышленность
+              </span>
+            </div>
+          </li>
+
+          
+          <li class="group">
+            <div class="rounded-xl border border-slate-200 bg-white/70 backdrop-blur-sm p-5 shadow-sm transition hover:shadow-soft hover:border-brand-100">
+              <h3 class="font-semibold text-slate-900">Спецпромсервис</h3>
+              <span class="mt-1 inline-flex items-center gap-2 text-sm text-slate-500">
+                <span class="h-1.5 w-1.5 rounded-full bg-brand-500"></span>
+                промышленность
+              </span>
+            </div>
+          </li>
+
+          
+          <li class="group">
+            <div class="rounded-xl border border-slate-200 bg-white/70 backdrop-blur-sm p-5 shadow-sm transition hover:shadow-soft hover:border-brand-100">
+              <h3 class="font-semibold text-slate-900">R Group Holding</h3>
+              <span class="mt-1 inline-flex items-center gap-2 text-sm text-slate-500">
+                <span class="h-1.5 w-1.5 rounded-full bg-brand-500"></span>
+                промышленность
+              </span>
+            </div>
+          </li>
+
+          
+          <li class="group">
+            <div class="rounded-xl border border-slate-200 bg-white/70 backdrop-blur-sm p-5 shadow-sm transition hover:shadow-soft hover:border-brand-100">
+              <h3 class="font-semibold text-slate-900">ГК Лукойл</h3>
+              <span class="mt-1 inline-flex items-center gap-2 text-sm text-slate-500">
+                <span class="h-1.5 w-1.5 rounded-full bg-brand-500"></span>
+                промышленность
+              </span>
+            </div>
+          </li>
+
+          
+          <li class="group">
+            <div class="rounded-xl border border-slate-200 bg-white/70 backdrop-blur-sm p-5 shadow-sm transition hover:shadow-soft hover:border-brand-100">
+              <h3 class="font-semibold text-slate-900">КЗХ</h3>
+              <span class="mt-1 inline-flex items-center gap-2 text-sm text-slate-500">
+                <span class="h-1.5 w-1.5 rounded-full bg-brand-500"></span>
+                промышленность
+              </span>
+            </div>
+          </li>
+
+          
+          <li class="group">
+            <div class="rounded-xl border border-slate-200 bg-white/70 backdrop-blur-sm p-5 shadow-sm transition hover:shadow-soft hover:border-brand-100">
+              <h3 class="font-semibold text-slate-900">М-Сталь</h3>
+              <span class="mt-1 inline-flex items-center gap-2 text-sm text-slate-500">
+                <span class="h-1.5 w-1.5 rounded-full bg-brand-500"></span>
+                промышленность
+              </span>
+            </div>
+          </li>
+
+          
+          <li class="group">
+            <div class="rounded-xl border border-slate-200 bg-white/70 backdrop-blur-sm p-5 shadow-sm transition hover:shadow-soft hover:border-brand-100">
+              <h3 class="font-semibold text-slate-900">Трансресурс</h3>
+              <span class="mt-1 inline-flex items-center gap-2 text-sm text-slate-500">
+                <span class="h-1.5 w-1.5 rounded-full bg-brand-500"></span>
+                промышленность
+              </span>
+            </div>
+          </li>
+
+          
+          <li class="group">
+            <div class="rounded-xl border border-slate-200 bg-white/70 backdrop-blur-sm p-5 shadow-sm transition hover:shadow-soft hover:border-brand-100">
+              <h3 class="font-semibold text-slate-900">ЭПУ Сервис</h3>
+              <span class="mt-1 inline-flex items-center gap-2 text-sm text-slate-500">
+                <span class="h-1.5 w-1.5 rounded-full bg-brand-500"></span>
+                промышленность
+              </span>
+            </div>
+          </li>
+
+          
+          <li class="group">
+            <div class="rounded-xl border border-slate-200 bg-white/70 backdrop-blur-sm p-5 shadow-sm transition hover:shadow-soft hover:border-brand-100">
+              <h3 class="font-semibold text-slate-900">Refactor Group</h3>
+              <span class="mt-1 inline-flex items-center gap-2 text-sm text-slate-500">
+                <span class="h-1.5 w-1.5 rounded-full bg-brand-500"></span>
+                промышленность
+              </span>
+            </div>
+          </li>
+
+          
+          <li class="group">
+            <div class="rounded-xl border border-slate-200 bg-white/70 backdrop-blur-sm p-5 shadow-sm transition hover:shadow-soft hover:border-brand-100">
+              <h3 class="font-semibold text-slate-900">Технокерамика</h3>
+              <span class="mt-1 inline-flex items-center gap-2 text-sm text-slate-500">
+                <span class="h-1.5 w-1.5 rounded-full bg-brand-500"></span>
+                промышленность
+              </span>
+            </div>
+          </li>
+
+          
+          <li class="group">
+            <div class="rounded-xl border border-slate-200 bg-white/70 backdrop-blur-sm p-5 shadow-sm transition hover:shadow-soft hover:border-brand-100">
+              <h3 class="font-semibold text-slate-900">Казогнеупор</h3>
+              <span class="mt-1 inline-flex items-center gap-2 text-sm text-slate-500">
+                <span class="h-1.5 w-1.5 rounded-full bg-brand-500"></span>
+                промышленность
+              </span>
+            </div>
+          </li>
+
+          
+          <li class="group">
+            <div class="rounded-xl border border-slate-200 bg-white/70 backdrop-blur-sm p-5 shadow-sm transition hover:shadow-soft hover:border-brand-100">
+              <h3 class="font-semibold text-slate-900">STS</h3>
+              <span class="mt-1 inline-flex items-center gap-2 text-sm text-slate-500">
+                <span class="h-1.5 w-1.5 rounded-full bg-brand-500"></span>
+                промышленность
+              </span>
+            </div>
+          </li>
+
+          
+          <li class="group">
+            <div class="rounded-xl border border-slate-200 bg-white/70 backdrop-blur-sm p-5 shadow-sm transition hover:shadow-soft hover:border-brand-100">
+              <h3 class="font-semibold text-slate-900">ГК Техностиль</h3>
+              <span class="mt-1 inline-flex items-center gap-2 text-sm text-slate-500">
+                <span class="h-1.5 w-1.5 rounded-full bg-brand-500"></span>
+                промышленность
+              </span>
+            </div>
+          </li>
+
+          
+          <li class="group">
+            <div class="rounded-xl border border-slate-200 bg-white/70 backdrop-blur-sm p-5 shadow-sm transition hover:shadow-soft hover:border-brand-100">
+              <h3 class="font-semibold text-slate-900">Temac Group</h3>
+              <span class="mt-1 inline-flex items-center gap-2 text-sm text-slate-500">
+                <span class="h-1.5 w-1.5 rounded-full bg-brand-500"></span>
+                промышленность
+              </span>
+            </div>
+          </li>
+
+          
+          <li class="group">
+            <div class="rounded-xl border border-slate-200 bg-white/70 backdrop-blur-sm p-5 shadow-sm transition hover:shadow-soft hover:border-brand-100">
+              <h3 class="font-semibold text-slate-900">ГК Выбор</h3>
+              <span class="mt-1 inline-flex items-center gap-2 text-sm text-slate-500">
+                <span class="h-1.5 w-1.5 rounded-full bg-brand-500"></span>
+                промышленность
+              </span>
+            </div>
+          </li>
+
+          
+          <li class="group">
+            <div class="rounded-xl border border-slate-200 bg-white/70 backdrop-blur-sm p-5 shadow-sm transition hover:shadow-soft hover:border-brand-100">
+              <h3 class="font-semibold text-slate-900">ГК ПТИ</h3>
+              <span class="mt-1 inline-flex items-center gap-2 text-sm text-slate-500">
+                <span class="h-1.5 w-1.5 rounded-full bg-brand-500"></span>
+                промышленность
+              </span>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </div>
 </div>
-
-
-<div class="grid md:grid-cols-3 sm:grid-cols-1 gap-3">
-  
-  <div class="bg-white rounded-xl p-5 ">
-    <h3 class="font-bold text-gray-800 mb-3">Управляйте бюджетами клиентов в одном окне</h3>
-    <p class="text-sm text-gray-600">Пополняйте рекламный кабинет в пару кликов и давайте сотрудникам разные уровни доступов</p>
-  </div>
-  
-  
-  <div class="bg-white rounded-xl p-5 ">
-    <h3 class="font-bold text-gray-800 mb-3">Получайте постоплату для клиентов, которые не работают по предоплате</h3>
-    <p class="text-sm text-gray-600">Отсрочка до 30 дней без процентов и комиссий</p>
-  </div>
-  
-  
-  <div class="bg-white rounded-xl p-5 ">
-    <h3 class="font-bold text-gray-800 mb-3">Маркируйте рекламу клиентов во всех рекламных системах</h3>
-    <p class="text-sm text-gray-600">Автоматически получаем токены, размещаем рекламу и отправляем отчеты в ЕРИР</p>
-  </div>
-</div>
-</div>
-
-</div>
-
-
-
-
-
-
     
 
 
@@ -566,7 +812,203 @@ fill="#fff" class="bi bi-telegram pr-1">
 
 
 
-  
+
+<div class="max-w-[1600px] py-2 px-4">
+
+    
+    <section class="mt-6 bg-white overflow-hidden border border-gray-200 rounded-2xl">
+      <div class="bg-gradient-to-b from-sky-50/60 to-transparent p-6 border-b border-gray-200">
+        <h2 class="text-2xl md:text-3xl font-bold">Тарифные планы</h2>
+        <p class="mt-1 text-gray-600">Выберите удобный формат сотрудничества — мы адаптируем стратегию под вашу нишу и цели.</p>
+      </div>
+      <div class="p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="border border-gray-200 rounded-2xl bg-white p-5 shadow-sm">
+          <h3 class="text-xl font-bold">Старт</h3>
+          <p class="mt-1 text-gray-600">Для быстрого запуска и первых стабильных результатов</p>
+          <p class="mt-3 text-3xl font-black">от 45 000 ₽ / мес</p>
+          <div class="mt-4 space-y-3">
+            <div class="flex items-start gap-3">
+              <span class="w-2 h-2 rounded-full bg-sky-500 mt-2 flex-shrink-0"></span>
+              <span>Аудит и базовая реструктуризация аккаунта</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="w-2 h-2 rounded-full bg-sky-500 mt-2 flex-shrink-0"></span>
+              <span>Настройка кампаний (поиск/КМС/торговые)</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="w-2 h-2 rounded-full bg-sky-500 mt-2 flex-shrink-0"></span>
+              <span>Конверсии в GA4 + коллтрекинг</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="w-2 h-2 rounded-full bg-sky-500 mt-2 flex-shrink-0"></span>
+              <span>Еженедельные оптимизации и отчёт 1–2 раза в месяц</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="w-2 h-2 rounded-full bg-sky-500 mt-2 flex-shrink-0"></span>
+              <span>Рекомендуемый медиабюджет: до 300 000 ₽/мес</span>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="border border-sky-800 rounded-2xl bg-white p-5 shadow-sm">
+          
+     
+          
+          <h3 class="text-xl font-bold">Рост</h3>
+          <p class="mt-1 text-gray-600">Для масштабирования и оптимизации рентабельности</p>
+          <p class="mt-3 text-3xl font-black">от 75 000 ₽ / мес</p>
+          <div class="mt-4 space-y-3">
+            <div class="flex items-start gap-3">
+              <span class="w-2 h-2 rounded-full bg-sky-500 mt-2 flex-shrink-0"></span>
+              <span>Глубокая реструктуризация и микросегменты</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="w-2 h-2 rounded-full bg-sky-500 mt-2 flex-shrink-0"></span>
+              <span>A/B‑тесты креативов, фиды и приоритизация категорий</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="w-2 h-2 rounded-full bg-sky-500 mt-2 flex-shrink-0"></span>
+              <span>Smart/Performance Max, ROAS/CPA цели</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="w-2 h-2 rounded-full bg-sky-500 mt-2 flex-shrink-0"></span>
+              <span>GA4 + коллтрекинг, стабильная атрибуция</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="w-2 h-2 rounded-full bg-sky-500 mt-2 flex-shrink-0"></span>
+              <span>Рекомендуемый медиабюджет: 300 000 — 1 000 000 ₽/мес</span>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="border border-gray-200 rounded-2xl bg-white p-5 shadow-sm">
+          <h3 class="text-xl font-bold">Performance</h3>
+          <p class="mt-1 text-gray-600">Для зрелых проектов с фокусом на маржинальность</p>
+          <p class="mt-3 text-3xl font-black">от 120 000 ₽ / мес</p>
+          <div class="mt-4 space-y-3">
+            <div class="flex items-start gap-3">
+              <span class="w-2 h-2 rounded-full bg-sky-500 mt-2 flex-shrink-0"></span>
+              <span>Серверные события + Conversions API</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="w-2 h-2 rounded-full bg-sky-500 mt-2 flex-shrink-0"></span>
+              <span>BI‑дашборды, LTV/кохорты, списки аудиторий</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="w-2 h-2 rounded-full bg-sky-500 mt-2 flex-shrink-0"></span>
+              <span>Управление фидами, Smart/PMAX, сезонные сигналы</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="w-2 h-2 rounded-full bg-sky-500 mt-2 flex-shrink-0"></span>
+              <span>Мультиканальное масштабирование, выделенный менеджер</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="w-2 h-2 rounded-full bg-sky-500 mt-2 flex-shrink-0"></span>
+              <span>Рекомендуемый медиабюджет: от 1 000 000 ₽/мес</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="mt-6 bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden reveal">
+      <div class="bg-gradient-to-b from-sky-50/60 to-transparent p-6 border-b border-gray-200">
+        <h2 class="text-2xl md:text-3xl font-bold">Что входит в услуги PPC</h2>
+        <p class="mt-1 text-gray-600">Чёткий состав работ и понятные точки контроля качества.</p>
+      </div>
+      <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="space-y-3">
+          <div class="flex items-start gap-3">
+            <span class="w-2 h-2 rounded-full bg-sky-500 mt-2 flex-shrink-0"></span>
+            <span>Аудит, план работ и KPI</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="w-2 h-2 rounded-full bg-sky-500 mt-2 flex-shrink-0"></span>
+            <span>Реструктуризация аккаунта, минус‑слова, расписание показов</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="w-2 h-2 rounded-full bg-sky-500 mt-2 flex-shrink-0"></span>
+            <span>Микросегментация: намерения, брендовость, ретаргетинг по событиям</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="w-2 h-2 rounded-full bg-sky-500 mt-2 flex-shrink-0"></span>
+            <span>Креативы: A/B‑тесты, адаптация под сезонность</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="w-2 h-2 rounded-full bg-sky-500 mt-2 flex-shrink-0"></span>
+            <span>Фиды и карточки товаров: наличие, цены, атрибуты</span>
+          </div>
+        </div>
+        <div class="space-y-3">
+          <div class="flex items-start gap-3">
+            <span class="w-2 h-2 rounded-full bg-sky-500 mt-2 flex-shrink-0"></span>
+            <span>Аналитика: GA4, коллтрекинг, серверные события</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="w-2 h-2 rounded-full bg-sky-500 mt-2 flex-shrink-0"></span>
+            <span>Цели оптимизации: ROAS/CPA/AOV, маржинальность</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="w-2 h-2 rounded-full bg-sky-500 mt-2 flex-shrink-0"></span>
+            <span>Еженедельные оптимизации и отчёты</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="w-2 h-2 rounded-full bg-sky-500 mt-2 flex-shrink-0"></span>
+            <span>Дашборды и BI (по необходимости)</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="w-2 h-2 rounded-full bg-sky-500 mt-2 flex-shrink-0"></span>
+            <span>Поддержка: чаты, еженедельные созвоны</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="mt-6 bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden reveal">
+      <div class="bg-gradient-to-b from-sky-50/60 to-transparent p-6 border-b border-gray-200">
+        <h2 class="text-2xl md:text-3xl font-bold">Примеры работ</h2>
+        <p class="mt-1 text-gray-600">Реальные кейсы с ключевыми метриками эффективности.</p>
+      </div>
+      <div class="p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <a class="border border-gray-200 rounded-2xl bg-white p-5 shadow-sm hover:bg-sky-50 transition-colors" href="/case-electronics-ppc.html">
+          <h4 class="font-bold text-lg">Интернет‑магазин электроники — PPC</h4>
+          <p class="mt-2 text-gray-600">Реструктуризация аккаунта, Smart/PMAX, сквозная аналитика</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-100 text-slate-900 text-sm">CR +42%</span>
+            <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-100 text-slate-900 text-sm">CPA −28%</span>
+            <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-100 text-slate-900 text-sm">ROAS ×4.1</span>
+          </div>
+        </a>
+        <a class="border border-gray-200 rounded-2xl bg-white p-5 shadow-sm hover:bg-sky-50 transition-colors" href="/cases.html">
+          <h4 class="font-bold text-lg">B2B SaaS — лидогенерация</h4>
+          <p class="mt-2 text-gray-600">Намерения, ретаргетинг по событиям, серверные конверсии</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-100 text-slate-900 text-sm">CR +36%</span>
+            <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-100 text-slate-900 text-sm">CPA −22%</span>
+            <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-100 text-slate-900 text-sm">CTR +14%</span>
+          </div>
+        </a>
+        <a class="border border-gray-200 rounded-2xl bg-white p-5 shadow-sm hover:bg-sky-50 transition-colors" href="/cases.html">
+          <h4 class="font-bold text-lg">Local Business — записи и звонки</h4>
+          <p class="mt-2 text-gray-600">Поиск+КМС, расписание показов, коллтрекинг</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-100 text-slate-900 text-sm">Calls +31%</span>
+            <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-100 text-slate-900 text-sm">CPA −18%</span>
+            <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-100 text-slate-900 text-sm">CTR +12%</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    
+   
+</div>
+
 
 
 
@@ -619,6 +1061,52 @@ fill="#fff" class="bi bi-telegram pr-1">
     <h2 class="text-2xl font-bold text-gray-900 mb-6">Последние записи</h2>
     
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        
+        
+  <article class="bg-white rounded-xl overflow-hidden">
+    <div class="p-4">
+      <img src="post_t.png" alt="Иллюстрация" 
+      class="w-full h-48 object-cover rounded-lg">
+    </div>
+    <div class="p-5">
+      <div class="flex items-center text-xs text-gray-500 mb-2">
+        
+        
+        <time>19 November 2025</time>
+       
+      </div>
+      <a href="/posts/8-reasons-seo-ppc/" class="hover:text-blue-600 transition-colors">
+      <h3 class="font-medium text-gray-800 mb-3">8 Причин, по которым Вам НЕ стоит инвестировать в нерабочее SEO или PPC(Контекстная реклама)</h3>
+      </a>
+      <p class="text-sm text-gray-600">Поисковый маркетинг подходит не всем Когда я только начал работать в SEO, люди часто спрашивали меня: «Кто ваши идеальные клиенты?» И я всегда отвечал: «Все». Но это, конечно, неправда.
+Мне было нелегко усвоить этот урок… что некоторые люди и компании были готовы инвестировать в поисковый маркетинг, …</p>
+    </div>
+  </article >
+        
+  
+        
+        
+  <article class="bg-white rounded-xl overflow-hidden">
+    <div class="p-4">
+      <img src="post_t.png" alt="Иллюстрация" 
+      class="w-full h-48 object-cover rounded-lg">
+    </div>
+    <div class="p-5">
+      <div class="flex items-center text-xs text-gray-500 mb-2">
+        
+        
+        <time>19 November 2025</time>
+       
+      </div>
+      <a href="/posts/9-reasons-buying-groups-next-big-thing/" class="hover:text-blue-600 transition-colors">
+      <h3 class="font-medium text-gray-800 mb-3">Что такое Группа покупателей QBG на рынке в B2B?</h3>
+      </a>
+      <p class="text-sm text-gray-600">На протяжении всей своей карьеры я имел честь быть частью двух революций:
+появления генерации спроса, основанной на маркетинговой автоматизации; прорыва маркетинга на основе учётных записей, воплощённого в жизнь платформами ABM. Сейчас я в восторге от представления следующего переломного момента: …</p>
+    </div>
+  </article >
+        
+  
         
         
   <article class="bg-white rounded-xl overflow-hidden">
@@ -722,11 +1210,181 @@ fill="#fff" class="bi bi-telegram pr-1">
 
 
 
+<div class="min-h-full bg-gradient-to-b from-white to-slate-50 text-slate-800">
+    <main class="max-w-7xl mx-auto px-6 py-16">
+      <section aria-labelledby="reviews-title" class="relative overflow-hidden">
+        <div class="absolute inset-0 -z-10 bg-gradient-to-br from-brand-50 via-white to-slate-100"></div>
+        <header class="text-center">
+          <h1 id="reviews-title" class="text-3xl sm:text-4xl font-bold tracking-tight">Отзывы наших клиентов</h1>
+          <p class="mt-4 text-slate-600 max-w-2xl mx-auto">
+            Мы ценим обратную связь и делаем всё, чтобы сотрудничество было удобным, прозрачным и результативным.
+          </p>
+          <div class="mx-auto mt-6 h-1 w-20 bg-brand-500 rounded-full"></div>
+        </header>
+
+        
+        <ul role="list" aria-label="Отзывы клиентов" class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <li class="">
+            <article class="h-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-soft">
+              <div class="flex items-center gap-3">
+                <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-600 text-white font-semibold">ВСК</span>
+                <div>
+                  <h3 class="font-semibold text-slate-900">ГК ВСК</h3>
+                  <p class="text-sm text-slate-500">промышленность</p>
+                </div>
+              </div>
+              <div class="mt-4 flex items-center gap-1 text-amber-400" aria-label="Оценка 5 из 5">
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.802 2.035a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.538 1.118L12.4 14.347a1 1 0 00-1.175 0l-2.977 2.136c-.783.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L3.61 8.72c-.783-.57-.38-1.81.588-1.81h3.462a1 1 0 00.95-.69l1.44-3.292z"/></svg>
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.802 2.035a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.538 1.118L12.4 14.347a1 1 0 00-1.175 0l-2.977 2.136c-.783.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L3.61 8.72c-.783-.57-.38-1.81.588-1.81h3.462a1 1 0 00.95-.69l1.44-3.292z"/></svg>
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.802 2.035a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.538 1.118L12.4 14.347a1 1 0 00-1.175 0l-2.977 2.136c-.783.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L3.61 8.72c-.783-.57-.38-1.81.588-1.81h3.462a1 1 0 00.95-.69l1.44-3.292z"/></svg>
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.802 2.035a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.538 1.118L12.4 14.347a1 1 0 00-1.175 0l-2.977 2.136c-.783.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L3.61 8.72c-.783-.57-.38-1.81.588-1.81h3.462a1 1 0 00.95-.69l1.44-3.292z"/></svg>
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.802 2.035a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.538 1.118L12.4 14.347a1 1 0 00-1.175 0l-2.977 2.136c-.783.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L3.61 8.72c-.783-.57-.38-1.81.588-1.81h3.462a1 1 0 00.95-.69l1.44-3.292z"/></svg>
+              </div>
+              <blockquote class="mt-3 text-slate-700">Сотрудничаем более года — команда быстро реагирует, предлагает понятные решения и соблюдает сроки.</blockquote>
+              <p class="mt-4 text-sm text-slate-500">— Руководитель проектов</p>
+            </article>
+          </li>
+
+          
+          <li>
+            <article class="h-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-soft">
+              <div class="flex items-center gap-3">
+                <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-600 text-white font-semibold">ГС</span>
+                <div>
+                  <h3 class="font-semibold text-slate-900">Геосуппорт</h3>
+                  <p class="text-sm text-slate-500">промышленность</p>
+                </div>
+              </div>
+              <div class="mt-4 flex items-center gap-1 text-amber-400" aria-label="Оценка 5 из 5">
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927..."/></svg>
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927..."/></svg>
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927..."/></svg>
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927..."/></svg>
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927..."/></svg>
+              </div>
+              <blockquote class="mt-3 text-slate-700">Отличная коммуникация и аккуратная работа с дизайном. Рекомендуем!</blockquote>
+              <p class="mt-4 text-sm text-slate-500">— Маркетинг-директор</p>
+            </article>
+          </li>
+
+          
+          <li>
+            <article class="h-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-soft">
+              <div class="flex items-center gap-3">
+                <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-600 text-white font-semibold">ПАР</span>
+                <div>
+                  <h3 class="font-semibold text-slate-900">Группа Партнер</h3>
+                  <p class="text-sm text-slate-500">промышленность</p>
+                </div>
+              </div>
+              <div class="mt-4 flex items-center gap-1 text-amber-400" aria-label="Оценка 4 из 5">
+                <span class="sr-only">Рейтинг: 4</span>
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927..."/></svg>
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927..."/></svg>
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927..."/></svg>
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927..."/></svg>
+                <svg class="h-5 w-5 text-slate-300" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927..."/></svg>
+              </div>
+              <blockquote class="mt-3 text-slate-700">Сильная экспертность и внимание к деталям. Запуск прошёл без срывов.</blockquote>
+              <p class="mt-4 text-sm text-slate-500">— Руководитель IT</p>
+            </article>
+          </li>
+
+          
+          <li>
+            <article class="h-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-soft">
+              <div class="flex items-center gap-3">
+                <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-600 text-white font-semibold">СПС</span>
+                <div>
+                  <h3 class="font-semibold text-slate-900">Спецпромсервис</h3>
+                  <p class="text-sm text-slate-500">промышленность</p>
+                </div>
+              </div>
+              <div class="mt-4 flex items-center gap-1 text-amber-400" aria-label="Оценка 5 из 5">
+                <span class="sr-only">Рейтинг: 5</span>
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927..."/></svg>
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927..."/></svg>
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927..."/></svg>
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927..."/></svg>
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927..."/></svg>
+              </div>
+              <blockquote class="mt-3 text-slate-700">Быстрые правки, понятные отчёты и хорошее качество на выходе.</blockquote>
+              <p class="mt-4 text-sm text-slate-500">— Операционный директор</p>
+            </article>
+          </li>
+
+          
+          <li>
+            <article class="h-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-soft">
+              <div class="flex items-center gap-3">
+                <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-600 text-white font-semibold">RGH</span>
+                <div>
+                  <h3 class="font-semibold text-slate-900">R Group Holding</h3>
+                  <p class="text-sm text-slate-500">промышленность</p>
+                </div>
+              </div>
+              <div class="mt-4 flex items-center gap-1 text-amber-400" aria-label="Оценка 5 из 5"></div>
+              <blockquote class="mt-3 text-slate-700">Гибкий подход к задачам и грамотные консультации на каждом этапе.</blockquote>
+              <p class="mt-4 text-sm text-slate-500">— Руководитель направления</p>
+            </article>
+          </li>
+
+          
+          <li>
+            <article class="h-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-soft">
+              <div class="flex items-center gap-3">
+                <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-600 text-white font-semibold">ЛК</span>
+                <div>
+                  <h3 class="font-semibold text-slate-900">ГК Лукойл</h3>
+                  <p class="text-sm text-slate-500">промышленность</p>
+                </div>
+              </div>
+              <div class="mt-4 flex items-center gap-1 text-amber-400" aria-label="Оценка 5 из 5"></div>
+              <blockquote class="mt-3 text-slate-700">Высокая надёжность и прозрачность процессов. Команда на связи 24/7.</blockquote>
+              <p class="mt-4 text-sm text-slate-500">— Руководитель подразделения</p>
+            </article>
+          </li>
+        </ul>
+
+      </section>
+    </main>
+  </div>
 
 
 
           
-            
+<footer class="px-6 py-12 bg-sky-950 text-white/50">
+     <div class="inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
+      <div class="relative">
+ 
+          <div class="border-t border-white/10"></div>
+
+          
+          <div class="mt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="text-sm text-slate-400">© <span id="year"></span>P9X.ru 2010 - 2025г. услуги интернет маркетинга</p>
+            <div class="flex items-center gap-4 text-slate-400 text-sm">
+              <a href="#" class="hover:text-white transition">Документы</a>
+              <a href="#" class="hover:text-white transition">Служба поддержки</a>
+              <a href="#" class="hover:text-white transition">Статус</a>
+            </div>
+          </div>      
+      </div>
+
+
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105149615', 'ym');
+
+    ym(105149615, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/105149615" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+  </footer>
   </main>          
 
     <script>
@@ -769,22 +1427,6 @@ fill="#fff" class="bi bi-telegram pr-1">
     </script>
 
 
-  <footer class="px-6 py-12 bg-sky-950 text-white/50">
-    
-<p>P9X.ru 2010 - 2025г. услуги интернет маркетинга</p>
 
-<script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105149615', 'ym');
-
-    ym(105149615, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/105149615" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-
-  </footer>
 </body>
 </html>

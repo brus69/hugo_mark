@@ -7,7 +7,7 @@
 <link rel="icon" type="image/x-icon" href="{{ "favicon.ico" | absURL }}">
 <!-- {{ partialCached "head/css.html" . }}
 {{ partialCached "head/js.html" . }} -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  
  <style>
   .content h1 { 
         font-size: 1.875rem; 
@@ -347,3 +347,23 @@
             font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
         }
     </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+   <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: '#eff6ff',
+                100: '#dbeafe',
+                500: '#0ea5e9',
+                600: '#0284c7',
+              },
+            },
+            boxShadow: {
+              soft: '0 8px 24px rgba(2, 132, 199, 0.08)'
+            }
+          },
+        },
+      }
+    </script>
