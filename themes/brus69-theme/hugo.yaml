@@ -23,7 +23,7 @@ menus:
       pageRef: '/job/'
       weight: 40
     - name: 'Кейсы'
-      pageRef: '/tags'
+      pageRef: '/tags/case/'
       weight: 50
     - name: 'Калькуляторы'
       pageRef: '/calculators'

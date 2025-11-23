@@ -32,6 +32,9 @@
     <loc>http://localhost:1313/about/</loc>
     <lastmod>2024-01-15T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/tags/case/</loc>
+    <lastmod>2023-01-15T09:00:00-07:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/posts/direct/</loc>
     <lastmod>2023-01-15T09:00:00-07:00</lastmod>
   </url><url>

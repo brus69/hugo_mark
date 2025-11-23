@@ -1,22 +1,178 @@
 {{ define "main" }}
-<div class="max-w-4xl bg-white overflow-hidden">
-    <div class="grid md:grid-cols-1 gap-8 p-8">
-        <!-- Левая колонка - основная информация -->
-        <div class="space-y-3">
-            <div>
-                <h1 class="text-2xl font-bold text-gray-900 mb-4">{{ .Title }}</h1>
-                <p class="text-gray-700 mb-4">
-                 {{.Content}}
-                </p>
+<div class="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50/30 py-8">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Header Section -->
+    <div class="text-center mb-12">
+      <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full shadow-sm border border-slate-200/60 mb-6">
+        <svg class="w-4 h-4 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M2 3.5A1.5 1.5 0 013.5 2h1A1.5 1.5 0 016 3.5v1A1.5 1.5 0 014.5 6h-1A1.5 1.5 0 012 4.5v-1zM3.5 10a1.5 1.5 0 01-1.5-1.5v-1A1.5 1.5 0 013.5 6h1A1.5 1.5 0 016 7.5v1A1.5 1.5 0 014.5 10h-1zM8 3.5A1.5 1.5 0 019.5 2h1A1.5 1.5 0 0112 3.5v1A1.5 1.5 0 0110.5 6h-1A1.5 1.5 0 018 4.5v-1zM9.5 10a1.5 1.5 0 01-1.5-1.5v-1A1.5 1.5 0 019.5 6h1a1.5 1.5 0 011.5 1.5v1A1.5 1.5 0 0110.5 10h-1zM12 11.5a1.5 1.5 0 011.5-1.5h1a1.5 1.5 0 011.5 1.5v1a1.5 1.5 0 01-1.5 1.5h-1a1.5 1.5 0 01-1.5-1.5v-1z" clip-rule="evenodd"/>
+        </svg>
+        <span class="text-sm font-medium text-slate-600">Контакты</span>
+      </div>
+      
+      <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6 bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent">
+        {{ .Title }}
+      </h1>
+      
+      <div class="prose prose-lg prose-slate max-w-3xl mx-auto text-slate-600 leading-relaxed">
+        {{ .Content }}
+      </div>
+    </div>
+
+    <!-- Main Content Grid -->
+    <div class="grid lg:grid-cols-3 gap-8 mb-12">
+      
+      <!-- Contact Information -->
+      <div class="lg:col-span-1 space-y-6">
+        
+        <!-- Contact Card -->
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-6">
+          <h3 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+            <svg class="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+            </svg>
+            Контактная информация
+          </h3>
+          
+          <div class="space-y-4">
+            <!-- Email -->
+            <div class="flex items-start gap-3 group">
+              <div class="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-200 transition-colors duration-300">
+                <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-sm text-slate-500 font-medium">Email</p>
+                <a href="mailto:sale@p9x.ru" class="text-slate-900 font-semibold hover:text-blue-600 transition-colors duration-300">
+                  sale@p9x.ru
+                </a>
+              </div>
             </div>
 
-            <div class="border-t border-gray-200 pt-6">
-                
-            <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A172a0fadc3037dab46330af1d8aac2e5589e2eac4babb777d97ec58efb39e7d7&amp;width=100%25&amp;height=632&amp;lang=ru_RU&amp;scroll=true"></script>
+            <!-- Phone -->
+            <div class="flex items-start gap-3 group">
+              <div class="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center flex-shrink-0 group-hover:bg-green-200 transition-colors duration-300">
+                <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M7 2a2 2 0 00-2 2v12a2 2 0 002 2h6a2 2 0 002-2V4a2 2 0 00-2-2H7zm3 14a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-sm text-slate-500 font-medium">Телефон</p>
+                <a href="tel:+79999999999" class="text-slate-900 font-semibold hover:text-blue-600 transition-colors duration-300">
+                  +7 (999) 999-99-99
+                </a>
+              </div>
             </div>
+
+            <!-- Address -->
+            <div class="flex items-start gap-3 group">
+              <div class="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center flex-shrink-0 group-hover:bg-purple-200 transition-colors duration-300">
+                <svg class="w-5 h-5 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-sm text-slate-500 font-medium">Адрес</p>
+                <p class="text-slate-900 font-semibold">
+                  г. Москва, ул. Примерная, д. 123
+                </p>
+              </div>
+            </div>
+
+            <!-- Working Hours -->
+            <div class="flex items-start gap-3 group">
+              <div class="w-10 h-10 rounded-lg bg-orange-100 flex items-center justify-center flex-shrink-0 group-hover:bg-orange-200 transition-colors duration-300">
+                <svg class="w-5 h-5 text-orange-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-sm text-slate-500 font-medium">Время работы</p>
+                <p class="text-slate-900 font-semibold">
+                  Пн-Пт: 9:00-18:00<br>
+                  Сб-Вс: выходной
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
-      
+        <!-- Social Links -->
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-6">
+          <h3 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+            <svg class="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
+            </svg>
+            Социальные сети
+          </h3>
+          
+          <div class="grid grid-cols-2 gap-3">
+            <!-- Telegram -->
+            <a href="https://t.me/p9x_agency" class="flex items-center gap-3 p-3 rounded-xl bg-blue-50 hover:bg-blue-100 border border-blue-200/50 hover:border-blue-300 transition-all duration-300 group">
+              <div class="w-8 h-8 rounded-lg bg-blue-500 flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 16 16">
+                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>
+                </svg>
+              </div>
+              <span class="text-sm font-medium text-slate-700 group-hover:text-slate-900">Telegram</span>
+            </a>
+
+            <!-- VK -->
+            <a href="https://vk.com/p9x" class="flex items-center gap-3 p-3 rounded-xl bg-blue-50 hover:bg-blue-100 border border-blue-200/50 hover:border-blue-300 transition-all duration-300 group">
+              <div class="w-8 h-8 rounded-lg bg-blue-500 flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M15.07 2H8.93C3.33 2 2 3.33 2 8.93v6.14C2 20.67 3.33 22 8.93 22h6.14c5.6 0 6.93-1.33 6.93-6.93V8.93C22 3.33 20.67 2 15.07 2m.88 14.75h-1.19c-.44 0-.57-.25-1.34-.83-.65-.5-.93-.56-1.08-.56-.23 0-.29.1-.29.54v.77c0 .39-.12.62-1.09.62-1.59 0-3.26-.93-4.45-2.63-1.6-2.15-2.36-3.68-2.36-4.1 0-.18.1-.36.51-.36h1.19c.38 0 .52.18.67.61.73 2.06 1.94 3.86 2.49 3.86.18 0 .26-.09.26-.56v-2.71c.06-.98-.28-1.11-.28-1.66 0-.17.14-.32.39-.32h1.89c.33 0 .45.15.45.49v3.03c0 .31.14.42.23.42.18 0 .33-.1.65-.41 1.07-1.18 1.84-2.99 1.84-2.99.1-.22.26-.36.62-.36h1.19c.46 0 .56.23.46.52-.22.72-2.43 4.15-2.43 4.15-.19.27-.26.39 0 .69.19.24.83.74 1.25 1.2.85.93 1.48 1.71 1.66 2.25.09.31-.07.47-.5.47z"/>
+                </svg>
+              </div>
+              <span class="text-sm font-medium text-slate-700 group-hover:text-slate-900">VK</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Map Section -->
+      <div class="lg:col-span-2">
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200/80 overflow-hidden">
+          <div class="p-6 border-b border-slate-200/80">
+            <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+              <svg class="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+              </svg>
+              Мы на карте
+            </h3>
+          </div>
+          <div class="h-96 md:h-[500px]">
+            <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A172a0fadc3037dab46330af1d8aac2e5589e2eac4babb777d97ec58efb39e7d7&amp;width=100%25&amp;height=100%&amp;lang=ru_RU&amp;scroll=true"></script>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <!-- CTA Section -->
+    <div class="bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl p-8 text-center text-white">
+      <h3 class="text-2xl font-bold mb-4">Готовы начать сотрудничество?</h3>
+      <p class="text-blue-100 mb-6 max-w-2xl mx-auto">
+        Оставьте заявку и мы свяжемся с вами в течение часа для бесплатной консультации
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="mailto:sale@p9x.ru" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-blue-50 transition-all duration-300 shadow-lg hover:shadow-xl">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+          </svg>
+          Написать на почту
+        </a>
+        <a href="tel:+79999999999" class="inline-flex items-center gap-2 px-6 py-3 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-blue-600 transition-all duration-300">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M7 2a2 2 0 00-2 2v12a2 2 0 002 2h6a2 2 0 002-2V4a2 2 0 00-2-2H7zm3 14a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
+          </svg>
+          Позвонить нам
+        </a>
+      </div>
+    </div>
+  </div>
 </div>
 {{ end }}

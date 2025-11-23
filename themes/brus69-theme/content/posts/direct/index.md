@@ -4,6 +4,7 @@ date: 2023-01-15T09:00:00-07:00
 draft: false
 tags:
   - red
+  - case
 description: Описание Алгоритм проверки выдачи по SEO
 h1: Алгоритм22 проверки выдачи по SEO E-commerce
 featured: true

@@ -1,7 +1,145 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
-  {{ .Content }}
-  {{ range .Pages }}
-    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-  {{ end }}
+<div class="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50/30 py-8">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Page Header -->
+    <div class="text-center mb-12">
+      <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full shadow-sm border border-slate-200/60 mb-6">
+        <svg class="w-4 h-4 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M17.707 9.293a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7A.997.997 0 012 10V5a3 3 0 013-3h5c.256 0 .512.098.707.293l7 7zM5 6a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
+        </svg>
+        <span class="text-sm font-medium text-slate-600">Категория</span>
+      </div>
+      
+      <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6 bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent">
+        {{ .Title }}
+      </h1>
+      
+      {{ if .Content }}
+      <div class="prose prose-lg prose-slate max-w-3xl mx-auto text-slate-600 leading-relaxed">
+        {{ .Content }}
+      </div>
+      {{ end }}
+    </div>
+
+    <!-- Articles Grid -->
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {{ range .Pages }}
+      <article class="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200/80 hover:border-blue-200 overflow-hidden hover:-translate-y-1">
+        <a href="{{ .RelPermalink }}" class="block h-full">
+          <!-- Featured Image -->
+          {{ if .Params.image }}
+          <div class="aspect-[4/3] overflow-hidden">
+            <img 
+              src="{{ .Params.image }}" 
+              alt="{{ .LinkTitle }}"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            >
+          </div>
+          {{ else }}
+          <div class="aspect-[4/3] bg-gradient-to-br from-blue-50 to-cyan-50 flex items-center justify-center">
+            <svg class="w-12 h-12 text-blue-400/60" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"/>
+            </svg>
+          </div>
+          {{ end }}
+
+          <!-- Content -->
+          <div class="p-6">
+            <!-- Meta Information -->
+            <div class="flex items-center gap-3 mb-3 flex-wrap">
+              {{ if .Date }}
+              <time class="text-xs text-slate-500 font-medium bg-slate-100 px-2 py-1 rounded-full">
+                {{ .Date.Format "2 Jan 2006" }}
+              </time>
+              {{ end }}
+              
+              {{ if .Params.tags }}
+              <div class="flex items-center gap-1 text-xs text-slate-500">
+                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M17.707 9.293a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7A.997.997 0 012 10V5a3 3 0 013-3h5c.256 0 .512.098.707.293l7 7zM5 6a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
+                </svg>
+                <span>{{ index .Params.tags 0 }}</span>
+              </div>
+              {{ end }}
+            </div>
+
+            <!-- Title -->
+            <h2 class="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors duration-300 mb-3 leading-tight line-clamp-2">
+              {{ .LinkTitle }}
+            </h2>
+
+            <!-- Description -->
+            {{ if .Description }}
+            <p class="text-slate-600 text-sm leading-relaxed line-clamp-3 mb-4">
+              {{ .Description }}
+            </p>
+            {{ else if .Summary }}
+            <p class="text-slate-600 text-sm leading-relaxed line-clamp-3 mb-4">
+              {{ .Summary }}
+            </p>
+            {{ end }}
+
+            <!-- Read More -->
+            <div class="flex items-center gap-2 text-blue-600 font-medium text-sm group-hover:gap-3 transition-all duration-300">
+              <span>Читать</span>
+              <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+          </div>
+        </a>
+      </article>
+      {{ end }}
+    </div>
+
+    <!-- Empty State -->
+    {{ if not .Pages }}
+    <div class="text-center py-16">
+      <div class="w-32 h-32 mx-auto mb-6 rounded-full bg-white shadow-sm border border-slate-200 flex items-center justify-center">
+        <svg class="w-16 h-16 text-slate-400" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+        </svg>
+      </div>
+      <h3 class="text-2xl font-bold text-slate-900 mb-3">Пока пусто</h3>
+      <p class="text-slate-600 max-w-md mx-auto mb-6">
+        В этой категории еще нет статей. Мы работаем над новыми материалами!
+      </p>
+      <a href="/posts/" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-slate-700 hover:text-slate-900 font-medium rounded-lg shadow-sm hover:shadow-md border border-slate-200 transition-all duration-300">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"/>
+        </svg>
+        К списку статей
+      </a>
+    </div>
+    {{ end }}
+
+    <!-- Back Link -->
+    <div class="text-center mt-16 pt-8 border-t border-slate-200/60">
+      <a href="/posts/" class="inline-flex items-center gap-3 px-8 py-4 text-slate-700 hover:text-slate-900 font-medium rounded-2xl hover:bg-white/80 backdrop-blur-sm transition-all duration-300 group border border-transparent hover:border-slate-200/60">
+        <svg class="w-5 h-5 transform group-hover:-translate-x-1 transition-transform duration-300" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"/>
+        </svg>
+        <span class="bg-gradient-to-r from-slate-700 to-slate-500 bg-clip-text text-transparent">
+          Вернуться ко всем статьям
+        </span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>
 {{ end }}

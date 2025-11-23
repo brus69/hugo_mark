@@ -9,7 +9,7 @@
 
 <link rel="icon" type="image/x-icon" href="http://localhost:1313/favicon.ico">
 
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  
  <style>
   .content h1 { 
         font-size: 1.875rem; 
@@ -349,6 +349,26 @@
             font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
         }
     </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+   <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: '#eff6ff',
+                100: '#dbeafe',
+                500: '#0ea5e9',
+                600: '#0284c7',
+              },
+            },
+            boxShadow: {
+              soft: '0 8px 24px rgba(2, 132, 199, 0.08)'
+            }
+          },
+        },
+      }
+    </script>
 </head>
   <body class="light-mode">
       <header>
@@ -429,7 +449,7 @@ fill="#000000" stroke="none">
       <a href="/job/">Вакансии</a>
     </li>
     <li class="text-lg font-semibold">
-      <a href="/tags/">Кейсы</a>
+      <a href="/tags/case/">Кейсы</a>
     </li>
     <li class="text-lg font-semibold">
       <a href="/calculators/">Калькуляторы</a>
@@ -485,17 +505,57 @@ fill="#fff" class="bi bi-telegram pr-1">
  
             
             
-  <article class="prose prose-lg py-8 px-4 max-w-[1200px]">
-    <h1 class="text-2xl font-bold mb-4">
-            Что такое AEO и как оно помогает брендам в эпоху AI-поиска
-    </h1>
-
+   <div class="max-w-[1100px]">
     
+    <section class="bg-white border border-gray-200  shadow-sm overflow-hidden">
+      
+      <div class="bg-gradient-to-b from-sky-50/60 to-transparent p-6 border-b border-gray-200">
+        <h1 class="text-2xl md:text-3xl font-bold">Что такое AEO и как оно помогает брендам в эпоху AI-поиска</h1>
+        <time class="block mt-2 text-gray-500" datetime="2025-11-19T23:13:09+00:00">
+          
     
-    <time class="block mb-6 text-gray-500" datetime="2025-11-09T09:00:00-07:00">November 9, 2025</time>
+    November 9, 2025
+        </time>
 
-    <div class="content mb-8 ">
-      <h1 id="оптимизация-под-системы-ответов-aeo-руководство-по-видимости-в-эпоху-ии-поиска">Оптимизация под системы ответов (AEO): руководство по видимости в эпоху ИИ-поиска</h1>
+              
+        <div class="not-prose backdrop-blur-sm pt-4">
+          <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div class="flex items-center gap-3">
+              
+                <img src="http://localhost:1313/user_02.png" class="h-20 w-20 rounded-full hue-rotate-270" alt="">
+              
+              <div>
+                <p class="text-gray-800 font-medium">Автор: Дмитрий Иванов [Команда P9X]</p>
+                <p class="text-gray-600 text-sm">~8 минут чтения</p>
+              </div>
+            </div>
+            <div class="text-sm text-gray-600">
+                <div class="tags mt-8">
+      
+  <div>
+    <div>Tags:</div>
+    <ul>
+        <li><a href="/tags/red/">Red</a></li>
+    </ul>
+  </div>
+
+    </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      
+      <article class="px-6 py-6 max-w-[94ch] content">
+  
+
+        
+
+
+        
+     
+           <h1 id="оптимизация-под-системы-ответов-aeo-руководство-по-видимости-в-эпоху-ии-поиска">Оптимизация под системы ответов (AEO): руководство по видимости в эпоху ИИ-поиска</h1>
 <p><img src="assets/aeo_ii.png" alt="AEO изображение" title="AEO"></p>
 <blockquote>
 <p>Уже в 2025 году более половины поисковых запросов не приводят пользователей на сайты. Люди получают ответы напрямую от ChatGPT, Perplexity и Gemini, не кликая ни по одной ссылке.</p>
@@ -727,22 +787,46 @@ Schema — это «язык» общения вашего контента с �
 <p>Если вы адаптируете свой контент под системы ответов сейчас —<br>
 вы останетесь видимыми, когда половина интернета перестанет кликать.</p>
 
-    </div>
+        
 
-    <div class="tags mt-8">
-      
-  <div>
-    <div>Tags:</div>
-    <ul>
-        <li><a href="/tags/red/">Red</a></li>
-    </ul>
+      </article>
+    </section>
   </div>
 
-    </div>
-  </article>
+
 
           
-            
+<footer class="px-6 py-12 bg-sky-950 text-white/50">
+     <div class="inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
+      <div class="relative">
+ 
+          <div class="border-t border-white/10"></div>
+
+          
+          <div class="mt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="text-sm text-slate-400">© <span id="year"></span>P9X.ru 2010 - 2025г. услуги интернет маркетинга</p>
+            <div class="flex items-center gap-4 text-slate-400 text-sm">
+              <a href="#" class="hover:text-white transition">Документы</a>
+              <a href="#" class="hover:text-white transition">Служба поддержки</a>
+              <a href="#" class="hover:text-white transition">Статус</a>
+            </div>
+          </div>      
+      </div>
+
+
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105149615', 'ym');
+
+    ym(105149615, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/105149615" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+  </footer>
   </main>          
 
     <script>
@@ -785,22 +869,6 @@ Schema — это «язык» общения вашего контента с �
     </script>
 
 
-  <footer class="px-6 py-12 bg-sky-950 text-white/50">
-    
-<p>P9X.ru 2010 - 2025г. услуги интернет маркетинга</p>
 
-<script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105149615', 'ym');
-
-    ym(105149615, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/105149615" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-
-  </footer>
 </body>
 </html>
