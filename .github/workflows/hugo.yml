@@ -24,7 +24,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: 0.128.0  # Укажите нужную версию Hugo
+      HUGO_VERSION: 0.152.2  # Укажите нужную версию Hugo
     steps:
       - name: Install Hugo
         run: |
