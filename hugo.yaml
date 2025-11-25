@@ -10,3 +10,7 @@ pagination:
 
 enableRobotsTXT: true
 enableSitemapXML: true
+disablePathToLower: true
+
+permalinks:
+  posts: /:contentbasename/

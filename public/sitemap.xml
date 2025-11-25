@@ -2,13 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/posts/8-reasons-seo-ppc/</loc>
+    <loc>http://localhost:1313/seo-analysis/</loc>
+    <lastmod>2025-11-24T23:13:09+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/4-steps-to-pilot-your-new-gtm-workflow/</loc>
+    <lastmod>2025-11-23T23:13:09+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/4-areas-that-make-marketing-work-in-lean-times/</loc>
+    <lastmod>2025-11-22T23:13:09+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/3-ways-to-help-cmos-increase-consumer-engagement-and-drive-marketing-performance/</loc>
+    <lastmod>2025-11-21T23:13:09+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/3-pillars-enterprise-growth/</loc>
+    <lastmod>2025-11-20T23:13:09+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/8-reasons-seo-ppc/</loc>
     <lastmod>2025-11-19T23:13:09+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/9-reasons-buying-groups-next-big-thing/</loc>
+    <loc>http://localhost:1313/4-infographic-designs-best-for-digital-pr/</loc>
     <lastmod>2025-11-19T23:13:09+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/aeo/</loc>
+    <loc>http://localhost:1313/9-reasons-buying-groups-next-big-thing/</loc>
+    <lastmod>2025-11-19T23:13:09+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/data-driven-insights/</loc>
+    <lastmod>2025-11-19T23:13:09+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/customer-journey-map/</loc>
+    <lastmod>2025-11-19T23:13:08+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/aeo/</loc>
     <lastmod>2025-11-09T09:00:00-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/red/</loc>
@@ -35,10 +59,10 @@
     <loc>http://localhost:1313/tags/case/</loc>
     <lastmod>2023-01-15T09:00:00-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/direct/</loc>
+    <loc>http://localhost:1313/direct/</loc>
     <lastmod>2023-01-15T09:00:00-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/seo-algorithm/</loc>
+    <loc>http://localhost:1313/seo-algorithm/</loc>
     <lastmod>2023-01-15T09:00:00-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/</loc>
