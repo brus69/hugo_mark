@@ -1,6 +1,6 @@
-baseURL: 'https://www.p9x.ru'
+baseURL: 'https://p9x.ru'
 languageCode: ru
-title: Агентство контекстной рекламы
+title: P9X
 theme: "brus69-theme"
 
 pagination:
