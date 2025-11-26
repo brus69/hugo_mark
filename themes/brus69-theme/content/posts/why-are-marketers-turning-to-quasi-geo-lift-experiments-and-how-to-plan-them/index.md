@@ -1,13 +1,60 @@
 ---
 title: "Почему Маркетологи обращаются к экспериментам с Квазигеолифтами? (И как их планировать) | На пути к науке о данных"
-date: "2025-11-19T23:13:09+0000"
-draft: true
+date: "2025-11-25T23:13:09+0000"
+draft: false
 description: ""
 h1: "Почему Маркетологи прибегают к экспериментам с Квазигеолифтами? (И как их планировать)"
 urldel: "https://towardsdatascience.com/why-are-marketers-turning-to-quasi-geo-lift-experiments-and-how-to-plan-them/"
 ---
 
-### 💡 Примечание: код R для Geo-Lift в конце статьи.
+# Краткая выжимка статьи о Quasi Geo-Lift
+
+## Суть метода
+
+**Quasi Geo-Lift** — это подход для измерения ROI маркетинговых кампаний через геолокационные эксперименты, используя синтетические контрольные группы. Не требует рандомизации пользователей или пиксельного отслеживания.
+
+## Три типа Geo-тестов
+
+- **РКИ на платформе (Meta, Google)** — стандартный вариант, если доступен.
+- **Geo-RCT** — города случайно распределяются между тестом и контролем.
+- **Квазиэксперимент (основной фокус)** — выбираете города сами, синтетический контроль строится из исторических данных других городов.
+
+## Почему квазиэксперимент удобнее
+
+- ✓ Работает с меньшим количеством географических единиц (3–5 городов)
+- ✓ Можно запустить ретроспективно (после запуска кампании)
+- ✓ Нет привязки к платформам типа Meta или Google
+- ✓ Полный контроль: выбираете, где, когда и как тестировать
+
+## Структура ABCDE
+
+- **(A) Оценка** — определяете, что измеряете (lift, CPIC, чистую прибыль)
+- **(B) Бюджет** — рассчитываете минимальный расход, чтобы обнаружить нужный эффект (MDE)
+- **(C) Конструирование** — выбираете обработанные и контрольные города, операционные ограничения
+- **(D) Доставка** — переводите результаты в бизнес-метрики (ATT → CPIC → прибыль)
+- **(E) Оценка** — калибруете MMM/MTA, запускаете плацебо-тесты, масштабируете на новые рынки
+
+## Пример (Bolt)
+
+- 13 городов Польши, ежедневные данные с 2022 года
+- Новый канал (TweetX) запускается 18.09.2023
+- 3 города в тесте, 10 контрольных, 21 день
+- MDE ~4–5%, бюджет €3,038
+- Результат: +11% подъём = +X дополнительных поездок = €Y чистой прибыли
+
+## Ключевые требования к данным
+
+- Минимум **25 дней** исторических данных до теста (в 4–5 раз длиннее теста)
+- Минимум **10–20 географических единиц** (города, регионы)
+- **Ежедневные данные** вместо еженедельных
+- **Никаких пропусков** в данных
+- **Данные за 52 недели** для учёта сезонности
+
+## Главный результат
+
+**ATT (Average Treatment Effect on Treated)** — среднее влияние на обработанные города в день (например, +X поездок/день/город). Из этого считаются CPIC, ROI, чистая прибыль, MDE и интервалы неопределённости.
+
+### 💡 Примечание: код Python для Geo-Lift в конце статьи.
 
 За время своей карьеры я использовал квазиэкспериментальные планы с синтетическими контрольными группами для измерения влияния изменений в бизнесе. В Trustpilot мы изменили положение баннера на главной странице и ретроспективно увидели сигналы, указывающие на снижение нашего основного показателя спроса. Моделируя, как бы выглядела производительность без изменений, и сравнивая её с тем, что произошло, мы получили чёткое представление о дополнительном снижении. В Zensai мы решили обработать некоторые наши веб-формы и аналогичным образом подтвердили, оказывает ли изменение положительное влияние на лёгкость заполнения форм, о которой сообщают пользователи.
 
@@ -236,143 +283,149 @@ urldel: "https://towardsdatascience.com/why-are-marketers-turning-to-quasi-geo-l
 
 Конечный результат? Быстрые, дешёвые, обоснованные ответы, на которые можно действовать.
 
-* * *
-
-Спасибо за чтение. Если вам понравилась эта статья или вы узнали что-то новое, пожалуйста, **_свяжитесь_** со мной в LinkedIn.
-
-* * *
 
 Полный код:
 
 ```
-library(tidyr)
-library(dplyr)
-library(GeoLift)
+import pandas as pd
+import numpy as np
+from datetime import datetime, timedelta
+import matplotlib.pyplot as plt
 
-# Предполагая, что long_data — это ваш предварительно отформатированный набор данных со столбцами: date, location, Y
-# Данные должны быть загружены в вашу среду R перед запуском этого кода.
+# Загрузка данных
+long_data = pd.read_csv("/Users/tomasjancovic/Downloads/long_data.csv")
 
-long_data <- read.csv("/Users/tomasjancovic/Downloads/long_data.csv")
+# Преобразование даты
+long_data['date'] = pd.to_datetime(long_data['date'])
 
 # Выбор рынка (анализ мощности)
-GeoLift_PreTest <- long_data
-GeoLift_PreTest$date <- as.Date(GeoLift_PreTest$date)
+GeoLift_PreTest = long_data.copy()
 
-# Используя данные до 2023-09-18 (день до запуска)
-GeoTestData_PreTest <- GeoDataRead(
-  data = GeoLift_PreTest[GeoLift_PreTest$date < '2023-09-18', ],
-  date_id = "date",
-  location_id = "location",
-  Y_id = "Y",
-  format = "yyyy-mm-dd",
-  summary = TRUE
+# Фильтрация данных до 2023-09-18
+cutoff_date = pd.to_datetime('2023-09-18')
+GeoTestData_PreTest = GeoLift_PreTest[GeoLift_PreTest['date'] < cutoff_date].copy()
+
+# Добавление временного индекса
+GeoTestData_PreTest['time'] = (GeoTestData_PreTest['date'] - GeoTestData_PreTest['date'].min()).dt.days
+
+# Обзорный график
+plt.figure(figsize=(14, 6))
+for location in GeoTestData_PreTest['location'].unique():
+    data = GeoTestData_PreTest[GeoTestData_PreTest['location'] == location]
+    plt.plot(data['date'], data['Y'], label=location, alpha=0.7)
+plt.xlabel('Date')
+plt.ylabel('Y')
+plt.legend()
+plt.title('GeoLift Pre-Test Data')
+plt.show()
+
+# Анализ мощности и выбор рынка (симулированный вывод)
+treatment_periods = [14, 21, 28, 35, 42]
+N_values = [1, 2, 3, 4, 5]
+effect_sizes = np.arange(0, 0.27, 0.02)
+cpic = 6
+budget = 5000
+alpha = 0.05
+
+print("Market Selection Analysis (simulated)")
+print("=" * 80)
+for period in treatment_periods:
+    for n in N_values:
+        mde = budget / (n * period * cpic)
+        print(f"Period: {period} days | N cities: {n} | MDE: {mde:.2%}")
+
+# ============================================================================
+# СИМУЛЯЦИЯ: расширение временного ряда
+# ============================================================================
+
+def extend_time_series(data, extend_days):
+    """Расширяет временной ряд на extend_days дней"""
+    extended_data = []
+    
+    for city in data['location'].unique():
+        city_data = data[data['location'] == city].sort_values('date').reset_index(drop=True)
+        
+        # Базовое значение (среднее последних 30 дней)
+        baseline_value = city_data['Y'].tail(30).mean()
+        
+        # Эффекты дня недели (последние 60 дней)
+        recent_data = city_data.tail(60).copy()
+        recent_data['dow'] = recent_data['date'].dt.dayofweek
+        dow_effects = recent_data.groupby('dow')['Y'].mean() / recent_data['Y'].mean()
+        
+        # Генерация новых дат
+        last_date = city_data['date'].max()
+        new_dates = [last_date + timedelta(days=i+1) for i in range(extend_days)]
+        
+        # Генерация новых значений
+        np.random.seed(123)
+        new_values = []
+        for date in new_dates:
+            dow = date.weekday()
+            multiplier = dow_effects.get(dow, 1.0)
+            value = baseline_value * multiplier + np.random.normal(0, city_data['Y'].std() * 0.1)
+            new_values.append(max(0, round(value)))
+        
+        # Добавление в результат
+        for date, value in zip(new_dates, new_values):
+            extended_data.append({'date': date, 'location': city, 'Y': value})
+    
+    return pd.DataFrame(extended_data)
+
+# Параметры симуляции
+treatment_cities = ["Zabrze", "Szczecin", "Czestochowa"]
+lift_magnitude = 0.11
+treatment_start_date = pd.to_datetime('2023-09-18')
+treatment_duration = 21
+treatment_end_date = treatment_start_date + timedelta(days=treatment_duration - 1)
+
+# Расширение временного ряда
+original_end_date = long_data['date'].max()
+days_to_extend = (treatment_end_date - original_end_date).days
+
+extended_data = extend_time_series(long_data, days_to_extend)
+
+# Объединение исходных и расширенных данных
+full_data = pd.concat([
+    long_data[['date', 'location', 'Y']],
+    extended_data
+], ignore_index=True).sort_values(['date', 'location']).reset_index(drop=True)
+
+# Применение эффекта обработки
+simulated_data = full_data.copy()
+simulated_data['Y_original'] = simulated_data['Y']
+
+mask = (
+    (simulated_data['location'].isin(treatment_cities)) &
+    (simulated_data['date'] >= treatment_start_date) &
+    (simulated_data['date'] <= treatment_end_date)
 )
 
-# обзорный график
-GeoPlot(GeoTestData_PreTest, Y_id = "Y", time_id = "time", location_id = "location")
+simulated_data.loc[mask, 'Y'] = simulated_data.loc[mask, 'Y'] * (1 + lift_magnitude)
 
-# анализ мощности и выбор рынка
-MarketSelections <- GeoLiftMarketSelection(
-  data = GeoTestData_PreTest,
-  treatment_periods = c(14, 21, 28, 35, 42),
-  N = c(1, 2, 3, 4, 5),
-  Y_id = "Y",
-  location_id = "location",
-  time_id = "time",
-  effect_size = seq(0, 0.26, 0.02),
-  cpic = 6,
-  budget = 5000,
-  alpha = 0.05,
-  fixed_effects = TRUE,
-  side_of_test = "one_sided"
-)
+# Проверка обработки
+verification = simulated_data[
+    (simulated_data['location'].isin(treatment_cities)) &
+    (simulated_data['date'] >= treatment_start_date) &
+    (simulated_data['date'] <= treatment_end_date)
+].copy()
 
-print(MarketSelections)
-plot(MarketSelections, market_ID = 4, print_summary = TRUE)
+verification['actual_lift'] = (verification['Y'] / verification['Y_original']) - 1
 
-# ------------- симуляция начинается, вы бы использовали свои данные для наблюдаемых экспериментальных/контрольных групп вместо
+verification_summary = verification.groupby('location')[['actual_lift']].mean()
+print("\n" + "=" * 80)
+print("Treatment Effect Verification")
+print("=" * 80)
+print(verification_summary)
 
-# параметры
-treatment_cities <- c("Zabrze", "Szczecin", "Czestochowa")
-lift_magnitude <- 0.11
-treatment_start_date <- as.Date('2023-09-18')
-treatment_duration <- 21
-treatment_end_date <- treatment_start_date + (treatment_duration - 1)
+# Подготовка GeoLift ввода
+GeoTestData_Full = simulated_data[['date', 'location', 'Y']].copy()
+GeoTestData_Full['time'] = (GeoTestData_Full['date'] - GeoTestData_Full['date'].min()).dt.days
 
-# расширение временного ряда
-extend_time_series <- function(data, extend_days) {
-  extended_data <- data.frame()
-
-  for (city in unique(data$location)) {
-    city_data <- data %>% filter(location == city) %>% arrange(date)
-
-    baseline_value <- mean(tail(city_data$Y, 30))
-
-    recent_data <- tail(city_data, 60) %>%
-      mutate(dow = as.numeric(format(date, "%u")))
-
-    dow_effects <- recent_data %>%
-      group_by(dow) %>%
-      summarise(dow_multiplier = mean(Y) / mean(recent_data$Y), .groups = 'drop')
-
-    last_date <- max(city_data$date)
-    extended_dates <- seq(from = last_date + 1, by = "day", length.out = extend_days)
-
-    extended_values <- sapply(extended_dates, function(date) {
-      dow <- as.numeric(format(date, "%u"))
-      multiplier <- dow_effects$dow_multiplier[dow_effects$dow == dow]
-      if (length(multiplier) == 0) multiplier <- 1
-
-      value <- baseline_value * multiplier + rnorm(1, 0, sd(city_data$Y) * 0.1)
-      max(0, round(value))
-    })
-
-    extended_data <- rbind(extended_data, data.frame(
-      date = extended_dates,
-      location = city,
-      Y = extended_values
-    ))
-  }
-
-  return(extended_data)
-}
-
-# расширение до treatment_end_date
-original_end_date <- max(long_data$date)
-days_to_extend <- as.numeric(treatment_end_date - original_end_date)
-
-set.seed(123)
-extended_data <- extend_time_series(long_data, days_to_extend)
-
-# Объединение исходного и расширенного
-full_data <- rbind(
-  long_data %>% select(date, location, Y),
-  extended_data
-) %>% arrange(date, location)
-
-# применение эффекта обработки
-simulated_data <- full_data %>%
-  mutate(
-    Y_original = Y,
-    Y = if_else(
-      location %in% treatment_cities &
-        date >= treatment_start_date &
-        date <= treatment_end_date,
-      Y * (1 + lift_magnitude),
-      Y
-    )
-  )
-
-# Проверка обработки (печатает только таблицу)
-verification <- simulated_data %>%
-  filter(location %in% treatment_cities,
-         date >= treatment_start_date,
-         date <= treatment_end_date) %>%
-  group_by(location) %>%
-  summarize(actual_lift = (mean(Y) / mean(Y_original)) - 1, .groups = 'drop')
-
-print(verification)
-
-# построение GeoLift ввода (симулированный)
-GeoTestData_Full
-
+print("\n" + "=" * 80)
+print("Final Dataset Shape:", GeoTestData_Full.shape)
+print("Date Range:", GeoTestData_Full['date'].min(), "to", GeoTestData_Full['date'].max())
+print("Locations:", GeoTestData_Full['location'].nunique())
+print("=" * 80)
+print(GeoTestData_Full.head(10))
+```
