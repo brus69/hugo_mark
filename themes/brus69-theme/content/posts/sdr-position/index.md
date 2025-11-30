@@ -1,7 +1,7 @@
 ---
 title: "Кто такой SDR должность Sales Development Representative"
 date: "2025-11-19T23:13:09+0000"
-draft: true
+draft: false
 description: "Подробное руководство о профессии SDR, их функциях, навыках, зарплате и важности в структуре команды продаж!"
 h1: "Sales Development Representative (SDR): Роль, обязанности и значение в B2B-продажах"
 urldel: "https://landingi.com/search-engine-marketing/"

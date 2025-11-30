@@ -1,7 +1,7 @@
 ---
 title: "Почему контент–хабы эффективны для SEO-маркетинга"
 date: "2025-11-19T23:13:09+0000"
-draft: true
+draft: false
 description: "По мере того как поисковые системы и пользователи стали лучше находить то, что они ищут, ценность контент-хабов неуклонно растет."
 h1: "Почему создание Контент-хаба улучшит SEO Вашего сайта"
 urldel: "https://www.toprankmarketing.com/blog/why-creating-a-content-hub-will-improve-your-sites-seo/"
