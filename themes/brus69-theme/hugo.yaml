@@ -1,6 +1,6 @@
-baseURL: 'https://example.org/'
-languageCode: 'en-US'
-title: 'My New Hugo Site'
+baseURL: 'https://p9x.ru/'
+languageCode: 'ru'
+title: 'p9x'
 
 menus:
   main:
