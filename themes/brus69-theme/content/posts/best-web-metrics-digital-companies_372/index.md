@@ -253,9 +253,9 @@ urldel: "https://www.kaushik.net/avinash/best-web-metrics-digital-companies/"
 * Views (Просмотры);
 * Sources (Источники).
 
-#### Социальные сети | Facebook: Priceline
+#### Социальные сети | VK: Priceline
 
-Priceline — типичный бренд, и их страница иллюстрирует, почему органическая стратегия практически ничего не стоит в Facebook.
+Priceline — типичный бренд, и их страница иллюстрирует, почему органическая стратегия практически ничего не стоит в VK.
 
 **Outcomes (Результаты):**
 * Page Likes (Лайки страницы);

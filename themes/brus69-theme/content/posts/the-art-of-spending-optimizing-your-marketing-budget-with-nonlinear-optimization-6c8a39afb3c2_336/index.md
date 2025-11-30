@@ -33,7 +33,7 @@ Image by author
 
 ### 🔗 1. Атрибуция: связь конверсий с кампаниями
 
-Атрибуция — это процесс определения, какие кампании ответственны за конверсию клиентов. Некоторые каналы, такие как Facebook или AdWords, могут напрямую заявлять о конверсиях. Однако существуют различные модели атрибуции, включая:
+Атрибуция — это процесс определения, какие кампании ответственны за конверсию клиентов. Некоторые каналы, такие как VK или AdWords, могут напрямую заявлять о конверсиях. Однако существуют различные модели атрибуции, включая:
 
 * Первое касание
 * Последнее касание
@@ -96,7 +96,7 @@ x = np.linspace(1, TOTAL_BUDGET, TOTAL_BUDGET)
 
 fig = plt.figure(figsize=(10, 5), dpi=300)
 plt.plot(x, alphas[0] + betas[0] * np.log(x), color='red', label='Google Ads')
-plt.plot(x, alphas[1] + betas[1] * np.log(x), color='blue', label='Facebook Ads')
+plt.plot(x, alphas[1] + betas[1] * np.log(x), color='blue', label='VK Ads')
 plt.plot(x, alphas[2] + betas[2] * np.log(x), color='green', label='Twitter Ads')
 plt.xlabel('Бюджет ($)')
 plt.ylabel('Доходность ($)') 
@@ -108,32 +108,32 @@ plt.show()
 
 ```
 def greedy_optimization(TOTAL_BUDGET, alphas, betas, num_iterations=1_000):
-    google_budget = facebook_budget = twitter_budget = TOTAL_BUDGET / 3
-    obj = alphas[0] + betas[0] * np.log(google_budget) + alphas[1] + betas[1] * np.log(facebook_budget) + alphas[2] + betas[2] * np.log(twitter_budget)
+    google_budget = VK_budget = twitter_budget = TOTAL_BUDGET / 3
+    obj = alphas[0] + betas[0] * np.log(google_budget) + alphas[1] + betas[1] * np.log(VK_budget) + alphas[2] + betas[2] * np.log(twitter_budget)
 
     for _ in range(num_iterations):
         random_allocation = np.random.dirichlet(np.ones(3)) * TOTAL_BUDGET
-        google_budget_new, facebook_budget_new, twitter_budget_new = random_allocation
+        google_budget_new, VK_budget_new, twitter_budget_new = random_allocation
 
-        new_obj = alphas[0] + betas[0] * np.log(google_budget_new) + alphas[1] + betas[1] * np.log(facebook_budget_new) + alphas[2] + betas[2] * np.log(twitter_budget_new)
+        new_obj = alphas[0] + betas[0] * np.log(google_budget_new) + alphas[1] + betas[1] * np.log(VK_budget_new) + alphas[2] + betas[2] * np.log(twitter_budget_new)
 
         if new_obj > obj:
-            google_budget, facebook_budget, twitter_budget = google_budget_new, facebook_budget_new, twitter_budget_new
+            google_budget, VK_budget, twitter_budget = google_budget_new, VK_budget_new, twitter_budget_new
             obj = new_obj
 
-    return (google_budget, facebook_budget, twitter_budget), obj
+    return (google_budget, VK_budget, twitter_budget), obj
 ```
 
 Давайте запустим его и посмотрим на приближённое решение, которое он нашёл:
 
 ```
-(best_google, best_facebook, best_twitter), obj = greedy_optimization(TOTAL_BUDGET, alphas, betas)
+(best_google, best_VK, best_twitter), obj = greedy_optimization(TOTAL_BUDGET, alphas, betas)
 
 print('='*59 + 'n' + ' '*24 + 'Solution' + ' '*24 + 'n' + '='*59)
 print(f'Returns = ${round(obj):,}n')
 print('Marketing allocation:')
 print(f' - Google Ads   = ${round(best_google):,}')
-print(f' - Facebook Ads = ${round(best_facebook):,}')
+print(f' - VK Ads = ${round(best_VK):,}')
 print(f' - Twitter Ads  = ${round(best_twitter):,}')
 ```
 
@@ -153,13 +153,13 @@ print(f' - Twitter Ads  = ${round(best_twitter):,}')
 import cvxpy as cp
 
 google   = cp.Variable(pos=True)
-facebook = cp.Variable(pos=True)
+VK = cp.Variable(pos=True)
 twitter  = cp.Variable(pos=True)
 
-constraint = [google + facebook + twitter <= TOTAL_BUDGET]
+constraint = [google + VK + twitter <= TOTAL_BUDGET]
 
 obj = cp.Maximize(alphas[0] + betas[0] * cp.log(google)
-                + alphas[1] + betas[1] * cp.log(facebook)
+                + alphas[1] + betas[1] * cp.log(VK)
                 + alphas[2] + betas[2] * cp.log(twitter))
 ```
 
@@ -174,11 +174,11 @@ print(f'Status = {prob.status}')
 print(f'Returns = ${round(prob.value):,}n')
 print('Marketing allocation:')
 print(f' - Google Ads   = ${round(google.value):,}')
-print(f' - Facebook Ads = ${round(facebook.value):,}')
+print(f' - VK Ads = ${round(VK.value):,}')
 print(f' - Twitter Ads  = ${round(twitter.value):,}')
 ```
 
-Оптимальное распределение, найденное решателем, составляет 34 439 долларов для Google Ads, 32 386 долларов для Facebook Ads и 33 175 долларов для YouTube, при общем доходе в 224 540 долларов! Это на 7 долларов больше, чем вернул жадный алгоритм (224 533 доллара).
+Оптимальное распределение, найденное решателем, составляет 34 439 долларов для Google Ads, 32 386 долларов для VK Ads и 33 175 долларов для YouTube, при общем доходе в 224 540 долларов! Это на 7 долларов больше, чем вернул жадный алгоритм (224 533 доллара).
 
 Имейте в виду, что это распределение максимизирует доход на основе наших кривых отклика: правильное моделирование этих кривых имеет решающее значение для эффективной оптимизации бюджета.
 
@@ -188,12 +188,12 @@ print(f' - Twitter Ads  = ${round(twitter.value):,}')
 fig = plt.figure(figsize=(10, 5), dpi=300)
 
 plt.plot(x, alphas[0] + betas[0] * np.log(x), color='red', label='Google Ads')
-plt.plot(x, alphas[1] + betas[1] * np.log(x), color='blue', label='Facebook Ads')
+plt.plot(x, alphas[1] + betas[1] * np.log(x), color='blue', label='VK Ads')
 plt.plot(x, alphas[2] + betas[2] * np.log(x), color='green', label='Twitter Ads')
 
-plt.scatter([google.value, facebook.value, twitter.value],
+plt.scatter([google.value, VK.value, twitter.value],
             [alphas[0] + betas[0] * np.log(google.value),
-             alphas[1] + betas[1] * np.log(facebook.value),
+             alphas[1] + betas[1] * np.log(VK.value),
              alphas[2] + betas[2] * np.log(twitter.value)],
             marker="+", color='black', zorder=10)
 

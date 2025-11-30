@@ -21,8 +21,8 @@ urldel: "https://towardsdatascience.com/understanding-bayesian-marketing-mix-mod
 
 Набор данных состоит из 208 недель выручки (с 2015–11–23 по 2019–11–11) и включает:
 
-* 5 каналов расходов на медиа: **tv_S, ooh_S, print_S, facebook_S, search_S**;
-* 2 канала медиа, которые также имеют информацию об экспозиции (Impression, Clicks): facebook_I, search_clicks_P;
+* 5 каналов расходов на медиа: **tv_S, ooh_S, print_S, VK_S, search_S**;
+* 2 канала медиа, которые также имеют информацию об экспозиции (Impression, Clicks): VK_I, search_clicks_P;
 * Органические медиа без расходов: **newsletter**;
 * Контрольные переменные: **events, holidays**, продажи конкурентов (**competitor_sales_B**).
 

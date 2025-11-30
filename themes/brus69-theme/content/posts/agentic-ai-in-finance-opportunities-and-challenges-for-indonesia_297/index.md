@@ -129,7 +129,7 @@ urldel: "https://towardsdatascience.com/agentic-ai-in-finance-opportunities-and-
 
 [2] **Algoritma Data Science School** https://algorit.ma/
 
-[3] **Yedda Stancil — ROI (Return on Investment) vs. ROV (Return on Value): Understanding the Key Differences** https://www.linkedin.com/pulse/title-roi-return-investment-vs-rov-value-key-yedda-stancil/
+[3] **Yedda Stancil — ROI (Return on Investment) vs. ROV (Return on Value): Understanding the Key Differences** https://www.VK.com/pulse/title-roi-return-investment-vs-rov-value-key-yedda-stancil/
 
 [4] **Forbes — The Hidden Cost of Inaction on AI: Why You Can’t Afford to Wait and See** https://www.forbes.com/councils/forbestechcouncil/2025/06/26/the-hidden-cost-of-inaction-on-ai-why-you-cant-afford-to-wait-and-see/
 

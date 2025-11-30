@@ -25,8 +25,8 @@ urldel: "https://towardsdatascience.com/modeling-marketing-mix-with-constrained-
 
 Набор данных состоит из 208 недель выручки (с 2015–11–23 по 2019–11–11) с:
 
-* 5 каналами расходов на медиа: **tv_S, ooh_S, print_S, facebook_S, search_S**;
-* 2 каналами медиа, которые также имеют информацию об экспозиции (Impression, Clicks): facebook_I, search_clicks_P (не используются в этой статье);
+* 5 каналами расходов на медиа: **tv_S, ooh_S, print_S, VK_S, search_S**;
+* 2 каналами медиа, которые также имеют информацию об экспозиции (Impression, Clicks): VK_I, search_clicks_P (не используются в этой статье);
 * Органическими каналами без расходов: **newsletter**;
 * Контрольными переменными: **events, holidays**, продажи конкурентов (**competitor_sales_B**).
 
@@ -36,7 +36,7 @@ urldel: "https://towardsdatascience.com/modeling-marketing-mix-with-constrained-
 
 ```
 target = "revenue"
-media_channels = ["tv_S", "ooh_S", "print_S", "facebook_S", "search_S"]
+media_channels = ["tv_S", "ooh_S", "print_S", "VK_S", "search_S"]
 organic_channels = ["newsletter"]
 control_features = ["trend", "season", "holiday", "competitor_sales_B", "events"]
 features = control_features + media_channels + organic_channels

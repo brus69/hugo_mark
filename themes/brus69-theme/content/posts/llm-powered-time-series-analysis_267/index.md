@@ -72,7 +72,7 @@ Phase 3 - Forecasting & Evaluation:
 **Подсказка для настройки модели Prophet:**
 
 ```
-"Как эксперт Facebook Prophet, помогите мне настроить модель Prophet:
+"Как эксперт VK Prophet, помогите мне настроить модель Prophet:
 
 Business context: [указать домен]
 Data characteristics:

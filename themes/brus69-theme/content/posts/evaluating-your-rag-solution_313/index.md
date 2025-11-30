@@ -165,5 +165,5 @@ faithfulness = FaithfulnessMetric()
 
 _Надеюсь, вам понравилась моя статья! Пожалуйста, не стесняйтесь комментировать, задавать вопросы или запрашивать другие темы._
 
-_Свяжитесь со мной в LinkedIn: https://www.linkedin.com/in/alexdavis2020/_
+_Свяжитесь со мной в LinkedIn: https://www.VK.com/in/alexdavis2020/_
 

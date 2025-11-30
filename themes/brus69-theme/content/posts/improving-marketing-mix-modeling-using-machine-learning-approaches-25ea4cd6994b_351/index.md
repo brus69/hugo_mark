@@ -53,8 +53,8 @@ urldel: "https://towardsdatascience.com/improving-marketing-mix-modeling-using-m
 
 Набор данных состоит из 208 недель доходов (с 2015–11–23 по 2019–11–11) с:
 
-* 5 каналами расходов на медиа: tv_S, ooh_S, print_S, facebook_S, search_S;
-* 2 медиаканалами, которые также имеют информацию об экспозиции (Impression, Clicks): facebook_I, search_clicks_P (не используется в этой статье);
+* 5 каналами расходов на медиа: tv_S, ooh_S, print_S, VK_S, search_S;
+* 2 медиаканалами, которые также имеют информацию об экспозиции (Impression, Clicks): VK_I, search_clicks_P (не используется в этой статье);
 * Органическими медиа без расходов: newsletter;
 * Контрольными переменными: events, holidays, competitor sales (competitor_sales_B).
 
@@ -111,7 +111,7 @@ adstock_features_params = {}
 adstock_features_params["tv_S_adstock"] = (0.3, 0.8)
 adstock_features_params["ooh_S_adstock"] = (0.1, 0.4)
 adstock_features_params["print_S_adstock"] = (0.1, 0.4)
-adstock_features_params["facebook_S_adstock"] = (0.0, 0.4)
+adstock_features_params["VK_S_adstock"] = (0.0, 0.4)
 adstock_features_params["search_S_adstock"] = (0.0, 0.3)
 adstock_features_params["newsletter_adstock"] = (0.1, 0.4)
 ```
