@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>  
+    Что на самом деле нужно клиентам в проектах искусственного интеллекта | На пути к науке о данных
+     | P9X
+  </title>
+  <meta name="description" content="">
+<meta name="yandex-verification" content="242f5a0ee52d5836" />
+<meta name="google-site-verification" content="0Ytq4iozDTscUw8IMVUsSsLQ4yEXHRwKZSvFYqnSNtE" />
+<link rel="canonical" href="http://localhost:1313/what-clients-really-ask-for-in-ai-projects/" />
+
+<link rel="icon" type="image/x-icon" href="http://localhost:1313/favicon.ico">
+
+  
+ <style>
+  .content h1 { 
+        font-size: 1.875rem; 
+        font-weight: bold; 
+        margin-bottom: 1rem; 
+    }
+    .content h2 { 
+        font-size: 1.5rem; 
+        font-weight: 600; 
+        margin-bottom: 0.75rem; 
+    }
+    .content h3 { 
+        font-size: 1.25rem; 
+        font-weight: 500; 
+        margin-bottom: 0.5rem; 
+    }
+    .content p { 
+        margin-bottom: 1rem; 
+    }
+    .content ul { 
+        list-style-type: disc; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content ol { 
+        list-style-type: decimal; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content a { 
+        color: #2563eb; 
+    }
+    .content a:hover { 
+        color: #1e40af; 
+    }
+    .content blockquote { 
+        border-left: 4px solid #d1d5db; 
+        padding-left: 1rem; 
+        font-style: italic; 
+    }
+
+    
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.875rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+.dark-mode .content table {
+    border: 1px solid #4b5563;
+}
+
+.content thead {
+    background-color: #eaebec;
+}
+
+.dark-mode .content thead {
+    background-color: #374151;
+}
+
+.content th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.dark-mode .content th {
+    color: #f9fafb;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content th:last-child {
+    border-right: none;  
+}
+
+.content td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    color: #6b7280;
+}
+
+.dark-mode .content td {
+    color: #d1d5db;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content td:last-child {
+    border-right: none;  
+}
+
+.content tbody tr {
+    transition: background-color 0.15s ease-in-out;
+}
+
+.content tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.dark-mode .content tbody tr:hover {
+    background-color: #374151;
+}
+
+.content tbody tr:last-child td {
+    border-bottom: none;
+}
+
+ 
+.content tbody tr:nth-child(even) {
+    background-color: #f4f5f7;
+}
+
+.dark-mode .content tbody tr:nth-child(even) {
+    background-color: #1f2937;
+}
+
+.dark-mode .content tbody tr:nth-child(even):hover {
+    background-color: #374151;
+}
+
+ 
+.content code:not(pre code) {
+    background-color: #f3f4f6;
+    color: #dc2626;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    font-weight: 500;
+    border: 1px solid #e5e7eb;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+}
+
+.dark-mode .content code:not(pre code) {
+    background-color: #224464;
+    color: #f87171;
+    border: 1px solid #4b5563;
+}
+
+ 
+.content pre {
+    background-color: #224464;
+    color: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid #374151;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.dark-mode .content pre {
+    background-color: #111827;
+    border: 1px solid #374151;
+}
+
+ 
+.content pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+    font-weight: normal;
+}
+
+ 
+.content pre code .keyword { color: #f472b6; }  
+.content pre code .function { color: #60a5fa; }  
+.content pre code .string { color: #34d399; }  
+.content pre code .comment { color: #9ca3af; font-style: italic; }  
+.content pre code .number { color: #fbbf24; }  
+.content pre code .class { color: #c084fc; }  
+.content pre code .operator { color: #93c5fd; }  
+
+ 
+.content pre::-webkit-scrollbar {
+    height: 6px;
+}
+
+.content pre::-webkit-scrollbar-track {
+    background: #374151;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.content pre::-webkit-scrollbar-thumb {
+    background: #6b7280;
+    border-radius: 3px;
+}
+
+.content pre::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+ 
+.content h1 code:not(pre code),
+.content h2 code:not(pre code),
+.content h3 code:not(pre code) {
+    font-size: 0.9em;
+    background-color: #fef2f2;
+    color: #dc2626;
+}
+
+.dark-mode .content h1 code:not(pre code),
+.dark-mode .content h2 code:not(pre code),
+.dark-mode .content h3 code:not(pre code) {
+    background-color: #7f1d1d;
+    color: #fca5a5;
+}
+
+ 
+.content a code:not(pre code) {
+    color: inherit;
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+.dark-mode .content a code:not(pre code) {
+    background-color: rgba(96, 165, 250, 0.2);
+}
+        :root {
+            --color-bg: #1a1a1a;
+            --color-text: #e6e6e6;
+            --color-accent: #6b7280;
+            --color-link: #9ca3af;
+            --color-link-hover: #d1d5db;
+        }
+        
+        .light-mode {
+            --color-bg: #f9fafb;
+            --color-text: #1f2937;
+            --color-accent: #6b7280;
+            --color-link: #4b5563;
+            --color-link-hover: #111827;
+        }
+        
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        a {
+            color: var(--color-link);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: var(--color-link-hover);
+        }
+        
+        .sidebar {
+            position: fixed;
+             
+            height: 100vh;
+            overflow-y: auto;
+            
+        }
+        
+        .main-content {
+            margin-left: 350px;
+            
+             
+        }
+        
+        .toc-container {
+            position: fixed;
+            right: 2rem;
+            top: 2rem;
+            width: 250px;
+            display: none;
+        }
+        
+        @media (min-width: 1280px) {
+            .toc-container {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 50;
+            }
+            
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+                 
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: fixed;
+                top: 1rem;
+                left: 1rem;
+                z-index: 100;
+            }
+        }
+        
+        .toc-link.active {
+            color: var(--color-link-hover);
+            font-weight: bold;
+        }
+        
+        .social-icons a {
+            margin-right: 0.5rem;
+        }
+        
+        pre {
+            background-color: rgba(107, 114, 128, 0.1);
+            padding: 1rem;
+            border-radius: 0.25rem;
+            overflow-x: auto;
+        }
+        
+        code {
+            font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+   <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: '#eff6ff',
+                100: '#dbeafe',
+                500: '#0ea5e9',
+                600: '#0284c7',
+              },
+            },
+            boxShadow: {
+              soft: '0 8px 24px rgba(2, 132, 199, 0.08)'
+            }
+          },
+        },
+      }
+    </script>
+</head>
+  <body class="light-mode">
+      <header>
+    
+  </header>
+    
+    <button class="mobile-menu-btn p-2 bg-gray-800 text-white rounded md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+    
+    <aside class="sidebar border-r-4 border-sky-800  min-w-[350px] py-12 px-10 bg-gradient-to-br from-cyan-200 via-green-100 to-sky-100">
+        <div class="flex flex-col items-center mb-8">
+                
+            
+            <div class="w-24 h-24 mb-4 relative">
+                <a href="/">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ viewBox="0 0 550.000000 385.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,385.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M2780 3000 l0 -300 40 0 40 0 0 260 0 260 1165 0 1165 0 0 -1245 0
+-1245 -1165 0 -1165 0 0 260 0 260 -40 0 -40 0 0 -300 0 -300 1245 0 1245 0 0
+1325 0 1325 -1245 0 -1245 0 0 -300z"/>
+<path d="M700 1975 l0 -635 145 0 145 0 0 245 0 245 383 0 c422 0 426 1 491
+66 60 60 66 88 66 319 0 190 -2 214 -21 255 -25 56 -53 86 -104 113 -39 22
+-49 22 -572 25 l-533 3 0 -636z m940 245 l0 -100 -325 0 -325 0 0 100 0 100
+325 0 325 0 0 -100z"/>
+<path d="M2320 2601 c-69 -22 -112 -58 -146 -121 -17 -31 -19 -60 -19 -260 0
+-211 1 -227 22 -265 27 -51 68 -90 115 -109 32 -14 98 -16 438 -16 l400 0 0
+-245 0 -245 145 0 145 0 0 536 c0 373 -3 548 -11 575 -16 50 -61 105 -112 132
+-41 22 -48 22 -497 24 -250 1 -466 -2 -480 -6z m810 -381 l0 -100 -340 0 -340
+0 0 100 0 100 340 0 340 0 0 -100z"/>
+<path d="M3650 2607 c0 -1 99 -144 219 -317 l219 -314 -63 -91 c-34 -49 -133
+-191 -219 -315 l-157 -225 172 -3 c97 -1 176 2 183 7 6 5 72 97 146 205 74
+107 138 196 141 196 4 0 71 -92 149 -205 l143 -205 173 0 c96 0 174 2 174 4 0
+3 -95 141 -211 308 -116 167 -214 308 -216 315 -3 7 92 151 211 322 119 170
+216 312 216 315 0 3 -78 6 -174 6 l-174 0 -143 -205 c-78 -113 -145 -205 -149
+-205 -3 0 -70 92 -148 205 l-143 205 -174 0 c-96 0 -175 -1 -175 -3z"/>
+</g>
+</svg>
+</a>
+            </div>
+
+            <p class="text-xs text-center text-gray-500 max-w-[200px]">
+                Профессиональное агентство контекстной рекламы с опытом более 18 лет.
+
+            </p>
+        </div>
+
+        
+        <nav class="mb-8">
+          
+        
+            
+  <nav>
+    <ul>
+    <li class="text-lg font-semibold">
+      <a href="/">Контекстная реклама</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/analytics/">web-аналитика</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a aria-current="true" class="ancestor" href="/posts/">Блог</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/about/">О нас</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Категории</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/job/">Вакансии</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/case/">Кейсы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/calculators/">Калькуляторы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/contacts/">Контакты</a>
+    </li>
+    </ul>
+  </nav>
+
+           
+
+        </nav>
+
+        
+        <div class="social-icons  mt-auto">
+<div>
+
+<a href="https://t.me/your_link" target="_blank" class="inline-flex 
+items-center justify-center px-3 py-3 text-white bg-[#2AABEE] font-medium text-sm rounded 
+shadow-md hover:bg-[#279fd9] 
+hover:shadow-lg focus:bg-[#2493c8] 
+focus:shadow-lg focus:outline-none 
+focus:ring-0 active:bg-[#2185b3] active:shadow-lg transition duration-150 ease-in-out">
+  
+     
+<svg width="25px" height="25px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" 
+fill="#fff" class="bi bi-telegram pr-1">
+  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>
+</svg>
+                            
+  
+  Открыть в Telegram
+</a>
+
+</div>
+            <div class="pt-6 flex gap-1 justify-left items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                sale@p9x.ru
+            </div>
+        </div>
+        
+        
+        <div class="mt-8 pt-4 text-xs text-gray-500 border-t border-gray-700">
+            <p>Powered by <a href="#" class="hover:underline">Hugo</a> | Themed with <a href="#" class="hover:underline">poison</a></p>
+            <p>© 2010 - 2025 Poison. All rights reserved.</p>
+        </div>
+    </aside>
+
+  <main class="main-content">
+ 
+            
+            
+   <div class="max-w-[1100px]">
+    
+    <section class="bg-white border border-gray-200  shadow-sm overflow-hidden">
+      
+      <div class="bg-gradient-to-b from-sky-50/60 to-transparent p-6 border-b border-gray-200">
+        <h1 class="text-2xl md:text-3xl font-bold">Что на самом деле нужно клиентам в проектах искусственного интеллекта</h1>
+        <time class="block mt-2 text-gray-500" datetime="2025-11-19T23:13:09+00:00">
+          
+    
+    November 19, 2025
+        </time>
+
+              
+        <div class="not-prose backdrop-blur-sm pt-4">
+          <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div class="flex items-center gap-3">
+              
+                <img src="/user_02.png" class="h-20 w-20 rounded-full hue-rotate-270" alt="">
+              
+              <div>
+                <p class="text-gray-800 font-medium">Автор: Дмитрий Иванов [Команда P9X]</p>
+                <p class="text-gray-600 text-sm">~8 минут чтения</p>
+              </div>
+            </div>
+            <div class="text-sm text-gray-600">
+                <div class="tags mt-8">
+      
+
+    </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      
+      <article class="px-6 py-6 max-w-[94ch] content">
+  
+
+        
+
+
+        
+     
+           <h3 id="клиенты-и-заинтересованные-стороны-не-хотят-сюрпризов">Клиенты и заинтересованные стороны не хотят сюрпризов</h3>
+<p>Чего они ожидают — так это ясности, последовательного общения и прозрачности. Они хотят результатов, но также хотят, чтобы вы оставались сосредоточенными на целях проекта в качестве разработчика или менеджера по продуктам. Не менее важно, чтобы они имели полную прозрачность процесса.</p>
+<p>В этом сообщении блога я поделюсь практическими принципами и советами, которые помогут поддерживать проекты в сфере искусственного интеллекта (ИИ) в нужном русле. Эти идеи основаны на более чем 15-летнем опыте управления инициативами в области ИИ и являются продолжением моего блога «Советы по установлению ожиданий в проектах ИИ».</p>
+<p>При работе с проектами в области ИИ неопределённость — это не просто побочный эффект, она может как сделать инициативу успешной, так и разрушить её.</p>
+<p>В разделах блога я включу практические советы, которые вы сможете применить немедленно.</p>
+<p>Давайте начнём!</p>
+<h3 id="abu-always-be-updating">ABU (Always Be Updating)</h3>
+<p>В продажах существует известное правило под названием ABC — Always Be Closing (Всегда закрывайте сделки). Идея проста: каждое взаимодействие должно приближать клиента к заключению сделки. В проектах ИИ у нас есть другой девиз: <strong>ABU (Always Be Updating)</strong> (Всегда обновляйте).</p>
+<p>Это правило означает именно то, что написано: никогда не оставляйте заинтересованные стороны в неведении. Даже когда прогресса мало или нет, нужно быстро сообщать об этом. Молчание создаёт неопределённость, а неопределённость убивает доверие.</p>
+<p>Простой способ применить ABU — отправлять короткое еженедельное электронное письмо каждому заинтересованному лицу. Делайте это последовательно, кратко и сосредоточьтесь на четырёх ключевых моментах:</p>
+<ul>
+<li>Прорывы в производительности или ключевые вехи, достигнутые за неделю;</li>
+<li>Проблемы с результатами или изменения в плане прошлой недели, которые влияют на ожидания заинтересованных сторон;</li>
+<li>Обновления о команде или задействованных ресурсах;</li>
+<li>Текущий прогресс в соответствии с согласованными показателями успеха.</li>
+</ul>
+<p>Такой ритм позволяет всем оставаться в курсе событий, не перегружая их шумом. Ключевой вывод заключается в том, что люди на самом деле не ненавидят плохие новости, они просто ненавидят плохие сюрпризы. Если вы будете придерживаться ABU и управлять ожиданиями неделю за неделей, вы завоюете доверие и защитите проект, когда неизбежно возникнут трудности.</p>
+<h3 id="покажите-продукт-пользователям">Покажите продукт пользователям</h3>
+<p>В проектах ИИ легко попасть в ловушку, создавая продукт для себя, а не для людей, которые будут его использовать.</p>
+<p>Слишком часто я видел, как команды воодушевляются функциями, которые важны для них, но мало что значат для конечного пользователя.</p>
+<p>Поэтому не стоит ничего предполагать. <strong>Показывайте продукт пользователям как можно чаще и как можно раньше.</strong> Реальная обратная связь незаменима.</p>
+<p>Практический способ сделать это — использовать лёгкие прототипы или ограниченные пилотные проекты. Даже если продукт далёк от завершения, демонстрация его пользователям поможет вам проверить предположения и расставить приоритеты в функциях.</p>
+<p>Начиная проект, определите дату создания прототипа как можно скорее.</p>
+<h3 id="не-попадайтесь-в-технологическую-ловушку">Не попадайтесь в технологическую ловушку</h3>
+<p>Инженеры любят технологии — это часть страсти к своей роли. Но в проектах ИИ технологии — это только средство, а не конечная цель. То, что что-то технически возможно (или выглядит впечатляюще на демонстрации), не означает, что это решает реальные проблемы ваших клиентов или заинтересованных сторон.</p>
+<p>Поэтому правило очень простое, хотя и трудное для выполнения: <strong>начинайте не с технологий, а с потребностей.</strong> Каждая функция или код должны быть связаны с чёткой проблемой пользователя.</p>
+<p>Практический способ применить этот принцип — проверять проблемы до поиска решений. Проводите время с клиентами, сопоставляйте их болевые точки и спрашивайте: «Если бы эта технология работала идеально, имела бы она значение для них?»</p>
+<h3 id="бизнес-метрики-важнее-технических">Бизнес-метрики важнее технических</h3>
+<p>Легко потеряться в технических метриках — точность, F1-оценка, ROC-AUC, прецизионность, отзывчивость. Клиенты и заинтересованные стороны обычно не заботятся о том, насколько ваша модель точнее на 0,5%, их интересует, сокращает ли она отток клиентов, увеличивает ли доход или экономит время и затраты.</p>
+<p>Хуже всего то, что клиенты и заинтересованные стороны часто считают, что технические метрики имеют значение, хотя в бизнес-контексте они редко важны. <strong>И ваша задача — убедить их в обратном.</strong></p>
+<p>Если ваша модель прогнозирования оттока достигает 92% точности, но маркетинговая команда не может разработать эффективные кампании на основе её результатов, эта метрика ничего не значит. С другой стороны, если «менее точная» модель помогает сократить отток клиентов на 10%, потому что она объяснима, это успех.</p>
+<p>Практический способ применить это — определить <strong>бизнес-метрики в начале проекта:</strong></p>
+<ul>
+<li>Какова финансовая или операционная цель? (пример: сократить время обработки звонков на 20%)</li>
+<li>Какие технические метрики лучше всего коррелируют с этим результатом?</li>
+<li>Как мы будем сообщать о результатах нетехническим заинтересованным сторонам?</li>
+</ul>
+<p>Иногда правильная метрика — это вовсе не точность. Например, в обнаружении мошенничества поймать 70% случаев мошенничества с минимальными ложными срабатываниями может быть более ценным, чем модель, которая выдаёт 90%, но блокирует тысячи законных транзакций.</p>
+<h3 id="владение-и-передача">Владение и передача</h3>
+<p>Кто владеет решением после его запуска? В случае успеха будет ли у клиента надёжный доступ к нему в любое время? Что произойдёт, когда ваша команда перестанет работать над проектом?</p>
+<p>Эти вопросы часто упускаются из виду, но они определяют долгосрочное влияние вашей работы. Вам нужно планировать передачу с первого дня. Это означает документирование процессов, передачу знаний и обеспечение того, чтобы команда клиента могла поддерживать и управлять моделью без вашего постоянного участия.</p>
+<p>Внедрение модели машинного обучения — это только половина работы. <strong>Пост-деплоймент часто является важным этапом, который теряется в переводе между бизнесом и технологиями.</strong></p>
+<h3 id="видимость-затрат-и-бюджета">Видимость затрат и бюджета</h3>
+<p>Сколько будет стоить запуск решения? Используете ли вы облачную инфраструктуру, LLM или другие технологии, которые несут переменные расходы, о которых клиент должен знать?</p>
+<p>С самого начала вы должны предоставить заинтересованным сторонам полную прозрачность по вопросам затрат. Это означает разбивку затрат на инфраструктуру, лицензионных сборов и, особенно в случае с GenAI, расходов на использование, таких как потребление токенов.</p>
+<p>Практический способ справиться с этим — настроить чёткие панели мониторинга затрат или оповещения и регулярно просматривать их вместе с клиентом. Для LLM оцените ожидаемое использование токенов в разных сценариях (средний запрос против интенсивного использования), чтобы позже не было сюрпризов.</p>
+<p><strong>Клиенты могут принять затраты, но они не примут скрытые или масштабируемые затраты.</strong> Прозрачность бюджета позволяет клиентам реалистично планировать масштабирование решения.</p>
+<h3 id="масштабирование">Масштабирование</h3>
+<p>Говоря о масштабировании…</p>
+<p>Масштабирование — это совсем другая игра. Это этап, на котором ИИ-решение может принести наибольшую бизнес-ценность, но также и где большинство проектов терпят неудачу. Создание модели в блокноте — это одно, а развёртывание её для обработки реального трафика, данных и пользовательских запросов — совсем другое.</p>
+<p>Поэтому чётко определите, <strong>как вы будете масштабировать своё решение.</strong> Здесь на помощь приходят data engineering и MLOps. Рассмотрите вопросы, связанные с обеспечением надёжности и экономической эффективности всего конвейера (приём данных, обучение модели, развёртывание, мониторинг) при растущем спросе.</p>
+<p>Некоторые важные области, которые следует учитывать при общении о масштабировании:</p>
+<ul>
+<li><strong>Практики разработки программного обеспечения:</strong> контроль версий, конвейеры CI/CD, контейнеризация и автоматизированное тестирование, чтобы гарантировать, что ваше решение может развиваться без сбоев.</li>
+<li><strong>Возможности MLOps:</strong> автоматическое переобучение, мониторинг дрейфа данных и концептуального дрейфа, а также системы оповещения, которые поддерживают точность модели с течением времени.</li>
+<li><strong>Выбор инфраструктуры:</strong> облако или локальная инфраструктура, горизонтальное масштабирование, контроль затрат и необходимость специализированного оборудования.</li>
+</ul>
+<p><strong>ИИ-решение / проект, который хорошо работает изолированно, недостаточно.</strong> Реальная ценность появляется, когда решение может масштабироваться до тысяч пользователей, адаптироваться к новым данным и продолжать приносить бизнес-эффект спустя долгое время после первоначального развёртывания.</p>
+<p>Вот практические советы, которые мы видели в этом посте:</p>
+<ul>
+<li>Отправляйте короткое <strong>еженедельное электронное письмо</strong> всем заинтересованным сторонам с информацией о прорывах, проблемах, обновлениях команды и прогрессе по метрикам.</li>
+<li>Возьмите на себя обязательство создать <strong>ранний прототип или пилотный проект</strong>, чтобы проверить предположения с конечными пользователями.</li>
+<li>Проверяйте проблемы в первую очередь — <strong>не начинайте с технологий</strong>, начните с потребностей пользователей. Интервью с пользователями — отличный способ сделать это (если возможно, выйдите из-за своего стола и присоединяйтесь к пользователям во время их работы в течение одного дня).</li>
+<li>Определите <strong>бизнес-метрики</strong> заранее и привяжите к ним технический прогресс.</li>
+<li><strong>Планируйте передачу</strong> с первого дня: документируйте, обучайте команду клиента и обеспечьте чёткость владения.</li>
+<li>Настройте <strong>панель мониторинга или оповещения</strong> для отслеживания затрат (особенно для облачных решений и решений на основе токенов GenAI).</li>
+<li>Стройте с <strong>учётом масштабируемости:</strong> CI/CD, мониторинг дрейфа, модульные конвейеры и инфраструктура, которая может расти.</li>
+</ul>
+
+        
+
+      </article>
+    </section>
+  </div>
+
+
+
+          
+<footer class="px-6 py-12 bg-sky-950 text-white/50">
+     <div class="inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
+      <div class="relative">
+ 
+          <div class="border-t border-white/10"></div>
+
+          
+          <div class="mt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="text-sm text-slate-400">© <span id="year"></span>P9X.ru 2010 - 2025г. услуги интернет маркетинга</p>
+            <div class="flex items-center gap-4 text-slate-400 text-sm">
+              <a href="#" class="hover:text-white transition">Документы</a>
+              <a href="#" class="hover:text-white transition">Служба поддержки</a>
+              <a href="#" class="hover:text-white transition">Статус</a>
+            </div>
+          </div>      
+      </div>
+
+
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105149615', 'ym');
+
+    ym(105149615, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/105149615" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+  </footer>
+  </main>          
+
+    <script>
+
+        
+        
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const sidebar = document.querySelector('.sidebar');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+        
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                if (entry.isIntersecting) {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.add('active');
+                    });
+                } else {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.remove('active');
+                    });
+                }
+            });
+        }, observerOptions);
+        
+        
+        document.querySelectorAll('h2[id]').forEach(heading => {
+            observer.observe(heading);
+        });
+    </script>
+
+
+
+</body>
+</html>

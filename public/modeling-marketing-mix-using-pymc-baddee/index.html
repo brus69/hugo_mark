@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>  
+    Моделирование маркетингового комплекса с использованием PyMC3 | На пути к науке о данных
+     | P9X
+  </title>
+  <meta name="description" content="">
+<meta name="yandex-verification" content="242f5a0ee52d5836" />
+<meta name="google-site-verification" content="0Ytq4iozDTscUw8IMVUsSsLQ4yEXHRwKZSvFYqnSNtE" />
+<link rel="canonical" href="http://localhost:1313/modeling-marketing-mix-using-pymc-baddee/" />
+
+<link rel="icon" type="image/x-icon" href="http://localhost:1313/favicon.ico">
+
+  
+ <style>
+  .content h1 { 
+        font-size: 1.875rem; 
+        font-weight: bold; 
+        margin-bottom: 1rem; 
+    }
+    .content h2 { 
+        font-size: 1.5rem; 
+        font-weight: 600; 
+        margin-bottom: 0.75rem; 
+    }
+    .content h3 { 
+        font-size: 1.25rem; 
+        font-weight: 500; 
+        margin-bottom: 0.5rem; 
+    }
+    .content p { 
+        margin-bottom: 1rem; 
+    }
+    .content ul { 
+        list-style-type: disc; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content ol { 
+        list-style-type: decimal; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content a { 
+        color: #2563eb; 
+    }
+    .content a:hover { 
+        color: #1e40af; 
+    }
+    .content blockquote { 
+        border-left: 4px solid #d1d5db; 
+        padding-left: 1rem; 
+        font-style: italic; 
+    }
+
+    
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.875rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+.dark-mode .content table {
+    border: 1px solid #4b5563;
+}
+
+.content thead {
+    background-color: #eaebec;
+}
+
+.dark-mode .content thead {
+    background-color: #374151;
+}
+
+.content th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.dark-mode .content th {
+    color: #f9fafb;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content th:last-child {
+    border-right: none;  
+}
+
+.content td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    color: #6b7280;
+}
+
+.dark-mode .content td {
+    color: #d1d5db;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content td:last-child {
+    border-right: none;  
+}
+
+.content tbody tr {
+    transition: background-color 0.15s ease-in-out;
+}
+
+.content tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.dark-mode .content tbody tr:hover {
+    background-color: #374151;
+}
+
+.content tbody tr:last-child td {
+    border-bottom: none;
+}
+
+ 
+.content tbody tr:nth-child(even) {
+    background-color: #f4f5f7;
+}
+
+.dark-mode .content tbody tr:nth-child(even) {
+    background-color: #1f2937;
+}
+
+.dark-mode .content tbody tr:nth-child(even):hover {
+    background-color: #374151;
+}
+
+ 
+.content code:not(pre code) {
+    background-color: #f3f4f6;
+    color: #dc2626;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    font-weight: 500;
+    border: 1px solid #e5e7eb;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+}
+
+.dark-mode .content code:not(pre code) {
+    background-color: #224464;
+    color: #f87171;
+    border: 1px solid #4b5563;
+}
+
+ 
+.content pre {
+    background-color: #224464;
+    color: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid #374151;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.dark-mode .content pre {
+    background-color: #111827;
+    border: 1px solid #374151;
+}
+
+ 
+.content pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+    font-weight: normal;
+}
+
+ 
+.content pre code .keyword { color: #f472b6; }  
+.content pre code .function { color: #60a5fa; }  
+.content pre code .string { color: #34d399; }  
+.content pre code .comment { color: #9ca3af; font-style: italic; }  
+.content pre code .number { color: #fbbf24; }  
+.content pre code .class { color: #c084fc; }  
+.content pre code .operator { color: #93c5fd; }  
+
+ 
+.content pre::-webkit-scrollbar {
+    height: 6px;
+}
+
+.content pre::-webkit-scrollbar-track {
+    background: #374151;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.content pre::-webkit-scrollbar-thumb {
+    background: #6b7280;
+    border-radius: 3px;
+}
+
+.content pre::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+ 
+.content h1 code:not(pre code),
+.content h2 code:not(pre code),
+.content h3 code:not(pre code) {
+    font-size: 0.9em;
+    background-color: #fef2f2;
+    color: #dc2626;
+}
+
+.dark-mode .content h1 code:not(pre code),
+.dark-mode .content h2 code:not(pre code),
+.dark-mode .content h3 code:not(pre code) {
+    background-color: #7f1d1d;
+    color: #fca5a5;
+}
+
+ 
+.content a code:not(pre code) {
+    color: inherit;
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+.dark-mode .content a code:not(pre code) {
+    background-color: rgba(96, 165, 250, 0.2);
+}
+        :root {
+            --color-bg: #1a1a1a;
+            --color-text: #e6e6e6;
+            --color-accent: #6b7280;
+            --color-link: #9ca3af;
+            --color-link-hover: #d1d5db;
+        }
+        
+        .light-mode {
+            --color-bg: #f9fafb;
+            --color-text: #1f2937;
+            --color-accent: #6b7280;
+            --color-link: #4b5563;
+            --color-link-hover: #111827;
+        }
+        
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        a {
+            color: var(--color-link);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: var(--color-link-hover);
+        }
+        
+        .sidebar {
+            position: fixed;
+             
+            height: 100vh;
+            overflow-y: auto;
+            
+        }
+        
+        .main-content {
+            margin-left: 350px;
+            
+             
+        }
+        
+        .toc-container {
+            position: fixed;
+            right: 2rem;
+            top: 2rem;
+            width: 250px;
+            display: none;
+        }
+        
+        @media (min-width: 1280px) {
+            .toc-container {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 50;
+            }
+            
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+                 
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: fixed;
+                top: 1rem;
+                left: 1rem;
+                z-index: 100;
+            }
+        }
+        
+        .toc-link.active {
+            color: var(--color-link-hover);
+            font-weight: bold;
+        }
+        
+        .social-icons a {
+            margin-right: 0.5rem;
+        }
+        
+        pre {
+            background-color: rgba(107, 114, 128, 0.1);
+            padding: 1rem;
+            border-radius: 0.25rem;
+            overflow-x: auto;
+        }
+        
+        code {
+            font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+   <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: '#eff6ff',
+                100: '#dbeafe',
+                500: '#0ea5e9',
+                600: '#0284c7',
+              },
+            },
+            boxShadow: {
+              soft: '0 8px 24px rgba(2, 132, 199, 0.08)'
+            }
+          },
+        },
+      }
+    </script>
+</head>
+  <body class="light-mode">
+      <header>
+    
+  </header>
+    
+    <button class="mobile-menu-btn p-2 bg-gray-800 text-white rounded md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+    
+    <aside class="sidebar border-r-4 border-sky-800  min-w-[350px] py-12 px-10 bg-gradient-to-br from-cyan-200 via-green-100 to-sky-100">
+        <div class="flex flex-col items-center mb-8">
+                
+            
+            <div class="w-24 h-24 mb-4 relative">
+                <a href="/">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ viewBox="0 0 550.000000 385.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,385.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M2780 3000 l0 -300 40 0 40 0 0 260 0 260 1165 0 1165 0 0 -1245 0
+-1245 -1165 0 -1165 0 0 260 0 260 -40 0 -40 0 0 -300 0 -300 1245 0 1245 0 0
+1325 0 1325 -1245 0 -1245 0 0 -300z"/>
+<path d="M700 1975 l0 -635 145 0 145 0 0 245 0 245 383 0 c422 0 426 1 491
+66 60 60 66 88 66 319 0 190 -2 214 -21 255 -25 56 -53 86 -104 113 -39 22
+-49 22 -572 25 l-533 3 0 -636z m940 245 l0 -100 -325 0 -325 0 0 100 0 100
+325 0 325 0 0 -100z"/>
+<path d="M2320 2601 c-69 -22 -112 -58 -146 -121 -17 -31 -19 -60 -19 -260 0
+-211 1 -227 22 -265 27 -51 68 -90 115 -109 32 -14 98 -16 438 -16 l400 0 0
+-245 0 -245 145 0 145 0 0 536 c0 373 -3 548 -11 575 -16 50 -61 105 -112 132
+-41 22 -48 22 -497 24 -250 1 -466 -2 -480 -6z m810 -381 l0 -100 -340 0 -340
+0 0 100 0 100 340 0 340 0 0 -100z"/>
+<path d="M3650 2607 c0 -1 99 -144 219 -317 l219 -314 -63 -91 c-34 -49 -133
+-191 -219 -315 l-157 -225 172 -3 c97 -1 176 2 183 7 6 5 72 97 146 205 74
+107 138 196 141 196 4 0 71 -92 149 -205 l143 -205 173 0 c96 0 174 2 174 4 0
+3 -95 141 -211 308 -116 167 -214 308 -216 315 -3 7 92 151 211 322 119 170
+216 312 216 315 0 3 -78 6 -174 6 l-174 0 -143 -205 c-78 -113 -145 -205 -149
+-205 -3 0 -70 92 -148 205 l-143 205 -174 0 c-96 0 -175 -1 -175 -3z"/>
+</g>
+</svg>
+</a>
+            </div>
+
+            <p class="text-xs text-center text-gray-500 max-w-[200px]">
+                Профессиональное агентство контекстной рекламы с опытом более 18 лет.
+
+            </p>
+        </div>
+
+        
+        <nav class="mb-8">
+          
+        
+            
+  <nav>
+    <ul>
+    <li class="text-lg font-semibold">
+      <a href="/">Контекстная реклама</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/analytics/">web-аналитика</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a aria-current="true" class="ancestor" href="/posts/">Блог</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/about/">О нас</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Категории</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/job/">Вакансии</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/case/">Кейсы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/calculators/">Калькуляторы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/contacts/">Контакты</a>
+    </li>
+    </ul>
+  </nav>
+
+           
+
+        </nav>
+
+        
+        <div class="social-icons  mt-auto">
+<div>
+
+<a href="https://t.me/your_link" target="_blank" class="inline-flex 
+items-center justify-center px-3 py-3 text-white bg-[#2AABEE] font-medium text-sm rounded 
+shadow-md hover:bg-[#279fd9] 
+hover:shadow-lg focus:bg-[#2493c8] 
+focus:shadow-lg focus:outline-none 
+focus:ring-0 active:bg-[#2185b3] active:shadow-lg transition duration-150 ease-in-out">
+  
+     
+<svg width="25px" height="25px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" 
+fill="#fff" class="bi bi-telegram pr-1">
+  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>
+</svg>
+                            
+  
+  Открыть в Telegram
+</a>
+
+</div>
+            <div class="pt-6 flex gap-1 justify-left items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                sale@p9x.ru
+            </div>
+        </div>
+        
+        
+        <div class="mt-8 pt-4 text-xs text-gray-500 border-t border-gray-700">
+            <p>Powered by <a href="#" class="hover:underline">Hugo</a> | Themed with <a href="#" class="hover:underline">poison</a></p>
+            <p>© 2010 - 2025 Poison. All rights reserved.</p>
+        </div>
+    </aside>
+
+  <main class="main-content">
+ 
+            
+            
+   <div class="max-w-[1100px]">
+    
+    <section class="bg-white border border-gray-200  shadow-sm overflow-hidden">
+      
+      <div class="bg-gradient-to-b from-sky-50/60 to-transparent p-6 border-b border-gray-200">
+        <h1 class="text-2xl md:text-3xl font-bold">Моделирование комплекса маркетинга с использованием PyMC3</h1>
+        <time class="block mt-2 text-gray-500" datetime="2025-11-19T23:13:09+00:00">
+          
+    
+    November 19, 2025
+        </time>
+
+              
+        <div class="not-prose backdrop-blur-sm pt-4">
+          <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div class="flex items-center gap-3">
+              
+                <img src="/user_02.png" class="h-20 w-20 rounded-full hue-rotate-270" alt="">
+              
+              <div>
+                <p class="text-gray-800 font-medium">Автор: Дмитрий Иванов [Команда P9X]</p>
+                <p class="text-gray-600 text-sm">~8 минут чтения</p>
+              </div>
+            </div>
+            <div class="text-sm text-gray-600">
+                <div class="tags mt-8">
+      
+
+    </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      
+      <article class="px-6 py-6 max-w-[94ch] content">
+  
+
+        
+
+
+        
+     
+           <h3 id="фото-джереми-безенджера-на-unsplash">Фото Джереми Безенджера на Unsplash</h3>
+<p>В этой статье я применяю байесовский подход к маркетинговой задаче оценки влияния расходов на рекламу в разных медиаканалах на выручку. Я рассматриваю несколько аспектов байесовского моделирования, которые должны быть важны для практикующего специалиста по MMM:</p>
+<ul>
+<li>Нормализация зависимых и независимых переменных и выбор априорных распределений;</li>
+<li>Влияние нормализации переменной отклика на оцениваемые эффекты.</li>
+</ul>
+<p>Кроме того, я сравниваю результаты с фреймворком Robyn, следуя его методологии, — это пакет с открытым исходным кодом для моделирования MMM, который использует регрессию Риджа и оптимизацию без градиента для гиперпараметров.</p>
+<h4 id="предыдущие-публикации-по-моделированию-маркетингового-микса-и-байесовскому-выводу">Предыдущие публикации по моделированию маркетингового микса и байесовскому выводу</h4>
+<p>Было опубликовано довольно много статей по моделированию маркетингового микса с использованием байесовского программирования, охватывающих различные аспекты моделирования, такие как:</p>
+<h3 id="структура-статьи">Структура статьи</h3>
+<ul>
+<li><strong>Моделирование маркетингового микса</strong> — я даю краткое введение в теорию, лежащую в основе MMM.</li>
+<li><strong>Эффект переноса (Adstock / Carryover Effect)</strong> — я рассматриваю различия в геометрических функциях переноса, предоставляю реализацию функции переноса в Theano, используемой во фреймворке Robyn.</li>
+<li><strong>Эффект убывающей отдачи / насыщения (Diminishing Returns / Saturation Effect)</strong> — я рассматриваю различные функции, которые можно использовать для моделирования убывающей отдачи.</li>
+<li><strong>Моделирование</strong> — основная часть этой статьи, в которой я исследую влияние нормализации данных на результаты. Я использую демонстрационные данные, предоставленные командой Robyn, и следую методологии Robyn для обработки данных. Наконец, я сравниваю результаты с моделированием в Robyn.</li>
+</ul>
+<h3 id="моделирование-маркетингового-микса">Моделирование маркетингового микса</h3>
+<blockquote>
+<p>Половина денег, которые я трачу на рекламу, тратится впустую; проблема в том, что я не знаю, какая половина (Джон Ванамейкер)</p></blockquote>
+<p>Цель MMM — понять движущие силы продаж, измерив влияние всех факторов, которые могут влиять на продажи. Эти факторы можно разделить на две основные группы:</p>
+<ul>
+<li>Группа факторов, имеющих только косвенное влияние на продажи (также называемая базовой линией), такие как экономическая ситуация, праздники, погода, конкуренция;</li>
+<li>Факторы, которые имеют прямое влияние на продажи (также называемые маркетинговым вкладом), такие как расходы на рекламу (ad spend) в разных медиаканалах (телевидение, радио, онлайн-платформы) или цена и акции.</li>
+</ul>
+<p>Цель моделиста — определить релевантные компоненты, которые могут влиять на продажи, подготовить исторические данные временных рядов маркетинговой активности и других (контрольных) переменных и построить статистическую модель, которая оценивает влияние каждого из компонентов на продажи. Обычно это делается с помощью множественной линейной регрессии.</p>
+<p>Весь процесс усложняется двумя маркетинговыми эффектами: <strong>эффектом переноса</strong> и <strong>эффектом убывающей отдачи</strong>. Эффект рекламы на продажи может иметь эффект переноса, означающий, что на продажи будет влиять реклама в течение нескольких дней или недель после размещения рекламы. Более того, эффект рекламы может быть не немедленным из-за задержки потребительского отклика, и в этом случае мы говорим об <strong>отложенном эффекте переноса</strong>.</p>
+<p><strong>Убывающая отдача</strong> предполагает, что начиная с определённых расходов на медиа, зависимость между расходами и продажами становится нелинейной и достигает точки <strong>насыщения</strong>, в которой дополнительный евро, вложенный в рекламу, не приведёт к увеличению продаж.</p>
+<p>Задача в MMM — смоделировать эффекты переноса и насыщения для каждого медиаканала наряду с базовыми и медиакомпонентами, применяя некоторые ограничения к моделированию, которые имеют смысл с точки зрения маркетинга. Одно из ограничений состоит в том, что расходы на медиа имеют положительное влияние на продажи, требуя, чтобы линейная модель оценивала положительные коэффициенты для медиаканалов.</p>
+<p>Решение этой задачи требует фреймворка моделирования, способного оптимизировать различные параметры с учётом различных ограничений и предварительных знаний. Этого можно достичь либо с помощью общих фреймворков оптимизации гиперпараметров, либо с помощью байесовского программирования. В этой статье я использую PyMC3, байесовский фреймворк, для моделирования маркетингового микса.</p>
+<h3 id="эффект-переноса--adstock">Эффект переноса / Adstock</h3>
+<p>Существует несколько функций преобразования adstock, которые мы можем использовать для моделирования эффекта переноса. Наиболее часто используемое преобразование — это так называемый adstock с геометрическим затуханием. Однако оно представлено в двух вариантах. Первый описан в этой статье и имеет три параметра для оценки:</p>
+<ul>
+<li><strong>Коэффициент затухания</strong> эффекта рекламы: 0 &lt; α &lt; 1, что означает, если мы инвестируем 100 евро сегодня, а α равен 0,5, то ожидаемый эффект завтра составит 50 евро;</li>
+<li>Максимальная <strong>продолжительность</strong> эффекта (в днях, неделях) L, предполагаемая для медиаканала;</li>
+<li><strong>Задержка</strong> пикового эффекта θ (0 ≤ θ ≤ L-1), моделирующая возможную задержку эффекта от расходов на рекламу, которая не начнётся немедленно.</li>
+</ul>
+<p>Реализация этой версии преобразования может быть найдена здесь. Другие реализации, основанные на этой версии, но имеющие несколько иной расчёт весов задержек, можно найти здесь и здесь.</p>
+<p>Второй вариант намного проще в реализации. Он имеет только один параметр — коэффициент затухания α. Команда Robyn использует этот вариант в своём фреймворке.</p>
+<h3 id="убывающая-отдача--saturation-effect">Убывающая отдача / Saturation Effect</h3>
+<p>Существуют различные функции, которые можно использовать для моделирования нелинейной зависимости между расходами на рекламу и продажами, такие как степенная функция, отрицательная экспонента или логистическая. Команда Robyn использует функцию Хилла, описанную в этой статье.</p>
+<h3 id="моделирование">Моделирование</h3>
+<h4 id="данные">Данные</h4>
+<p>Я использую демонстрационный набор данных, предоставленный Robyn, и следую тем же методологическим шагам в подготовке данных, чтобы иметь одинаковую исходную точку для сравнения. Для сравнения с решениями Robyn я запустил файл demo.R, который поставляется с пакетом Robyn, написанный на R, без каких-либо изменений в настройках.</p>
+<p>Набор данных состоит из 208 недель выручки, имеющей:</p>
+<ul>
+<li>5 каналов расходов на медиа: tv_S, ooh_S, print_S, VK_S, search_S;</li>
+<li>2 медиаканала, которые также имеют информацию об экспозиции (Impression, Clicks): VK_I, search_clicks_P;</li>
+<li>Органические медиа без расходов: newsletter;</li>
+<li>Контрольные переменные: events, holidays, competitor sales (competitor_sales_B).</li>
+</ul>
+<h4 id="подготовка-данных">Подготовка данных</h4>
+<p>Мы должны применить два подготовительных шага, как описано в Robyn:</p>
+<blockquote>
+<p>Robyn использует Prophet, открытую библиотеку машинного обучения от VK для прогнозирования временных рядов. Мы используем Prophet для автоматического разложения тренда, сезонности и праздничных эффектов непосредственно из отклика в качестве входных переменных для дальнейшего моделирования. Эта возможность часто увеличивает соответствие модели и уменьшает авторегрессионные паттерны в остатках.</p></blockquote>
+<p>Кроме того, мы можем преобразовать категориальные переменные, такие как <strong>events</strong>, в числовые с помощью разложения Prophet.</p>
+<p>Второй подготовительный шаг:</p>
+<blockquote>
+<p>Когда используются переменные экспозиции (impressions, clicks, GRPs и т. д.) вместо расходов, Robyn подгоняет нелинейную модель с функцией Михаэлиса-Ментен между экспозицией и расходами, чтобы установить связь между расходами и экспозицией.</p></blockquote>
+<p>Второй шаг позволит нам преобразовать экспозицию в расходы для окончательного сравнения <strong>доли расходов и доли эффекта</strong>.</p>
+<p>Давайте сначала загрузим данные:</p>
+<h4 id="prophet-decomposition">Prophet Decomposition</h4>
+<p>Теперь мы готовы подогнать Prophet к нашим данным, включая праздники, категориальную переменную и используя ежегодную сезонность. Важно отметить, что мы применяем разложение ко всем доступным данным, а не к окну моделирования.</p>
+<h4 id="оценка-расходов-экспозиции">Оценка расходов-экспозиции</h4>
+<p>На этом этапе мы оцениваем нелинейную зависимость между расходами и экспозицией с помощью функции Михаэлиса-Ментен.</p>
+<h4 id="байесовское-моделирование">Байесовское моделирование</h4>
+<p>Теперь мы готовы к моделированию. Мы моделируем нашу зависимую переменную (доход) как аддитивную линейную регрессию, которая может быть описана следующим уравнением:</p>
+<p>где _b <em>0</em> соответствует базовому доходу, _b <em>m</em> коэффициенты соответствуют медиапеременным, которые были преобразованы с помощью функций переноса и насыщения, _b <em>c</em> коэффициенты соответствуют контрольным переменным и ϵ — некоторый шум. Все упомянутые коэффициенты, шум и параметры функции переноса и насыщения должны быть оценены моделью.</p>
+<h4 id="нормализация">Нормализация</h4>
+<p>Первое решение, которое мы должны принять до моделирования, — как мы будем нормализовать наши зависимые и независимые переменные. Нормализуя независимые переменные, мы обобщаем наше моделирование для других источников данных, потому что мы можем использовать одни и те же априорные распределения для большинства наших независимых переменных. Более того, будет очень сложно установить априорные распределения для ненормализованных данных. Поэтому я применяю нормализацию 0–1 к независимым переменным и экспериментирую с двумя различными нормализациями зависимой переменной:</p>
+<ul>
+<li>Масштабирование на 100K;</li>
+<li>Нормализация 0–1.</li>
+</ul>
+<h4 id="масштабирование-на-100k">Масштабирование на 100K</h4>
+<p>Оригинальный диапазон доходов составляет 672 250–3 827 520, поэтому, масштабируя доход на 100K, я получаю следующий диапазон: 6,72–38,27, что упрощает экспериментирование с априорными распределениями.</p>
+<h4 id="01-нормализация">0–1 Нормализация</h4>
+<p>Давайте проведём тот же эксперимент, но на этот раз нормализуя зависимую переменную между 0 и 1.</p>
+<h4 id="сравнение-с-robyn">Сравнение с Robyn</h4>
+<p>Robyn генерирует набор моделей и позволяет модельеру выбрать наиболее подходящую для бизнеса. Среди лучших моделей я субъективно выбрал одну, которая более или менее сопоставима с моделями, сгенерированными PyMC3.</p>
+<h4 id="заключение">Заключение</h4>
+<p>В этой статье я экспериментировал с нормализацией независимых и зависимых переменных, априорными распределениями и апостериорными распределениями. Я использовал методологию подготовки данных, предложенную Robyn, которая позволяет повторно использовать код в этой статье в реальных сценариях. Аналогично я сравнил результаты байесовского моделирования с Robyn. Поскольку окончательный выбор модели актуален для бизнеса, не существует простого способа определить, какие модели, сгенерированные Robyn или PyMC3, были лучше в этих экспериментах без дополнительного бизнес-контекста и калибровки. Если сравнивать NRMSE в одиночку, то выбранная топовая модель, сгенерированная Robyn, имела более низкий NRMSE и, таким образом, лучшее соответствие. Поскольку Robyn дополнительно оптимизирует бизнес-значимый показатель, у него меньше шансов сгенерировать модель, которая статистически точна, но нереалистична с точки зрения маркетинга. Я считаю, что предложенное байесовское решение MMM может быть улучшено. Некоторые вопросы, которые остаются открытыми для меня, — это как улучшить параметризацию априорных распределений для решения предупреждений о сходимости и какое распределение правдоподобия, кроме нормального, можно использовать для ненормально распределённой положительной переменной отклика.</p>
+
+        
+
+      </article>
+    </section>
+  </div>
+
+
+
+          
+<footer class="px-6 py-12 bg-sky-950 text-white/50">
+     <div class="inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
+      <div class="relative">
+ 
+          <div class="border-t border-white/10"></div>
+
+          
+          <div class="mt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="text-sm text-slate-400">© <span id="year"></span>P9X.ru 2010 - 2025г. услуги интернет маркетинга</p>
+            <div class="flex items-center gap-4 text-slate-400 text-sm">
+              <a href="#" class="hover:text-white transition">Документы</a>
+              <a href="#" class="hover:text-white transition">Служба поддержки</a>
+              <a href="#" class="hover:text-white transition">Статус</a>
+            </div>
+          </div>      
+      </div>
+
+
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105149615', 'ym');
+
+    ym(105149615, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/105149615" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+  </footer>
+  </main>          
+
+    <script>
+
+        
+        
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const sidebar = document.querySelector('.sidebar');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+        
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                if (entry.isIntersecting) {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.add('active');
+                    });
+                } else {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.remove('active');
+                    });
+                }
+            });
+        }, observerOptions);
+        
+        
+        document.querySelectorAll('h2[id]').forEach(heading => {
+            observer.observe(heading);
+        });
+    </script>
+
+
+
+</body>
+</html>

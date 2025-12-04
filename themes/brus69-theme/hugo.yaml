@@ -1,6 +1,8 @@
 baseURL: 'https://p9x.ru/'
 languageCode: 'ru'
-title: 'p9x'
+params:
+      description: "Описание на русском"
+      appendGlobalTitle: true
 
 menus:
   main:

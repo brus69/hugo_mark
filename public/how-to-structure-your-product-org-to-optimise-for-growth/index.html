@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>  
+    Как оптимизировать структуру вашей продуктовой организации для роста - Отдел разработки продуктов
+     | P9X
+  </title>
+  <meta name="description" content="">
+<meta name="yandex-verification" content="242f5a0ee52d5836" />
+<meta name="google-site-verification" content="0Ytq4iozDTscUw8IMVUsSsLQ4yEXHRwKZSvFYqnSNtE" />
+<link rel="canonical" href="http://localhost:1313/how-to-structure-your-product-org-to-optimise-for-growth/" />
+
+<link rel="icon" type="image/x-icon" href="http://localhost:1313/favicon.ico">
+
+  
+ <style>
+  .content h1 { 
+        font-size: 1.875rem; 
+        font-weight: bold; 
+        margin-bottom: 1rem; 
+    }
+    .content h2 { 
+        font-size: 1.5rem; 
+        font-weight: 600; 
+        margin-bottom: 0.75rem; 
+    }
+    .content h3 { 
+        font-size: 1.25rem; 
+        font-weight: 500; 
+        margin-bottom: 0.5rem; 
+    }
+    .content p { 
+        margin-bottom: 1rem; 
+    }
+    .content ul { 
+        list-style-type: disc; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content ol { 
+        list-style-type: decimal; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content a { 
+        color: #2563eb; 
+    }
+    .content a:hover { 
+        color: #1e40af; 
+    }
+    .content blockquote { 
+        border-left: 4px solid #d1d5db; 
+        padding-left: 1rem; 
+        font-style: italic; 
+    }
+
+    
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.875rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+.dark-mode .content table {
+    border: 1px solid #4b5563;
+}
+
+.content thead {
+    background-color: #eaebec;
+}
+
+.dark-mode .content thead {
+    background-color: #374151;
+}
+
+.content th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.dark-mode .content th {
+    color: #f9fafb;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content th:last-child {
+    border-right: none;  
+}
+
+.content td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    color: #6b7280;
+}
+
+.dark-mode .content td {
+    color: #d1d5db;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content td:last-child {
+    border-right: none;  
+}
+
+.content tbody tr {
+    transition: background-color 0.15s ease-in-out;
+}
+
+.content tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.dark-mode .content tbody tr:hover {
+    background-color: #374151;
+}
+
+.content tbody tr:last-child td {
+    border-bottom: none;
+}
+
+ 
+.content tbody tr:nth-child(even) {
+    background-color: #f4f5f7;
+}
+
+.dark-mode .content tbody tr:nth-child(even) {
+    background-color: #1f2937;
+}
+
+.dark-mode .content tbody tr:nth-child(even):hover {
+    background-color: #374151;
+}
+
+ 
+.content code:not(pre code) {
+    background-color: #f3f4f6;
+    color: #dc2626;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    font-weight: 500;
+    border: 1px solid #e5e7eb;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+}
+
+.dark-mode .content code:not(pre code) {
+    background-color: #224464;
+    color: #f87171;
+    border: 1px solid #4b5563;
+}
+
+ 
+.content pre {
+    background-color: #224464;
+    color: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid #374151;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.dark-mode .content pre {
+    background-color: #111827;
+    border: 1px solid #374151;
+}
+
+ 
+.content pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+    font-weight: normal;
+}
+
+ 
+.content pre code .keyword { color: #f472b6; }  
+.content pre code .function { color: #60a5fa; }  
+.content pre code .string { color: #34d399; }  
+.content pre code .comment { color: #9ca3af; font-style: italic; }  
+.content pre code .number { color: #fbbf24; }  
+.content pre code .class { color: #c084fc; }  
+.content pre code .operator { color: #93c5fd; }  
+
+ 
+.content pre::-webkit-scrollbar {
+    height: 6px;
+}
+
+.content pre::-webkit-scrollbar-track {
+    background: #374151;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.content pre::-webkit-scrollbar-thumb {
+    background: #6b7280;
+    border-radius: 3px;
+}
+
+.content pre::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+ 
+.content h1 code:not(pre code),
+.content h2 code:not(pre code),
+.content h3 code:not(pre code) {
+    font-size: 0.9em;
+    background-color: #fef2f2;
+    color: #dc2626;
+}
+
+.dark-mode .content h1 code:not(pre code),
+.dark-mode .content h2 code:not(pre code),
+.dark-mode .content h3 code:not(pre code) {
+    background-color: #7f1d1d;
+    color: #fca5a5;
+}
+
+ 
+.content a code:not(pre code) {
+    color: inherit;
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+.dark-mode .content a code:not(pre code) {
+    background-color: rgba(96, 165, 250, 0.2);
+}
+        :root {
+            --color-bg: #1a1a1a;
+            --color-text: #e6e6e6;
+            --color-accent: #6b7280;
+            --color-link: #9ca3af;
+            --color-link-hover: #d1d5db;
+        }
+        
+        .light-mode {
+            --color-bg: #f9fafb;
+            --color-text: #1f2937;
+            --color-accent: #6b7280;
+            --color-link: #4b5563;
+            --color-link-hover: #111827;
+        }
+        
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        a {
+            color: var(--color-link);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: var(--color-link-hover);
+        }
+        
+        .sidebar {
+            position: fixed;
+             
+            height: 100vh;
+            overflow-y: auto;
+            
+        }
+        
+        .main-content {
+            margin-left: 350px;
+            
+             
+        }
+        
+        .toc-container {
+            position: fixed;
+            right: 2rem;
+            top: 2rem;
+            width: 250px;
+            display: none;
+        }
+        
+        @media (min-width: 1280px) {
+            .toc-container {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 50;
+            }
+            
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+                 
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: fixed;
+                top: 1rem;
+                left: 1rem;
+                z-index: 100;
+            }
+        }
+        
+        .toc-link.active {
+            color: var(--color-link-hover);
+            font-weight: bold;
+        }
+        
+        .social-icons a {
+            margin-right: 0.5rem;
+        }
+        
+        pre {
+            background-color: rgba(107, 114, 128, 0.1);
+            padding: 1rem;
+            border-radius: 0.25rem;
+            overflow-x: auto;
+        }
+        
+        code {
+            font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+   <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: '#eff6ff',
+                100: '#dbeafe',
+                500: '#0ea5e9',
+                600: '#0284c7',
+              },
+            },
+            boxShadow: {
+              soft: '0 8px 24px rgba(2, 132, 199, 0.08)'
+            }
+          },
+        },
+      }
+    </script>
+</head>
+  <body class="light-mode">
+      <header>
+    
+  </header>
+    
+    <button class="mobile-menu-btn p-2 bg-gray-800 text-white rounded md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+    
+    <aside class="sidebar border-r-4 border-sky-800  min-w-[350px] py-12 px-10 bg-gradient-to-br from-cyan-200 via-green-100 to-sky-100">
+        <div class="flex flex-col items-center mb-8">
+                
+            
+            <div class="w-24 h-24 mb-4 relative">
+                <a href="/">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ viewBox="0 0 550.000000 385.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,385.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M2780 3000 l0 -300 40 0 40 0 0 260 0 260 1165 0 1165 0 0 -1245 0
+-1245 -1165 0 -1165 0 0 260 0 260 -40 0 -40 0 0 -300 0 -300 1245 0 1245 0 0
+1325 0 1325 -1245 0 -1245 0 0 -300z"/>
+<path d="M700 1975 l0 -635 145 0 145 0 0 245 0 245 383 0 c422 0 426 1 491
+66 60 60 66 88 66 319 0 190 -2 214 -21 255 -25 56 -53 86 -104 113 -39 22
+-49 22 -572 25 l-533 3 0 -636z m940 245 l0 -100 -325 0 -325 0 0 100 0 100
+325 0 325 0 0 -100z"/>
+<path d="M2320 2601 c-69 -22 -112 -58 -146 -121 -17 -31 -19 -60 -19 -260 0
+-211 1 -227 22 -265 27 -51 68 -90 115 -109 32 -14 98 -16 438 -16 l400 0 0
+-245 0 -245 145 0 145 0 0 536 c0 373 -3 548 -11 575 -16 50 -61 105 -112 132
+-41 22 -48 22 -497 24 -250 1 -466 -2 -480 -6z m810 -381 l0 -100 -340 0 -340
+0 0 100 0 100 340 0 340 0 0 -100z"/>
+<path d="M3650 2607 c0 -1 99 -144 219 -317 l219 -314 -63 -91 c-34 -49 -133
+-191 -219 -315 l-157 -225 172 -3 c97 -1 176 2 183 7 6 5 72 97 146 205 74
+107 138 196 141 196 4 0 71 -92 149 -205 l143 -205 173 0 c96 0 174 2 174 4 0
+3 -95 141 -211 308 -116 167 -214 308 -216 315 -3 7 92 151 211 322 119 170
+216 312 216 315 0 3 -78 6 -174 6 l-174 0 -143 -205 c-78 -113 -145 -205 -149
+-205 -3 0 -70 92 -148 205 l-143 205 -174 0 c-96 0 -175 -1 -175 -3z"/>
+</g>
+</svg>
+</a>
+            </div>
+
+            <p class="text-xs text-center text-gray-500 max-w-[200px]">
+                Профессиональное агентство контекстной рекламы с опытом более 18 лет.
+
+            </p>
+        </div>
+
+        
+        <nav class="mb-8">
+          
+        
+            
+  <nav>
+    <ul>
+    <li class="text-lg font-semibold">
+      <a href="/">Контекстная реклама</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/analytics/">web-аналитика</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a aria-current="true" class="ancestor" href="/posts/">Блог</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/about/">О нас</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Категории</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/job/">Вакансии</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/case/">Кейсы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/calculators/">Калькуляторы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/contacts/">Контакты</a>
+    </li>
+    </ul>
+  </nav>
+
+           
+
+        </nav>
+
+        
+        <div class="social-icons  mt-auto">
+<div>
+
+<a href="https://t.me/your_link" target="_blank" class="inline-flex 
+items-center justify-center px-3 py-3 text-white bg-[#2AABEE] font-medium text-sm rounded 
+shadow-md hover:bg-[#279fd9] 
+hover:shadow-lg focus:bg-[#2493c8] 
+focus:shadow-lg focus:outline-none 
+focus:ring-0 active:bg-[#2185b3] active:shadow-lg transition duration-150 ease-in-out">
+  
+     
+<svg width="25px" height="25px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" 
+fill="#fff" class="bi bi-telegram pr-1">
+  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>
+</svg>
+                            
+  
+  Открыть в Telegram
+</a>
+
+</div>
+            <div class="pt-6 flex gap-1 justify-left items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                sale@p9x.ru
+            </div>
+        </div>
+        
+        
+        <div class="mt-8 pt-4 text-xs text-gray-500 border-t border-gray-700">
+            <p>Powered by <a href="#" class="hover:underline">Hugo</a> | Themed with <a href="#" class="hover:underline">poison</a></p>
+            <p>© 2010 - 2025 Poison. All rights reserved.</p>
+        </div>
+    </aside>
+
+  <main class="main-content">
+ 
+            
+            
+   <div class="max-w-[1100px]">
+    
+    <section class="bg-white border border-gray-200  shadow-sm overflow-hidden">
+      
+      <div class="bg-gradient-to-b from-sky-50/60 to-transparent p-6 border-b border-gray-200">
+        <h1 class="text-2xl md:text-3xl font-bold">Как структурировать вашу продуктовую организацию, чтобы оптимизировать ее для роста</h1>
+        <time class="block mt-2 text-gray-500" datetime="2025-11-19T23:13:09+00:00">
+          
+    
+    November 19, 2025
+        </time>
+
+              
+        <div class="not-prose backdrop-blur-sm pt-4">
+          <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div class="flex items-center gap-3">
+              
+                <img src="/user_02.png" class="h-20 w-20 rounded-full hue-rotate-270" alt="">
+              
+              <div>
+                <p class="text-gray-800 font-medium">Автор: Дмитрий Иванов [Команда P9X]</p>
+                <p class="text-gray-600 text-sm">~8 минут чтения</p>
+              </div>
+            </div>
+            <div class="text-sm text-gray-600">
+                <div class="tags mt-8">
+      
+
+    </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      
+      <article class="px-6 py-6 max-w-[94ch] content">
+  
+
+        
+
+
+        
+     
+           <h3 id="когда-компания-быстро-растёт-она-испытывает-стресс">Когда компания быстро растёт, она испытывает стресс</h3>
+<p>Когда компания растёт быстро, она подвергается стрессу. Чем быстрее рост, тем больше стресса.</p>
+<p>Структура может улучшить ситуацию, но только если она правильно разработана для роста. Хорошая структура обеспечивает каркас, который позволяет вашей организации расти. Плохая структура может усугубить положение.</p>
+<p>Структурные решения имеют решающее значение для бизнеса. Они могут сделать компанию или разрушить её. Если успех вашей компании зависит от эффективного роста, вам нужно правильно всё организовать.</p>
+<h3 id="определите-структуру-вашей-организации">Определите структуру вашей организации</h3>
+<p>Существует множество способов организации разработки продукта. Два подхода, которые стоит рассмотреть:</p>
+<p><strong>Модель триады.</strong></p>
+<p>Каждая функция (инженерия, продукт и дизайн) имеет свою структуру отчётности и организацию. Они работают вместе как равные.</p>
+<p><strong>Модель генерального менеджера.</strong> Каждая организация возглавляется генеральным менеджером (GM), который отвечает за все функции в своей организации. Это также известно как модель «Единый владелец».</p>
+<p>Обе модели одинаково хорошо подходят для масштабирования вашей организации. Однако если вы не определите свою структуру, это может помешать вашему росту. Я часто вижу компании, где различные функции противоречат друг другу. Когда у вас нет согласованного способа взаимодействия друг с другом, вы добавляете трения в свой рост.</p>
+<p>Поскольку модель триады более распространена, остальная часть этого поста отражает советы по масштабированию в рамках модели триады. Компромиссы для модели генерального менеджера описаны в моём посте-ретроспективе о внедрении модели единого владельца Amazon.</p>
+<h3 id="организуйте-кросс-функционально-в-рамках-инженерии-внедрите-продукт-и-дизайн">Организуйте кросс-функционально в рамках инженерии, внедрите продукт и дизайн</h3>
+<p>Инженерам свойственно организовывать свою работу по функциональному принципу. Например, команды Frontend и Backend. Это может показаться естественным, потому что именно так инженеры часто думают о своей работе. И инженеры склонны выстраивать свою идентичность вокруг своих ролей как Frontend Engineers или Backend Engineers. Поэтому они ожидают наличия Frontend команд и Backend команд.</p>
+<p>Хотя можно заставить это работать, у такого подхода много недостатков:</p>
+<ul>
+<li>Увеличение зависимостей между командами, что приводит к плохому исполнению.</li>
+<li>Увеличение сложности вашей организации (которая усугубляется по мере роста).</li>
+<li>Увеличение потребности в коммуникации.</li>
+</ul>
+<p>Каждая команда должна стремиться быть в состоянии приносить бизнес-ценность без привлечения других команд. Поэтому по умолчанию вы должны организовывать команды кросс-функционально и организовывать их по функциональному принципу только тогда, когда это не работает.</p>
+<p>Это подтверждается в книге Team Topologies — определяющей книге по организационному дизайну в инженерных командах. Если вы сомневаетесь в моей рекомендации, прочитайте эту книгу.</p>
+<p>В большинстве случаев вы должны делать вид, что дизайн и продукт являются частью команды. Внедрите дизайнера и менеджера по продукту в каждую команду. Для глубокого погружения в то, как добиться успеха с внедрением, см. моё руководство для счастливого внедрения.</p>
+<p>Бывают случаи, когда внедрение не имеет смысла. В этом случае список способов координации групп людей можно увидеть в моём списке моделей координации.</p>
+<h3 id="иногда-может-помочь-если-дизайн-подчиняется-продукту">Иногда может помочь, если дизайн подчиняется продукту</h3>
+<p>Что касается структуры отчётности, я часто рекомендую, чтобы дизайн подчинялся продукту. Это трюк, которому я научился у лидера дизайна. Они использовали этот подход, чтобы помочь дизайну быть более эффективным. Отчитываясь перед продуктом, он заставил команду продукта проделать работу, чтобы согласовать себя с дизайном.</p>
+<p>Помимо этого, руководство триады может отчитываться перед генеральным директором, директором по продукту (CPO) или вице-президентом/руководителем отдела разработки продукта.</p>
+<h3 id="постоянно-совершенствуйте-процесс-адаптации-и-определяйте-роли">Постоянно совершенствуйте процесс адаптации и определяйте роли</h3>
+<p>В условиях экстремального роста плохой процесс адаптации может привести к организационному сбою. Если вы удвоитесь в размере за шесть месяцев, а на адаптацию уйдёт шесть месяцев, вы потеряете позиции. В конечном итоге у вас будет уменьшающийся процент организации, которая прошла адаптацию с течением времени.</p>
+<p>Это одна из причин, по которой умные лидеры инвестируют в эффективную адаптацию и проводят структурную работу, чтобы упростить адаптацию.</p>
+<p>Одним из примеров структурной работы, которая помогает в адаптации, является определение ролей. Определите, какой тип менеджера по инженерии у вас есть (ожидания компаний значительно различаются). Кто занимается техническим руководством? Кто занимается управлением проектами?</p>
+<p>Определение этих вещей важно, потому что вам нужно нанимать людей с такими навыками, и вам нужно, чтобы все понимали, как они вписываются в быстрорастущую организацию, которую вы строите. Вы можете использовать это упражнение для определения границ между ролями.</p>
+<p>Этот тип структуры абсолютно необходим. Я работал в компании, где руководство было недовольно тем, как управлялись проекты. Они поняли, что возложили ответственность на менеджеров по инженерии, но не использовали это в качестве критерия при найме. В результате у них была целая команда менеджеров по инженерии, которые плохо управляли проектами! Это стало проблемой, на устранение которой ушли годы, и это тормозило рост компании. Это заметно повлияло на траекторию развития компании.</p>
+<p>При определении ролей я рекомендую записывать их в хорошо подобранном месте, обычно в вики. Выберите кого-нибудь, кто будет следить за тем, чтобы вики поддерживалась с течением времени. И сделайте так, чтобы вики была каноническим источником истины — это неправда, пока это не написано в вики. Вы хотите, чтобы люди могли обращаться к вики, чтобы узнать, как всё работает в компании, а этого не произойдёт, если это не будет надёжный источник информации.</p>
+<p>Вы должны сообщить, что всё, что написано, является гибким и может быть изменено со временем. Если эти письменные роли станут неизменными, это помешает организационной гибкости и изменениям. Это проблематично в быстрорастущей компании.</p>
+<h3 id="создавайте-сильные-группы-местного-руководства">Создавайте сильные группы местного руководства</h3>
+<p>Одной из наиболее распространённых причин неудач в быстрорастущих организациях является плохая структура местного руководства. На самом деле, я бы сказал, что это одна из проблем, которые я вижу наиболее часто.</p>
+<p><strong>Симптомы плохой структуры местного руководства:</strong></p>
+<ul>
+<li>Инженерия, продукт и дизайн не согласованы. Вы слышите разные истории из каждой области, и у каждой свои противоречивые приоритеты. Вы видите разную коммуникацию, исходящую из каждой функции.</li>
+<li>Несколько артефактов, представляющих одно и то же от команды. Например, у менеджера по продукту есть одна версия дорожной карты, а у менеджера по инженерии — другая.</li>
+</ul>
+<p>Это более крупная организационная неудача. Лидеры часто ожидают, что местные лидеры сами разберутся, как работать вместе. Вместо этого они должны разработать стандартный подход для местных групп руководства, а затем позволить местной команде настроить его под свои нужды.</p>
+<h3 id="создавайте-сильную-централизованную-координацию">Создавайте сильную централизованную координацию</h3>
+<p>Идеальная организация имеет фрактальное лидерство:</p>
+<ul>
+<li>Децентрализованное принятие решений в местных командах.</li>
+<li>И централизованное установление целей, контекстуализация и координация.</li>
+</ul>
+<p>Кто-то должен уделять значительную часть своего времени установлению контекста для компании. В зависимости от размера вашей компании это может быть сделано:</p>
+<ul>
+<li>Генеральным директором.</li>
+<li>Вице-президентом или руководителем отдела.</li>
+<li>Советом вице-президентов по продукту, инженерии, дизайну.</li>
+<li>Человеком, который фокусируется на бизнес-стратегии.</li>
+</ul>
+<p>Самое главное, чтобы у людей был правильный контекст для принятия обоснованных местных решений. И чтобы кто-то в бизнесе проделал тяжёлую стратегическую работу, чтобы у вашей компании был план, который обеспечит успех компании.</p>
+<p>Когда компания быстро растёт, отсутствие этих вещей приводит к хаосу. Мой главный совет — записать стратегию и рассказывать о ней, пока люди не перестанут жаловаться на недостаток контекста. Это может быть работой на полный рабочий день или работой нескольких человек.</p>
+<h3 id="определите-взаимодействие-между-местными-и-центральными-группами">Определите взаимодействие между местными и центральными группами</h3>
+<p>Когда у вас есть децентрализованные лидеры, активно работающие в своих областях, и централизованные лидеры, сосредоточенные на целях и стратегии, вы неизбежно придёте к конфликту. В идеале у вас должно быть хорошее общение между этими группами и их влияние друг на друга.</p>
+<p>Один из способов добиться этого — определить взаимодействие между местными и центральными группами. Обычно я видел, что их называют бизнес-обзорами.</p>
+<p>Когда я работал в Gremlin, мы скопировали подход Amazon и провели такие встречи:</p>
+<ul>
+<li>«Еженедельное бизнес-обозрение» с местным руководством. Мы рассмотрели состояние нашей части продукта, узнали, что мы узнали о наших клиентах, как работают недавние функции. И обсудили риски, возможности и так далее.</li>
+<li>«Ежемесячное бизнес-обозрение». Эта встреча имела во многом ту же структуру, что и еженедельная бизнес-встреча, но была свёрнута за месяц информации. И она включала в себя следующий уровень руководства. Это была возможность для нас выявить проблемы и риски. И это была возможность для нас повлиять на стратегию более высокого уровня. Например, мы предлагали новые подходы к продукту, которые считали ценными.</li>
+</ul>
+<p>Формат этих встреч должен быть адаптирован к вашим местным потребностям, но кто-то должен обращать внимание на то, насколько хорошо местное руководство работает с централизованным руководством.</p>
+<h3 id="нанимайте-менеджеров-по-найму-заранее">Нанимайте менеджеров по найму заранее</h3>
+<p>Чем быстрее вы растете, тем раньше вам следует нанимать менеджеров по найму. Это распределяет работу по найму более широко. Это лучше масштабируется. И это имеет смысл — чем больше вы нанимаете, тем больше времени это потребует у менеджеров по найму.</p>
+<p>Вам нужно будет стандартизировать ваши методы найма, чтобы облегчить участие менеджеров по найму.</p>
+<h3 id="определите-свою-стратегию-реорганизации-заранее">Определите свою стратегию реорганизации заранее</h3>
+<p>Распространённым источником проблем в организациях, которые быстро растут, являются реорганизации. Если у вас нет чётко определённой стратегии того, как будут работать реорганизации, каждая организация будет проводить их независимо. Обычно это означает, что они будут происходить независимо друг от друга. Инженерия проведёт реорганизацию. Затем через несколько месяцев продукт проведёт реорганизацию. Они могут делать это с разными философиями. Это будет хаотичным беспорядком.</p>
+<p>У вас должен быть общий для продукта взгляд на то, как определяются команды, как продукт согласован с этими командами и как дизайн работает с этими командами. Очень часто инженерам хочется организовать работу вокруг технологий, продукту — вокруг сегментов клиентов, а дизайну — вокруг функций дизайна: UX и исследований, например.</p>
+<p>Это больная точка для модели триады. Запишите, как это должно работать. Признаюсь, я никогда не видел, чтобы это делалось раньше. Но это то, что может уменьшить столько организационной боли. И чем быстрее вы будете расти, тем более ценным это может быть.</p>
+<h3 id="поддерживайте-своих-лидеров">Поддерживайте своих лидеров</h3>
+<p>Вам нужно много лидерской структуры, чтобы ориентироваться в быстрорастущей среде. В идеале у вас есть лидеры, которые постоянно улучшают организацию и устраняют все неизбежные проблемы, которые возникают по мере того, как компания увеличивается в размерах.</p>
+<p>Это происходит только в том случае, если вы инвестируете в рост своих лидеров. Они должны расти так же быстро, как и компания. Я рекомендую следующие практики:</p>
+<ol>
+<li><strong>Используйте 1-1 для обучения менеджеров.</strong> Они дают возможность выявить навыки, которые нужны менеджеру, и целенаправленно обучать его этим навыкам.</li>
+<li><strong>Используйте пропуск уровней для наблюдения.</strong> Пропуск уровня 1-1 — это хороший инструмент, позволяющий отобрать образцы из всей вашей организации и выяснить, где могут быть проблемы. Вы можете обнаружить команды, которым нужна помощь, или менеджеров, которые неэффективны. Они также помогают сохранить коммуникацию — если вы встречаетесь с людьми в вашей организации каждые три-шесть месяцев, они с большей вероятностью сообщат вам о проблемах.</li>
+<li><strong>Создайте группы поддержки управления.</strong> Вы можете организовать группы менеджеров в небольшие группы поддержки. Пусть каждый расскажет о том, что для него сложно. В идеале они могут стать учебными встречами, где люди могут быть уязвимы друг с другом в отношении своих проблем. И они могут учиться друг у друга и становиться более эффективными лидерами.</li>
+</ol>
+<hr>
+<p>Джейд Рубик — бывший вице-президент по инженерии в New Relic и вице-президент по продукту и инженерии в Gremlin. Сейчас он консультирует стартапы по масштабированию их организаций по разработке продуктов. Джейд пишет о разработке продуктов в своём блоге и имеет бесплатный (или платный) курс по лидерству в инженерии (и разработке продуктов).</p>
+
+        
+
+      </article>
+    </section>
+  </div>
+
+
+
+          
+<footer class="px-6 py-12 bg-sky-950 text-white/50">
+     <div class="inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
+      <div class="relative">
+ 
+          <div class="border-t border-white/10"></div>
+
+          
+          <div class="mt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="text-sm text-slate-400">© <span id="year"></span>P9X.ru 2010 - 2025г. услуги интернет маркетинга</p>
+            <div class="flex items-center gap-4 text-slate-400 text-sm">
+              <a href="#" class="hover:text-white transition">Документы</a>
+              <a href="#" class="hover:text-white transition">Служба поддержки</a>
+              <a href="#" class="hover:text-white transition">Статус</a>
+            </div>
+          </div>      
+      </div>
+
+
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105149615', 'ym');
+
+    ym(105149615, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/105149615" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+  </footer>
+  </main>          
+
+    <script>
+
+        
+        
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const sidebar = document.querySelector('.sidebar');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+        
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                if (entry.isIntersecting) {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.add('active');
+                    });
+                } else {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.remove('active');
+                    });
+                }
+            });
+        }, observerOptions);
+        
+        
+        document.querySelectorAll('h2[id]').forEach(heading => {
+            observer.observe(heading);
+        });
+    </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>  
+    Руководство по внедрению LLMS в производство
+     | P9X
+  </title>
+  <meta name="description" content="Изучите практические навыки работы с LLMOP: внедряйте LLM в производство с помощью LangChain, FastAPI, Docker и Streamlit, от прототипа до масштабируемого чат-бота RAG.">
+<meta name="yandex-verification" content="242f5a0ee52d5836" />
+<meta name="google-site-verification" content="0Ytq4iozDTscUw8IMVUsSsLQ4yEXHRwKZSvFYqnSNtE" />
+<link rel="canonical" href="http://localhost:1313/llms-in-production/" />
+
+<link rel="icon" type="image/x-icon" href="http://localhost:1313/favicon.ico">
+
+  
+ <style>
+  .content h1 { 
+        font-size: 1.875rem; 
+        font-weight: bold; 
+        margin-bottom: 1rem; 
+    }
+    .content h2 { 
+        font-size: 1.5rem; 
+        font-weight: 600; 
+        margin-bottom: 0.75rem; 
+    }
+    .content h3 { 
+        font-size: 1.25rem; 
+        font-weight: 500; 
+        margin-bottom: 0.5rem; 
+    }
+    .content p { 
+        margin-bottom: 1rem; 
+    }
+    .content ul { 
+        list-style-type: disc; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content ol { 
+        list-style-type: decimal; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content a { 
+        color: #2563eb; 
+    }
+    .content a:hover { 
+        color: #1e40af; 
+    }
+    .content blockquote { 
+        border-left: 4px solid #d1d5db; 
+        padding-left: 1rem; 
+        font-style: italic; 
+    }
+
+    
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.875rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+.dark-mode .content table {
+    border: 1px solid #4b5563;
+}
+
+.content thead {
+    background-color: #eaebec;
+}
+
+.dark-mode .content thead {
+    background-color: #374151;
+}
+
+.content th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.dark-mode .content th {
+    color: #f9fafb;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content th:last-child {
+    border-right: none;  
+}
+
+.content td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    color: #6b7280;
+}
+
+.dark-mode .content td {
+    color: #d1d5db;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content td:last-child {
+    border-right: none;  
+}
+
+.content tbody tr {
+    transition: background-color 0.15s ease-in-out;
+}
+
+.content tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.dark-mode .content tbody tr:hover {
+    background-color: #374151;
+}
+
+.content tbody tr:last-child td {
+    border-bottom: none;
+}
+
+ 
+.content tbody tr:nth-child(even) {
+    background-color: #f4f5f7;
+}
+
+.dark-mode .content tbody tr:nth-child(even) {
+    background-color: #1f2937;
+}
+
+.dark-mode .content tbody tr:nth-child(even):hover {
+    background-color: #374151;
+}
+
+ 
+.content code:not(pre code) {
+    background-color: #f3f4f6;
+    color: #dc2626;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    font-weight: 500;
+    border: 1px solid #e5e7eb;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+}
+
+.dark-mode .content code:not(pre code) {
+    background-color: #224464;
+    color: #f87171;
+    border: 1px solid #4b5563;
+}
+
+ 
+.content pre {
+    background-color: #224464;
+    color: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid #374151;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.dark-mode .content pre {
+    background-color: #111827;
+    border: 1px solid #374151;
+}
+
+ 
+.content pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+    font-weight: normal;
+}
+
+ 
+.content pre code .keyword { color: #f472b6; }  
+.content pre code .function { color: #60a5fa; }  
+.content pre code .string { color: #34d399; }  
+.content pre code .comment { color: #9ca3af; font-style: italic; }  
+.content pre code .number { color: #fbbf24; }  
+.content pre code .class { color: #c084fc; }  
+.content pre code .operator { color: #93c5fd; }  
+
+ 
+.content pre::-webkit-scrollbar {
+    height: 6px;
+}
+
+.content pre::-webkit-scrollbar-track {
+    background: #374151;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.content pre::-webkit-scrollbar-thumb {
+    background: #6b7280;
+    border-radius: 3px;
+}
+
+.content pre::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+ 
+.content h1 code:not(pre code),
+.content h2 code:not(pre code),
+.content h3 code:not(pre code) {
+    font-size: 0.9em;
+    background-color: #fef2f2;
+    color: #dc2626;
+}
+
+.dark-mode .content h1 code:not(pre code),
+.dark-mode .content h2 code:not(pre code),
+.dark-mode .content h3 code:not(pre code) {
+    background-color: #7f1d1d;
+    color: #fca5a5;
+}
+
+ 
+.content a code:not(pre code) {
+    color: inherit;
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+.dark-mode .content a code:not(pre code) {
+    background-color: rgba(96, 165, 250, 0.2);
+}
+        :root {
+            --color-bg: #1a1a1a;
+            --color-text: #e6e6e6;
+            --color-accent: #6b7280;
+            --color-link: #9ca3af;
+            --color-link-hover: #d1d5db;
+        }
+        
+        .light-mode {
+            --color-bg: #f9fafb;
+            --color-text: #1f2937;
+            --color-accent: #6b7280;
+            --color-link: #4b5563;
+            --color-link-hover: #111827;
+        }
+        
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        a {
+            color: var(--color-link);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: var(--color-link-hover);
+        }
+        
+        .sidebar {
+            position: fixed;
+             
+            height: 100vh;
+            overflow-y: auto;
+            
+        }
+        
+        .main-content {
+            margin-left: 350px;
+            
+             
+        }
+        
+        .toc-container {
+            position: fixed;
+            right: 2rem;
+            top: 2rem;
+            width: 250px;
+            display: none;
+        }
+        
+        @media (min-width: 1280px) {
+            .toc-container {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 50;
+            }
+            
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+                 
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: fixed;
+                top: 1rem;
+                left: 1rem;
+                z-index: 100;
+            }
+        }
+        
+        .toc-link.active {
+            color: var(--color-link-hover);
+            font-weight: bold;
+        }
+        
+        .social-icons a {
+            margin-right: 0.5rem;
+        }
+        
+        pre {
+            background-color: rgba(107, 114, 128, 0.1);
+            padding: 1rem;
+            border-radius: 0.25rem;
+            overflow-x: auto;
+        }
+        
+        code {
+            font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+   <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: '#eff6ff',
+                100: '#dbeafe',
+                500: '#0ea5e9',
+                600: '#0284c7',
+              },
+            },
+            boxShadow: {
+              soft: '0 8px 24px rgba(2, 132, 199, 0.08)'
+            }
+          },
+        },
+      }
+    </script>
+</head>
+  <body class="light-mode">
+      <header>
+    
+  </header>
+    
+    <button class="mobile-menu-btn p-2 bg-gray-800 text-white rounded md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+    
+    <aside class="sidebar border-r-4 border-sky-800  min-w-[350px] py-12 px-10 bg-gradient-to-br from-cyan-200 via-green-100 to-sky-100">
+        <div class="flex flex-col items-center mb-8">
+                
+            
+            <div class="w-24 h-24 mb-4 relative">
+                <a href="/">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ viewBox="0 0 550.000000 385.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,385.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M2780 3000 l0 -300 40 0 40 0 0 260 0 260 1165 0 1165 0 0 -1245 0
+-1245 -1165 0 -1165 0 0 260 0 260 -40 0 -40 0 0 -300 0 -300 1245 0 1245 0 0
+1325 0 1325 -1245 0 -1245 0 0 -300z"/>
+<path d="M700 1975 l0 -635 145 0 145 0 0 245 0 245 383 0 c422 0 426 1 491
+66 60 60 66 88 66 319 0 190 -2 214 -21 255 -25 56 -53 86 -104 113 -39 22
+-49 22 -572 25 l-533 3 0 -636z m940 245 l0 -100 -325 0 -325 0 0 100 0 100
+325 0 325 0 0 -100z"/>
+<path d="M2320 2601 c-69 -22 -112 -58 -146 -121 -17 -31 -19 -60 -19 -260 0
+-211 1 -227 22 -265 27 -51 68 -90 115 -109 32 -14 98 -16 438 -16 l400 0 0
+-245 0 -245 145 0 145 0 0 536 c0 373 -3 548 -11 575 -16 50 -61 105 -112 132
+-41 22 -48 22 -497 24 -250 1 -466 -2 -480 -6z m810 -381 l0 -100 -340 0 -340
+0 0 100 0 100 340 0 340 0 0 -100z"/>
+<path d="M3650 2607 c0 -1 99 -144 219 -317 l219 -314 -63 -91 c-34 -49 -133
+-191 -219 -315 l-157 -225 172 -3 c97 -1 176 2 183 7 6 5 72 97 146 205 74
+107 138 196 141 196 4 0 71 -92 149 -205 l143 -205 173 0 c96 0 174 2 174 4 0
+3 -95 141 -211 308 -116 167 -214 308 -216 315 -3 7 92 151 211 322 119 170
+216 312 216 315 0 3 -78 6 -174 6 l-174 0 -143 -205 c-78 -113 -145 -205 -149
+-205 -3 0 -70 92 -148 205 l-143 205 -174 0 c-96 0 -175 -1 -175 -3z"/>
+</g>
+</svg>
+</a>
+            </div>
+
+            <p class="text-xs text-center text-gray-500 max-w-[200px]">
+                Профессиональное агентство контекстной рекламы с опытом более 18 лет.
+
+            </p>
+        </div>
+
+        
+        <nav class="mb-8">
+          
+        
+            
+  <nav>
+    <ul>
+    <li class="text-lg font-semibold">
+      <a href="/">Контекстная реклама</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/analytics/">web-аналитика</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a aria-current="true" class="ancestor" href="/posts/">Блог</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/about/">О нас</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Категории</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/job/">Вакансии</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/case/">Кейсы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/calculators/">Калькуляторы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/contacts/">Контакты</a>
+    </li>
+    </ul>
+  </nav>
+
+           
+
+        </nav>
+
+        
+        <div class="social-icons  mt-auto">
+<div>
+
+<a href="https://t.me/your_link" target="_blank" class="inline-flex 
+items-center justify-center px-3 py-3 text-white bg-[#2AABEE] font-medium text-sm rounded 
+shadow-md hover:bg-[#279fd9] 
+hover:shadow-lg focus:bg-[#2493c8] 
+focus:shadow-lg focus:outline-none 
+focus:ring-0 active:bg-[#2185b3] active:shadow-lg transition duration-150 ease-in-out">
+  
+     
+<svg width="25px" height="25px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" 
+fill="#fff" class="bi bi-telegram pr-1">
+  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>
+</svg>
+                            
+  
+  Открыть в Telegram
+</a>
+
+</div>
+            <div class="pt-6 flex gap-1 justify-left items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                sale@p9x.ru
+            </div>
+        </div>
+        
+        
+        <div class="mt-8 pt-4 text-xs text-gray-500 border-t border-gray-700">
+            <p>Powered by <a href="#" class="hover:underline">Hugo</a> | Themed with <a href="#" class="hover:underline">poison</a></p>
+            <p>© 2010 - 2025 Poison. All rights reserved.</p>
+        </div>
+    </aside>
+
+  <main class="main-content">
+ 
+            
+            
+   <div class="max-w-[1100px]">
+    
+    <section class="bg-white border border-gray-200  shadow-sm overflow-hidden">
+      
+      <div class="bg-gradient-to-b from-sky-50/60 to-transparent p-6 border-b border-gray-200">
+        <h1 class="text-2xl md:text-3xl font-bold">От нуля до героя LLMOps: 101 руководство по внедрению LLM в производство</h1>
+        <time class="block mt-2 text-gray-500" datetime="2025-11-19T23:13:09+00:00">
+          
+    
+    November 19, 2025
+        </time>
+
+              
+        <div class="not-prose backdrop-blur-sm pt-4">
+          <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div class="flex items-center gap-3">
+              
+                <img src="/user_02.png" class="h-20 w-20 rounded-full hue-rotate-270" alt="">
+              
+              <div>
+                <p class="text-gray-800 font-medium">Автор: Дмитрий Иванов [Команда P9X]</p>
+                <p class="text-gray-600 text-sm">~8 минут чтения</p>
+              </div>
+            </div>
+            <div class="text-sm text-gray-600">
+                <div class="tags mt-8">
+      
+
+    </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      
+      <article class="px-6 py-6 max-w-[94ch] content">
+  
+
+        
+
+
+        
+     
+           <h3 id="если-вы-когда-нибудь-пытались-перенести-прототип-llm-из-jupyter-notebook-в-реальный-мир">Если вы когда-нибудь пытались перенести прототип LLM из Jupyter Notebook в реальный мир</h3>
+<p>Если вы когда-нибудь пытались перенести прототип LLM из Jupyter Notebook в реальный мир, то уже знаете, что это не так просто, как нажать кнопку «Выполнить». Я помню, как в первый раз попробовал разместить конечную точку LLM; это было непросто. Модель нормально работала локально, но как только пользователи начали отправлять несколько запросов… всё сломалось.</p>
+<p>Тогда я понял, что мне не хватает не знаний в области машинного обучения, а LLMOps.</p>
+<h3 id="что-такое-llmops">Что такое LLMOps?</h3>
+<p>LLMOps — это расширение MLOps для больших языковых моделей. Это всё, что происходит после того, как вы обучили или выбрали свою модель: от оптимизации вывода, мониторинга, оркестрации запросов, конвейеров данных до развёртывания, масштабирования и управления.</p>
+<p>Представьте себе мост между вашей моделью и реальным миром, обеспечивающий надёжность, масштабируемость, наблюдаемость и соответствие требованиям.</p>
+<h3 id="основные-этапы-llmops">Основные этапы LLMOps</h3>
+<ol>
+<li>Приём данных и векторизация.</li>
+<li>Понимание набора данных.</li>
+<li>Создание векторного хранилища.</li>
+<li>Создание и запуск чат-бота RAG.</li>
+<li>Оркестровка запросов с помощью LangChain.</li>
+<li>Обслуживание через FastAPI.</li>
+<li>Интерфейс чата со Streamlit.</li>
+<li>Публичный доступ через Ngrok.</li>
+<li>Контейнеризация с помощью Docker.</li>
+<li>Концепции развёртывания с AWS.</li>
+<li>Мониторинг, версионирование, оценка и управление.</li>
+</ol>
+<h3 id="базовая-настройка">Базовая настройка</h3>
+<p>Прежде чем мы начнём с реализации, давайте сделаем базовую настройку, установив необходимые библиотеки. Я использую Google Colab в качестве среды программирования для этого проекта. Скопируйте следующий код для настройки библиотек:</p>
+<pre tabindex="0"><code>!mkdir llmops-demo
+!cd llmops-demo
+!python3 -m venv venv
+!source venv/bin/activate
+!pip install langchain openai faiss-cpu fastapi uvicorn python-dotenv langchain-community
+!pip install nest_asyncio pyngrok streamlit
+</code></pre><p>Мы также будем использовать OpenAI и NGROK для этого проекта. Вы можете получить их токены/ключи API по следующим ссылкам:</p>
+<p>Обратите внимание, что бесплатной версии их API/токенов аутентификации достаточно для этого блога.</p>
+<p>Напишите следующий код в Colab, чтобы настроить эти токены:</p>
+<pre tabindex="0"><code>import os
+from getpass import getpass
+os.environ[&#39;OPENAI_API_KEY&#39;] = getpass(&#34;Enter OPENAI KEY:&#34;)
+os.environ[&#39;NGROK_AUTHTOKEN&#39;] = getpass(&#34;ENTER NGROK TOKEN:&#34;)
+</code></pre><h3 id="ввод-данных-и-векторизация">Ввод данных и векторизация</h3>
+<h4 id="понимание-набора-данных">Понимание набора данных</h4>
+<p>Прежде чем что-то создавать, давайте начнём с данных, потому что именно они дают вашей системе RAG «мозг». Я использовал небольшой набор данных Kaggle под названием <strong>Sample RAG Knowledge Item Dataset</strong>. Он простой, чистый и идеально подходит для обучения. Каждая строка похожа на мини-«записку» из службы поддержки IT, короткий фрагмент знаний по определённой теме.</p>
+<p>Вы найдёте два основных столбца:</p>
+<ul>
+<li><strong>ki_text</strong> → фактический контент (например, «Шаги по устранению неполадок вашего VPN-соединения»);</li>
+<li><strong>ki_topic</strong> → метка темы, такая как «Сети», «Оборудование» или «Безопасность».</li>
+</ul>
+<p>Этот набор данных намеренно мал, что я на самом деле люблю, потому что он позволяет вам быстро тестировать различные идеи RAG, такие как размеры фрагментов, модели встраивания и стратегии извлечения, не дожидаясь часами индексации.</p>
+<p>Теперь, когда мы знаем, как выглядит наш набор данных, давайте научим нашу модель «запоминать» его, превратив этот текст в встраивания и сохранив их в векторной базе данных.</p>
+<h4 id="создание-векторного-хранилища">Создание векторного хранилища</h4>
+<p>Как только мы подготовим наш набор данных, следующей целью будет заставить модель понять его, а не просто прочитать. И для этого нам нужно <strong>преобразовать текст во вложения</strong>, числовые векторы, которые представляют смысл.</p>
+<p>Вот код для этого:</p>
+<pre tabindex="0"><code>import os
+import pandas as pd
+
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain.embeddings import OpenAIEmbeddings
+from langchain.vectorstores import FAISS
+from langchain.docstore.document import Document
+
+# Load dataset
+df = pd.read_csv(&#34;/content/rag_sample_qas_from_kis.csv&#34;)
+
+# Use ki_text as main text and ki_topic as metadata
+docs = [
+    Document(page_content=row[&#34;ki_text&#34;], metadata={&#34;topic&#34;: row[&#34;ki_topic&#34;]})
+    for _, row in df.iterrows()
+]
+
+# Split into chunks for embedding
+splitter = RecursiveCharacterTextSplitter(chunk_size=800, chunk_overlap=100)
+chunks = splitter.split_documents(docs)
+
+# Embed and store in FAISS
+embeddings = OpenAIEmbeddings(openai_api_key=os.getenv(&#34;OPENAI_API_KEY&#34;))
+db = FAISS.from_documents(chunks, embeddings)
+
+db.save_local(&#34;vectorstore&#34;)
+print(&#34;Vectorstore created successfully using ki_text as content!&#34;)
+</code></pre><h3 id="создание-и-запуск-чат-бота-rag">Создание и запуск чат-бота RAG</h3>
+<p>Вот как выглядит наш окончательный чат-бот при развёртывании:</p>
+<p>Теперь давайте рассмотрим все библиотеки/инструменты, которые нам нужны, чтобы это произошло, и посмотрим, как всё это складывается воедино.</p>
+<h4 id="оркестрация-запросов-с-помощью-langchain">Оркестрация запросов с помощью LangChain</h4>
+<p>Здесь мы собираем воедино наш векторный магазин, ретривер и LLM с помощью цепочки RetrievalQA от LangChain.</p>
+<p>Созданное ранее векторное хранилище FAISS загружается обратно в память и подключается к вложениям OpenAI. Затем ретривер действует как интеллектуальный механизм поиска, извлекающий только наиболее релевантные фрагменты из вашего набора данных.</p>
+<p>Каждый запрос теперь проходит через этот конвейер: извлечённый → дополненный → сгенерированный.</p>
+<h4 id="обслуживание-через-fastapi">Обслуживание через FastAPI</h4>
+<p>Чтобы имитировать настройку, готовую к производству, мы добавляем облегчённый бэкенд <strong>FastAPI</strong>. Хотя это необязательно для Colab, этот шаг отражает, как ваша модель RAG будет представлена в реальной среде с конечными точками, готовыми для внешних интеграций или API-запросов.</p>
+<p>Маршрут «/» на данный момент просто возвращает сообщение о состоянии здоровья, но эту структуру можно легко расширить для обработки запросов из вашего пользовательского интерфейса, ботов Slack или веб-клиентов.</p>
+<h4 id="интерфейс-чата-со-streamlit">Интерфейс чата со Streamlit</h4>
+<p>На базе бэкенда мы создаём интерактивный <strong>интерфейс чата с помощью Streamlit</strong>. Это обеспечивает чистый интерфейс на основе браузера для общения с вашим конвейером RAG. Пользователи могут вводить вопросы, нажимать «Отправить» и получать контекстуальные ответы, основанные на документах, с помощью LangChain.</p>
+<p>Каждый обмен сохраняется в st.session_state, создавая постоянный поток общения между вами и моделью.</p>
+<h4 id="публичный-доступ-через-ngrok">Публичный доступ через Ngrok</h4>
+<p>Поскольку Colab не поддерживает прямой веб-хостинг, мы используем <strong>ngrok</strong>, чтобы безопасно выставить приложение Streamlit. Ngrok направляет ваш локальный порт на временный общедоступный URL, позволяя любому (или только вам) получить доступ к чат-боту UI в реальной вкладке браузера.</p>
+<p>Как только ngrok выводит общедоступную ссылку, чат-бот становится мгновенно доступным.</p>
+<h4 id="объединение-всего-вместе">Объединение всего вместе</h4>
+<ul>
+<li><strong>LangChain</strong> управляет встраиваниями, извлечением и генерацией;</li>
+<li><strong>FastAPI</strong> предоставляет необязательный бэкенд;</li>
+<li><strong>Streamlit</strong> служит интерактивным пользовательским интерфейсом;</li>
+<li><strong>Ngrok</strong> соединяет Colab с внешним миром.</li>
+</ul>
+<p>И с этим у вас есть полностью функциональный, сквозной <strong>чат-бот на базе RAG</strong>, работающий в прямом эфире из вашего ноутбука.</p>
+<h3 id="контейнеризация-с-помощью-docker">Контейнеризация с помощью Docker</h3>
+<p>На этом этапе у нас есть полностью работающий чат-бот RAG: бэкенд, пользовательский интерфейс и всё такое. Но если вы когда-нибудь пытались развернуть такую ​​настройку в разных средах, вы знаете, какая это боль: недостающие зависимости, несовпадение версий, сломанные пути — обычный хаос.</p>
+<p>Именно здесь на помощь приходит <strong>Docker</strong>. Docker предоставляет аккуратный, портативный способ упаковать всю среду со всеми инструментами, такими как FastAPI, Streamlit, LangChain, FAISS и даже вашим векторным хранилищем, в одну согласованную единицу, которая может работать где угодно.</p>
+<h3 id="развёртывание-концепций-с-aws">Развёртывание концепций с AWS</h3>
+<p>Развёртывание вашей системы LLM на AWS открывает возможности для масштабирования в производственных условиях, но это тема, заслуживающая отдельного глубокого погружения. От <strong>размещения вашего приложения FastAPI на EC2 или ECS</strong> до <strong>хранения векторных баз данных на S3</strong> и использования <strong>AWS Lambda для событийных триггеров</strong> — возможности безграничны. Вы даже можете интегрировать <strong>CloudFront + API Gateway</strong> для защищённых, глобально распределённых конечных точек вывода.</p>
+<p>Пока просто знайте, что AWS предоставляет вам все строительные блоки для перехода от локального контейнера Docker к полностью управляемой, автоматически масштабируемой настройке. Мы рассмотрим весь этот рабочий процесс с помощью инфраструктуры как кода, конвейеров CI/CD и сценариев развёртывания в следующей статье.</p>
+<h3 id="мониторинг-версионирование-оценка-и-управление">Мониторинг, версионирование, оценка и управление</h3>
+<p>После развёртывания настоящая работа вашей системы начинается с мониторинга и её обслуживания. Отслеживание <strong>задержки, точности извлечения, частоты галлюцинаций и дрейфа версий</strong> необходимо для обеспечения надёжности и объяснимости вашего чат-бота. Добавьте <strong>версионирование</strong>, <strong>оценку</strong> и <strong>управление</strong>, и вы получите основы производственного LLMOps.</p>
+<p>Эти области заслуживают отдельного внимания. В следующей статье мы рассмотрим <strong>развёртывание в AWS, наблюдаемость, версионирование и управление</strong>, то, что действительно делает ваши LLM готовыми к работе в производственной среде.</p>
+<h3 id="заключение">Заключение</h3>
+<p>Мы начали с нуля, настроив простой пользовательский интерфейс чат-бота, и шаг за шагом построили полный <strong>рабочий процесс LLMOps</strong>:</p>
+<ul>
+<li>Ввод данных, создание векторного хранилища, встраивание, оркестрация запросов, обслуживание через FastAPI, контейнеризация с помощью Docker и подготовка к развёртыванию на AWS.</li>
+<li>Каждый слой добавил структуру, масштабируемость и надёжность, превратив эксперимент в развёртываемый, обслуживаемый продукт.</li>
+<li>Но это только начало. Настоящий LLMOps начинается после развёртывания, когда вы отслеживаете поведение, оптимизируете извлечение, версионируете вложения и держите свои модели в безопасности и соответствии требованиям.</li>
+</ul>
+<p>В следующей части этой серии мы выйдем за рамки настройки и погрузимся в <strong>развёртывание в AWS, наблюдаемость, версионирование и управление</strong> — то, что действительно делает ваши LLM готовыми к работе в производственной среде.</p>
+<p>Дайте мне знать о ваших мыслях и вопросах ниже!</p>
+<p>Санад — старший учёный в области искусственного интеллекта в Analytics Vidhya, превращающий передовые исследования в области искусственного интеллекта в реальные продукты агентского искусственного интеллекта. Имея степень магистра в области искусственного интеллекта в Эдинбургском университете, он работал в ведущих исследовательских лабораториях, занимаясь многоязычным НЛП и НЛП для индийских языков с ограниченными ресурсами. Увлечённый всем, что связано с искусственным интеллектом, он любит устранять разрыв между глубокими исследованиями и практическими, значимыми продуктами.</p>
+
+        
+
+      </article>
+    </section>
+  </div>
+
+
+
+          
+<footer class="px-6 py-12 bg-sky-950 text-white/50">
+     <div class="inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
+      <div class="relative">
+ 
+          <div class="border-t border-white/10"></div>
+
+          
+          <div class="mt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="text-sm text-slate-400">© <span id="year"></span>P9X.ru 2010 - 2025г. услуги интернет маркетинга</p>
+            <div class="flex items-center gap-4 text-slate-400 text-sm">
+              <a href="#" class="hover:text-white transition">Документы</a>
+              <a href="#" class="hover:text-white transition">Служба поддержки</a>
+              <a href="#" class="hover:text-white transition">Статус</a>
+            </div>
+          </div>      
+      </div>
+
+
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105149615', 'ym');
+
+    ym(105149615, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/105149615" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+  </footer>
+  </main>          
+
+    <script>
+
+        
+        
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const sidebar = document.querySelector('.sidebar');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+        
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                if (entry.isIntersecting) {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.add('active');
+                    });
+                } else {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.remove('active');
+                    });
+                }
+            });
+        }, observerOptions);
+        
+        
+        document.querySelectorAll('h2[id]').forEach(heading => {
+            observer.observe(heading);
+        });
+    </script>
+
+
+
+</body>
+</html>

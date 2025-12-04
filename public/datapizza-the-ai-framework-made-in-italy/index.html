@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>  
+    Ускоряйте создание агентов LLM с помощью Datapizza AI | На пути к науке о данных
+     | P9X
+  </title>
+  <meta name="description" content="">
+<meta name="yandex-verification" content="242f5a0ee52d5836" />
+<meta name="google-site-verification" content="0Ytq4iozDTscUw8IMVUsSsLQ4yEXHRwKZSvFYqnSNtE" />
+<link rel="canonical" href="http://localhost:1313/datapizza-the-ai-framework-made-in-italy/" />
+
+<link rel="icon" type="image/x-icon" href="http://localhost:1313/favicon.ico">
+
+  
+ <style>
+  .content h1 { 
+        font-size: 1.875rem; 
+        font-weight: bold; 
+        margin-bottom: 1rem; 
+    }
+    .content h2 { 
+        font-size: 1.5rem; 
+        font-weight: 600; 
+        margin-bottom: 0.75rem; 
+    }
+    .content h3 { 
+        font-size: 1.25rem; 
+        font-weight: 500; 
+        margin-bottom: 0.5rem; 
+    }
+    .content p { 
+        margin-bottom: 1rem; 
+    }
+    .content ul { 
+        list-style-type: disc; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content ol { 
+        list-style-type: decimal; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content a { 
+        color: #2563eb; 
+    }
+    .content a:hover { 
+        color: #1e40af; 
+    }
+    .content blockquote { 
+        border-left: 4px solid #d1d5db; 
+        padding-left: 1rem; 
+        font-style: italic; 
+    }
+
+    
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.875rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+.dark-mode .content table {
+    border: 1px solid #4b5563;
+}
+
+.content thead {
+    background-color: #eaebec;
+}
+
+.dark-mode .content thead {
+    background-color: #374151;
+}
+
+.content th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.dark-mode .content th {
+    color: #f9fafb;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content th:last-child {
+    border-right: none;  
+}
+
+.content td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    color: #6b7280;
+}
+
+.dark-mode .content td {
+    color: #d1d5db;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content td:last-child {
+    border-right: none;  
+}
+
+.content tbody tr {
+    transition: background-color 0.15s ease-in-out;
+}
+
+.content tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.dark-mode .content tbody tr:hover {
+    background-color: #374151;
+}
+
+.content tbody tr:last-child td {
+    border-bottom: none;
+}
+
+ 
+.content tbody tr:nth-child(even) {
+    background-color: #f4f5f7;
+}
+
+.dark-mode .content tbody tr:nth-child(even) {
+    background-color: #1f2937;
+}
+
+.dark-mode .content tbody tr:nth-child(even):hover {
+    background-color: #374151;
+}
+
+ 
+.content code:not(pre code) {
+    background-color: #f3f4f6;
+    color: #dc2626;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    font-weight: 500;
+    border: 1px solid #e5e7eb;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+}
+
+.dark-mode .content code:not(pre code) {
+    background-color: #224464;
+    color: #f87171;
+    border: 1px solid #4b5563;
+}
+
+ 
+.content pre {
+    background-color: #224464;
+    color: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid #374151;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.dark-mode .content pre {
+    background-color: #111827;
+    border: 1px solid #374151;
+}
+
+ 
+.content pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+    font-weight: normal;
+}
+
+ 
+.content pre code .keyword { color: #f472b6; }  
+.content pre code .function { color: #60a5fa; }  
+.content pre code .string { color: #34d399; }  
+.content pre code .comment { color: #9ca3af; font-style: italic; }  
+.content pre code .number { color: #fbbf24; }  
+.content pre code .class { color: #c084fc; }  
+.content pre code .operator { color: #93c5fd; }  
+
+ 
+.content pre::-webkit-scrollbar {
+    height: 6px;
+}
+
+.content pre::-webkit-scrollbar-track {
+    background: #374151;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.content pre::-webkit-scrollbar-thumb {
+    background: #6b7280;
+    border-radius: 3px;
+}
+
+.content pre::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+ 
+.content h1 code:not(pre code),
+.content h2 code:not(pre code),
+.content h3 code:not(pre code) {
+    font-size: 0.9em;
+    background-color: #fef2f2;
+    color: #dc2626;
+}
+
+.dark-mode .content h1 code:not(pre code),
+.dark-mode .content h2 code:not(pre code),
+.dark-mode .content h3 code:not(pre code) {
+    background-color: #7f1d1d;
+    color: #fca5a5;
+}
+
+ 
+.content a code:not(pre code) {
+    color: inherit;
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+.dark-mode .content a code:not(pre code) {
+    background-color: rgba(96, 165, 250, 0.2);
+}
+        :root {
+            --color-bg: #1a1a1a;
+            --color-text: #e6e6e6;
+            --color-accent: #6b7280;
+            --color-link: #9ca3af;
+            --color-link-hover: #d1d5db;
+        }
+        
+        .light-mode {
+            --color-bg: #f9fafb;
+            --color-text: #1f2937;
+            --color-accent: #6b7280;
+            --color-link: #4b5563;
+            --color-link-hover: #111827;
+        }
+        
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        a {
+            color: var(--color-link);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: var(--color-link-hover);
+        }
+        
+        .sidebar {
+            position: fixed;
+             
+            height: 100vh;
+            overflow-y: auto;
+            
+        }
+        
+        .main-content {
+            margin-left: 350px;
+            
+             
+        }
+        
+        .toc-container {
+            position: fixed;
+            right: 2rem;
+            top: 2rem;
+            width: 250px;
+            display: none;
+        }
+        
+        @media (min-width: 1280px) {
+            .toc-container {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 50;
+            }
+            
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+                 
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: fixed;
+                top: 1rem;
+                left: 1rem;
+                z-index: 100;
+            }
+        }
+        
+        .toc-link.active {
+            color: var(--color-link-hover);
+            font-weight: bold;
+        }
+        
+        .social-icons a {
+            margin-right: 0.5rem;
+        }
+        
+        pre {
+            background-color: rgba(107, 114, 128, 0.1);
+            padding: 1rem;
+            border-radius: 0.25rem;
+            overflow-x: auto;
+        }
+        
+        code {
+            font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+   <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: '#eff6ff',
+                100: '#dbeafe',
+                500: '#0ea5e9',
+                600: '#0284c7',
+              },
+            },
+            boxShadow: {
+              soft: '0 8px 24px rgba(2, 132, 199, 0.08)'
+            }
+          },
+        },
+      }
+    </script>
+</head>
+  <body class="light-mode">
+      <header>
+    
+  </header>
+    
+    <button class="mobile-menu-btn p-2 bg-gray-800 text-white rounded md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+    
+    <aside class="sidebar border-r-4 border-sky-800  min-w-[350px] py-12 px-10 bg-gradient-to-br from-cyan-200 via-green-100 to-sky-100">
+        <div class="flex flex-col items-center mb-8">
+                
+            
+            <div class="w-24 h-24 mb-4 relative">
+                <a href="/">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ viewBox="0 0 550.000000 385.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,385.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M2780 3000 l0 -300 40 0 40 0 0 260 0 260 1165 0 1165 0 0 -1245 0
+-1245 -1165 0 -1165 0 0 260 0 260 -40 0 -40 0 0 -300 0 -300 1245 0 1245 0 0
+1325 0 1325 -1245 0 -1245 0 0 -300z"/>
+<path d="M700 1975 l0 -635 145 0 145 0 0 245 0 245 383 0 c422 0 426 1 491
+66 60 60 66 88 66 319 0 190 -2 214 -21 255 -25 56 -53 86 -104 113 -39 22
+-49 22 -572 25 l-533 3 0 -636z m940 245 l0 -100 -325 0 -325 0 0 100 0 100
+325 0 325 0 0 -100z"/>
+<path d="M2320 2601 c-69 -22 -112 -58 -146 -121 -17 -31 -19 -60 -19 -260 0
+-211 1 -227 22 -265 27 -51 68 -90 115 -109 32 -14 98 -16 438 -16 l400 0 0
+-245 0 -245 145 0 145 0 0 536 c0 373 -3 548 -11 575 -16 50 -61 105 -112 132
+-41 22 -48 22 -497 24 -250 1 -466 -2 -480 -6z m810 -381 l0 -100 -340 0 -340
+0 0 100 0 100 340 0 340 0 0 -100z"/>
+<path d="M3650 2607 c0 -1 99 -144 219 -317 l219 -314 -63 -91 c-34 -49 -133
+-191 -219 -315 l-157 -225 172 -3 c97 -1 176 2 183 7 6 5 72 97 146 205 74
+107 138 196 141 196 4 0 71 -92 149 -205 l143 -205 173 0 c96 0 174 2 174 4 0
+3 -95 141 -211 308 -116 167 -214 308 -216 315 -3 7 92 151 211 322 119 170
+216 312 216 315 0 3 -78 6 -174 6 l-174 0 -143 -205 c-78 -113 -145 -205 -149
+-205 -3 0 -70 92 -148 205 l-143 205 -174 0 c-96 0 -175 -1 -175 -3z"/>
+</g>
+</svg>
+</a>
+            </div>
+
+            <p class="text-xs text-center text-gray-500 max-w-[200px]">
+                Профессиональное агентство контекстной рекламы с опытом более 18 лет.
+
+            </p>
+        </div>
+
+        
+        <nav class="mb-8">
+          
+        
+            
+  <nav>
+    <ul>
+    <li class="text-lg font-semibold">
+      <a href="/">Контекстная реклама</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/analytics/">web-аналитика</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a aria-current="true" class="ancestor" href="/posts/">Блог</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/about/">О нас</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Категории</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/job/">Вакансии</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/case/">Кейсы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/calculators/">Калькуляторы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/contacts/">Контакты</a>
+    </li>
+    </ul>
+  </nav>
+
+           
+
+        </nav>
+
+        
+        <div class="social-icons  mt-auto">
+<div>
+
+<a href="https://t.me/your_link" target="_blank" class="inline-flex 
+items-center justify-center px-3 py-3 text-white bg-[#2AABEE] font-medium text-sm rounded 
+shadow-md hover:bg-[#279fd9] 
+hover:shadow-lg focus:bg-[#2493c8] 
+focus:shadow-lg focus:outline-none 
+focus:ring-0 active:bg-[#2185b3] active:shadow-lg transition duration-150 ease-in-out">
+  
+     
+<svg width="25px" height="25px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" 
+fill="#fff" class="bi bi-telegram pr-1">
+  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>
+</svg>
+                            
+  
+  Открыть в Telegram
+</a>
+
+</div>
+            <div class="pt-6 flex gap-1 justify-left items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                sale@p9x.ru
+            </div>
+        </div>
+        
+        
+        <div class="mt-8 pt-4 text-xs text-gray-500 border-t border-gray-700">
+            <p>Powered by <a href="#" class="hover:underline">Hugo</a> | Themed with <a href="#" class="hover:underline">poison</a></p>
+            <p>© 2010 - 2025 Poison. All rights reserved.</p>
+        </div>
+    </aside>
+
+  <main class="main-content">
+ 
+            
+            
+   <div class="max-w-[1100px]">
+    
+    <section class="bg-white border border-gray-200  shadow-sm overflow-hidden">
+      
+      <div class="bg-gradient-to-b from-sky-50/60 to-transparent p-6 border-b border-gray-200">
+        <h1 class="text-2xl md:text-3xl font-bold">Ускоряйте создание агентов LLM с помощью Datapizza AI</h1>
+        <time class="block mt-2 text-gray-500" datetime="2025-11-19T23:13:09+00:00">
+          
+    
+    November 19, 2025
+        </time>
+
+              
+        <div class="not-prose backdrop-blur-sm pt-4">
+          <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div class="flex items-center gap-3">
+              
+                <img src="/user_02.png" class="h-20 w-20 rounded-full hue-rotate-270" alt="">
+              
+              <div>
+                <p class="text-gray-800 font-medium">Автор: Дмитрий Иванов [Команда P9X]</p>
+                <p class="text-gray-600 text-sm">~8 минут чтения</p>
+              </div>
+            </div>
+            <div class="text-sm text-gray-600">
+                <div class="tags mt-8">
+      
+
+    </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      
+      <article class="px-6 py-6 max-w-[94ch] content">
+  
+
+        
+
+
+        
+     
+           <h2 id="организации-всё-больше-инвестируют-в-ии-поскольку-эти-новые-инструменты-всё-чаще-внедряются-в-повседневные-операции-непрерывная-волна-инноваций-стимулирует-спрос-на-более-эффективные-и-надёжные-фреймворки">Организации всё больше инвестируют в ИИ, поскольку эти новые инструменты всё чаще внедряются в повседневные операции. Непрерывная волна инноваций стимулирует спрос на более эффективные и надёжные фреймворки.</h2>
+<p>Следуя этому тренду, стартап Datapizza (стоящий за технологическим сообществом Италии) только что выпустил фреймворк с открытым исходным кодом для генеративного ИИ на Python под названием <em><strong>Datapizza AI</strong></em>.</p>
+<h3 id="выбор-стека-ии-при-создании-агентов-на-основе-llm">Выбор стека ИИ при создании агентов на основе LLM</h3>
+<p>При создании агентов на основе больших языковых моделей (LLM) необходимо выбрать <strong>стек ИИ</strong>:</p>
+<ul>
+<li><strong>Языковая модель</strong> – «мозг» агента. Первый большой выбор – это открытый исходный код (например, <em>Llama</em>, <em>DeepSeek</em>, <em>Phi</em>) или платный (например, <em>ChatGPT</em>, <em>Claude</em>, <em>Gemini</em>). Затем, исходя из варианта использования, нужно учитывать знания LLM: общие (знает понемногу обо всём, как Википедия) или тематические (например, настроенные для кодирования или финансов).</li>
+<li><strong>LLM Engine</strong> – это то, что запускает языковую модель, отвечая на запросы, делая выводы и создавая текст. По сути, он генерирует интеллект. Наиболее популярными являются OpenAI (<em>ChatGPT</em>), Anthropic (<em>Claude</em>), Google (<em>Gemini</em>) и Ollama (запускает модели с открытым исходным кодом локально).</li>
+<li><strong>Фреймворк ИИ</strong> – это уровень оркестрации для построения рабочих процессов и управления ими. Проще говоря, фреймворк должен структурировать интеллект, созданный LLM. В настоящее время на рынке доминируют <em>LangChain</em>, <em>LLamaIndex</em> и <em>CrewAI</em>. Новая библиотека <em>Datapizza AI</em> относится к этой категории и хочет стать альтернативой другим основным фреймворкам.</li>
+</ul>
+<p>В этой статье я покажу, <strong>как использовать новый фреймворк Datapizza для создания агентов ИИ на основе LLM</strong>. Я представлю несколько полезных фрагментов кода на Python, которые можно легко применить в других подобных случаях (просто скопируйте, вставьте, запустите) и пройдусь по каждой строке кода с комментариями, чтобы вы могли воспроизвести этот пример.</p>
+<h3 id="настройка">Настройка</h3>
+<p>Я буду использовать <strong>Ollama</strong> в качестве движка LLM, потому что мне нравится размещать модели локально на своём компьютере. Это стандартная практика для всех компаний с конфиденциальными данными. Хранение всего локально даёт полный контроль над конфиденциальностью данных, поведением модели и затратами.</p>
+<p>Прежде всего, вам нужно скачать Ollama с веб-сайта. Затем выберите модель и выполните команду, указанную на странице, чтобы загрузить LLM. Я использую Alibaba’s <em><strong>Qwen</strong></em>, так как она одновременно умная и лёгкая (<code>ollama run qwen3</code>).</p>
+<p><em>Datapizza AI</em> поддерживает все основные движки LLM. Мы можем завершить настройку, выполнив следующие команды:</p>
+<pre tabindex="0"><code>pip install datapizza-ai
+pip install datapizza-ai-clients-openai-like
+</code></pre><p>Как указано в официальной документации, мы можем быстро протестировать наш стек ИИ, вызвав модель с помощью простого запроса и задав вопрос. Объект <code>OpenAILikeClient()</code> – это способ подключения к API Ollama, которое обычно размещается на том же URL-адресе localhost.</p>
+<pre tabindex="0"><code>from datapizza.clients.openai_like import OpenAILikeClient
+
+llm = &#34;qwen3&#34;
+
+prompt = &#39;&#39;&#39;
+You are an intelligent assistant, provide the best possible answer to user&#39;s request. 
+&#39;&#39;&#39;
+
+ollama = OpenAILikeClient(api_key=&#34;&#34;, model=llm, system_prompt=prompt, base_url=&#34;http://localhost:11434/v1&#34;)
+
+q = &#39;&#39;&#39;
+what time is it?
+&#39;&#39;&#39;
+
+llm_res = ollama.invoke(q)
+print(llm_res.text)
+</code></pre><h3 id="чат-бот">Чат-бот</h3>
+<p>Другой способ проверить возможности LLM – создать простого чат-бота и провести беседу. Для этого при каждом взаимодействии нам нужно сохранять историю чата и возвращать её модели, указывая, что было сказано кем. В фреймворке Datapizza уже есть <strong>встроенная система памяти</strong>.</p>
+<pre tabindex="0"><code>from datapizza.memory import Memory
+from datapizza.type import TextBlock, ROLE
+
+memory = Memory()
+memory.add_turn(TextBlock(content=prompt), role=ROLE.SYSTEM)
+
+while True:
+    q = input(&#39;🙂 &gt;&#39;)
+    if q == &#34;quit&#34;:
+        break
+
+    llm_res = ollama.invoke(q, memory=memory)
+    res = llm_res.text
+    print(&#34;🍕 &gt;&#34;, f&#34;\x1b[1;30m{res}\x1b[0m&#34;)
+
+    memory.add_turn(TextBlock(content=q), role=ROLE.USER)
+    memory.add_turn(TextBlock(content=res), role=ROLE.ASSISTANT)
+</code></pre><p>Если вы хотите <strong>получить историю чата</strong>, вы можете просто получить доступ к памяти. Обычно ИИ-фреймворки используют три роли во взаимодействии с LLM: «system» (основные инструкции), «user» (что сказал человек), «assistant» (что ответил чат-бот).</p>
+<pre tabindex="0"><code>memory.to_dict()
+</code></pre><p>Очевидно, что одна LLM очень ограничена и может делать немногое, кроме общения. Поэтому нам нужно дать ей возможность действовать, или, другими словами, активировать инструменты.</p>
+<h3 id="инструменты">Инструменты</h3>
+<p>Инструменты – <strong>основное различие между простой LLM и ИИ-агентом</strong>. Когда пользователь запрашивает что-то, выходящее за рамки базы знаний LLM (например, «который сейчас час?»), агент должен понять, что не знает ответа, активировать инструмент для получения дополнительной информации (например, проверки часов), обработать результат через LLM и сгенерировать ответ.</p>
+<p>Фреймворк Datapizza позволяет очень легко создавать инструменты с нуля. Вам просто нужно импортировать декоратор <em>@tool</em>, и любая функция может стать действенной для агента.</p>
+<pre tabindex="0"><code>from datapizza.tools import tool
+
+@tool
+def get_time() -&gt; str:
+    &#39;&#39;&#39;Get the current time.&#39;&#39;&#39;
+    from datetime import datetime
+    return datetime.now().strftime(&#34;%H:%M&#34;)
+
+get_time()
+</code></pre><p>Затем назначьте назначенному инструменту <strong>агента</strong>, и у вас будет ИИ, который сочетает в себе понимание языка + принятие решений + использование инструментов.</p>
+<pre tabindex="0"><code>from datapizza.agents import Agent
+import os
+
+os.environ[&#34;DATAPIZZA_AGENT_LOG_LEVEL&#34;] = &#34;DEBUG&#34;
+
+agent = Agent(name=&#34;single-agent&#34;, client=ollama, system_prompt=prompt, 
+              tools=[get_time], max_steps=2)
+
+q = &#39;&#39;&#39;
+what time is it?
+&#39;&#39;&#39;
+
+agent_res = agent.run(q)
+</code></pre><p>ИИ-агент на основе LLM – это интеллектуальная система, построенная вокруг языковой модели, которая не просто отвечает, но и рассуждает, принимает решения и действует. Помимо общения (что означает общение с базой общих знаний), наиболее распространёнными действиями, которые могут выполнять агенты, являются <strong>RAG</strong> (общение с вашими документами), <strong>Querying</strong> (общение с базой данных), <strong>Web Search</strong> (общение со всем Интернетом).</p>
+<h3 id="многоагентная-система">Многоагентная система</h3>
+<p>Реальная сила агентов – это <strong>способность сотрудничать друг с другом</strong>, как это делают люди. Эти команды называются многоагентными системами (MAS), группой ИИ-агентов, которые работают вместе в общей среде для решения сложных задач, которые слишком сложны для решения одним агентом.</p>
+<p>На этот раз давайте создадим более продвинутый инструмент: выполнение кода. Обратите внимание, что LLM знают, как кодировать, будучи подвергнутыми воздействию большого корпуса как кода, так и естественно-языкового текста, где они изучают шаблоны, синтаксис и семантику языков программирования. Но поскольку они не могут выполнить никаких реальных действий, создаваемый ими код является просто текстом.</p>
+<pre tabindex="0"><code>import io
+import contextlib
+
+@tool
+def code_exec(code:str) -&gt; str:
+    &#39;&#39;&#39;Execute python code. Use always the function print() to get the output&#39;&#39;&#39;
+    output = io.StringIO()
+    with contextlib.redirect_stdout(output):
+        try:
+            exec(code)
+        except Exception as e:
+            print(f&#34;Error: {e}&#34;)
+    return output.getvalue()
+
+code_exec(&#34;from datetime import datetime; print(datetime.now().strftime(&#39;%H:%M&#39;))&#34;)
+</code></pre><p>Существуют два типа MAS: <strong>последовательный процесс</strong> обеспечивает выполнение задач одна за другой, следуя линейной прогрессии. С другой стороны, <strong>иерархическая структура</strong> имитирует традиционные организационные иерархии для эффективного делегирования и выполнения задач. Лично я склоняюсь ко второму варианту, поскольку в нём больше параллелизма и гибкости.</p>
+<p>С помощью фреймворка Datapizza вы можете связать двух или более агентов с помощью функции <code>can_call()</code>. Таким образом, один агент может передать текущую задачу другому агенту.</p>
+<pre tabindex="0"><code>prompt_senior = &#39;&#39;&#39;
+You are a senior Python coder. You check the code generated by the Junior, 
+and use your tool to execute the code only if it&#39;s correct and safe.
+&#39;&#39;&#39;
+agent_senior = Agent(name=&#34;agent-senior&#34;, client=ollama, system_prompt=prompt_senior, 
+                     tools=[code_exec])
+
+prompt_junior = &#39;&#39;&#39;
+You are a junior Python coder. You can generate code but you can&#39;t execute it. 
+You receive a request from the Manager, and your final output must be Python code to pass on.
+If you don&#39;t know some specific commands, you can use your tool and search the web for &#34;how to ... with python?&#34;.
+&#39;&#39;&#39;
+agent_junior = Agent(name=&#34;agent-junior&#34;, client=ollama, system_prompt=prompt_junior, 
+                     tools=[DuckDuckGoSearchTool()])
+agent_junior.can_call([agent_senior])
+
+prompt_manager = &#39;&#39;&#39;
+You know nothing, you&#39;re just a manager. After you get a request from the user, 
+first you ask the Junior to generate the code, then you ask the Senior to execute it.
+&#39;&#39;&#39;
+agent_manager = Agent(name=&#34;agent-manager&#34;, client=ollama, system_prompt=prompt_manager, 
+                      tools=[])
+agent_manager.can_call([agent_junior, agent_senior])
+
+q = &#39;&#39;&#39;
+Plot the Titanic dataframe. You can find the data here: 
+https://raw.githubusercontent.com/mdipietro09/DataScience_ArtificialIntelligence_Utils/master/machine_learning/data_titanic.csv
+&#39;&#39;&#39;
+
+agent_res = agent_manager.run(q)
+</code></pre><h3 id="заключение">Заключение</h3>
+<p>Эта статья была учебником по <strong>представлению <em>Datapizza AI</em></strong>, нового фреймворка для создания чат-ботов и ИИ-агентов на основе LLM. Библиотека очень гибкая и удобная для пользователя, и может охватывать различные варианты использования GenAI. Я использовал её с Ollama, но её можно связать со всеми известными движками, такими как OpenAI.</p>
+<p>Полный код для этой статьи: <strong>GitHub</strong></p>
+<p>Надеюсь, вам понравилась статья! Не стесняйтесь обращаться ко мне с вопросами и отзывами или просто поделиться своими интересными проектами.</p>
+
+        
+
+      </article>
+    </section>
+  </div>
+
+
+
+          
+<footer class="px-6 py-12 bg-sky-950 text-white/50">
+     <div class="inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
+      <div class="relative">
+ 
+          <div class="border-t border-white/10"></div>
+
+          
+          <div class="mt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="text-sm text-slate-400">© <span id="year"></span>P9X.ru 2010 - 2025г. услуги интернет маркетинга</p>
+            <div class="flex items-center gap-4 text-slate-400 text-sm">
+              <a href="#" class="hover:text-white transition">Документы</a>
+              <a href="#" class="hover:text-white transition">Служба поддержки</a>
+              <a href="#" class="hover:text-white transition">Статус</a>
+            </div>
+          </div>      
+      </div>
+
+
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105149615', 'ym');
+
+    ym(105149615, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/105149615" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+  </footer>
+  </main>          
+
+    <script>
+
+        
+        
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const sidebar = document.querySelector('.sidebar');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+        
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                if (entry.isIntersecting) {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.add('active');
+                    });
+                } else {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.remove('active');
+                    });
+                }
+            });
+        }, observerOptions);
+        
+        
+        document.querySelectorAll('h2[id]').forEach(heading => {
+            observer.observe(heading);
+        });
+    </script>
+
+
+
+</body>
+</html>

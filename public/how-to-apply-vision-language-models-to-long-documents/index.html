@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>  
+    Как применять модели Vision Language к длинным документам | На пути к науке о данных
+     | P9X
+  </title>
+  <meta name="description" content="">
+<meta name="yandex-verification" content="242f5a0ee52d5836" />
+<meta name="google-site-verification" content="0Ytq4iozDTscUw8IMVUsSsLQ4yEXHRwKZSvFYqnSNtE" />
+<link rel="canonical" href="http://localhost:1313/how-to-apply-vision-language-models-to-long-documents/" />
+
+<link rel="icon" type="image/x-icon" href="http://localhost:1313/favicon.ico">
+
+  
+ <style>
+  .content h1 { 
+        font-size: 1.875rem; 
+        font-weight: bold; 
+        margin-bottom: 1rem; 
+    }
+    .content h2 { 
+        font-size: 1.5rem; 
+        font-weight: 600; 
+        margin-bottom: 0.75rem; 
+    }
+    .content h3 { 
+        font-size: 1.25rem; 
+        font-weight: 500; 
+        margin-bottom: 0.5rem; 
+    }
+    .content p { 
+        margin-bottom: 1rem; 
+    }
+    .content ul { 
+        list-style-type: disc; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content ol { 
+        list-style-type: decimal; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content a { 
+        color: #2563eb; 
+    }
+    .content a:hover { 
+        color: #1e40af; 
+    }
+    .content blockquote { 
+        border-left: 4px solid #d1d5db; 
+        padding-left: 1rem; 
+        font-style: italic; 
+    }
+
+    
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.875rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+.dark-mode .content table {
+    border: 1px solid #4b5563;
+}
+
+.content thead {
+    background-color: #eaebec;
+}
+
+.dark-mode .content thead {
+    background-color: #374151;
+}
+
+.content th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.dark-mode .content th {
+    color: #f9fafb;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content th:last-child {
+    border-right: none;  
+}
+
+.content td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    color: #6b7280;
+}
+
+.dark-mode .content td {
+    color: #d1d5db;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content td:last-child {
+    border-right: none;  
+}
+
+.content tbody tr {
+    transition: background-color 0.15s ease-in-out;
+}
+
+.content tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.dark-mode .content tbody tr:hover {
+    background-color: #374151;
+}
+
+.content tbody tr:last-child td {
+    border-bottom: none;
+}
+
+ 
+.content tbody tr:nth-child(even) {
+    background-color: #f4f5f7;
+}
+
+.dark-mode .content tbody tr:nth-child(even) {
+    background-color: #1f2937;
+}
+
+.dark-mode .content tbody tr:nth-child(even):hover {
+    background-color: #374151;
+}
+
+ 
+.content code:not(pre code) {
+    background-color: #f3f4f6;
+    color: #dc2626;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    font-weight: 500;
+    border: 1px solid #e5e7eb;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+}
+
+.dark-mode .content code:not(pre code) {
+    background-color: #224464;
+    color: #f87171;
+    border: 1px solid #4b5563;
+}
+
+ 
+.content pre {
+    background-color: #224464;
+    color: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid #374151;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.dark-mode .content pre {
+    background-color: #111827;
+    border: 1px solid #374151;
+}
+
+ 
+.content pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+    font-weight: normal;
+}
+
+ 
+.content pre code .keyword { color: #f472b6; }  
+.content pre code .function { color: #60a5fa; }  
+.content pre code .string { color: #34d399; }  
+.content pre code .comment { color: #9ca3af; font-style: italic; }  
+.content pre code .number { color: #fbbf24; }  
+.content pre code .class { color: #c084fc; }  
+.content pre code .operator { color: #93c5fd; }  
+
+ 
+.content pre::-webkit-scrollbar {
+    height: 6px;
+}
+
+.content pre::-webkit-scrollbar-track {
+    background: #374151;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.content pre::-webkit-scrollbar-thumb {
+    background: #6b7280;
+    border-radius: 3px;
+}
+
+.content pre::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+ 
+.content h1 code:not(pre code),
+.content h2 code:not(pre code),
+.content h3 code:not(pre code) {
+    font-size: 0.9em;
+    background-color: #fef2f2;
+    color: #dc2626;
+}
+
+.dark-mode .content h1 code:not(pre code),
+.dark-mode .content h2 code:not(pre code),
+.dark-mode .content h3 code:not(pre code) {
+    background-color: #7f1d1d;
+    color: #fca5a5;
+}
+
+ 
+.content a code:not(pre code) {
+    color: inherit;
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+.dark-mode .content a code:not(pre code) {
+    background-color: rgba(96, 165, 250, 0.2);
+}
+        :root {
+            --color-bg: #1a1a1a;
+            --color-text: #e6e6e6;
+            --color-accent: #6b7280;
+            --color-link: #9ca3af;
+            --color-link-hover: #d1d5db;
+        }
+        
+        .light-mode {
+            --color-bg: #f9fafb;
+            --color-text: #1f2937;
+            --color-accent: #6b7280;
+            --color-link: #4b5563;
+            --color-link-hover: #111827;
+        }
+        
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        a {
+            color: var(--color-link);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: var(--color-link-hover);
+        }
+        
+        .sidebar {
+            position: fixed;
+             
+            height: 100vh;
+            overflow-y: auto;
+            
+        }
+        
+        .main-content {
+            margin-left: 350px;
+            
+             
+        }
+        
+        .toc-container {
+            position: fixed;
+            right: 2rem;
+            top: 2rem;
+            width: 250px;
+            display: none;
+        }
+        
+        @media (min-width: 1280px) {
+            .toc-container {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 50;
+            }
+            
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+                 
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: fixed;
+                top: 1rem;
+                left: 1rem;
+                z-index: 100;
+            }
+        }
+        
+        .toc-link.active {
+            color: var(--color-link-hover);
+            font-weight: bold;
+        }
+        
+        .social-icons a {
+            margin-right: 0.5rem;
+        }
+        
+        pre {
+            background-color: rgba(107, 114, 128, 0.1);
+            padding: 1rem;
+            border-radius: 0.25rem;
+            overflow-x: auto;
+        }
+        
+        code {
+            font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+   <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: '#eff6ff',
+                100: '#dbeafe',
+                500: '#0ea5e9',
+                600: '#0284c7',
+              },
+            },
+            boxShadow: {
+              soft: '0 8px 24px rgba(2, 132, 199, 0.08)'
+            }
+          },
+        },
+      }
+    </script>
+</head>
+  <body class="light-mode">
+      <header>
+    
+  </header>
+    
+    <button class="mobile-menu-btn p-2 bg-gray-800 text-white rounded md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+    
+    <aside class="sidebar border-r-4 border-sky-800  min-w-[350px] py-12 px-10 bg-gradient-to-br from-cyan-200 via-green-100 to-sky-100">
+        <div class="flex flex-col items-center mb-8">
+                
+            
+            <div class="w-24 h-24 mb-4 relative">
+                <a href="/">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ viewBox="0 0 550.000000 385.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,385.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M2780 3000 l0 -300 40 0 40 0 0 260 0 260 1165 0 1165 0 0 -1245 0
+-1245 -1165 0 -1165 0 0 260 0 260 -40 0 -40 0 0 -300 0 -300 1245 0 1245 0 0
+1325 0 1325 -1245 0 -1245 0 0 -300z"/>
+<path d="M700 1975 l0 -635 145 0 145 0 0 245 0 245 383 0 c422 0 426 1 491
+66 60 60 66 88 66 319 0 190 -2 214 -21 255 -25 56 -53 86 -104 113 -39 22
+-49 22 -572 25 l-533 3 0 -636z m940 245 l0 -100 -325 0 -325 0 0 100 0 100
+325 0 325 0 0 -100z"/>
+<path d="M2320 2601 c-69 -22 -112 -58 -146 -121 -17 -31 -19 -60 -19 -260 0
+-211 1 -227 22 -265 27 -51 68 -90 115 -109 32 -14 98 -16 438 -16 l400 0 0
+-245 0 -245 145 0 145 0 0 536 c0 373 -3 548 -11 575 -16 50 -61 105 -112 132
+-41 22 -48 22 -497 24 -250 1 -466 -2 -480 -6z m810 -381 l0 -100 -340 0 -340
+0 0 100 0 100 340 0 340 0 0 -100z"/>
+<path d="M3650 2607 c0 -1 99 -144 219 -317 l219 -314 -63 -91 c-34 -49 -133
+-191 -219 -315 l-157 -225 172 -3 c97 -1 176 2 183 7 6 5 72 97 146 205 74
+107 138 196 141 196 4 0 71 -92 149 -205 l143 -205 173 0 c96 0 174 2 174 4 0
+3 -95 141 -211 308 -116 167 -214 308 -216 315 -3 7 92 151 211 322 119 170
+216 312 216 315 0 3 -78 6 -174 6 l-174 0 -143 -205 c-78 -113 -145 -205 -149
+-205 -3 0 -70 92 -148 205 l-143 205 -174 0 c-96 0 -175 -1 -175 -3z"/>
+</g>
+</svg>
+</a>
+            </div>
+
+            <p class="text-xs text-center text-gray-500 max-w-[200px]">
+                Профессиональное агентство контекстной рекламы с опытом более 18 лет.
+
+            </p>
+        </div>
+
+        
+        <nav class="mb-8">
+          
+        
+            
+  <nav>
+    <ul>
+    <li class="text-lg font-semibold">
+      <a href="/">Контекстная реклама</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/analytics/">web-аналитика</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a aria-current="true" class="ancestor" href="/posts/">Блог</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/about/">О нас</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Категории</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/job/">Вакансии</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/case/">Кейсы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/calculators/">Калькуляторы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/contacts/">Контакты</a>
+    </li>
+    </ul>
+  </nav>
+
+           
+
+        </nav>
+
+        
+        <div class="social-icons  mt-auto">
+<div>
+
+<a href="https://t.me/your_link" target="_blank" class="inline-flex 
+items-center justify-center px-3 py-3 text-white bg-[#2AABEE] font-medium text-sm rounded 
+shadow-md hover:bg-[#279fd9] 
+hover:shadow-lg focus:bg-[#2493c8] 
+focus:shadow-lg focus:outline-none 
+focus:ring-0 active:bg-[#2185b3] active:shadow-lg transition duration-150 ease-in-out">
+  
+     
+<svg width="25px" height="25px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" 
+fill="#fff" class="bi bi-telegram pr-1">
+  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>
+</svg>
+                            
+  
+  Открыть в Telegram
+</a>
+
+</div>
+            <div class="pt-6 flex gap-1 justify-left items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                sale@p9x.ru
+            </div>
+        </div>
+        
+        
+        <div class="mt-8 pt-4 text-xs text-gray-500 border-t border-gray-700">
+            <p>Powered by <a href="#" class="hover:underline">Hugo</a> | Themed with <a href="#" class="hover:underline">poison</a></p>
+            <p>© 2010 - 2025 Poison. All rights reserved.</p>
+        </div>
+    </aside>
+
+  <main class="main-content">
+ 
+            
+            
+   <div class="max-w-[1100px]">
+    
+    <section class="bg-white border border-gray-200  shadow-sm overflow-hidden">
+      
+      <div class="bg-gradient-to-b from-sky-50/60 to-transparent p-6 border-b border-gray-200">
+        <h1 class="text-2xl md:text-3xl font-bold">Как применить языковые модели Vision к длинным документам</h1>
+        <time class="block mt-2 text-gray-500" datetime="2025-11-19T23:13:09+00:00">
+          
+    
+    November 19, 2025
+        </time>
+
+              
+        <div class="not-prose backdrop-blur-sm pt-4">
+          <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div class="flex items-center gap-3">
+              
+                <img src="/user_02.png" class="h-20 w-20 rounded-full hue-rotate-270" alt="">
+              
+              <div>
+                <p class="text-gray-800 font-medium">Автор: Дмитрий Иванов [Команда P9X]</p>
+                <p class="text-gray-600 text-sm">~8 минут чтения</p>
+              </div>
+            </div>
+            <div class="text-sm text-gray-600">
+                <div class="tags mt-8">
+      
+
+    </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      
+      <article class="px-6 py-6 max-w-[94ch] content">
+  
+
+        
+
+
+        
+     
+           <h3 id="мощные-модели-работающие-с-изображениями-вместо-текста">Мощные модели, работающие с изображениями вместо текста</h3>
+<p>Это модели, которые вместо текста, как традиционные языковые модели (LLM), используют изображения в качестве входных данных. Это открывает множество возможностей, поскольку мы можем напрямую обрабатывать содержимое документа, вместо того чтобы использовать OCR для извлечения текста, а затем вводить этот текст в LLM.</p>
+<p>В этой статье я расскажу, как можно применять модели языка видения (VLM) для задач понимания длинных контекстных документов. Это означает применение VLM к очень длинным документам (более 100 страниц) или к очень насыщенным документам, содержащим много информации, например, чертежи. Я расскажу, что следует учитывать при применении VLM и какие задачи можно с их помощью выполнять.</p>
+<h3 id="зачем-нужны-vlm">Зачем нужны VLM?</h3>
+<p>Основная причина, по которой требуются VLM, заключается в том, что для понимания большого объёма информации в документах требуется визуальный ввод.</p>
+<p>Альтернативой VLM является использование OCR, а затем LLM. Проблема здесь в том, что вы извлекаете из документа только текст, не включая визуальную информацию, такую как:</p>
+<ul>
+<li>расположение разного текста относительно друг друга;</li>
+<li>несловесную информацию (по сути, всё, что не является буквой, например, символы или чертежи);</li>
+<li>расположение текста относительно другой информации.</li>
+</ul>
+<p>Эта информация часто имеет решающее значение для понимания документа, поэтому лучше использовать VLM напрямую, где вы напрямую подаёте изображение, и, следовательно, можете интерпретировать визуальную информацию.</p>
+<p>Для длинных документов использование VLM является сложной задачей, поскольку для представления визуальной информации требуется много токенов. Обработка сотен страниц — это серьёзная проблема. Однако благодаря недавним достижениям в технологии VLM модели стали лучше и лучше сжимать визуальную информацию до разумной длины контекста, что делает возможным и удобным применение VLM к длинным документам для задач понимания документов.</p>
+<h3 id="ocr-с-использованием-vlm">OCR с использованием VLM</h3>
+<p>Один из хороших вариантов обработки длинных документов и одновременного включения визуальной информации — это использование VLM для выполнения OCR. Традиционное OCR, такое как Tesseract, извлекает только текст непосредственно из документов вместе с ограничивающей рамкой текста. Однако VLM также обучены выполнять OCR и могут выполнять более продвинутое извлечение текста, такое как:</p>
+<ul>
+<li>извлечение Markdown;</li>
+<li>объяснение чисто визуальной информации (например, если есть рисунок, объясните рисунок текстом);</li>
+<li>добавление недостающей информации (например, если есть поле с надписью «Дата» и пустое поле после, вы можете указать OCR извлечь «Дата &lt;пусто&gt;»).</li>
+</ul>
+<p>Недавно Deepseek выпустила мощную модель OCR на основе VLM, которая в последнее время привлекла много внимания и популярности, сделав VLM для OCR более популярными.</p>
+<h4 id="markdown">Markdown</h4>
+<p>Markdown очень мощный, потому что вы извлекаете форматированный текст. Это позволяет модели:</p>
+<ul>
+<li>предоставлять заголовки и подзаголовки;</li>
+<li>точно представлять таблицы;</li>
+<li>выделять текст жирным шрифтом.</li>
+</ul>
+<p>Это позволяет модели извлекать более репрезентативный текст, который более точно отображает текстовое содержимое документов. Если вы теперь примените LLM к этому тексту, LLM будут работать намного лучше, чем если бы вы применили их к простому тексту, извлечённому с помощью традиционного OCR.</p>
+<blockquote>
+<p>LLM лучше работают с форматированным текстом, таким как Markdown, чем с чистым текстом, извлечённым с помощью традиционного OCR.</p></blockquote>
+<h4 id="объяснение-визуальной-информации">Объяснение визуальной информации</h4>
+<p>Ещё одна вещь, которую вы можете использовать для OCR с помощью VLM, — это объяснение визуальной информации. Например, если у вас есть рисунок без текста, традиционное OCR не извлечёт никакой информации, поскольку оно обучено только извлекать текстовые символы. Однако вы можете использовать VLM для объяснения визуального содержимого изображения.</p>
+<p>Представьте, что у вас есть следующий документ:</p>
+<pre tabindex="0"><code>This is the introduction text of the document
+
+&lt;image showing the Eiffel tower&gt;
+
+This is the conclusion of the document
+</code></pre><p>Если вы применили традиционное OCR, такое как Tesseract, вы получите следующий результат:</p>
+<pre tabindex="0"><code>This is the introduction text of the document
+
+This is the conclusion of the document
+</code></pre><p>Это явно проблема, поскольку вы не включаете информацию об изображении с Эйфелевой башней. Вместо этого вы должны использовать VLM, которые вывели бы что-то вроде:</p>
+<pre tabindex="0"><code>This is the introduction text of the document
+
+&lt;image&gt;
+This image depicts the Eiffel tower during the day
+&lt;/image&gt;
+
+This is the conclusion of the document
+</code></pre><p>Если вы использовали LLM для первого текста, он, конечно, не знал бы, что документ содержит изображение Эйфелевой башни. Однако если вы использовали LLM для второго текста, извлечённого с помощью VLM, LLM, естественно, лучше справятся с ответами на вопросы о документе.</p>
+<h4 id="добавление-недостающей-информации">Добавление недостающей информации</h4>
+<p>Вы также можете настроить VLM на вывод содержимого, если есть недостающая информация. Чтобы понять эту концепцию, посмотрите на изображение ниже:</p>
+<p>Если вы применили традиционное OCR к этому изображению, вы получили бы:</p>
+<pre tabindex="0"><code>Address Road 1
+Date
+Company Google
+</code></pre><p>Однако было бы более репрезентативно, если бы вы использовали VLM, которые при инструкциях могли бы вывести:</p>
+<pre tabindex="0"><code>Address Road 1
+Date &lt;empty&gt;
+Company Google
+</code></pre><p>Это более информативно, потому что мы сообщаем любой нижестоящей модели, что поле даты пустое. Если мы не предоставим эту информацию, невозможно узнать позже, пропущена ли дата, OCR не смогло её извлечь или по какой-либо другой причине.</p>
+<p>Однако OCR с использованием VLM всё ещё страдает от некоторых проблем, с которыми борется традиционное OCR, потому что оно не обрабатывает визуальную информацию напрямую. Вы, наверное, слышали поговорку, что «картинка стоит тысячи слов», которая часто верна для обработки визуальной информации в документах. Да, вы можете предоставить текстовое описание рисунка с помощью VLM в качестве OCR, но этот текст никогда не будет таким же описательным, как сам рисунок. Таким образом, я утверждаю, что во многих случаях лучше напрямую обрабатывать документы с помощью VLM, как я расскажу в следующих разделах.</p>
+<h3 id="модели-с-открытым-исходным-кодом-против-закрытых-моделей">Модели с открытым исходным кодом против закрытых моделей</h3>
+<p>Существует множество VLM. Я слежу за таблицей лидеров HuggingFace VLM, чтобы быть в курсе любых новых высокопроизводительных моделей. Согласно этой таблице лидеров, вам следует выбрать Gemini 2.5 Pro или GPT-5, если вы хотите использовать закрытые модели через API. Из моего опыта, это отличные варианты, которые хорошо подходят для понимания длинных документов и работы со сложными документами.</p>
+<p>Однако вы также можете захотеть использовать модели с открытым исходным кодом из-за конфиденциальности, стоимости или для того, чтобы иметь больше контроля над своим приложением. В этом случае SenseNova-V6-5-Pro возглавляет таблицу лидеров. Я не пробовал эту модель лично, но у меня есть большой опыт работы с Qwen 3 VL. Qwen также выпустила специальную поваренную книгу для понимания длинных документов.</p>
+<h3 id="vlm-в-длинных-документах">VLM в длинных документах</h3>
+<p>В этом разделе я расскажу о применении VLM к длинным документам и о соображениях, которые необходимо учитывать при этом.</p>
+<h4 id="соображения-по-вычислительной-мощности">Соображения по вычислительной мощности</h4>
+<p>Если вы используете модель с открытым исходным кодом, одним из основных соображений является размер модели, которую вы можете запустить, и сколько времени это займёт. Вы зависите от доступа к более крупной GPU, по крайней мере, к A100 в большинстве случаев. К счастью, это широко доступно и относительно дёшево (обычно стоит 1,5–2 доллара в час, и многие облачные провайдеры предлагают такие услуги). Однако вы должны учитывать приемлемую для вас задержку. Для работы VLM требуется много вычислений, и вы должны учитывать следующие факторы:</p>
+<ul>
+<li>Сколько времени можно потратить на обработку одного запроса?</li>
+<li>Какое разрешение изображения вам нужно?</li>
+<li>Сколько страниц вам нужно обработать?</li>
+</ul>
+<p>Если у вас есть, например, чат в реальном времени, вам нужен быстрый процесс, однако если вы просто обрабатываете данные в фоновом режиме, вы можете позволить себе более длительные процессы обработки.</p>
+<p>Разрешение изображения также является важным фактором. Если вам нужно иметь возможность читать текст в документах, вам нужны изображения высокого разрешения, обычно более 2048×2048, хотя это, естественно, зависит от документа. Подробные чертежи, например, с мелким текстом, потребуют ещё более высокого разрешения. Увеличение разрешения значительно увеличивает время обработки и является важным фактором. Вы должны стремиться к минимально возможному разрешению, которое всё ещё позволяет вам выполнять все задачи, которые вы хотите выполнить. Кроме того, количество страниц — это аналогичное соображение. Добавление большего количества страниц часто необходимо для того, чтобы иметь доступ ко всей информации в документе. Однако часто наиболее важная информация содержится в начале документа, поэтому вы можете обойтись, например, обработкой только первых 10 страниц.</p>
+<h4 id="обработка-зависящая-от-ответа">Обработка, зависящая от ответа</h4>
+<p>Чтобы снизить требуемую вычислительную мощность, можно начать с простого и переходить к более тяжёлой обработке только в том случае, если вы не получите желаемых ответов.</p>
+<p>Например, вы можете начать с просмотра только первых 10 страниц и посмотреть, сможете ли вы правильно решить поставленную задачу, например, извлечь фрагмент информации из документа. Только если мы не сможем извлечь фрагмент информации, мы начнём просматривать больше страниц. Вы можете применить тот же принцип к разрешению ваших изображений, начиная с изображений с более низким разрешением и переходя к более высокому разрешению по мере необходимости.</p>
+<p>Такая иерархическая обработка снижает требуемую вычислительную мощность, поскольку большинство задач можно решить, просматривая только первые 10 страниц или используя изображения с более низким разрешением. Затем, только при необходимости, мы переходим к обработке большего количества изображений или изображений с более высоким разрешением.</p>
+<h4 id="стоимость">Стоимость</h4>
+<p>Стоимость — важный фактор при использовании VLM. Я обработал много документов и обычно вижу примерно 10-кратное увеличение количества токенов при использовании изображений (VLM) вместо текста (LLM). Поскольку входные токены часто являются движущей силой затрат в задачах с длинными документами, использование VLM обычно значительно увеличивает затраты. Обратите внимание, что для OCR этот момент не применим, поскольку OCR естественным образом производит много выходных токенов при выводе всего текста на изображениях.</p>
+<p>Таким образом, при использовании VLM невероятно важно максимально использовать кэшированные токены — тема, которую я обсуждал в своей недавней статье об оптимизации LLM для снижения затрат и задержек.</p>
+<h3 id="заключение">Заключение</h3>
+<p>В этой статье я рассказал, как можно применять модели языка видения (VLM) к длинным документам для решения сложных задач понимания документов. Я обсудил, почему VLM так важны, и подходы к использованию VLM для длинных документов. Вы можете, например, использовать VLM для более сложного OCR или напрямую применять VLM к длинным документам, хотя и с мерами предосторожности относительно требуемой вычислительной мощности, стоимости и задержек. Я думаю, что VLM становятся всё более и более важными, о чём свидетельствует недавний выпуск Deepseek OCR. Поэтому я считаю, что VLM для понимания документов — это тема, с которой вам стоит ознакомиться, и вам следует научиться использовать VLM для приложений обработки документов.</p>
+
+        
+
+      </article>
+    </section>
+  </div>
+
+
+
+          
+<footer class="px-6 py-12 bg-sky-950 text-white/50">
+     <div class="inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
+      <div class="relative">
+ 
+          <div class="border-t border-white/10"></div>
+
+          
+          <div class="mt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="text-sm text-slate-400">© <span id="year"></span>P9X.ru 2010 - 2025г. услуги интернет маркетинга</p>
+            <div class="flex items-center gap-4 text-slate-400 text-sm">
+              <a href="#" class="hover:text-white transition">Документы</a>
+              <a href="#" class="hover:text-white transition">Служба поддержки</a>
+              <a href="#" class="hover:text-white transition">Статус</a>
+            </div>
+          </div>      
+      </div>
+
+
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105149615', 'ym');
+
+    ym(105149615, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/105149615" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+  </footer>
+  </main>          
+
+    <script>
+
+        
+        
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const sidebar = document.querySelector('.sidebar');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+        
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                if (entry.isIntersecting) {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.add('active');
+                    });
+                } else {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.remove('active');
+                    });
+                }
+            });
+        }, observerOptions);
+        
+        
+        document.querySelectorAll('h2[id]').forEach(heading => {
+            observer.observe(heading);
+        });
+    </script>
+
+
+
+</body>
+</html>

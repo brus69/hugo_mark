@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>  
+    7 Использование маркетинговой науки о данных | На пути к науке о данных
+     | P9X
+  </title>
+  <meta name="description" content="">
+<meta name="yandex-verification" content="242f5a0ee52d5836" />
+<meta name="google-site-verification" content="0Ytq4iozDTscUw8IMVUsSsLQ4yEXHRwKZSvFYqnSNtE" />
+<link rel="canonical" href="http://localhost:1313/-uses-of-marketing-data-science-cccbbcc/" />
+
+<link rel="icon" type="image/x-icon" href="http://localhost:1313/favicon.ico">
+
+  
+ <style>
+  .content h1 { 
+        font-size: 1.875rem; 
+        font-weight: bold; 
+        margin-bottom: 1rem; 
+    }
+    .content h2 { 
+        font-size: 1.5rem; 
+        font-weight: 600; 
+        margin-bottom: 0.75rem; 
+    }
+    .content h3 { 
+        font-size: 1.25rem; 
+        font-weight: 500; 
+        margin-bottom: 0.5rem; 
+    }
+    .content p { 
+        margin-bottom: 1rem; 
+    }
+    .content ul { 
+        list-style-type: disc; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content ol { 
+        list-style-type: decimal; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content a { 
+        color: #2563eb; 
+    }
+    .content a:hover { 
+        color: #1e40af; 
+    }
+    .content blockquote { 
+        border-left: 4px solid #d1d5db; 
+        padding-left: 1rem; 
+        font-style: italic; 
+    }
+
+    
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.875rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+.dark-mode .content table {
+    border: 1px solid #4b5563;
+}
+
+.content thead {
+    background-color: #eaebec;
+}
+
+.dark-mode .content thead {
+    background-color: #374151;
+}
+
+.content th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.dark-mode .content th {
+    color: #f9fafb;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content th:last-child {
+    border-right: none;  
+}
+
+.content td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    color: #6b7280;
+}
+
+.dark-mode .content td {
+    color: #d1d5db;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content td:last-child {
+    border-right: none;  
+}
+
+.content tbody tr {
+    transition: background-color 0.15s ease-in-out;
+}
+
+.content tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.dark-mode .content tbody tr:hover {
+    background-color: #374151;
+}
+
+.content tbody tr:last-child td {
+    border-bottom: none;
+}
+
+ 
+.content tbody tr:nth-child(even) {
+    background-color: #f4f5f7;
+}
+
+.dark-mode .content tbody tr:nth-child(even) {
+    background-color: #1f2937;
+}
+
+.dark-mode .content tbody tr:nth-child(even):hover {
+    background-color: #374151;
+}
+
+ 
+.content code:not(pre code) {
+    background-color: #f3f4f6;
+    color: #dc2626;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    font-weight: 500;
+    border: 1px solid #e5e7eb;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+}
+
+.dark-mode .content code:not(pre code) {
+    background-color: #224464;
+    color: #f87171;
+    border: 1px solid #4b5563;
+}
+
+ 
+.content pre {
+    background-color: #224464;
+    color: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid #374151;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.dark-mode .content pre {
+    background-color: #111827;
+    border: 1px solid #374151;
+}
+
+ 
+.content pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+    font-weight: normal;
+}
+
+ 
+.content pre code .keyword { color: #f472b6; }  
+.content pre code .function { color: #60a5fa; }  
+.content pre code .string { color: #34d399; }  
+.content pre code .comment { color: #9ca3af; font-style: italic; }  
+.content pre code .number { color: #fbbf24; }  
+.content pre code .class { color: #c084fc; }  
+.content pre code .operator { color: #93c5fd; }  
+
+ 
+.content pre::-webkit-scrollbar {
+    height: 6px;
+}
+
+.content pre::-webkit-scrollbar-track {
+    background: #374151;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.content pre::-webkit-scrollbar-thumb {
+    background: #6b7280;
+    border-radius: 3px;
+}
+
+.content pre::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+ 
+.content h1 code:not(pre code),
+.content h2 code:not(pre code),
+.content h3 code:not(pre code) {
+    font-size: 0.9em;
+    background-color: #fef2f2;
+    color: #dc2626;
+}
+
+.dark-mode .content h1 code:not(pre code),
+.dark-mode .content h2 code:not(pre code),
+.dark-mode .content h3 code:not(pre code) {
+    background-color: #7f1d1d;
+    color: #fca5a5;
+}
+
+ 
+.content a code:not(pre code) {
+    color: inherit;
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+.dark-mode .content a code:not(pre code) {
+    background-color: rgba(96, 165, 250, 0.2);
+}
+        :root {
+            --color-bg: #1a1a1a;
+            --color-text: #e6e6e6;
+            --color-accent: #6b7280;
+            --color-link: #9ca3af;
+            --color-link-hover: #d1d5db;
+        }
+        
+        .light-mode {
+            --color-bg: #f9fafb;
+            --color-text: #1f2937;
+            --color-accent: #6b7280;
+            --color-link: #4b5563;
+            --color-link-hover: #111827;
+        }
+        
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        a {
+            color: var(--color-link);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: var(--color-link-hover);
+        }
+        
+        .sidebar {
+            position: fixed;
+             
+            height: 100vh;
+            overflow-y: auto;
+            
+        }
+        
+        .main-content {
+            margin-left: 350px;
+            
+             
+        }
+        
+        .toc-container {
+            position: fixed;
+            right: 2rem;
+            top: 2rem;
+            width: 250px;
+            display: none;
+        }
+        
+        @media (min-width: 1280px) {
+            .toc-container {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 50;
+            }
+            
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+                 
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: fixed;
+                top: 1rem;
+                left: 1rem;
+                z-index: 100;
+            }
+        }
+        
+        .toc-link.active {
+            color: var(--color-link-hover);
+            font-weight: bold;
+        }
+        
+        .social-icons a {
+            margin-right: 0.5rem;
+        }
+        
+        pre {
+            background-color: rgba(107, 114, 128, 0.1);
+            padding: 1rem;
+            border-radius: 0.25rem;
+            overflow-x: auto;
+        }
+        
+        code {
+            font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+   <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: '#eff6ff',
+                100: '#dbeafe',
+                500: '#0ea5e9',
+                600: '#0284c7',
+              },
+            },
+            boxShadow: {
+              soft: '0 8px 24px rgba(2, 132, 199, 0.08)'
+            }
+          },
+        },
+      }
+    </script>
+</head>
+  <body class="light-mode">
+      <header>
+    
+  </header>
+    
+    <button class="mobile-menu-btn p-2 bg-gray-800 text-white rounded md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+    
+    <aside class="sidebar border-r-4 border-sky-800  min-w-[350px] py-12 px-10 bg-gradient-to-br from-cyan-200 via-green-100 to-sky-100">
+        <div class="flex flex-col items-center mb-8">
+                
+            
+            <div class="w-24 h-24 mb-4 relative">
+                <a href="/">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ viewBox="0 0 550.000000 385.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,385.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M2780 3000 l0 -300 40 0 40 0 0 260 0 260 1165 0 1165 0 0 -1245 0
+-1245 -1165 0 -1165 0 0 260 0 260 -40 0 -40 0 0 -300 0 -300 1245 0 1245 0 0
+1325 0 1325 -1245 0 -1245 0 0 -300z"/>
+<path d="M700 1975 l0 -635 145 0 145 0 0 245 0 245 383 0 c422 0 426 1 491
+66 60 60 66 88 66 319 0 190 -2 214 -21 255 -25 56 -53 86 -104 113 -39 22
+-49 22 -572 25 l-533 3 0 -636z m940 245 l0 -100 -325 0 -325 0 0 100 0 100
+325 0 325 0 0 -100z"/>
+<path d="M2320 2601 c-69 -22 -112 -58 -146 -121 -17 -31 -19 -60 -19 -260 0
+-211 1 -227 22 -265 27 -51 68 -90 115 -109 32 -14 98 -16 438 -16 l400 0 0
+-245 0 -245 145 0 145 0 0 536 c0 373 -3 548 -11 575 -16 50 -61 105 -112 132
+-41 22 -48 22 -497 24 -250 1 -466 -2 -480 -6z m810 -381 l0 -100 -340 0 -340
+0 0 100 0 100 340 0 340 0 0 -100z"/>
+<path d="M3650 2607 c0 -1 99 -144 219 -317 l219 -314 -63 -91 c-34 -49 -133
+-191 -219 -315 l-157 -225 172 -3 c97 -1 176 2 183 7 6 5 72 97 146 205 74
+107 138 196 141 196 4 0 71 -92 149 -205 l143 -205 173 0 c96 0 174 2 174 4 0
+3 -95 141 -211 308 -116 167 -214 308 -216 315 -3 7 92 151 211 322 119 170
+216 312 216 315 0 3 -78 6 -174 6 l-174 0 -143 -205 c-78 -113 -145 -205 -149
+-205 -3 0 -70 92 -148 205 l-143 205 -174 0 c-96 0 -175 -1 -175 -3z"/>
+</g>
+</svg>
+</a>
+            </div>
+
+            <p class="text-xs text-center text-gray-500 max-w-[200px]">
+                Профессиональное агентство контекстной рекламы с опытом более 18 лет.
+
+            </p>
+        </div>
+
+        
+        <nav class="mb-8">
+          
+        
+            
+  <nav>
+    <ul>
+    <li class="text-lg font-semibold">
+      <a href="/">Контекстная реклама</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/analytics/">web-аналитика</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a aria-current="true" class="ancestor" href="/posts/">Блог</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/about/">О нас</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Категории</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/job/">Вакансии</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/case/">Кейсы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/calculators/">Калькуляторы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/contacts/">Контакты</a>
+    </li>
+    </ul>
+  </nav>
+
+           
+
+        </nav>
+
+        
+        <div class="social-icons  mt-auto">
+<div>
+
+<a href="https://t.me/your_link" target="_blank" class="inline-flex 
+items-center justify-center px-3 py-3 text-white bg-[#2AABEE] font-medium text-sm rounded 
+shadow-md hover:bg-[#279fd9] 
+hover:shadow-lg focus:bg-[#2493c8] 
+focus:shadow-lg focus:outline-none 
+focus:ring-0 active:bg-[#2185b3] active:shadow-lg transition duration-150 ease-in-out">
+  
+     
+<svg width="25px" height="25px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" 
+fill="#fff" class="bi bi-telegram pr-1">
+  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>
+</svg>
+                            
+  
+  Открыть в Telegram
+</a>
+
+</div>
+            <div class="pt-6 flex gap-1 justify-left items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                sale@p9x.ru
+            </div>
+        </div>
+        
+        
+        <div class="mt-8 pt-4 text-xs text-gray-500 border-t border-gray-700">
+            <p>Powered by <a href="#" class="hover:underline">Hugo</a> | Themed with <a href="#" class="hover:underline">poison</a></p>
+            <p>© 2010 - 2025 Poison. All rights reserved.</p>
+        </div>
+    </aside>
+
+  <main class="main-content">
+ 
+            
+            
+   <div class="max-w-[1100px]">
+    
+    <section class="bg-white border border-gray-200  shadow-sm overflow-hidden">
+      
+      <div class="bg-gradient-to-b from-sky-50/60 to-transparent p-6 border-b border-gray-200">
+        <h1 class="text-2xl md:text-3xl font-bold">7 Использование научных маркетинговых данных</h1>
+        <time class="block mt-2 text-gray-500" datetime="2025-11-19T23:13:09+00:00">
+          
+    
+    November 19, 2025
+        </time>
+
+              
+        <div class="not-prose backdrop-blur-sm pt-4">
+          <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div class="flex items-center gap-3">
+              
+                <img src="/user_02.png" class="h-20 w-20 rounded-full hue-rotate-270" alt="">
+              
+              <div>
+                <p class="text-gray-800 font-medium">Автор: Дмитрий Иванов [Команда P9X]</p>
+                <p class="text-gray-600 text-sm">~8 минут чтения</p>
+              </div>
+            </div>
+            <div class="text-sm text-gray-600">
+                <div class="tags mt-8">
+      
+
+    </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      
+      <article class="px-6 py-6 max-w-[94ch] content">
+  
+
+        
+
+
+        
+     
+           <h3 id="что-такое-наука-о-данных-в-маркетинге">Что такое наука о данных в маркетинге?</h3>
+<p>Изображение с Creative Fabrica (Платно для автора, разрешено коммерческое использование)</p>
+<p>Что такое наука о данных в маркетинге? Мне постоянно задают этот вопрос, когда я говорю, что моя профессия — специалист по маркетинговым данным. Этот вопрос возникает ещё чаще у коллег-специалистов по данным, которые не работают в сфере маркетинга.</p>
+<p>Возможно, вы этого не осознавали, но, скорее всего, вы уже сталкивались с результатами применения науки о данных в маркетинге.</p>
+<p>Когда вы ищете товар в Google, вы могли заметить, что в верхних списках есть тег объявления рядом с ними. Это платный маркетинг, и компании делают ставки на ключевые слова, по которым вы ищете. Когда вы делали покупки на Amazon во время Рождества, среди прочих были спонсорские списки. Эти списки также были платным маркетингом и были рекомендованы вам алгоритмом рекомендаций, который определил, что вы, скорее всего, перейдёте по ссылке и совершите покупку. Когда вы просматриваете Instagram и видите рекламный купон на услугу, возможно, вы участвуете в группе тестирования маркетинга, чтобы проверить, насколько хорошо работает реклама в Instagram, и да, вам повезло, потому что контрольная группа не получает купон на акцию.</p>
+<p>Всё вышеперечисленное стало возможным благодаря науке о данных в маркетинге. Она использует методологии науки о данных и данные, связанные с маркетингом, чтобы облегчить жизнь маркетологам и потребителям.</p>
+<p>Я уверен, что пока вы получили представление о науке о данных в маркетинге. Читайте дальше, и вы найдёте 7 более подробных областей и примеров, чтобы углубить ваше понимание того, как наука о данных помогает маркетингу.</p>
+<h4 id="1-измерение-маркетинга-и-распределение-бюджета">1. Измерение маркетинга и распределение бюджета</h4>
+<p>Я перечисляю это первым, потому что работал над этим дольше всего, и это важно, потому что без измерения эффективности того, что было сделано, невозможно узнать, как можно улучшить. Измерение — это компас.</p>
+<p>Ключ к измерению маркетинга — использовать некоторые метрики Northstar (например, рентабельность инвестиций (ROI) рекламных вложений (ROAS — возврат инвестиций на рекламу), чтобы оценить эффективность предыдущих маркетинговых мероприятий по продвижению бизнес-KPI). На основе измеренных показателей команда маркетинга может решить изменить распределение бюджета, стратегию таргетинга, стратегию торгов или другие аспекты для повышения будущей эффективности.</p>
+<p>Как наука о данных помогает в измерении маркетинга? Вот несколько примеров:</p>
+<p><strong>a) Экспериментирование</strong></p>
+<blockquote>
+<p>Тратить или не тратить — вот в чём вопрос.</p></blockquote>
+<p>Специалист по маркетинговым данным использует методы A/B-тестирования и причинно-следственного вывода, такие как разница в разнице, разрыв в регрессии и т. д., чтобы понять, вызывают ли маркетинговые мероприятия изменения KPI.</p>
+<p>Давайте воспользуемся поиском в Google в качестве примера. Компании тратят миллионы долларов на покупку платных поисковых запросов в Google, но стоит ли оно того? Часто люди ищут в Google с чётким представлением о том, какую компанию выбрать, и деньги на рекламу могут быть потрачены впустую, если они конвертируются в любом случае. На помощь приходит A/B-тестирование. Мы можем использовать платформу тестирования на уровне пользователей Google Conversion Lift для измерения. Google случайным образом разделяет пользователей на контрольную и экспериментальную группы и показывает рекламу экспериментальной группе. С помощью строгих статистических процедур мы можем с высокой достоверностью узнать о дополнительных конверсиях, вызванных рекламой. Хотя тесты редко бывают идеальными, теперь у нас есть более обоснованное предположение с хорошей достоверностью благодаря науке о данных в маркетинге. Когда A/B-тестирование невозможно, причинно-следственный вывод также может помочь нам понять, что произошло бы, если бы не было расходов на рекламу, и сказать нам, повлиял ли маркетинг на изменения в KPI и насколько.</p>
+<p>Для более подробного сравнения различных способов измерения маркетинга, пожалуйста, ознакомьтесь с моей статьёй здесь.</p>
+<p><strong>b) Модели маркетингового микса</strong></p>
+<blockquote>
+<p>Сколько и где тратить — это тоже вопрос.</p></blockquote>
+<p>С помощью экспериментов мы имеем хорошее представление об эффективности кампаний и каналов, но как насчёт распределения бюджета? Где и сколько вы тратите на рекламу?</p>
+<p>Представьте себя в роли менеджера по маркетингу с бюджетом в 100 миллионов долларов на маркетинг, где и как вы их потратите? Вы можете потратить 50 миллионов на телевидение, потому что все ваши родные и друзья смотрят телевизор. Вы можете потратить оставшуюся сумму в Instagram, потому что Instagram, кажется, всегда рекомендует вам релевантную рекламу. Это может быть отличным подходом, основанным на личном опыте, но есть и более научные способы сделать это — на помощь приходят модели маркетингового микса (МММ).</p>
+<p>МММ использует методы временных рядов для распределения бизнес-KPI по различным драйверам (таким как рекламные мероприятия, акции и т. д.), контролируя при этом другие факторы (такие как сезонность, тренд, экономика, активность конкурентов и т. д.). Модель может сказать вам об эффективности и вкладе KPI каждого маркетингового канала на текущем уровне расходов. Она также может смоделировать, если уровень расходов изменится, каким может быть KPI при прочих равных условиях. Учитывая будущие бюджетные уровни и ограничения, модель может спрогнозировать KPI и сообщить об оптимизации распределения маркетинговых расходов по различным каналам для достижения максимальных KPI или ROAS.</p>
+<p>Для более глубокого понимания МММ ознакомьтесь с моими статьями: «Моделирование маркетингового микса 101», «Моделирование маркетингового микса 102».</p>
+<h4 id="2-оптимизация-и-автоматизация-ставок">2. Оптимизация и автоматизация ставок</h4>
+<p>Изображение с Pexels EKATERINA BOLOVTSOVA</p>
+<p>Один из проектов, над которым я работал в Doordash, — это платформа оптимизации и автоматизации ставок, которая оптимизирует суммы ставок и автоматически обновляет ставки, чтобы:</p>
+<ul>
+<li>максимизировать заинтересованность в KPI;</li>
+<li>сэкономить время и затраты на труд.</li>
+</ul>
+<p>Многие каналы, особенно поисковые, используют аукционы объявлений при определении того, какие объявления показывать, когда люди ищут в Google или на других сайтах, которые показывают рекламу. Это похоже на аукционы в реальной жизни, но также учитывает другие факторы помимо самой высокой ставки.</p>
+<p>В реальных аукционах, когда объект выставляется на продажу, он может быть или не быть таким ценным, как цена ставки. Вы не хотите предложить слишком высокую цену и переплатить или предложить слишком низкую цену и упустить возможности. Рекламные действия также похожи, поиск может или не может привести к конверсии. Вы не хотите тратить деньги на низкокачественные и нерелевантные поисковые запросы, но вы также не хотите терять потенциальных клиентов для своих конкурентов. Что ещё сложнее для цифровых рекламных аукционов, так это то, что они могут происходить в любое время и происходить очень быстро. Человеку сложно и не научно определить разумные суммы ставок на определённые типы продуктов или ключевые слова и время обновления суммы ставки.</p>
+<p>На помощь приходит наука о данных в маркетинге. Специалист по маркетинговым данным может использовать исторические данные о маркетинге, сезонность, тренд и данные о конверсии, чтобы установить взаимосвязь между рычагами ставок и конверсиями. Используя алгоритмы оптимизации и бизнес-ограничения, мы можем узнать, какими были бы идеальные суммы ставок и время для максимизации конверсий (или других бизнес-KPI). Это снимает тяжёлую работу и догадки по установлению ставок для достижения бизнес-целей.</p>
+<h4 id="3-прогнозирование-пожизненной-ценности-клиента">3. Прогнозирование пожизненной ценности клиента</h4>
+<p>Пожизненная ценность клиента (CLV или LTV) — это общая денежная стоимость, которую клиент генерирует за всё время, пока является клиентом компании.</p>
+<p>Используйте меня в качестве упрощённого примера: я нашёл местный ресторан и продолжал ходить туда в течение 6 месяцев, а потом мне надоело их еда. Моя жизнь с этим рестораном составляет 6 месяцев, а моя общая пожизненная ценность — 210 долларов (суммируя все мои расходы за 6 месяцев). (Это можно рассчитать и другими способами, например, добавив мою реферальную стоимость, вычтя затраты и т. д. Это зависит от вашего определения и бизнес-кейса.)</p>
+<p>Почему CLV важен?</p>
+<p>Он учитывает не только первоначальную покупку, но и будущие повторные покупки и даже потенциальные рекомендации и т. д. Это помогает компаниям принимать более обоснованные решения о стратегиях как маркетинга, так и бизнес-операций.</p>
+<p>Для маркетинга, зная ценность клиента с течением времени, компании будут в лучшем положении, чтобы определить, сколько они должны инвестировать в привлечение новых клиентов, удержание существующих клиентов и какие виды маркетинга и рекламных мероприятий, скорее всего, принесут наибольшую отдачу.</p>
+<h4 id="4-прогнозирование-оттока">4. Прогнозирование оттока</h4>
+<p>Изображение с Unsplash by Mantas Hesthaven</p>
+<p>Отток означает, что клиент перестаёт пользоваться услугами или покупать товары у компании. Любой успешный бизнес не хочет терять своих ценных клиентов, так как это может привести к потере доходов и возможностей для будущего роста. Иногда отток неизбежен, однако во многих случаях его можно предотвратить или отсрочить, используя стратегии удержания клиентов или стратегии управления взаимоотношениями с клиентами (CRM). Компания может проактивно обращаться к клиентам, которые собираются уйти, чтобы выяснить, какая дополнительная поддержка может быть предоставлена, определить, стоит ли запустить целевую кампанию по удержанию или повторному вовлечению, и так далее.</p>
+<p>Как узнать, кто находится в группе повышенного риска оттока? Некоторые клиенты могут не высказывать это вслух и просто тайно уходить. Здесь на помощь приходят модели прогнозирования оттока: прогнозирование оттока для предотвращения оттока.</p>
+<h4 id="5-системы-рекомендаций">5. Системы рекомендаций</h4>
+<p>Изображение с Creative Fabrica (Платно для автора, разрешено коммерческое использование)</p>
+<p>Алгоритмы рекомендаций широко используются многими компаниями. Amazon использует их, чтобы рекомендовать покупателям соответствующие товары, Netflix использует их, чтобы рекомендовать зрителям соответствующие телешоу и фильмы для просмотра, а UberEats использует их, чтобы рекомендовать рестораны и блюда для посетителей. Рекомендатель становится лучше и мощнее со временем, когда он узнаёт о поведении пользователя, его симпатиях и антипатиях.</p>
+<p>Системы рекомендаций могут быть как контент-ориентированными, так и основанными на коллаборативной фильтрации. Как следует из названия, контент-ориентированная рекомендация основана на сходстве между содержанием продуктов. Например, если я купил книги о Гарри Поттере, мне также может быть рекомендовано купить «Хроники Нарнии». Коллаборативная фильтрация больше основана на сходстве между атрибутами пользователя и поведением, и/или атрибутами товара. Мне будет рекомендовано купить что-то, потому что кто-то похожий совершил покупку.</p>
+<h4 id="6-анализ-настроений">6. Анализ настроений</h4>
+<p>Изображение с Creative Fabrica (Платно для автора, разрешено коммерческое использование)</p>
+<p>Анализ настроений считается одним из наиболее эффективных способов измерения маркетинга, особенно маркетинговых кампаний бренда, для анализа настроений клиентов по отношению к вашему бренду. Анализ настроений выявляет чувства и эмоции, выраженные в словах, что помогает компаниям понять свои сильные и слабые стороны и определить будущие возможности роста и улучшения.</p>
+<p>Специалисты по маркетинговым данным извлекают мнения и текстовые данные для извлечения информации. Это относится к широкой категории классификации текста. Классификаторы, такие как наивный байесовский, могут помочь в работе, и это также горячая тема для НЛП (обработки естественного языка). Текстовый классификатор помогает определить, является ли настроение, стоящее за определёнными текстами, положительным, отрицательным или нейтральным.</p>
+<h4 id="7-сегментация-клиентов">7. Сегментация клиентов</h4>
+<p>Изображение с Creative Fabrica (Платно для автора, разрешено коммерческое использование)</p>
+<p>Наконец, что не менее важно, наука о данных может помочь сегментировать клиентов на разные подгруппы на основе общих характеристик. Зачем нам нужно сегментировать клиентов? С точки зрения маркетинга, это может помочь маркетологам по-разному нацелиться на каждую значимую сегментацию и разработать более эффективные и действенные маркетинговые стратегии.</p>
+<p>Например, у клиентов разные потребности и предпочтения в отношении продуктов. Некоторые клиенты более чувствительны к цене, а другие совершают покупки независимо от цены, некоторые клиенты предпочитают предметы роскоши, а некоторые больше заботятся о доступности. Когда мы хотим запустить кампанию скидок со скидкой 20% для стимулирования дополнительных покупок, мы можем нацелить клиентов, которые более чувствительны к цене, поскольку клиенты с более жёстким спросом, скорее всего, совершат покупку без скидки. Когда запускается новая линейка продукции класса люкс, мы можем нацелить клиентов с более роскошным образом жизни, чтобы повысить коэффициент конверсии и рентабельность инвестиций.</p>
+<p>Наука о данных в маркетинге помогает нам сегментировать клиентов с помощью алгоритмов машинного обучения и данных. Природа проблемы делает её задачей машинного обучения без учителя (как правило), которую можно решить с помощью алгоритмов кластеризации, таких как кластеризация K-средних.</p>
+<h3 id="резюме">Резюме</h3>
+<p>Подводя итог, в этой статье я написал о 7 способах использования науки о данных в маркетинге, которые помогают компаниям повысить эффективность маркетинга и, в свою очередь, добиться более высокого роста:</p>
+<ol>
+<li>Измерение маркетинга и распределение бюджета — чтобы измерить эффективность маркетинговых мероприятий в прошлом и указать направления для будущей маркетинговой стратегии.</li>
+<li>Оптимизация и автоматизация ставок — оптимизировать стратегию ставок на рекламу и автоматизировать процесс торгов, чтобы помочь увеличить конверсии и снизить затраты.</li>
+<li>Прогнозирование пожизненной ценности клиента — чтобы учесть долгосрочную ценность клиента и оптимизировать долгосрочный успех.</li>
+<li>Прогнозирование оттока — чтобы предсказать ценных клиентов с высоким риском оттока, чтобы компании могли сосредоточить ресурсы на предотвращении этого.</li>
+<li>Системы рекомендаций — чтобы рекомендовать релевантную рекламу клиентам и повысить коэффициент конверсии и рентабельность инвестиций.</li>
+<li>Анализ настроений — чтобы анализировать настроения клиентов за текстами для более эффективных маркетинговых стратегий бренда.</li>
+<li>Сегментация клиентов — чтобы сегментировать клиентов по смыслу для сегментации для более точного таргетинга.</li>
+</ol>
+<h3 id="спасибо-вам-и-подписывайтесь-на-меня-чтобы-узнать-больше">Спасибо вам и подписывайтесь на меня, чтобы узнать больше!</h3>
+<p>Спасибо, что дочитали до конца, и поздравляю, теперь у вас более глубокое понимание науки о данных в маркетинге.</p>
+<p>Надеюсь, вам понравилась моя статья, и она вам чем-то помогла. Я пишу статьи о науке о данных, бизнесе, опыте работы и многих других темах. Подписывайтесь на меня, чтобы узнать больше, и подписывайтесь на мою электронную почту, если вы хотите читать больше такого контента и получать бесплатные полезные ресурсы!</p>
+
+        
+
+      </article>
+    </section>
+  </div>
+
+
+
+          
+<footer class="px-6 py-12 bg-sky-950 text-white/50">
+     <div class="inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
+      <div class="relative">
+ 
+          <div class="border-t border-white/10"></div>
+
+          
+          <div class="mt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="text-sm text-slate-400">© <span id="year"></span>P9X.ru 2010 - 2025г. услуги интернет маркетинга</p>
+            <div class="flex items-center gap-4 text-slate-400 text-sm">
+              <a href="#" class="hover:text-white transition">Документы</a>
+              <a href="#" class="hover:text-white transition">Служба поддержки</a>
+              <a href="#" class="hover:text-white transition">Статус</a>
+            </div>
+          </div>      
+      </div>
+
+
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105149615', 'ym');
+
+    ym(105149615, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/105149615" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+  </footer>
+  </main>          
+
+    <script>
+
+        
+        
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const sidebar = document.querySelector('.sidebar');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+        
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                if (entry.isIntersecting) {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.add('active');
+                    });
+                } else {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.remove('active');
+                    });
+                }
+            });
+        }, observerOptions);
+        
+        
+        document.querySelectorAll('h2[id]').forEach(heading => {
+            observer.observe(heading);
+        });
+    </script>
+
+
+
+</body>
+</html>

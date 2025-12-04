@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>  
+    Как обнаружить трафик ботов с помощью вашей собственной аналитики
+     | P9X
+  </title>
+  <meta name="description" content="Подробное руководство, посвященное выявлению трафика ботов с помощью аналитики и оптимизации показа рекламы, чтобы получить максимальную отдачу от ваших кампаний.">
+<meta name="yandex-verification" content="242f5a0ee52d5836" />
+<meta name="google-site-verification" content="0Ytq4iozDTscUw8IMVUsSsLQ4yEXHRwKZSvFYqnSNtE" />
+<link rel="canonical" href="http://localhost:1313/detect-invalid-traffic-using-analytics/" />
+
+<link rel="icon" type="image/x-icon" href="http://localhost:1313/favicon.ico">
+
+  
+ <style>
+  .content h1 { 
+        font-size: 1.875rem; 
+        font-weight: bold; 
+        margin-bottom: 1rem; 
+    }
+    .content h2 { 
+        font-size: 1.5rem; 
+        font-weight: 600; 
+        margin-bottom: 0.75rem; 
+    }
+    .content h3 { 
+        font-size: 1.25rem; 
+        font-weight: 500; 
+        margin-bottom: 0.5rem; 
+    }
+    .content p { 
+        margin-bottom: 1rem; 
+    }
+    .content ul { 
+        list-style-type: disc; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content ol { 
+        list-style-type: decimal; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content a { 
+        color: #2563eb; 
+    }
+    .content a:hover { 
+        color: #1e40af; 
+    }
+    .content blockquote { 
+        border-left: 4px solid #d1d5db; 
+        padding-left: 1rem; 
+        font-style: italic; 
+    }
+
+    
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.875rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+.dark-mode .content table {
+    border: 1px solid #4b5563;
+}
+
+.content thead {
+    background-color: #eaebec;
+}
+
+.dark-mode .content thead {
+    background-color: #374151;
+}
+
+.content th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.dark-mode .content th {
+    color: #f9fafb;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content th:last-child {
+    border-right: none;  
+}
+
+.content td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    color: #6b7280;
+}
+
+.dark-mode .content td {
+    color: #d1d5db;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content td:last-child {
+    border-right: none;  
+}
+
+.content tbody tr {
+    transition: background-color 0.15s ease-in-out;
+}
+
+.content tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.dark-mode .content tbody tr:hover {
+    background-color: #374151;
+}
+
+.content tbody tr:last-child td {
+    border-bottom: none;
+}
+
+ 
+.content tbody tr:nth-child(even) {
+    background-color: #f4f5f7;
+}
+
+.dark-mode .content tbody tr:nth-child(even) {
+    background-color: #1f2937;
+}
+
+.dark-mode .content tbody tr:nth-child(even):hover {
+    background-color: #374151;
+}
+
+ 
+.content code:not(pre code) {
+    background-color: #f3f4f6;
+    color: #dc2626;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    font-weight: 500;
+    border: 1px solid #e5e7eb;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+}
+
+.dark-mode .content code:not(pre code) {
+    background-color: #224464;
+    color: #f87171;
+    border: 1px solid #4b5563;
+}
+
+ 
+.content pre {
+    background-color: #224464;
+    color: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid #374151;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.dark-mode .content pre {
+    background-color: #111827;
+    border: 1px solid #374151;
+}
+
+ 
+.content pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+    font-weight: normal;
+}
+
+ 
+.content pre code .keyword { color: #f472b6; }  
+.content pre code .function { color: #60a5fa; }  
+.content pre code .string { color: #34d399; }  
+.content pre code .comment { color: #9ca3af; font-style: italic; }  
+.content pre code .number { color: #fbbf24; }  
+.content pre code .class { color: #c084fc; }  
+.content pre code .operator { color: #93c5fd; }  
+
+ 
+.content pre::-webkit-scrollbar {
+    height: 6px;
+}
+
+.content pre::-webkit-scrollbar-track {
+    background: #374151;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.content pre::-webkit-scrollbar-thumb {
+    background: #6b7280;
+    border-radius: 3px;
+}
+
+.content pre::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+ 
+.content h1 code:not(pre code),
+.content h2 code:not(pre code),
+.content h3 code:not(pre code) {
+    font-size: 0.9em;
+    background-color: #fef2f2;
+    color: #dc2626;
+}
+
+.dark-mode .content h1 code:not(pre code),
+.dark-mode .content h2 code:not(pre code),
+.dark-mode .content h3 code:not(pre code) {
+    background-color: #7f1d1d;
+    color: #fca5a5;
+}
+
+ 
+.content a code:not(pre code) {
+    color: inherit;
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+.dark-mode .content a code:not(pre code) {
+    background-color: rgba(96, 165, 250, 0.2);
+}
+        :root {
+            --color-bg: #1a1a1a;
+            --color-text: #e6e6e6;
+            --color-accent: #6b7280;
+            --color-link: #9ca3af;
+            --color-link-hover: #d1d5db;
+        }
+        
+        .light-mode {
+            --color-bg: #f9fafb;
+            --color-text: #1f2937;
+            --color-accent: #6b7280;
+            --color-link: #4b5563;
+            --color-link-hover: #111827;
+        }
+        
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        a {
+            color: var(--color-link);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: var(--color-link-hover);
+        }
+        
+        .sidebar {
+            position: fixed;
+             
+            height: 100vh;
+            overflow-y: auto;
+            
+        }
+        
+        .main-content {
+            margin-left: 350px;
+            
+             
+        }
+        
+        .toc-container {
+            position: fixed;
+            right: 2rem;
+            top: 2rem;
+            width: 250px;
+            display: none;
+        }
+        
+        @media (min-width: 1280px) {
+            .toc-container {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 50;
+            }
+            
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+                 
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: fixed;
+                top: 1rem;
+                left: 1rem;
+                z-index: 100;
+            }
+        }
+        
+        .toc-link.active {
+            color: var(--color-link-hover);
+            font-weight: bold;
+        }
+        
+        .social-icons a {
+            margin-right: 0.5rem;
+        }
+        
+        pre {
+            background-color: rgba(107, 114, 128, 0.1);
+            padding: 1rem;
+            border-radius: 0.25rem;
+            overflow-x: auto;
+        }
+        
+        code {
+            font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+   <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: '#eff6ff',
+                100: '#dbeafe',
+                500: '#0ea5e9',
+                600: '#0284c7',
+              },
+            },
+            boxShadow: {
+              soft: '0 8px 24px rgba(2, 132, 199, 0.08)'
+            }
+          },
+        },
+      }
+    </script>
+</head>
+  <body class="light-mode">
+      <header>
+    
+  </header>
+    
+    <button class="mobile-menu-btn p-2 bg-gray-800 text-white rounded md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+    
+    <aside class="sidebar border-r-4 border-sky-800  min-w-[350px] py-12 px-10 bg-gradient-to-br from-cyan-200 via-green-100 to-sky-100">
+        <div class="flex flex-col items-center mb-8">
+                
+            
+            <div class="w-24 h-24 mb-4 relative">
+                <a href="/">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ viewBox="0 0 550.000000 385.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,385.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M2780 3000 l0 -300 40 0 40 0 0 260 0 260 1165 0 1165 0 0 -1245 0
+-1245 -1165 0 -1165 0 0 260 0 260 -40 0 -40 0 0 -300 0 -300 1245 0 1245 0 0
+1325 0 1325 -1245 0 -1245 0 0 -300z"/>
+<path d="M700 1975 l0 -635 145 0 145 0 0 245 0 245 383 0 c422 0 426 1 491
+66 60 60 66 88 66 319 0 190 -2 214 -21 255 -25 56 -53 86 -104 113 -39 22
+-49 22 -572 25 l-533 3 0 -636z m940 245 l0 -100 -325 0 -325 0 0 100 0 100
+325 0 325 0 0 -100z"/>
+<path d="M2320 2601 c-69 -22 -112 -58 -146 -121 -17 -31 -19 -60 -19 -260 0
+-211 1 -227 22 -265 27 -51 68 -90 115 -109 32 -14 98 -16 438 -16 l400 0 0
+-245 0 -245 145 0 145 0 0 536 c0 373 -3 548 -11 575 -16 50 -61 105 -112 132
+-41 22 -48 22 -497 24 -250 1 -466 -2 -480 -6z m810 -381 l0 -100 -340 0 -340
+0 0 100 0 100 340 0 340 0 0 -100z"/>
+<path d="M3650 2607 c0 -1 99 -144 219 -317 l219 -314 -63 -91 c-34 -49 -133
+-191 -219 -315 l-157 -225 172 -3 c97 -1 176 2 183 7 6 5 72 97 146 205 74
+107 138 196 141 196 4 0 71 -92 149 -205 l143 -205 173 0 c96 0 174 2 174 4 0
+3 -95 141 -211 308 -116 167 -214 308 -216 315 -3 7 92 151 211 322 119 170
+216 312 216 315 0 3 -78 6 -174 6 l-174 0 -143 -205 c-78 -113 -145 -205 -149
+-205 -3 0 -70 92 -148 205 l-143 205 -174 0 c-96 0 -175 -1 -175 -3z"/>
+</g>
+</svg>
+</a>
+            </div>
+
+            <p class="text-xs text-center text-gray-500 max-w-[200px]">
+                Профессиональное агентство контекстной рекламы с опытом более 18 лет.
+
+            </p>
+        </div>
+
+        
+        <nav class="mb-8">
+          
+        
+            
+  <nav>
+    <ul>
+    <li class="text-lg font-semibold">
+      <a href="/">Контекстная реклама</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/analytics/">web-аналитика</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a aria-current="true" class="ancestor" href="/posts/">Блог</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/about/">О нас</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Категории</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/job/">Вакансии</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/case/">Кейсы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/calculators/">Калькуляторы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/contacts/">Контакты</a>
+    </li>
+    </ul>
+  </nav>
+
+           
+
+        </nav>
+
+        
+        <div class="social-icons  mt-auto">
+<div>
+
+<a href="https://t.me/your_link" target="_blank" class="inline-flex 
+items-center justify-center px-3 py-3 text-white bg-[#2AABEE] font-medium text-sm rounded 
+shadow-md hover:bg-[#279fd9] 
+hover:shadow-lg focus:bg-[#2493c8] 
+focus:shadow-lg focus:outline-none 
+focus:ring-0 active:bg-[#2185b3] active:shadow-lg transition duration-150 ease-in-out">
+  
+     
+<svg width="25px" height="25px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" 
+fill="#fff" class="bi bi-telegram pr-1">
+  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>
+</svg>
+                            
+  
+  Открыть в Telegram
+</a>
+
+</div>
+            <div class="pt-6 flex gap-1 justify-left items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                sale@p9x.ru
+            </div>
+        </div>
+        
+        
+        <div class="mt-8 pt-4 text-xs text-gray-500 border-t border-gray-700">
+            <p>Powered by <a href="#" class="hover:underline">Hugo</a> | Themed with <a href="#" class="hover:underline">poison</a></p>
+            <p>© 2010 - 2025 Poison. All rights reserved.</p>
+        </div>
+    </aside>
+
+  <main class="main-content">
+ 
+            
+            
+   <div class="max-w-[1100px]">
+    
+    <section class="bg-white border border-gray-200  shadow-sm overflow-hidden">
+      
+      <div class="bg-gradient-to-b from-sky-50/60 to-transparent p-6 border-b border-gray-200">
+        <h1 class="text-2xl md:text-3xl font-bold">Как обнаружить недопустимый трафик с помощью вашей собственной аналитики</h1>
+        <time class="block mt-2 text-gray-500" datetime="2025-11-19T23:13:09+00:00">
+          
+    
+    November 19, 2025
+        </time>
+
+              
+        <div class="not-prose backdrop-blur-sm pt-4">
+          <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div class="flex items-center gap-3">
+              
+                <img src="/user_02.png" class="h-20 w-20 rounded-full hue-rotate-270" alt="">
+              
+              <div>
+                <p class="text-gray-800 font-medium">Автор: Дмитрий Иванов [Команда P9X]</p>
+                <p class="text-gray-600 text-sm">~8 минут чтения</p>
+              </div>
+            </div>
+            <div class="text-sm text-gray-600">
+                <div class="tags mt-8">
+      
+
+    </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      
+      <article class="px-6 py-6 max-w-[94ch] content">
+  
+
+        
+
+
+        
+     
+           <h3 id="оценка-фальшивого-трафика-и-оптимизация-рекламных-кампаний">Оценка фальшивого трафика и оптимизация рекламных кампаний</h3>
+<p>Предполагается, что 17% всех кликов по рекламе — фальшивые, а 57% всего интернет-трафика генерируется ботами. Эта цифра, вероятно, увеличится в ближайшие годы. Это немалые деньги, которые рекламодатели теряют каждый год из-за мошенничества с кликами.</p>
+<p><strong>Большой вопрос: можно ли обнаружить ботов и оптимизировать рекламные кампании, используя только собственную аналитику? Мы определённо так считаем!</strong></p>
+<p>Обнаружение и предотвращение мошенничества с кликами и ботов не сложно, если вы знаете, что искать, и какие показатели должны вызывать тревогу.</p>
+<h4 id="что-нужно-для-обнаружения-ботов-и-оптимизации-кампаний">Что нужно для обнаружения ботов и оптимизации кампаний</h4>
+<p>Вам не нужно много, чтобы определить фальшивый трафик и разработать стратегию оптимизации размещения рекламы. На самом деле, почти у каждой компании уже есть необходимые данные, просто они не смотрят внимательно на цифры.</p>
+<p>Чтобы получить максимальную отдачу от этого руководства, вам понадобятся:</p>
+<ul>
+<li>аккаунт Google Analytics или любой другой сопоставимый инструмент аналитики;</li>
+<li>доступ к файлам журналов вашего сервера;</li>
+<li>отчёты от вашего DSP;</li>
+<li>отчёты от вашего рекламного сервера;</li>
+<li>Excel или Google Sheets для объединения данных из разных источников.</li>
+</ul>
+<p>Мы сосредоточимся на Google Analytics, поскольку это наиболее широко используемое аналитическое решение в Интернете с долей рынка более 55% (Google Analytics и Google Universal Analytics вместе взятые). Но, конечно, вы можете использовать и уже внедрённые вами аналитические решения, вам просто нужно искать сопоставимые показатели. У нас также есть скриншоты других инструментов, чтобы дать вам представление о том, что искать.</p>
+<h4 id="показатель-1-показатель-отказов-близок-к-0-или-100">Показатель №1: Показатель отказов близок к 0% или 100%</h4>
+<p>Google определяет показатель отказов в Google Analytics как «одностраничную сессию на вашем сайте […] которая вызывает только один запрос на сервер Analytics» (Google). Таким образом, если пользователь посещает страницу и затем уходит, не вызывая другого запроса на сервер Analytics во время этой сессии (например, посетив другую страницу или вызвав событие, такое как загрузка и т. д.), этот визит считается отказом. Общий показатель отказов — это процент всех сессий, которые являются отказами.</p>
+<p>Но как вы можете обнаружить ботов по показателю отказов? Хороший вопрос! Человеческая аудитория ведёт себя не совсем одинаково. Одни уходят через несколько секунд, другие — через несколько минут, а третьи либо вызывают событие, например конверсию, либо посещают другие страницы вашего сайта.</p>
+<p>Боты, с другой стороны, запрограммированы выполнять одну и ту же задачу и вести себя одинаково снова и снова. Трудно назвать средний показатель отказов для рекламной кампании, потому что он зависит от множества факторов, таких как отрасль, опыт работы со страницей и многих других, но всё, что ниже 30% и выше 70%, должно заставить вас присмотреться к вашей аналитике и провести расследование.</p>
+<p>В большинстве случаев боты покидают ваш сайт немедленно, оставляя вам показатель отказов в 100%. В других, более сложных случаях боты посещают определённое количество других сайтов во время своей сессии, чтобы замаскировать тот факт, что они являются ботами. Но поскольку они были запрограммированы делать это снова и снова, вы быстро увидите закономерность, если внимательно посмотрите на свои данные.</p>
+<p>В обоих случаях поведение ботов оставляет вам показатели отказов, близкие к 0% и 100%.</p>
+<p><strong>Как посмотреть общие показатели отказов в Google Analytics</strong></p>
+<ol>
+<li>Перейдите на страницу «Аудитория» слева.</li>
+<li>Нажмите на страницу «Обзор», чтобы получить представление об общем показателе отказов.</li>
+</ol>
+<p><strong>Как посмотреть показатели отказов для определённых страниц в Google</strong></p>
+<p>Вместо того чтобы смотреть на общий показатель отказов вашего сайта, углубитесь и посмотрите на конкретные страницы. Это может быть, например, целевая страница вашей рекламной кампании.</p>
+<ol>
+<li>Перейдите на страницу «Поведение» слева.</li>
+<li>Нажмите на страницу «Содержание сайта» → «Все страницы».</li>
+<li>Найдите страницу, которую вы хотите изучить поближе.</li>
+</ol>
+<p><strong>Как посмотреть показатели отказов на основе реферальных доменов в Google Analytics</strong></p>
+<p>Если вы хотите подробно рассмотреть свои реферальные домены, выполните следующие действия:</p>
+<ol>
+<li>Перейдите на страницу «Приобретение» слева.</li>
+<li>Нажмите на страницу «Весь трафик» → «Каналы».</li>
+<li>Выберите «Реферал», и вы получите список всех реферальных доменов вместе с их показателями отказов. Ищите выбросы в списке. Если домен отправляет вам трафик с показателем отказов почти 100%, посетители с этого домена, скорее всего, не являются легитимными.</li>
+</ol>
+<p>Если вы столкнётесь с доменами, у которых есть сомнительные показатели, вам следует подумать об исключении их из показа вашей рекламы.</p>
+<h4 id="показатель-2-средняя-продолжительность-сеанса-близка-к-0-секундам">Показатель №2: Средняя продолжительность сеанса близка к 0 секундам</h4>
+<p>«Сессия — это группа взаимодействий пользователя с вашим сайтом, которые происходят в течение заданного промежутка времени. Например, одна сессия может содержать несколько просмотров страниц, событий, социальных взаимодействий и транзакций электронной коммерции» (Google).</p>
+<p>Поскольку основная цель ботов, нажимающих на вашу рекламу, — принести деньги мошенникам, как только происходит клик по рекламе, боты выполняют свою задачу. Поэтому также высокий показатель отказов. Боты не заинтересованы в том, чтобы оставаться на вашем сайте, потому что они могут уже нажимать на следующую рекламу, чтобы заработать ещё больше денег. Однако реальные посетители в большинстве случаев остаются на вашем сайте хотя бы на несколько секунд. Поэтому вы можете даже повысить порог средней продолжительности сеанса до нескольких секунд, чтобы отличить реальный трафик от поддельного.</p>
+<p>Боты, у которых показатель отказов близок к 100%, в большинстве случаев также имеют среднюю продолжительность сеанса в 0 секунд, так как бот покидает вашу страницу сразу после клика по вашей рекламе. Ищите в вашей аналитике сессии, которые были слишком короткими, чтобы быть реальными людьми.</p>
+<p><strong>Как посмотреть среднюю продолжительность сеанса в Google Analytics</strong></p>
+<ol>
+<li>Перейдите на страницу «Аудитория» слева.</li>
+<li>Нажмите на страницу «Обзор», чтобы получить представление об общей средней продолжительности сеанса.</li>
+</ol>
+<p><strong>Как посмотреть среднюю продолжительность сеанса для определённых страниц в Google Analytics</strong></p>
+<p>Аналогично показателю отказов вы хотите более подробно изучить среднюю продолжительность сеанса на ваших целевых страницах:</p>
+<ol>
+<li>Перейдите на страницу «Поведение» слева.</li>
+<li>Нажмите на страницу «Содержание сайта» → «Все страницы».</li>
+<li>Найдите страницу, которую вы хотите изучить поближе.</li>
+</ol>
+<p><strong>Как посмотреть среднюю продолжительность сеанса на основе реферальных доменов в Google Analytics</strong></p>
+<p>Google Analytics также даёт вам среднюю продолжительность сеанса на основе реферального домена. Это может быть хорошим индикатором для доменов, которые покупают ботов, по сравнению с другими рефералами с реальным человеческим трафиком.</p>
+<ol>
+<li>Перейдите на страницу «Приобретение» слева.</li>
+<li>Нажмите на страницу «Весь трафик» → «Каналы».</li>
+<li>Выберите «Реферал», и вы получите список всех реферальных доменов вместе с их средней продолжительностью сеанса. Ищите выбросы в списке.</li>
+</ol>
+<p>Если вы наткнётесь на домены, у которых очень низкая средняя продолжительность сеанса (близко к 0 секундам), вам следует рассмотреть возможность исключения их из показа вашей рекламы.</p>
+<h4 id="показатель-3-необычные-модели-трафика">Показатель №3: Необычные модели трафика</h4>
+<p>Во время ваших кампаний также следите за необычными всплесками трафика и моделями. Если ваш сайт обычно получает 10 000 посетителей в день, а вдруг получает 50 000 без каких-либо изменений или дополнительных действий, это должно быть сигналом тревоги.</p>
+<p>Ищите всплески на определённый день или серию дней и снова посмотрите на показатели поведения. Если приток новых посетителей имеет очень высокий показатель отказов и очень низкую среднюю продолжительность сеанса, это, скорее всего, боты.</p>
+<p>Часто вы увидите пики трафика в конце месяца — так называемое «выполнение трафика в конце месяца». Некоторые веб-сайты гарантируют своим покупателям определённое количество трафика и, следовательно, показов рекламы. Если они не успевают выполнить свои обязательства в конце месяца, они обращаются к ботам, чтобы выполнить свои обязательства. Сравните последние пару дней месяца с предыдущим периодом времени, чтобы обнаружить всплески трафика.</p>
+<h4 id="далее-следуют-другие-показатели-для-обнаружения-ботов-и-оптимизации-рекламных-кампаний">[Далее следуют другие показатели для обнаружения ботов и оптимизации рекламных кампаний.]</h4>
+
+        
+
+      </article>
+    </section>
+  </div>
+
+
+
+          
+<footer class="px-6 py-12 bg-sky-950 text-white/50">
+     <div class="inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
+      <div class="relative">
+ 
+          <div class="border-t border-white/10"></div>
+
+          
+          <div class="mt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="text-sm text-slate-400">© <span id="year"></span>P9X.ru 2010 - 2025г. услуги интернет маркетинга</p>
+            <div class="flex items-center gap-4 text-slate-400 text-sm">
+              <a href="#" class="hover:text-white transition">Документы</a>
+              <a href="#" class="hover:text-white transition">Служба поддержки</a>
+              <a href="#" class="hover:text-white transition">Статус</a>
+            </div>
+          </div>      
+      </div>
+
+
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105149615', 'ym');
+
+    ym(105149615, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/105149615" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+  </footer>
+  </main>          
+
+    <script>
+
+        
+        
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const sidebar = document.querySelector('.sidebar');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+        
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                if (entry.isIntersecting) {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.add('active');
+                    });
+                } else {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.remove('active');
+                    });
+                }
+            });
+        }, observerOptions);
+        
+        
+        document.querySelectorAll('h2[id]').forEach(heading => {
+            observer.observe(heading);
+        });
+    </script>
+
+
+
+</body>
+</html>

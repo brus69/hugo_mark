@@ -1,7 +1,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
-<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
-<meta name="description" content="{{ .Description }}">
+<title>  {{ if .IsHome }}
+    {{ .Site.Title }}
+  {{ else }}
+    {{ .Title }}
+    {{ if $.Site.Params.appendGlobalTitle }} | {{ .Site.Title }}{{ end }}
+  {{ end }}</title>
+  <meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Description }}{{ end }}">
 <meta name="yandex-verification" content="242f5a0ee52d5836" />
 <meta name="google-site-verification" content="0Ytq4iozDTscUw8IMVUsSsLQ4yEXHRwKZSvFYqnSNtE" />
 <link rel="canonical" href="{{ .Permalink }}" />

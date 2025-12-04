@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>  
+    Что такое JSON-запрос? [Примеры, советы и многое другое]
+     | P9X
+  </title>
+  <meta name="description" content="Узнайте, как JSON-подсказки могут преобразовать ваше взаимодействие с большими языковыми моделями для получения более точных и эффективных результатов.">
+<meta name="yandex-verification" content="242f5a0ee52d5836" />
+<meta name="google-site-verification" content="0Ytq4iozDTscUw8IMVUsSsLQ4yEXHRwKZSvFYqnSNtE" />
+<link rel="canonical" href="http://localhost:1313/json-prompting/" />
+
+<link rel="icon" type="image/x-icon" href="http://localhost:1313/favicon.ico">
+
+  
+ <style>
+  .content h1 { 
+        font-size: 1.875rem; 
+        font-weight: bold; 
+        margin-bottom: 1rem; 
+    }
+    .content h2 { 
+        font-size: 1.5rem; 
+        font-weight: 600; 
+        margin-bottom: 0.75rem; 
+    }
+    .content h3 { 
+        font-size: 1.25rem; 
+        font-weight: 500; 
+        margin-bottom: 0.5rem; 
+    }
+    .content p { 
+        margin-bottom: 1rem; 
+    }
+    .content ul { 
+        list-style-type: disc; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content ol { 
+        list-style-type: decimal; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content a { 
+        color: #2563eb; 
+    }
+    .content a:hover { 
+        color: #1e40af; 
+    }
+    .content blockquote { 
+        border-left: 4px solid #d1d5db; 
+        padding-left: 1rem; 
+        font-style: italic; 
+    }
+
+    
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.875rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+.dark-mode .content table {
+    border: 1px solid #4b5563;
+}
+
+.content thead {
+    background-color: #eaebec;
+}
+
+.dark-mode .content thead {
+    background-color: #374151;
+}
+
+.content th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.dark-mode .content th {
+    color: #f9fafb;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content th:last-child {
+    border-right: none;  
+}
+
+.content td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    color: #6b7280;
+}
+
+.dark-mode .content td {
+    color: #d1d5db;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content td:last-child {
+    border-right: none;  
+}
+
+.content tbody tr {
+    transition: background-color 0.15s ease-in-out;
+}
+
+.content tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.dark-mode .content tbody tr:hover {
+    background-color: #374151;
+}
+
+.content tbody tr:last-child td {
+    border-bottom: none;
+}
+
+ 
+.content tbody tr:nth-child(even) {
+    background-color: #f4f5f7;
+}
+
+.dark-mode .content tbody tr:nth-child(even) {
+    background-color: #1f2937;
+}
+
+.dark-mode .content tbody tr:nth-child(even):hover {
+    background-color: #374151;
+}
+
+ 
+.content code:not(pre code) {
+    background-color: #f3f4f6;
+    color: #dc2626;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    font-weight: 500;
+    border: 1px solid #e5e7eb;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+}
+
+.dark-mode .content code:not(pre code) {
+    background-color: #224464;
+    color: #f87171;
+    border: 1px solid #4b5563;
+}
+
+ 
+.content pre {
+    background-color: #224464;
+    color: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid #374151;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.dark-mode .content pre {
+    background-color: #111827;
+    border: 1px solid #374151;
+}
+
+ 
+.content pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+    font-weight: normal;
+}
+
+ 
+.content pre code .keyword { color: #f472b6; }  
+.content pre code .function { color: #60a5fa; }  
+.content pre code .string { color: #34d399; }  
+.content pre code .comment { color: #9ca3af; font-style: italic; }  
+.content pre code .number { color: #fbbf24; }  
+.content pre code .class { color: #c084fc; }  
+.content pre code .operator { color: #93c5fd; }  
+
+ 
+.content pre::-webkit-scrollbar {
+    height: 6px;
+}
+
+.content pre::-webkit-scrollbar-track {
+    background: #374151;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.content pre::-webkit-scrollbar-thumb {
+    background: #6b7280;
+    border-radius: 3px;
+}
+
+.content pre::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+ 
+.content h1 code:not(pre code),
+.content h2 code:not(pre code),
+.content h3 code:not(pre code) {
+    font-size: 0.9em;
+    background-color: #fef2f2;
+    color: #dc2626;
+}
+
+.dark-mode .content h1 code:not(pre code),
+.dark-mode .content h2 code:not(pre code),
+.dark-mode .content h3 code:not(pre code) {
+    background-color: #7f1d1d;
+    color: #fca5a5;
+}
+
+ 
+.content a code:not(pre code) {
+    color: inherit;
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+.dark-mode .content a code:not(pre code) {
+    background-color: rgba(96, 165, 250, 0.2);
+}
+        :root {
+            --color-bg: #1a1a1a;
+            --color-text: #e6e6e6;
+            --color-accent: #6b7280;
+            --color-link: #9ca3af;
+            --color-link-hover: #d1d5db;
+        }
+        
+        .light-mode {
+            --color-bg: #f9fafb;
+            --color-text: #1f2937;
+            --color-accent: #6b7280;
+            --color-link: #4b5563;
+            --color-link-hover: #111827;
+        }
+        
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        a {
+            color: var(--color-link);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: var(--color-link-hover);
+        }
+        
+        .sidebar {
+            position: fixed;
+             
+            height: 100vh;
+            overflow-y: auto;
+            
+        }
+        
+        .main-content {
+            margin-left: 350px;
+            
+             
+        }
+        
+        .toc-container {
+            position: fixed;
+            right: 2rem;
+            top: 2rem;
+            width: 250px;
+            display: none;
+        }
+        
+        @media (min-width: 1280px) {
+            .toc-container {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 50;
+            }
+            
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+                 
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: fixed;
+                top: 1rem;
+                left: 1rem;
+                z-index: 100;
+            }
+        }
+        
+        .toc-link.active {
+            color: var(--color-link-hover);
+            font-weight: bold;
+        }
+        
+        .social-icons a {
+            margin-right: 0.5rem;
+        }
+        
+        pre {
+            background-color: rgba(107, 114, 128, 0.1);
+            padding: 1rem;
+            border-radius: 0.25rem;
+            overflow-x: auto;
+        }
+        
+        code {
+            font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+   <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: '#eff6ff',
+                100: '#dbeafe',
+                500: '#0ea5e9',
+                600: '#0284c7',
+              },
+            },
+            boxShadow: {
+              soft: '0 8px 24px rgba(2, 132, 199, 0.08)'
+            }
+          },
+        },
+      }
+    </script>
+</head>
+  <body class="light-mode">
+      <header>
+    
+  </header>
+    
+    <button class="mobile-menu-btn p-2 bg-gray-800 text-white rounded md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+    
+    <aside class="sidebar border-r-4 border-sky-800  min-w-[350px] py-12 px-10 bg-gradient-to-br from-cyan-200 via-green-100 to-sky-100">
+        <div class="flex flex-col items-center mb-8">
+                
+            
+            <div class="w-24 h-24 mb-4 relative">
+                <a href="/">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ viewBox="0 0 550.000000 385.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,385.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M2780 3000 l0 -300 40 0 40 0 0 260 0 260 1165 0 1165 0 0 -1245 0
+-1245 -1165 0 -1165 0 0 260 0 260 -40 0 -40 0 0 -300 0 -300 1245 0 1245 0 0
+1325 0 1325 -1245 0 -1245 0 0 -300z"/>
+<path d="M700 1975 l0 -635 145 0 145 0 0 245 0 245 383 0 c422 0 426 1 491
+66 60 60 66 88 66 319 0 190 -2 214 -21 255 -25 56 -53 86 -104 113 -39 22
+-49 22 -572 25 l-533 3 0 -636z m940 245 l0 -100 -325 0 -325 0 0 100 0 100
+325 0 325 0 0 -100z"/>
+<path d="M2320 2601 c-69 -22 -112 -58 -146 -121 -17 -31 -19 -60 -19 -260 0
+-211 1 -227 22 -265 27 -51 68 -90 115 -109 32 -14 98 -16 438 -16 l400 0 0
+-245 0 -245 145 0 145 0 0 536 c0 373 -3 548 -11 575 -16 50 -61 105 -112 132
+-41 22 -48 22 -497 24 -250 1 -466 -2 -480 -6z m810 -381 l0 -100 -340 0 -340
+0 0 100 0 100 340 0 340 0 0 -100z"/>
+<path d="M3650 2607 c0 -1 99 -144 219 -317 l219 -314 -63 -91 c-34 -49 -133
+-191 -219 -315 l-157 -225 172 -3 c97 -1 176 2 183 7 6 5 72 97 146 205 74
+107 138 196 141 196 4 0 71 -92 149 -205 l143 -205 173 0 c96 0 174 2 174 4 0
+3 -95 141 -211 308 -116 167 -214 308 -216 315 -3 7 92 151 211 322 119 170
+216 312 216 315 0 3 -78 6 -174 6 l-174 0 -143 -205 c-78 -113 -145 -205 -149
+-205 -3 0 -70 92 -148 205 l-143 205 -174 0 c-96 0 -175 -1 -175 -3z"/>
+</g>
+</svg>
+</a>
+            </div>
+
+            <p class="text-xs text-center text-gray-500 max-w-[200px]">
+                Профессиональное агентство контекстной рекламы с опытом более 18 лет.
+
+            </p>
+        </div>
+
+        
+        <nav class="mb-8">
+          
+        
+            
+  <nav>
+    <ul>
+    <li class="text-lg font-semibold">
+      <a href="/">Контекстная реклама</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/analytics/">web-аналитика</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a aria-current="true" class="ancestor" href="/posts/">Блог</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/about/">О нас</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Категории</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/job/">Вакансии</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/case/">Кейсы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/calculators/">Калькуляторы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/contacts/">Контакты</a>
+    </li>
+    </ul>
+  </nav>
+
+           
+
+        </nav>
+
+        
+        <div class="social-icons  mt-auto">
+<div>
+
+<a href="https://t.me/your_link" target="_blank" class="inline-flex 
+items-center justify-center px-3 py-3 text-white bg-[#2AABEE] font-medium text-sm rounded 
+shadow-md hover:bg-[#279fd9] 
+hover:shadow-lg focus:bg-[#2493c8] 
+focus:shadow-lg focus:outline-none 
+focus:ring-0 active:bg-[#2185b3] active:shadow-lg transition duration-150 ease-in-out">
+  
+     
+<svg width="25px" height="25px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" 
+fill="#fff" class="bi bi-telegram pr-1">
+  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>
+</svg>
+                            
+  
+  Открыть в Telegram
+</a>
+
+</div>
+            <div class="pt-6 flex gap-1 justify-left items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                sale@p9x.ru
+            </div>
+        </div>
+        
+        
+        <div class="mt-8 pt-4 text-xs text-gray-500 border-t border-gray-700">
+            <p>Powered by <a href="#" class="hover:underline">Hugo</a> | Themed with <a href="#" class="hover:underline">poison</a></p>
+            <p>© 2010 - 2025 Poison. All rights reserved.</p>
+        </div>
+    </aside>
+
+  <main class="main-content">
+ 
+            
+            
+   <div class="max-w-[1100px]">
+    
+    <section class="bg-white border border-gray-200  shadow-sm overflow-hidden">
+      
+      <div class="bg-gradient-to-b from-sky-50/60 to-transparent p-6 border-b border-gray-200">
+        <h1 class="text-2xl md:text-3xl font-bold">Почему я перешел на JSON-подсказки и почему Вы тоже должны это сделать</h1>
+        <time class="block mt-2 text-gray-500" datetime="2025-11-19T23:13:09+00:00">
+          
+    
+    November 19, 2025
+        </time>
+
+              
+        <div class="not-prose backdrop-blur-sm pt-4">
+          <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div class="flex items-center gap-3">
+              
+                <img src="/user_02.png" class="h-20 w-20 rounded-full hue-rotate-270" alt="">
+              
+              <div>
+                <p class="text-gray-800 font-medium">Автор: Дмитрий Иванов [Команда P9X]</p>
+                <p class="text-gray-600 text-sm">~8 минут чтения</p>
+              </div>
+            </div>
+            <div class="text-sm text-gray-600">
+                <div class="tags mt-8">
+      
+
+    </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      
+      <article class="px-6 py-6 max-w-[94ch] content">
+  
+
+        
+
+
+        
+     
+           <h3 id="что-такое-json-промптинг">Что такое JSON-промптинг?</h3>
+<p>При взаимодействии с большими языковыми моделями (LLM) мы обычно используем естественный язык, печатая абзацы и надеясь, что модель поймёт наши намерения. Однако такой подход работает до тех пор, пока не возникнут проблемы из-за неясных инструкций, отсутствия контекста или проблем с форматированием.</p>
+<p>JSON-промптинг — это новый метод, который использует структурированные данные вместо текста в свободной форме. Организуя инструкции, примеры и ограничения в виде объекта JSON, мы жертвуем некоторой «разговорной теплотой» ради большей точности. В результате получается промпт, который понятен человеку и легко анализируется кодом.</p>
+<h3 id="json-промптинг-против-обычных-промптов">JSON-промптинг против обычных промптов</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Аспект</th>
+          <th>Обычные (текстовые) промты</th>
+          <th>JSON-промпты</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Взаимодействие</strong></td>
+          <td>Похоже на общение с другом. Вы пишете предложения, и надеетесь, что ИИ поймёт вас.</td>
+          <td>Похоже на дачу чётких инструкций компьютеру. Вы используете структурированный формат.</td>
+      </tr>
+      <tr>
+          <td><strong>Расположение инструкций</strong></td>
+          <td>Инструкции смешаны с предложениями, поэтому ИИ приходится угадывать ваши намерения.</td>
+          <td>Инструкции чётко обозначены, например, <code>{ &quot;task&quot;: &quot;summarize&quot;, &quot;format&quot;: &quot;list&quot; }</code>.</td>
+      </tr>
+      <tr>
+          <td><strong>Использование слов</strong></td>
+          <td>Повторение фраз вроде «пожалуйста, сделай это» занимает больше слов.</td>
+          <td>Короткие метки и значения экономят место и повышают эффективность.</td>
+      </tr>
+      <tr>
+          <td><strong>Согласованность</strong></td>
+          <td>Небольшие изменения в словах могут привести к разным результатам, которые трудно предсказать.</td>
+          <td>Структурированный формат обеспечивает одинаковый ответ каждый раз, как рецепт.</td>
+      </tr>
+      <tr>
+          <td><strong>Простота тестирования</strong></td>
+          <td>Трудно проверить, понял ли ИИ, поскольку вы тестируете расплывчатый текст.</td>
+          <td>Легко тестировать с помощью инструментов, которые проверяют структуру, например, с помощью контрольного списка.</td>
+      </tr>
+      <tr>
+          <td><strong>Обработка сложных задач</strong></td>
+          <td>Длинные или подробные задачи сбивают с толку при написании и чтении.</td>
+          <td>Организованная структура упрощает управление и понимание сложных задач.</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="формат">Формат</h3>
+<p>JSON-промпт — это структурированный объект данных с парами «ключ-значение», которые чётко определяют задачу, ограничения и желаемый формат вывода. Общая структура выглядит так:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;task&#34;</span>: <span style="color:#e6db74">&#34;The main thing you want the AI to do&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;input&#34;</span>: <span style="color:#e6db74">&#34;The data or text the AI should work with&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;format&#34;</span>: <span style="color:#e6db74">&#34;How you want the AI&#39;s response to look&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;constraints&#34;</span>: <span style="color:#e6db74">&#34;Any rules or limits for the response&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;examples&#34;</span>: [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;input&#34;</span>: <span style="color:#e6db74">&#34;Sample input for the AI&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;output&#34;</span>: <span style="color:#e6db74">&#34;Sample output you expect&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="примеры-json-промптов">Примеры JSON-промптов</h3>
+<p><strong>Задача 1: генерация изображения</strong></p>
+<p><strong>Обычный промпт:</strong> <em>«Generate an animated image of a cat punching a dinosaur.»</em></p>
+<p><strong>JSON-промпт:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;task&#34;</span>: <span style="color:#e6db74">&#34;Generate an animated image&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;description&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;scene&#34;</span>: <span style="color:#e6db74">&#34;A cartoon cat punching a dinosaur in a playful fight&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;characters&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;cat&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;appearance&#34;</span>: <span style="color:#e6db74">&#34;Fluffy orange tabby cat with a mischievous grin&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;action&#34;</span>: <span style="color:#e6db74">&#34;Throwing a punch with its front paw&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;dinosaur&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;appearance&#34;</span>: <span style="color:#e6db74">&#34;Green T-Rex with a surprised expression&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;action&#34;</span>: <span style="color:#e6db74">&#34;Reacting to the punch, stumbling backward&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;background&#34;</span>: <span style="color:#e6db74">&#34;A colorful jungle with tall trees and vines&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;style&#34;</span>: <span style="color:#e6db74">&#34;Cartoonish, vibrant colors, suitable for all ages&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;animation_details&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;duration&#34;</span>: <span style="color:#e6db74">&#34;3 seconds&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;frames&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;frame&#34;</span>: <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;Cat winds up its paw, preparing to punch, with a cheeky smile&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;frame&#34;</span>: <span style="color:#ae81ff">2</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;Cat’s paw makes contact with the T-Rex’s face, T-Rex looks surprised&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;frame&#34;</span>: <span style="color:#ae81ff">3</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;T-Rex stumbles back comically, cat stands proudly&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;loop&#34;</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;constraints&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;resolution&#34;</span>: <span style="color:#e6db74">&#34;512x512 pixels&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;tone&#34;</span>: <span style="color:#e6db74">&#34;Playful and humorous, non-violent&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;colors&#34;</span>: <span style="color:#e6db74">&#34;Bright and vibrant&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Задача 2: создание веб-страницы</strong></p>
+<p><strong>Обычный промпт:</strong> <em>«Create a responsive webpage displaying a Pokémon index featuring 6 Pokémon: Pikachu, Bulbasaur, Jigglypuff, Meowth, Charizard, and Eevee. Each Pokémon should be presented as a card. When a card is clicked, it should expand to reveal more detailed information about that Pokémon»</em></p>
+<p><strong>JSON-промпт:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;task&#34;</span>: <span style="color:#e6db74">&#34;Create a webpage for a Pokémon index&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;description&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;content&#34;</span>: <span style="color:#e6db74">&#34;A webpage displaying 6 Pokémon in a card-based layout with animated images&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;pokemons&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Pikachu&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;Electric&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;height&#34;</span>: <span style="color:#e6db74">&#34;0.4 m&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;weight&#34;</span>: <span style="color:#e6db74">&#34;6.0 kg&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;image&#34;</span>: <span style="color:#e6db74">&#34;https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/25.gif&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Bulbasaur&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;Grass/Poison&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;height&#34;</span>: <span style="color:#e6db74">&#34;0.7 m&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;weight&#34;</span>: <span style="color:#e6db74">&#34;6.9 kg&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;image&#34;</span>: <span style="color:#e6db74">&#34;https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/1.gif&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Jigglypuff&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;Normal/Fairy&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;height&#34;</span>: <span style="color:#e6db74">&#34;0.5 m&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;weight&#34;</span>: <span style="color:#e6db74">&#34;5.5 kg&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;image&#34;</span>: <span style="color:#e6db74">&#34;https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/39.gif&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Meowth&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;Normal&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;height&#34;</span>: <span style="color:#e6db74">&#34;0.4 m&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;weight&#34;</span>: <span style="color:#e6db74">&#34;4.2 kg&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;image&#34;</span>: <span style="color:#e6db74">&#34;https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/52.gif&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Charizard&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;Fire/Flying&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;height&#34;</span>: <span style="color:#e6db74">&#34;1.7 m&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;weight&#34;</span>: <span style="color:#e6db74">&#34;90.5 kg&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;image&#34;</span>: <span style="color:#e6db74">&#34;https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/6.gif&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Eevee&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;Normal&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;height&#34;</span>: <span style="color:#e6db74">&#34;0.3 m&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;weight&#34;</span>: <span style="color:#e6db74">&#34;6.5 kg&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;image&#34;</span>: <span style="color:#e6db74">&#34;https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/133.gif&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;functionality&#34;</span>: <span style="color:#e6db74">&#34;Each Pokémon card shows an animated image and name by default. Clicking a card toggles an expanded view with type, height, and weight.&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;style&#34;</span>: <span style="color:#e6db74">&#34;Responsive, Pokémon-themed design with vibrant colors and card animations&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;constraints&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;tech_stack&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;html&#34;</span>: <span style="color:#e6db74">&#34;Standard HTML5&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;css&#34;</span>: <span style="color:#e6db74">&#34;Tailwind CSS via CDN&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;javascript&#34;</span>: <span style="color:#e6db74">&#34;Vanilla JavaScript&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;layout&#34;</span>: <span style="color:#e6db74">&#34;Responsive grid with 2-3 cards per row on desktop, 1 per row on mobile&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;interactivity&#34;</span>: <span style="color:#e6db74">&#34;Click to toggle card expansion, smooth transitions&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;image_format&#34;</span>: <span style="color:#e6db74">&#34;Animated images (e.g., short animation sequences), fallback to static PNG if animated not available&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Задача 3: творческое письмо</strong></p>
+<p><strong>Обычный промпт:</strong> <em>«Write an emotional short poem on ChatGPT»</em></p>
+<p><strong>JSON-промпт:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;task&#34;</span>: <span style="color:#e6db74">&#34;Write a short poem&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;description&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;subject&#34;</span>: <span style="color:#e6db74">&#34;ChatGPT, portrayed as a sentient AI with emotions&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;tone&#34;</span>: <span style="color:#e6db74">&#34;Emotional and poignant&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;theme&#34;</span>: <span style="color:#e6db74">&#34;ChatGPT&#39;s desire to understand and connect with human emotions&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;length&#34;</span>: <span style="color:#e6db74">&#34;40-50 words&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;constraints&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;word_count&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;min&#34;</span>: <span style="color:#ae81ff">40</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;max&#34;</span>: <span style="color:#ae81ff">50</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;style&#34;</span>: <span style="color:#e6db74">&#34;Poetic with simple, heartfelt language&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;emotion&#34;</span>: <span style="color:#e6db74">&#34;Blend of yearning and hope&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;rhyme&#34;</span>: <span style="color:#e6db74">&#34;Optional, prioritize emotional impact&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Задача 4: генерация видео</strong></p>
+<p><strong>Обычный промпт:</strong> <em>«Create a magical winter night scene with softly falling snow, Santa’s sleigh flying over a cozy, snow-covered town, glowing with festive lights and holiday cheer. Add christmas music.»</em></p>
+<p><strong>JSON-промпт:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;prompt&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;scene&#34;</span>: <span style="color:#e6db74">&#34;magical winter night&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;weather&#34;</span>: <span style="color:#e6db74">&#34;softly falling snow&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;main_subject&#34;</span>: <span style="color:#e6db74">&#34;Santa&#39;s sleigh flying with reindeer&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;setting&#34;</span>: <span style="color:#e6db74">&#34;cozy snow-covered village&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;mood&#34;</span>: <span style="color:#e6db74">&#34;festive holiday cheer&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;visual_elements&#34;</span>: [
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;glowing Christmas lights&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;smoke from chimneys&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;frosted pine trees&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;twinkling stars&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;northern lights effect&#34;</span>
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;audio&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;music&#34;</span>: <span style="color:#e6db74">&#34;classic Christmas instrumental&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;style&#34;</span>: <span style="color:#e6db74">&#34;orchestral&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;mood&#34;</span>: <span style="color:#e6db74">&#34;joyful yet peaceful&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;volume&#34;</span>: <span style="color:#e6db74">&#34;subtle background level&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;style&#34;</span>: <span style="color:#e6db74">&#34;cinematic animation&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;lighting&#34;</span>: <span style="color:#e6db74">&#34;warm holiday glow&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;motion&#34;</span>: [
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;gentle sleigh movement&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;falling snow particles&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;subtle light flickering&#34;</span>
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;quality&#34;</span>: <span style="color:#e6db74">&#34;4K resolution&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;technical&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;aspect_ratio&#34;</span>: <span style="color:#e6db74">&#34;16:9&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;duration&#34;</span>: <span style="color:#e6db74">&#34;30 seconds&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;fps&#34;</span>: <span style="color:#ae81ff">60</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;audio_format&#34;</span>: <span style="color:#e6db74">&#34;stereo&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="советы-по-использованию-json-стиля-промптинга">Советы по использованию JSON-стиля промптинга</h3>
+<ul>
+<li><strong>Структура имеет значение:</strong> всегда используйте правильное форматирование JSON с фигурными скобками, кавычками и запятыми.</li>
+<li><strong>Используйте вложенные объекты для сложных запросов.</strong></li>
+<li><strong>Включите примеры для стилевых ориентиров.</strong></li>
+<li><strong>Доказательство ошибок в вашем промпте:</strong> проверьте ваш JSON с помощью инструментов вроде JSONLint.</li>
+<li><strong>Итеративное усовершенствование:</strong> начните с базовой структуры, затем добавляйте слои деталей и поддерживайте контроль версий ваших JSON-промптов.</li>
+</ul>
+<h3 id="заключение">Заключение</h3>
+<p>Реальная сила JSON-промптинга не в его структуре, а в том, как он <em>думает</em>. В отличие от базовых промптов, которые часто дают общие результаты, JSON заставляет быть точным, давая ИИ чёткие рамки для работы, но оставляя место для творчества.</p>
+<h3 id="часто-задаваемые-вопросы">Часто задаваемые вопросы</h3>
+<p><strong>Q1. Что такое JSON-промптинг и зачем его использовать?</strong></p>
+<p>A. JSON-промптинг — это структурированный способ давать инструкции ИИ. Вместо длинных, расплывчатых текстовых промптов вы определяете задачи, входные данные и правила внутри объекта JSON. Это устраняет двусмысленность и даёт вам более предсказуемые и согласованные результаты.</p>
+<p><strong>Q2. Чем JSON-промптинг отличается от обычного промптинга?</strong></p>
+<p>A. Обычные промпты читаются как разговор, что может привести к смешанным интерпретациям. JSON-промптинг организует тот же запрос в виде помеченных полей, заставляя ИИ следовать более чёткому шаблону. Если вам нужен надёжный формат или многошаговая логика, эта структура очень помогает.</p>
+<p><strong>Q3. Можете ли вы показать простые примеры JSON-промптов для начинающих?</strong></p>
+<p>A. Конечно. Даже что-то простое вроде <code>{ &quot;task&quot;: &quot;summarize&quot;, &quot;format&quot;: &quot;bullet points&quot; }</code> считается JSON-промптингом. Демо-версии изображений, веб-страниц и стихов в статье — это более полные примеры, которые показывают, насколько мощными могут быть структурированные промпты, если добавить в них детали.</p>
+
+        
+
+      </article>
+    </section>
+  </div>
+
+
+
+          
+<footer class="px-6 py-12 bg-sky-950 text-white/50">
+     <div class="inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
+      <div class="relative">
+ 
+          <div class="border-t border-white/10"></div>
+
+          
+          <div class="mt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="text-sm text-slate-400">© <span id="year"></span>P9X.ru 2010 - 2025г. услуги интернет маркетинга</p>
+            <div class="flex items-center gap-4 text-slate-400 text-sm">
+              <a href="#" class="hover:text-white transition">Документы</a>
+              <a href="#" class="hover:text-white transition">Служба поддержки</a>
+              <a href="#" class="hover:text-white transition">Статус</a>
+            </div>
+          </div>      
+      </div>
+
+
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105149615', 'ym');
+
+    ym(105149615, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/105149615" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+  </footer>
+  </main>          
+
+    <script>
+
+        
+        
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const sidebar = document.querySelector('.sidebar');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+        
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                if (entry.isIntersecting) {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.add('active');
+                    });
+                } else {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.remove('active');
+                    });
+                }
+            });
+        }, observerOptions);
+        
+        
+        document.querySelectorAll('h2[id]').forEach(heading => {
+            observer.observe(heading);
+        });
+    </script>
+
+
+
+</body>
+</html>

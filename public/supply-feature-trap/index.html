@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>  
+    Ловушка Торговых Площадок С Функциями предложения — Перековка
+     | P9X
+  </title>
+  <meta name="description" content="Создание возможностей для привлечения и удержания поставщиков на рынке может оказаться ловушкой. Узнайте, как избежать попадания в эту ловушку, ограничивая поставки.">
+<meta name="yandex-verification" content="242f5a0ee52d5836" />
+<meta name="google-site-verification" content="0Ytq4iozDTscUw8IMVUsSsLQ4yEXHRwKZSvFYqnSNtE" />
+<link rel="canonical" href="http://localhost:1313/supply-feature-trap/" />
+
+<link rel="icon" type="image/x-icon" href="http://localhost:1313/favicon.ico">
+
+  
+ <style>
+  .content h1 { 
+        font-size: 1.875rem; 
+        font-weight: bold; 
+        margin-bottom: 1rem; 
+    }
+    .content h2 { 
+        font-size: 1.5rem; 
+        font-weight: 600; 
+        margin-bottom: 0.75rem; 
+    }
+    .content h3 { 
+        font-size: 1.25rem; 
+        font-weight: 500; 
+        margin-bottom: 0.5rem; 
+    }
+    .content p { 
+        margin-bottom: 1rem; 
+    }
+    .content ul { 
+        list-style-type: disc; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content ol { 
+        list-style-type: decimal; 
+        list-style-position: inside; 
+        margin-bottom: 1rem; 
+    }
+    .content a { 
+        color: #2563eb; 
+    }
+    .content a:hover { 
+        color: #1e40af; 
+    }
+    .content blockquote { 
+        border-left: 4px solid #d1d5db; 
+        padding-left: 1rem; 
+        font-style: italic; 
+    }
+
+    
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.875rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+.dark-mode .content table {
+    border: 1px solid #4b5563;
+}
+
+.content thead {
+    background-color: #eaebec;
+}
+
+.dark-mode .content thead {
+    background-color: #374151;
+}
+
+.content th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.dark-mode .content th {
+    color: #f9fafb;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content th:last-child {
+    border-right: none;  
+}
+
+.content td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;  
+    color: #6b7280;
+}
+
+.dark-mode .content td {
+    color: #d1d5db;
+    border-bottom: 1px solid #4b5563;
+    border-right: 1px solid #4b5563;  
+}
+
+.content td:last-child {
+    border-right: none;  
+}
+
+.content tbody tr {
+    transition: background-color 0.15s ease-in-out;
+}
+
+.content tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.dark-mode .content tbody tr:hover {
+    background-color: #374151;
+}
+
+.content tbody tr:last-child td {
+    border-bottom: none;
+}
+
+ 
+.content tbody tr:nth-child(even) {
+    background-color: #f4f5f7;
+}
+
+.dark-mode .content tbody tr:nth-child(even) {
+    background-color: #1f2937;
+}
+
+.dark-mode .content tbody tr:nth-child(even):hover {
+    background-color: #374151;
+}
+
+ 
+.content code:not(pre code) {
+    background-color: #f3f4f6;
+    color: #dc2626;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    font-weight: 500;
+    border: 1px solid #e5e7eb;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+}
+
+.dark-mode .content code:not(pre code) {
+    background-color: #224464;
+    color: #f87171;
+    border: 1px solid #4b5563;
+}
+
+ 
+.content pre {
+    background-color: #224464;
+    color: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid #374151;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.dark-mode .content pre {
+    background-color: #111827;
+    border: 1px solid #374151;
+}
+
+ 
+.content pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+    font-weight: normal;
+}
+
+ 
+.content pre code .keyword { color: #f472b6; }  
+.content pre code .function { color: #60a5fa; }  
+.content pre code .string { color: #34d399; }  
+.content pre code .comment { color: #9ca3af; font-style: italic; }  
+.content pre code .number { color: #fbbf24; }  
+.content pre code .class { color: #c084fc; }  
+.content pre code .operator { color: #93c5fd; }  
+
+ 
+.content pre::-webkit-scrollbar {
+    height: 6px;
+}
+
+.content pre::-webkit-scrollbar-track {
+    background: #374151;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.content pre::-webkit-scrollbar-thumb {
+    background: #6b7280;
+    border-radius: 3px;
+}
+
+.content pre::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+ 
+.content h1 code:not(pre code),
+.content h2 code:not(pre code),
+.content h3 code:not(pre code) {
+    font-size: 0.9em;
+    background-color: #fef2f2;
+    color: #dc2626;
+}
+
+.dark-mode .content h1 code:not(pre code),
+.dark-mode .content h2 code:not(pre code),
+.dark-mode .content h3 code:not(pre code) {
+    background-color: #7f1d1d;
+    color: #fca5a5;
+}
+
+ 
+.content a code:not(pre code) {
+    color: inherit;
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+.dark-mode .content a code:not(pre code) {
+    background-color: rgba(96, 165, 250, 0.2);
+}
+        :root {
+            --color-bg: #1a1a1a;
+            --color-text: #e6e6e6;
+            --color-accent: #6b7280;
+            --color-link: #9ca3af;
+            --color-link-hover: #d1d5db;
+        }
+        
+        .light-mode {
+            --color-bg: #f9fafb;
+            --color-text: #1f2937;
+            --color-accent: #6b7280;
+            --color-link: #4b5563;
+            --color-link-hover: #111827;
+        }
+        
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        a {
+            color: var(--color-link);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: var(--color-link-hover);
+        }
+        
+        .sidebar {
+            position: fixed;
+             
+            height: 100vh;
+            overflow-y: auto;
+            
+        }
+        
+        .main-content {
+            margin-left: 350px;
+            
+             
+        }
+        
+        .toc-container {
+            position: fixed;
+            right: 2rem;
+            top: 2rem;
+            width: 250px;
+            display: none;
+        }
+        
+        @media (min-width: 1280px) {
+            .toc-container {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 50;
+            }
+            
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+                 
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: fixed;
+                top: 1rem;
+                left: 1rem;
+                z-index: 100;
+            }
+        }
+        
+        .toc-link.active {
+            color: var(--color-link-hover);
+            font-weight: bold;
+        }
+        
+        .social-icons a {
+            margin-right: 0.5rem;
+        }
+        
+        pre {
+            background-color: rgba(107, 114, 128, 0.1);
+            padding: 1rem;
+            border-radius: 0.25rem;
+            overflow-x: auto;
+        }
+        
+        code {
+            font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+   <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: '#eff6ff',
+                100: '#dbeafe',
+                500: '#0ea5e9',
+                600: '#0284c7',
+              },
+            },
+            boxShadow: {
+              soft: '0 8px 24px rgba(2, 132, 199, 0.08)'
+            }
+          },
+        },
+      }
+    </script>
+</head>
+  <body class="light-mode">
+      <header>
+    
+  </header>
+    
+    <button class="mobile-menu-btn p-2 bg-gray-800 text-white rounded md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+    
+    <aside class="sidebar border-r-4 border-sky-800  min-w-[350px] py-12 px-10 bg-gradient-to-br from-cyan-200 via-green-100 to-sky-100">
+        <div class="flex flex-col items-center mb-8">
+                
+            
+            <div class="w-24 h-24 mb-4 relative">
+                <a href="/">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ viewBox="0 0 550.000000 385.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,385.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M2780 3000 l0 -300 40 0 40 0 0 260 0 260 1165 0 1165 0 0 -1245 0
+-1245 -1165 0 -1165 0 0 260 0 260 -40 0 -40 0 0 -300 0 -300 1245 0 1245 0 0
+1325 0 1325 -1245 0 -1245 0 0 -300z"/>
+<path d="M700 1975 l0 -635 145 0 145 0 0 245 0 245 383 0 c422 0 426 1 491
+66 60 60 66 88 66 319 0 190 -2 214 -21 255 -25 56 -53 86 -104 113 -39 22
+-49 22 -572 25 l-533 3 0 -636z m940 245 l0 -100 -325 0 -325 0 0 100 0 100
+325 0 325 0 0 -100z"/>
+<path d="M2320 2601 c-69 -22 -112 -58 -146 -121 -17 -31 -19 -60 -19 -260 0
+-211 1 -227 22 -265 27 -51 68 -90 115 -109 32 -14 98 -16 438 -16 l400 0 0
+-245 0 -245 145 0 145 0 0 536 c0 373 -3 548 -11 575 -16 50 -61 105 -112 132
+-41 22 -48 22 -497 24 -250 1 -466 -2 -480 -6z m810 -381 l0 -100 -340 0 -340
+0 0 100 0 100 340 0 340 0 0 -100z"/>
+<path d="M3650 2607 c0 -1 99 -144 219 -317 l219 -314 -63 -91 c-34 -49 -133
+-191 -219 -315 l-157 -225 172 -3 c97 -1 176 2 183 7 6 5 72 97 146 205 74
+107 138 196 141 196 4 0 71 -92 149 -205 l143 -205 173 0 c96 0 174 2 174 4 0
+3 -95 141 -211 308 -116 167 -214 308 -216 315 -3 7 92 151 211 322 119 170
+216 312 216 315 0 3 -78 6 -174 6 l-174 0 -143 -205 c-78 -113 -145 -205 -149
+-205 -3 0 -70 92 -148 205 l-143 205 -174 0 c-96 0 -175 -1 -175 -3z"/>
+</g>
+</svg>
+</a>
+            </div>
+
+            <p class="text-xs text-center text-gray-500 max-w-[200px]">
+                Профессиональное агентство контекстной рекламы с опытом более 18 лет.
+
+            </p>
+        </div>
+
+        
+        <nav class="mb-8">
+          
+        
+            
+  <nav>
+    <ul>
+    <li class="text-lg font-semibold">
+      <a href="/">Контекстная реклама</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/analytics/">web-аналитика</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a aria-current="true" class="ancestor" href="/posts/">Блог</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/about/">О нас</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/">Категории</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/job/">Вакансии</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/tags/case/">Кейсы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/calculators/">Калькуляторы</a>
+    </li>
+    <li class="text-lg font-semibold">
+      <a href="/contacts/">Контакты</a>
+    </li>
+    </ul>
+  </nav>
+
+           
+
+        </nav>
+
+        
+        <div class="social-icons  mt-auto">
+<div>
+
+<a href="https://t.me/your_link" target="_blank" class="inline-flex 
+items-center justify-center px-3 py-3 text-white bg-[#2AABEE] font-medium text-sm rounded 
+shadow-md hover:bg-[#279fd9] 
+hover:shadow-lg focus:bg-[#2493c8] 
+focus:shadow-lg focus:outline-none 
+focus:ring-0 active:bg-[#2185b3] active:shadow-lg transition duration-150 ease-in-out">
+  
+     
+<svg width="25px" height="25px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" 
+fill="#fff" class="bi bi-telegram pr-1">
+  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>
+</svg>
+                            
+  
+  Открыть в Telegram
+</a>
+
+</div>
+            <div class="pt-6 flex gap-1 justify-left items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                sale@p9x.ru
+            </div>
+        </div>
+        
+        
+        <div class="mt-8 pt-4 text-xs text-gray-500 border-t border-gray-700">
+            <p>Powered by <a href="#" class="hover:underline">Hugo</a> | Themed with <a href="#" class="hover:underline">poison</a></p>
+            <p>© 2010 - 2025 Poison. All rights reserved.</p>
+        </div>
+    </aside>
+
+  <main class="main-content">
+ 
+            
+            
+   <div class="max-w-[1100px]">
+    
+    <section class="bg-white border border-gray-200  shadow-sm overflow-hidden">
+      
+      <div class="bg-gradient-to-b from-sky-50/60 to-transparent p-6 border-b border-gray-200">
+        <h1 class="text-2xl md:text-3xl font-bold">Особенности Предложения На Рынках-Ловушках</h1>
+        <time class="block mt-2 text-gray-500" datetime="2025-11-19T23:13:09+00:00">
+          
+    
+    November 19, 2025
+        </time>
+
+              
+        <div class="not-prose backdrop-blur-sm pt-4">
+          <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div class="flex items-center gap-3">
+              
+                <img src="/user_02.png" class="h-20 w-20 rounded-full hue-rotate-270" alt="">
+              
+              <div>
+                <p class="text-gray-800 font-medium">Автор: Дмитрий Иванов [Команда P9X]</p>
+                <p class="text-gray-600 text-sm">~8 минут чтения</p>
+              </div>
+            </div>
+            <div class="text-sm text-gray-600">
+                <div class="tags mt-8">
+      
+
+    </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      
+      <article class="px-6 py-6 max-w-[94ch] content">
+  
+
+        
+
+
+        
+     
+           <h2 id="зачем-маркетплейсам-разрабатывать-функции-для-поставщиков">Зачем маркетплейсам разрабатывать функции для поставщиков</h2>
+<p>На высоком уровне у маркетплейсов есть три основные мотивации для разработки функций для поставщиков.</p>
+<h3 id="1-чтобы-маркетплейс-работал">1. Чтобы маркетплейс работал</h3>
+<p>Первая причина заключается в том, что эта функция является базовой; <strong>ваш маркетплейс не будет работать без неё</strong>, или она является частью минимальных ожиданий, которые поставщики будут иметь относительно участия в вашем маркетплейсе. Например, любой маркетплейс, который включает бронирование, такой как Airbnb или Turo, требует наличия календаря. Craigslist требует наличия мессенджера; определение времени и места для получения товара является ключевым для успешного завершения использования маркетплейса. Если вы выходите на рынок с известным конкурентом, набор функций этого конкурента может быть частью основных ожиданий поставщиков, и вам необходимо будет создать аналогичные функции, чтобы быть конкурентоспособными.</p>
+<h3 id="2-чтобы-раскрутить-механизм-работы-маркетплейса">2. Чтобы раскрутить механизм работы маркетплейса</h3>
+<p>Вторая причина для создания функции — <strong>подпитка механизма работы маркетплейса</strong>. Существует несколько способов, с помощью которых функция со стороны поставщиков может это сделать:</p>
+<ul>
+<li><strong>Помочь поставщикам привлечь больше спроса на маркетплейс.</strong> Например, рассмотрим встроенную функцию, которая позволяет поставщикам отправлять электронные письма своим клиентам. Эта функция может привлечь больше клиентов на маркетплейс, что в конечном итоге увеличит количество транзакций на маркетплейсе.</li>
+<li><strong>Упростить поставщикам размещение большего количества товаров на маркетплейсе.</strong> Маркетплейсы могут стимулировать своих поставщиков предоставлять на маркетплейс ещё больше товаров, увеличивая ценность или снижая стоимость добавления дополнительных товаров. Например, система управления запасами может настолько упростить загрузку и продажу товаров, что увеличит долю запасов, которые поставщики предлагают и продают через маркетплейс.</li>
+<li><strong>Открыть доступ к совершенно новому набору поставщиков.</strong> Такая функция позволяет новым типам поставщиков участвовать в работе маркетплейса. Например, у Lyft есть программа, которая позволяет потенциальным водителям арендовать автомобиль через Hertz и Flexdrive. Это открывает доступ к совершенно новому набору потенциальных поставщиков, которые могут стать водителями для Lyft.</li>
+<li><strong>Помочь поставщикам развивать свой бизнес.</strong> Когда у поставщиков более устойчивый и процветающий бизнес, маркетплейс получает выгоду, поскольку поставщики могут предоставлять качественные услуги большему числу потребителей. Например, у DoorDash есть программа под названием DoorDash Capital, где рестораны могут получить аванс по своим платежам, чтобы инвестировать в свой бизнес. Рестораны могут «платить сотрудникам, покрывать непредвиденные расходы, обновлять оборудование и т. д.».</li>
+</ul>
+<h3 id="3-создание-ценностного-предложения-saas">3. Создание ценностного предложения SaaS</h3>
+<p>Последняя причина для создания функции — <strong>создание ценностного предложения, подобного SaaS, для ваших поставщиков</strong>. Есть несколько конкретных причин, по которым маркетплейсы используют ценностное предложение, подобное SaaS: чтобы выиграть время, когда спрос недоступен в качестве ценностного предложения, чтобы добавить дополнительный поток доходов в бизнес и чтобы облегчить поставщикам управление своим бизнесом.</p>
+<p>Например, OpenTable сначала предложила систему управления столиками, которая действительно помогла ресторанам повысить эффективность. Это позволило им привлечь большое количество поставщиков, что сделало возможным предложение ценности на маркетплейсе.</p>
+<p>С другой стороны, Etsy имеет функции, которые объединены в рамках подписного продукта. Продавцы могут платить повторяющуюся плату за доступ к таким функциям, как реклама, настройка магазина и возможность для пользователей запрашивать пополнение запасов. Наконец, функции SaaS могут решить проблему, с которой поставщики сталкиваются при ведении своего бизнеса. Например, команда разработчиков продукта в Eventbrite инвестировала в инструменты отчётности для поставщиков, чтобы сделать эту часть работы более эффективной, помогая создателям сосредоточить больше энергии на организации отличных мероприятий.</p>
+<p>Хотя все эти факторы могут быть вескими причинами для начала разработки функции для поставщиков, маркетплейсы часто совершают ошибку, чрезмерно ориентируясь на функции, которые в основном основаны на ценностном предложении, подобном SaaS. В маркетплейсе очень важно понимать, что функции должны приносить пользу поставщикам и маркетплейсу, а не только поставщикам напрямую.</p>
+<h2 id="ловушка-функций-для-поставщиков">Ловушка функций для поставщиков</h2>
+<p>Очень легко попасть в ловушку, которую создают функции для поставщиков: вы продолжаете инвестировать в функцию, и в конечном итоге сосредотачиваетесь на ценностном предложении, подобном SaaS. Это означает, что вы пытаетесь обеспечить эффективность или улучшение обслуживания, и ваш конкурентный ландшафт значительно растёт. Это происходит за счёт сосредоточения внимания на создании большей активности на маркетплейсе за счёт дополнительного спроса и повышения ликвидности маркетплейса. А это действительно самая большая ценность для поставщиков.</p>
+<p>Это происходит потому, что, когда вы впервые разрабатываете функцию, ваши решения сосредоточены на том, чтобы функция работала, использовалась и нравилась пользователям. Если вы не сможете этого достичь, она, конечно, не будет способствовать достижению более крупных целей маркетплейса. Но без целенаправленной корректировки, по мере взросления функции, вы можете попасть в цикл, когда продолжаете инвестировать в основном в ценностное предложение SaaS.</p>
+<blockquote>
+<p><em>«Если вы создаёте функцию для поставщиков, поставщики скажут вам, как вы можете сделать её лучше. Но <strong>вы не должны создавать всё, что хотят и просят поставщики.</strong> Вам не нужно создавать все навороты, чтобы функция приносила пользу поставщикам и маркетплейсу»</em>.</p>
+<p><em>— Гилад Хорев</em></p></blockquote>
+<p>Независимо от того, только ли вы начинаете работу над новой функцией или понимаете, что можете попасть в ловушку, есть несколько вещей, которые вы можете сделать, чтобы избежать чрезмерных инвестиций в функции для поставщиков.</p>
+<h3 id="как-создавать-функции-которые-связаны-с-ценностью-маркетплейса">Как создавать функции, которые связаны с ценностью маркетплейса</h3>
+<p>Есть три рычага, которые могут использовать руководители продуктов, по отдельности или вместе, чтобы создать маркетплейс, в котором функции связаны с ценностью маркетплейса:</p>
+<ul>
+<li><strong>Метрики:</strong> развивайте метрики функции, чтобы сосредоточиться на ценности маркетплейса.</li>
+<li><strong>Хартии команд:</strong> используйте хартию продуктовой команды, чтобы подтвердить, что команда движется в правильном направлении.</li>
+<li><strong>Организационная структура продукта:</strong> убедитесь, что команды сосредоточены на результатах или проблемах пользователей, а не на функциях.</li>
+</ul>
+<h3 id="развивайте-метрики-функции-чтобы-сосредоточиться-на-ценности-маркетплейса">Развивайте метрики функции, чтобы сосредоточиться на ценности маркетплейса</h3>
+<p>Когда разрабатывается функция, она проходит типичный жизненный цикл метрик. В начале метрики сосредоточены на обеспечении работы функции, измеряя такие показатели, как использование, удобство использования и удовлетворённость. Это хороший старт, чтобы убедиться, что функция жизнеспособна. Затем, когда у вас появляется уверенность в том, что функция работает, успех функции должен быть связан с причинами, по которым вы решили её создать.</p>
+<p>Есть три категории метрик, которые можно использовать, чтобы сосредоточить функцию на ценности маркетплейса:</p>
+<ul>
+<li>Как функция увеличивает спрос.</li>
+<li>Как функция увеличивает предложение.</li>
+<li>Как функция способствует ликвидности (создаёт больше активности на маркетплейсе).</li>
+</ul>
+<h3 id="хартия-продуктовой-команды-для-связи-с-ценностью-маркетплейса">Хартия продуктовой команды для связи с ценностью маркетплейса</h3>
+<p>Хартия продуктовой команды — это короткий документ, в котором команда переосмысливает своё понимание цели команды и то, как она связана со стратегией компании. Поэтому в любой бизнес-модели это может быть эффективным инструментом для обеспечения чёткого определения объёма и целей команды, а также их соответствия бизнес-целям. Однако это ещё более эффективно и полезно для руководителей продуктов, которые балансируют большую сложность.</p>
+<p>Просмотр хартии команды может быть быстрой проверкой того, связывает ли команда свою деятельность с ценностью маркетплейса или стремится к совершенству функций в большей степени изолированно.</p>
+<p>Например, продуктовая команда, которая создаёт инструмент для маркетинга по электронной почте для маркетплейса мероприятий, не должна пытаться создать лучший маркетинговый продукт. Сразу из этой цели руководитель продукта может увидеть, что функция не будет ориентирована на стимулирование ценности маркетплейса.</p>
+<p>Более близкой версией цели продуктовой команды может быть создание лучшего инструмента для создателей мероприятий, поскольку это сужает сферу применения для целевых поставщиков, но всё равно не демонстрирует явной связи с конечной ценностью маркетплейса, которую должна стимулировать функция.</p>
+<p>Примером более тонкой цели для этой команды может быть: «Создать лучший маркетинговый инструмент для создателей мероприятий, который позволит им привлечь новый спрос на наш маркетплейс». Это обеспечивает ограничения, чтобы команда была сосредоточена на правильной целевой аудитории и работала для выполнения ценностного предложения маркетплейса.</p>
+<p>Одна из лучших причин использовать хартию команды — это то, что она заставляет каждого руководителя продукта развивать привычку мыслить в интересах маркетплейса и работать в обратном направлении от результатов.</p>
+<p>Особенно по мере масштабирования маркетплейса будет важно иметь руководителей продуктов, которые могут критически анализировать ценность своей работы, поднимать флаги, если функции потенциально отдаляются от предоставления ценности маркетплейсу, и выдвигать творческие идеи для маркетплейса, которые не ограничиваются конкретными функциями.</p>
+<h3 id="убедитесь-что-команды-сосредоточены-на-результатах-или-проблемах-пользователей-а-не-на-функциях">Убедитесь, что команды сосредоточены на результатах или проблемах пользователей, а не на функциях</h3>
+<p>Наконец, руководители продуктов могут использовать организационную структуру, чтобы закрепить целевое поведение и образ мышления внутри команды.</p>
+<p>Отдельные продуктовые команды, независимо от того, организованы ли они по принципу согласования со заинтересованными сторонами (поставщики или потребители), драйверам ценности или шагам в пути пользователя, <strong>никогда не должны нести исключительную ответственность за функцию</strong>.</p>
+<p>Хотя может показаться, что это самый быстрый или простой способ заставить функцию работать, назначение продуктовой команды для работы над функцией создаёт лазерный фокус на том, как создать лучшую версию этой функции. Вместо этого <strong>руководители продуктов должны сосредоточить команды на цели или проблеме пользователя, а функция может быть частью дорожной карты продукта для достижения цели или решения проблемы</strong>.</p>
+<blockquote>
+<p><em>«Ни одна команда не должна быть посвящена функции. Команды должны ориентироваться на цели или проблемы пользователей»</em>.</p>
+<p><em>— Бен Лозьер, бывший вице-президент по продукту в Thumbtack</em></p></blockquote>
+<p>В Lyft, например, создали команду вокруг функции «запланированные поездки». Это функция, где потенциальный пассажир может забронировать водителя заранее, на определённое время, место и пункт назначения. Хотя первоначальной целью было расставить приоритеты в способности надёжного планирования поездок, команда быстро оказалась в ситуации, когда они отправляли функции с минимальным влиянием на маркетплейс.</p>
+<p><strong>Ориентация команды на цель или проблему пользователя является принудительной функцией для них, чтобы думать о компромиссах вокруг ценности</strong>, а не о компромиссах вокруг удовлетворённости поставщиков.</p>
+<p>Как только команда, занимающаяся запланированными поездками, осознала, что потеряла из виду первоначальную проблему пользователя, они вернулись к первым принципам: они ориентировались на основную проблему пользователя и нашли значимые решения в новых областях.</p>
+<h3 id="максимизация-ценности-маркетплейса-за-счёт-функций-для-поставщиков">Максимизация ценности маркетплейса за счёт функций для поставщиков</h3>
+<p>Есть много веских причин для создания функций для поставщиков, но, в отличие от бизнеса SaaS, для руководителей маркетплейсов критически важно осознавать, сколько они инвестируют в эти функции, и постоянно оценивать ценность, которую эти функции приносят для достижения ценности маркетплейса.</p>
+<p>Руководители продуктов могут полагаться на развитие метрик для связи с ценностью маркетплейса, поручая менеджерам по продуктам быть усердными в отношении своего заявления о миссии в хартии команды, и обеспечивая согласованность продуктовых команд вокруг результатов. Эти различные рычаги помогают гарантировать, что вы создаёте маркетплейс, который настроен на успех, и могут помочь вам выйти из ситуации чрезмерных инвестиций.</p>
+<blockquote>
+<p><em>«Инвестирование в функции для поставщиков может быть мощной тактикой для маркетплейсов, но крайне важно постоянно оценивать их вклад в общую ценность маркетплейса»</em>.</p>
+<p><em>— Гилад Хорев</em></p></blockquote>
+<p><em>Чтобы глубже изучить, как различные функции могут быть связаны с ростом и бизнес-ценностью, вы можете подать заявку в Reforge и ознакомиться с программой Growth Series.</em></p>
+
+        
+
+      </article>
+    </section>
+  </div>
+
+
+
+          
+<footer class="px-6 py-12 bg-sky-950 text-white/50">
+     <div class="inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
+      <div class="relative">
+ 
+          <div class="border-t border-white/10"></div>
+
+          
+          <div class="mt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="text-sm text-slate-400">© <span id="year"></span>P9X.ru 2010 - 2025г. услуги интернет маркетинга</p>
+            <div class="flex items-center gap-4 text-slate-400 text-sm">
+              <a href="#" class="hover:text-white transition">Документы</a>
+              <a href="#" class="hover:text-white transition">Служба поддержки</a>
+              <a href="#" class="hover:text-white transition">Статус</a>
+            </div>
+          </div>      
+      </div>
+
+
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105149615', 'ym');
+
+    ym(105149615, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/105149615" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+  </footer>
+  </main>          
+
+    <script>
+
+        
+        
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const sidebar = document.querySelector('.sidebar');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+        
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                if (entry.isIntersecting) {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.add('active');
+                    });
+                } else {
+                    document.querySelectorAll(`.toc-link[href="#${id}"]`).forEach(link => {
+                        link.classList.remove('active');
+                    });
+                }
+            });
+        }, observerOptions);
+        
+        
+        document.querySelectorAll('h2[id]').forEach(heading => {
+            observer.observe(heading);
+        });
+    </script>
+
+
+
+</body>
+</html>

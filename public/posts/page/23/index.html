@@ -3,13 +3,18 @@
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
-<title>Posts | Агентство контекстной рекламы</title>
-<meta name="description" content="">
+<title>  
+    Posts
+     | P9X
+  </title>
+  <meta name="description" content="">
 <meta name="yandex-verification" content="242f5a0ee52d5836" />
+<meta name="google-site-verification" content="0Ytq4iozDTscUw8IMVUsSsLQ4yEXHRwKZSvFYqnSNtE" />
+<link rel="canonical" href="http://localhost:1313/posts/" />
 
 <link rel="icon" type="image/x-icon" href="http://localhost:1313/favicon.ico">
 
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  
  <style>
   .content h1 { 
         font-size: 1.875rem; 
@@ -349,6 +354,26 @@
             font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
         }
     </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+   <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: '#eff6ff',
+                100: '#dbeafe',
+                500: '#0ea5e9',
+                600: '#0284c7',
+              },
+            },
+            boxShadow: {
+              soft: '0 8px 24px rgba(2, 132, 199, 0.08)'
+            }
+          },
+        },
+      }
+    </script>
 </head>
   <body class="light-mode">
       <header>
@@ -429,7 +454,7 @@ fill="#000000" stroke="none">
       <a href="/job/">Вакансии</a>
     </li>
     <li class="text-lg font-semibold">
-      <a href="/tags/">Кейсы</a>
+      <a href="/tags/case/">Кейсы</a>
     </li>
     <li class="text-lg font-semibold">
       <a href="/calculators/">Калькуляторы</a>
@@ -481,7 +506,7 @@ fill="#fff" class="bi bi-telegram pr-1">
         </div>
     </aside>
 
-  <main class="main-content bg-white">
+  <main class="main-content">
  
             
             
@@ -496,36 +521,7 @@ fill="#fff" class="bi bi-telegram pr-1">
         
         <article class="bg-white rounded-lg border border-gray-200  p-6 hover:shadow-lg transition-shadow">
             <h2 class="text-xl font-semibold text-gray-800 mb-2">
-                <a href="/posts/optimizing-marketing-campaigns-with-budgeted-multi-armed-bandits-a65fccd61878_324/" class="hover:text-blue-600 transition-colors">
-                    Оптимизация маркетинговых кампаний с помощью многоруких бандитов с ограниченным бюджетом | На пути к науке о данных
-                </a>
-            </h2>
-            <p class="text-gray-600"><h3 id="давайте-сразу-перейдём-к-примеру-предположим-что-банк-или-телекоммуникационная-компания-запускает-новый-продукт-или-план-для-существующих-клиентов-чтобы-продвигать-этот-продукт-компания-создаёт-несколько-шаблонов-звонков-скриптов-для-своих-торговых-представителей-цель--эффективно-убедить-клиентов-купить-новый-продукт-или-подписаться-на-новый-план">Давайте сразу перейдём к примеру. Предположим, что банк или телекоммуникационная компания запускает новый продукт или план для существующих клиентов. Чтобы продвигать этот продукт, компания создаёт несколько шаблонов звонков (скриптов) для своих торговых представителей. Цель — эффективно убедить клиентов купить новый продукт или подписаться на новый план.</h3>
-<h4 id="как-работает-кампания">Как работает кампания:</h4>
-<ul>
-<li><strong>Создание скриптов для звонков:</strong> маркетинговая команда разрабатывает несколько версий скрипта для звонков, каждая с разным подходом к продвижению нового продукта или плана.</li>
-<li><strong>Звонки агентов:</strong> торговые агенты используют эти скрипты для звонков определённой группе клиентов. В каждом взаимодействии с клиентом используется один из предопределённых скриптов.</li>
-<li><strong>Сбор данных:</strong> во время звонков компания собирает данные об ответах клиентов, таких как проявленный интерес, заданные вопросы и, в конечном итоге, коэффициенты конверсии (то есть сколько клиентов купили новый продукт или подписались на новый план).</li>
-<li><strong>Анализ в реальном времени:</strong> компания анализирует эти данные в режиме реального времени, чтобы оценить эффективность каждого скрипта. Этот анализ помогает определить, какие скрипты более успешны в привлечении клиентов к новому плану/продукту.</li>
-<li><strong>Обновление стратегии:</strong> на основе текущего анализа компания динамически регулирует частоту использования каждого скрипта. Скрипты с более высокими коэффициентами конверсии используются чаще, что со временем делает кампанию всё более эффективной.</li>
-</ul>
-<p>Далее мы покажем, как смоделировать упрощённую версию этой кампании, используя традиционную задачу о многоруком бандите.</p></p>
-        </article>
-        
-        <article class="bg-white rounded-lg border border-gray-200  p-6 hover:shadow-lg transition-shadow">
-            <h2 class="text-xl font-semibold text-gray-800 mb-2">
-                <a href="/posts/align-on-product-adoption-get-ahead-of-churn-boost-retention_443/" class="hover:text-blue-600 transition-colors">
-                    Ориентируясь на внедрение продукта: предотвратите отток клиентов и повысьте удержание персонала
-                </a>
-            </h2>
-            <p class="text-gray-600"><h3 id="каждая-команда-в-которой-я-участвовал-ставила-цель-по-удержанию-клиентов-и-уделяла-этому-много-внимания-уверен-что-для-вас-это-тоже-верно-все-знают-что-плохое-удержание-может-погубить-бизнес">Каждая команда, в которой я участвовал, ставила цель по удержанию клиентов и уделяла этому много внимания. Уверен, что для вас это тоже верно. Все знают, что плохое удержание может погубить бизнес.</h3>
-<p><em>«О нет — этот аккаунт должен быть продлён через 90 дней! Нужно срочно заняться этим!»</em></p>
-<p>Звучит знакомо? Отток — это результат. Это последнее, что происходит. Конечно, вы можете спасти клиента из группы риска, сосредоточив на нём внимание в течение 90 дней. Но это не устойчиво и не масштабируемо.</p></p>
-        </article>
-        
-        <article class="bg-white rounded-lg border border-gray-200  p-6 hover:shadow-lg transition-shadow">
-            <h2 class="text-xl font-semibold text-gray-800 mb-2">
-                <a href="/posts/mastering-marketing-mix-modelling-in-python-7bbfe31360f9_323/" class="hover:text-blue-600 transition-colors">
+                <a href="/mastering-marketing-mix-modelling-in-python-bbfef/" class="hover:text-blue-600 transition-colors">
                     Освоение моделирования маркетингового комплекса на Python | На пути к науке о данных
                 </a>
             </h2>
@@ -535,7 +531,7 @@ fill="#fff" class="bi bi-telegram pr-1">
         
         <article class="bg-white rounded-lg border border-gray-200  p-6 hover:shadow-lg transition-shadow">
             <h2 class="text-xl font-semibold text-gray-800 mb-2">
-                <a href="/posts/framework-driving-product-market-fit-pilots_436/" class="hover:text-blue-600 transition-colors">
+                <a href="/framework-driving-product-market-fit-pilots/" class="hover:text-blue-600 transition-colors">
                     Основа для приведения продукта в соответствие с рынком с помощью пилотных проектов
                 </a>
             </h2>
@@ -546,7 +542,7 @@ fill="#fff" class="bi bi-telegram pr-1">
         
         <article class="bg-white rounded-lg border border-gray-200  p-6 hover:shadow-lg transition-shadow">
             <h2 class="text-xl font-semibold text-gray-800 mb-2">
-                <a href="/posts/first-principles-thinking-for-data-scientists_304/" class="hover:text-blue-600 transition-colors">
+                <a href="/first-principles-thinking-for-data-scientists/" class="hover:text-blue-600 transition-colors">
                     Основные принципы мышления для специалистов по обработке данных | На пути к науке о данных
                 </a>
             </h2>
@@ -557,7 +553,7 @@ fill="#fff" class="bi bi-telegram pr-1">
         
         <article class="bg-white rounded-lg border border-gray-200  p-6 hover:shadow-lg transition-shadow">
             <h2 class="text-xl font-semibold text-gray-800 mb-2">
-                <a href="/posts/from-data-to-marketing-strategy-using-transactional-segmentation-640b527a677b_345/" class="hover:text-blue-600 transition-colors">
+                <a href="/from-data-to-marketing-strategy-using-transactional-segmentation-bab/" class="hover:text-blue-600 transition-colors">
                     От данных к маркетинговой стратегии с использованием транзакционной сегментации | На пути к науке о данных
                 </a>
             </h2>
@@ -569,7 +565,7 @@ fill="#fff" class="bi bi-telegram pr-1">
         
         <article class="bg-white rounded-lg border border-gray-200  p-6 hover:shadow-lg transition-shadow">
             <h2 class="text-xl font-semibold text-gray-800 mb-2">
-                <a href="/posts/data-informed-b2b-bam_152/" class="hover:text-blue-600 transition-colors">
+                <a href="/data-informed-bb-bam/" class="hover:text-blue-600 transition-colors">
                     От перегрузки данными к информированности о них: решение проблем с контентом с помощью маркетинга Best Answer
                 </a>
             </h2>
@@ -579,7 +575,7 @@ fill="#fff" class="bi bi-telegram pr-1">
         
         <article class="bg-white rounded-lg border border-gray-200  p-6 hover:shadow-lg transition-shadow">
             <h2 class="text-xl font-semibold text-gray-800 mb-2">
-                <a href="/posts/from-search-to-selection-how-to-find-a-marketing-agency-that-fits-your-needs_223/" class="hover:text-blue-600 transition-colors">
+                <a href="/from-search-to-selection-how-to-find-a-marketing-agency-that-fits-your-needs/" class="hover:text-blue-600 transition-colors">
                     От поиска к выбору: Как найти маркетинговое агентство, соответствующее Вашим потребностям
                 </a>
             </h2>
@@ -592,7 +588,7 @@ fill="#fff" class="bi bi-telegram pr-1">
         
         <article class="bg-white rounded-lg border border-gray-200  p-6 hover:shadow-lg transition-shadow">
             <h2 class="text-xl font-semibold text-gray-800 mb-2">
-                <a href="/posts/death-of-third-party-cookies-and-marketing_656/" class="hover:text-blue-600 transition-colors">
+                <a href="/death-of-third-party-cookies-and-marketing/" class="hover:text-blue-600 transition-colors">
                     Отказ от использования файлов cookie третьих лиц: маркетинг в мире, где куки не используются - Apiary Digital
                 </a>
             </h2>
@@ -604,7 +600,7 @@ fill="#fff" class="bi bi-telegram pr-1">
         
         <article class="bg-white rounded-lg border border-gray-200  p-6 hover:shadow-lg transition-shadow">
             <h2 class="text-xl font-semibold text-gray-800 mb-2">
-                <a href="/posts/ai-taking-jobs_469/" class="hover:text-blue-600 transition-colors">
+                <a href="/ai-taking-jobs/" class="hover:text-blue-600 transition-colors">
                     Отнимает ли ИИ рабочие места? Новое исследование о будущем сферы труда
                 </a>
             </h2>
@@ -615,7 +611,7 @@ fill="#fff" class="bi bi-telegram pr-1">
         
         <article class="bg-white rounded-lg border border-gray-200  p-6 hover:shadow-lg transition-shadow">
             <h2 class="text-xl font-semibold text-gray-800 mb-2">
-                <a href="/posts/website-form-submissions-are-not-leads_625/" class="hover:text-blue-600 transition-colors">
+                <a href="/website-form-submissions-are-not-leads/" class="hover:text-blue-600 transition-colors">
                     Отправка формы на веб-сайт АВТОМАТИЧЕСКИ НЕ приводит к поиску потенциальных клиентов - Apiary Digital
                 </a>
             </h2>
@@ -628,7 +624,7 @@ fill="#fff" class="bi bi-telegram pr-1">
         
         <article class="bg-white rounded-lg border border-gray-200  p-6 hover:shadow-lg transition-shadow">
             <h2 class="text-xl font-semibold text-gray-800 mb-2">
-                <a href="/posts/negative-keywords-for-shopping-campaigns_604/" class="hover:text-blue-600 transition-colors">
+                <a href="/negative-keywords-for-shopping-campaigns/" class="hover:text-blue-600 transition-colors">
                     Отрицательные ключевые слова для торговых кампаний
                 </a>
             </h2>
@@ -640,7 +636,7 @@ fill="#fff" class="bi bi-telegram pr-1">
         
         <article class="bg-white rounded-lg border border-gray-200  p-6 hover:shadow-lg transition-shadow">
             <h2 class="text-xl font-semibold text-gray-800 mb-2">
-                <a href="/posts/b2b-reporting_55/" class="hover:text-blue-600 transition-colors">
+                <a href="/bb-reporting/" class="hover:text-blue-600 transition-colors">
                     Отчетность в сфере B2B: инструменты, стратегии и информационные панели на 2025 год
                 </a>
             </h2>
@@ -653,7 +649,7 @@ fill="#fff" class="bi bi-telegram pr-1">
         
         <article class="bg-white rounded-lg border border-gray-200  p-6 hover:shadow-lg transition-shadow">
             <h2 class="text-xl font-semibold text-gray-800 mb-2">
-                <a href="/posts/client-reporting_33/" class="hover:text-blue-600 transition-colors">
+                <a href="/client-reporting/" class="hover:text-blue-600 transition-colors">
                     Отчеты клиентов, которые приводят к достижению результатов: важные идеи
                 </a>
             </h2>
@@ -665,7 +661,7 @@ fill="#fff" class="bi bi-telegram pr-1">
         
         <article class="bg-white rounded-lg border border-gray-200  p-6 hover:shadow-lg transition-shadow">
             <h2 class="text-xl font-semibold text-gray-800 mb-2">
-                <a href="/posts/account-scoring_129/" class="hover:text-blue-600 transition-colors">
+                <a href="/account-scoring/" class="hover:text-blue-600 transition-colors">
                     Оценка B2B-аккаунтов: модели, стратегии и примеры
                 </a>
             </h2>
@@ -678,7 +674,7 @@ fill="#fff" class="bi bi-telegram pr-1">
         
         <article class="bg-white rounded-lg border border-gray-200  p-6 hover:shadow-lg transition-shadow">
             <h2 class="text-xl font-semibold text-gray-800 mb-2">
-                <a href="/posts/evaluating-your-rag-solution_313/" class="hover:text-blue-600 transition-colors">
+                <a href="/evaluating-your-rag-solution/" class="hover:text-blue-600 transition-colors">
                     Оценка вашего решения RAG | На пути к науке о данных
                 </a>
             </h2>
@@ -689,7 +685,7 @@ fill="#fff" class="bi bi-telegram pr-1">
         
         <article class="bg-white rounded-lg border border-gray-200  p-6 hover:shadow-lg transition-shadow">
             <h2 class="text-xl font-semibold text-gray-800 mb-2">
-                <a href="/posts/lead-scoring-definition-and-how-to-calculate-a-lead-score_497/" class="hover:text-blue-600 transition-colors">
+                <a href="/lead-scoring-definition-and-how-to-calculate-a-lead-score/" class="hover:text-blue-600 transition-colors">
                     Оценка лидирующих позиций: определение и как рассчитать оценку лидирующих позиций
                 </a>
             </h2>
@@ -701,7 +697,7 @@ fill="#fff" class="bi bi-telegram pr-1">
         
         <article class="bg-white rounded-lg border border-gray-200  p-6 hover:shadow-lg transition-shadow">
             <h2 class="text-xl font-semibold text-gray-800 mb-2">
-                <a href="/posts/evaluating-synthetic-data-the-million-dollar-question-a54701d1b621_270/" class="hover:text-blue-600 transition-colors">
+                <a href="/evaluating-synthetic-data-the-million-dollar-question-adb/" class="hover:text-blue-600 transition-colors">
                     Оценка синтетических данных — Вопрос на миллион долларов | На пути к науке о данных
                 </a>
             </h2>
@@ -712,7 +708,7 @@ fill="#fff" class="bi bi-telegram pr-1">
         
         <article class="bg-white rounded-lg border border-gray-200  p-6 hover:shadow-lg transition-shadow">
             <h2 class="text-xl font-semibold text-gray-800 mb-2">
-                <a href="/posts/how-to-evaluate-the-business-value-of-marketing-automation-ai-in-2026_92/" class="hover:text-blue-600 transition-colors">
+                <a href="/how-to-evaluate-the-business-value-of-marketing-automation-ai-in-/" class="hover:text-blue-600 transition-colors">
                     Оценка эффективности маркетинговых инвестиций и автоматизации ROI
                 </a>
             </h2>
@@ -722,11 +718,35 @@ fill="#fff" class="bi bi-telegram pr-1">
         
         <article class="bg-white rounded-lg border border-gray-200  p-6 hover:shadow-lg transition-shadow">
             <h2 class="text-xl font-semibold text-gray-800 mb-2">
-                <a href="/posts/nudges-creating-urgency-higher-conversions-revenue_367/" class="hover:text-blue-600 transition-colors">
+                <a href="/nudges-creating-urgency-higher-conversions-revenue/" class="hover:text-blue-600 transition-colors">
                     Ошибка в базе данных
                 </a>
             </h2>
             <p class="text-gray-600"><h1 id="ошибка-установления-соединения-с-базой-данных">Ошибка установления соединения с базой данных</h1></p>
+        </article>
+        
+        <article class="bg-white rounded-lg border border-gray-200  p-6 hover:shadow-lg transition-shadow">
+            <h2 class="text-xl font-semibold text-gray-800 mb-2">
+                <a href="/marketing-analytics-mistake-efficiency-without-effectiveness/" class="hover:text-blue-600 transition-colors">
+                    Ошибка маркетинговой аналитики №1: Эффективность без результативности! -
+                </a>
+            </h2>
+            <p class="text-gray-600"><p>«Давайте все сосредоточимся на единой метрике, истинном севере для всей компании!»</p>
+<p>Это понятное стремление со стороны крайне высокопоставленных руководителей (ESL).</p>
+<p>В организации так много информационных панелей (извините, «dashboards»), что сотрудники сталкиваются с трудностями в стремлении быть умнее. Или, что ещё хуже, команды/агентства могут выборочно показывать «влияние».</p>
+<p>Следовательно, идея ESL благородна: если мы все будем смотреть на одну метрику, никто не сможет манипулировать системой.</p>
+<p>К сожалению, есть непредвиденные последствия.</p>
+<p><strong>[Бонусные размышления:</strong> недооценённая проблема: методология. Ваши команды в США, Аргентине, Индонезии могут отчитываться по одной и той же метрике, скажем, по приросту намерения совершить покупку, но делать это с использованием совершенно разных методологий!</p></p>
+        </article>
+        
+        <article class="bg-white rounded-lg border border-gray-200  p-6 hover:shadow-lg transition-shadow">
+            <h2 class="text-xl font-semibold text-gray-800 mb-2">
+                <a href="/common-remarketing-mistakes-in-google-ads/" class="hover:text-blue-600 transition-colors">
+                    Ошибки ремаркетинга, которые вы допускаете в Google Ads
+                </a>
+            </h2>
+            <p class="text-gray-600"><p>В условиях работы с агентствами мы взаимодействуем с широким кругом маркетологов из различных отраслей. Один из наиболее интригующих аспектов нашей работы — оценка и анализ текущих аккаунтов в Google Ads. Это помогает нам определить, можем ли мы быть подходящим партнёром и сможем ли мы обеспечить значимую ценность как агентство цифрового маркетинга.</p>
+<p>Благодаря этой практике мы видим, как рекламодатели в разных отраслях настраивают аккаунты и как они работают друг против друга; какие тактики распространены, какие инновации работают и для кого?</p></p>
         </article>
         
        
@@ -1160,7 +1180,37 @@ fill="#fff" class="bi bi-telegram pr-1">
 
 
           
-            
+<footer class="px-6 py-12 bg-sky-950 text-white/50">
+     <div class="inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
+      <div class="relative">
+ 
+          <div class="border-t border-white/10"></div>
+
+          
+          <div class="mt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="text-sm text-slate-400">© <span id="year"></span>P9X.ru 2010 - 2025г. услуги интернет маркетинга</p>
+            <div class="flex items-center gap-4 text-slate-400 text-sm">
+              <a href="#" class="hover:text-white transition">Документы</a>
+              <a href="#" class="hover:text-white transition">Служба поддержки</a>
+              <a href="#" class="hover:text-white transition">Статус</a>
+            </div>
+          </div>      
+      </div>
+
+
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105149615', 'ym');
+
+    ym(105149615, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/105149615" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+  </footer>
   </main>          
 
     <script>
@@ -1203,22 +1253,6 @@ fill="#fff" class="bi bi-telegram pr-1">
     </script>
 
 
-  <footer class="px-6 py-12 bg-sky-950 text-white/50">
-    
-<p>P9X.ru 2010 - 2025г. услуги интернет маркетинга</p>
 
-<script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105149615', 'ym');
-
-    ym(105149615, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/105149615" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-
-  </footer>
 </body>
 </html>
