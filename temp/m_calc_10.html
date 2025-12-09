@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Калькулятор достоверности A/B-тестирования</title>
+</head>
+<body class="bg-gray-50 p-6 font-sans">
+  <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-6">
+    <!-- Заголовок -->
+    <div class="text-center mb-6">
+      <h1 class="text-xl font-bold text-gray-800">Калькулятор достоверности A/B-тестирования</h1>
+      <p class="text-sm text-gray-500 mt-1">Введите данные по сегментам и рассчитайте статистическую достоверность, CPA, относительную конверсию и эффект теста.</p>
+    </div>
+
+    <div class="flex flex-col md:flex-row gap-6">
+      <!-- Левая колонка: Форма -->
+      <div class="md:w-1/2 space-y-4">
+        <!-- Целевое p-value -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Целевое p-value (%)</label>
+          <input 
+            type="number" 
+            id="targetPValue" 
+            value="80"
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+          />
+        </div>
+
+        <!-- Максимально допустимый коэффициент жёсткости вложений -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Максимально допустимый коэффициент жёсткости вложений</label>
+          <input 
+            type="number" 
+            id="maxRigidity" 
+            value="2"
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+          />
+        </div>
+
+        <!-- Таблица сегментов -->
+        <div class="mt-4">
+          <div class="grid grid-cols-5 gap-2 text-xs font-medium text-gray-700 mb-2">
+            <div>Сегмент</div>
+            <div>Размер (%)</div>
+            <div>Расходы</div>
+            <div>Конверсии</div>
+            <div>Клики</div>
+          </div>
+
+          <!-- Сегмент A -->
+          <div class="grid grid-cols-5 gap-2 mb-2">
+            <div class="pt-1">A</div>
+            <input type="number" id="sizeA" value="50" class="px-2 py-1 border border-gray-300 rounded text-sm" />
+            <input type="number" id="costsA" value="100000" class="px-2 py-1 border border-gray-300 rounded text-sm" />
+            <input type="number" id="conversionsA" value="300" class="px-2 py-1 border border-gray-300 rounded text-sm" />
+            <input type="number" id="clicksA" value="12000" class="px-2 py-1 border border-gray-300 rounded text-sm" />
+          </div>
+
+          <!-- Сегмент B -->
+          <div class="grid grid-cols-5 gap-2">
+            <div class="pt-1">B</div>
+            <input type="number" id="sizeB" value="50" class="px-2 py-1 border border-gray-300 rounded text-sm" />
+            <input type="number" id="costsB" value="100000" class="px-2 py-1 border border-gray-300 rounded text-sm" />
+            <input type="number" id="conversionsB" value="350" class="px-2 py-1 border border-gray-300 rounded text-sm" />
+            <input type="number" id="clicksB" value="12500" class="px-2 py-1 border border-gray-300 rounded text-sm" />
+          </div>
+        </div>
+
+        <!-- Кнопка Рассчитать -->
+        <button 
+          id="calculateBtn"
+          class="w-full bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-full transition-colors duration-200 mt-4"
+        >
+          Рассчитать
+        </button>
+      </div>
+
+      <!-- Правая колонка: Результаты -->
+      <div class="md:w-1/2 bg-gray-100 rounded-lg p-4">
+        <h2 class="text-lg font-bold text-gray-800 mb-4">Результаты</h2>
+        <div class="space-y-2 text-sm">
+          <div><strong>CPA сегмента A:</strong> <span id="cpaA">—</span></div>
+          <div><strong>CPA сегмента B:</strong> <span id="cpaB">—</span></div>
+          <div><strong>Разница CPA (B к A):</strong> <span id="cpaDiff">—</span></div>
+          <div><strong>Конверсия A:</strong> <span id="convA">—</span></div>
+          <div><strong>Конверсия B:</strong> <span id="convB">—</span></div>
+          <div><strong>Относительный рост конверсии:</strong> <span id="relGrowth">—</span></div>
+          <div><strong>Оценка достоверности (p-value):</strong> <span id="pValueResult">—</span></div>
+          <div><strong>Рекомендация:</strong> <span id="recommendation">—</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('calculateBtn').addEventListener('click', function() {
+      // Получаем значения
+      const costsA = parseFloat(document.getElementById('costsA').value) || 0;
+      const conversionsA = parseFloat(document.getElementById('conversionsA').value) || 0;
+      const clicksA = parseFloat(document.getElementById('clicksA').value) || 0;
+
+      const costsB = parseFloat(document.getElementById('costsB').value) || 0;
+      const conversionsB = parseFloat(document.getElementById('conversionsB').value) || 0;
+      const clicksB = parseFloat(document.getElementById('clicksB').value) || 0;
+
+      const targetPValue = parseFloat(document.getElementById('targetPValue').value) || 80;
+      const maxRigidity = parseFloat(document.getElementById('maxRigidity').value) || 2;
+
+      // Расчёт CPA
+      const cpaA = conversionsA > 0 ? costsA / conversionsA : 0;
+      const cpaB = conversionsB > 0 ? costsB / conversionsB : 0;
+
+      // Разница CPA (B к A)
+      const cpaDiffPercent = cpaA > 0 ? ((cpaB - cpaA) / cpaA) * 100 : 0;
+
+      // Конверсия (конверсии / клики)
+      const convA = clicksA > 0 ? (conversionsA / clicksA) * 100 : 0;
+      const convB = clicksB > 0 ? (conversionsB / clicksB) * 100 : 0;
+
+      // Относительный рост конверсии (B к A)
+      const relGrowth = convA > 0 ? ((convB - convA) / convA) * 100 : 0;
+
+      // Простая оценка достоверности (упрощённая логика)
+      let pValueEstimate = 0;
+      if (Math.abs(relGrowth) > 5 && Math.abs(cpaDiffPercent) > 5) {
+        pValueEstimate = 95; // высокая достоверность
+      } else if (Math.abs(relGrowth) > 2 && Math.abs(cpaDiffPercent) > 2) {
+        pValueEstimate = 85; // средняя
+      } else {
+        pValueEstimate = 70; // низкая
+      }
+
+      // Рекомендация
+      let recommendation = "Тест не дал значимых результатов.";
+      if (pValueEstimate >= targetPValue && relGrowth > 0 && cpaDiffPercent < 0) {
+        recommendation = "Рекомендуется использовать вариант B — он показал лучшую конверсию и более низкий CPA.";
+      } else if (pValueEstimate >= targetPValue && relGrowth > 0) {
+        recommendation = "Вариант B лучше по конверсии, но CPA выше — оцените целесообразность.";
+      } else if (pValueEstimate >= targetPValue && cpaDiffPercent < 0) {
+        recommendation = "Вариант B дешевле, но конверсия ниже — проверьте качество трафика.";
+      }
+
+      // Вывод результатов
+      document.getElementById('cpaA').textContent = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(cpaA);
+      document.getElementById('cpaB').textContent = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(cpaB);
+      document.getElementById('cpaDiff').textContent = cpaDiffPercent.toFixed(2) + ' %';
+      document.getElementById('convA').textContent = convA.toFixed(2) + ' %';
+      document.getElementById('convB').textContent = convB.toFixed(2) + ' %';
+      document.getElementById('relGrowth').textContent = relGrowth.toFixed(2) + ' %';
+      document.getElementById('pValueResult').textContent = pValueEstimate.toFixed(0) + ' %';
+      document.getElementById('recommendation').textContent = recommendation;
+    });
+  </script>
+</body>
+</html>

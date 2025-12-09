@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Калькулятор скорости Scrum (Velocity)</title>
+</head>
+<body class="bg-gray-50 p-6 font-sans">
+  <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-6">
+    <!-- Заголовок -->
+    <div class="text-center mb-6">
+      <h1 class="text-xl font-bold text-gray-800">Калькулятор скорости Scrum (Velocity)</h1>
+      <p class="text-sm text-gray-500 mt-1">Рассчитайте среднюю скорость команды по завершённым story points и оцените, сколько спринтов нужно для закрытия бэклога.</p>
+    </div>
+
+    <div class="flex flex-col md:flex-row gap-6">
+      <!-- Левая колонка: Форма -->
+      <div class="md:w-1/2 space-y-4">
+        <!-- Story points за спринты -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Story points, завершённые за последние спринты</label>
+          <div class="space-y-2">
+            <div>
+              <label class="block text-xs font-medium text-gray-600 mb-1">Спринт 1</label>
+              <input 
+                type="number" 
+                id="sprint1" 
+                value="1"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                oninput="calculateVelocity()"
+              />
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-gray-600 mb-1">Спринт 2</label>
+              <input 
+                type="number" 
+                id="sprint2" 
+                value="2"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                oninput="calculateVelocity()"
+              />
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-gray-600 mb-1">Спринт 3</label>
+              <input 
+                type="number" 
+                id="sprint3" 
+                value="3"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                oninput="calculateVelocity()"
+              />
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-gray-600 mb-1">Спринт 4 (необязательно)</label>
+              <input 
+                type="number" 
+                id="sprint4" 
+                value="4"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                oninput="calculateVelocity()"
+              />
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-gray-600 mb-1">Спринт 5 (необязательно)</label>
+              <input 
+                type="number" 
+                id="sprint5" 
+                value="4"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                oninput="calculateVelocity()"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Оставшийся объём бэклога -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Оставшийся объём бэклога, story points (необязательно)</label>
+          <input 
+            type="number" 
+            id="backlogRemaining" 
+            value="100"
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            oninput="calculateVelocity()"
+          />
+        </div>
+
+        <!-- Кнопка Рассчитать скорость Scrum -->
+        <button 
+          id="calculateBtn"
+          class="w-full bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-full transition-colors duration-200 mt-4"
+          onclick="calculateVelocity()"
+        >
+          Рассчитать скорость Scrum
+        </button>
+      </div>
+
+      <!-- Правая колонка: Результаты -->
+      <div class="md:w-1/2 bg-gray-100 rounded-lg p-4">
+        <h2 class="text-lg font-bold text-gray-800 mb-4">Результаты</h2>
+        <div class="space-y-2">
+          <div><strong>Средняя скорость (Velocity):</strong> <span id="velocityResult">—</span></div>
+          <div><strong>Оценка спринтов для завершения бэклога:</strong> <span id="sprintsNeededResult">—</span></div>
+          <div><strong>Интерпретация:</strong> <span id="interpretationResult">—</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function calculateVelocity() {
+      // Получаем значения спринтов
+      const s1 = parseFloat(document.getElementById('sprint1').value) || 0;
+      const s2 = parseFloat(document.getElementById('sprint2').value) || 0;
+      const s3 = parseFloat(document.getElementById('sprint3').value) || 0;
+      const s4 = parseFloat(document.getElementById('sprint4').value) || 0;
+      const s5 = parseFloat(document.getElementById('sprint5').value) || 0;
+
+      // Считаем количество заполненных спринтов и сумму story points
+      const sprintValues = [s1, s2, s3, s4, s5];
+      const filledSprints = sprintValues.filter(val => val > 0).length;
+      const totalPoints = sprintValues.reduce((sum, val) => sum + val, 0);
+
+      // Средняя скорость (Velocity)
+      const velocity = filledSprints > 0 ? totalPoints / filledSprints : 0;
+
+      // Оставшийся бэклог
+      const backlog = parseFloat(document.getElementById('backlogRemaining').value) || 0;
+
+      // Оценка спринтов для завершения бэклога
+      let sprintsNeeded = 0;
+      if (velocity > 0 && backlog > 0) {
+        sprintsNeeded = backlog / velocity;
+      }
+
+      // Интерпретация
+      let interpretation = "Скорость низкая — возможно, команда перегружена или задачи плохо декомпозированы.";
+      if (velocity >= 10) {
+        interpretation = "Высокая скорость — команда эффективна и стабильна.";
+      } else if (velocity >= 5) {
+        interpretation = "Умеренная скорость — есть потенциал для роста.";
+      }
+
+      // Вывод результатов
+      document.getElementById('velocityResult').textContent = velocity.toFixed(1) + ' story points / спринт';
+      document.getElementById('sprintsNeededResult').textContent = sprintsNeeded > 0 ? sprintsNeeded.toFixed(1) + ' спринта' : '—';
+      document.getElementById('interpretationResult').textContent = interpretation;
+    }
+
+    // Инициализация при загрузке страницы
+    window.addEventListener('DOMContentLoaded', calculateVelocity);
+  </script>
+</body>
+</html>

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор ROI цифровой рекламы</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-purple-100 min-h-screen p-4 md:p-6">
+    <div class="max-w-6xl mx-auto">
+        <!-- Заголовок -->
+        <div class="text-center mb-8 md:mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-3">Калькулятор ROI цифровой рекламы</h1>
+            <p class="text-gray-600 max-w-2xl mx-auto">Рассчитайте эффективность ваших рекламных кампаний с учетом LTV клиентов</p>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+                <!-- Левая колонка - параметры -->
+                <div class="bg-gray-50 p-6 md:p-8">
+                    <h2 class="text-xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-sliders-h mr-3 text-blue-500"></i>Параметры рекламной кампании
+                    </h2>
+
+                    <!-- Бюджет -->
+                    <div class="mb-7">
+                        <label for="budget" class="block text-sm font-medium text-gray-700 mb-2">
+                            <i class="fas fa-wallet mr-2 text-green-500"></i>Ежемесячный бюджет на рекламу (₽)
+                        </label>
+                        <input type="number" id="budget" value="8200" min="100" max="100000" step="100" 
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
+                        <div class="flex justify-between text-xs text-gray-500 mt-1">
+                            <span>100 ₽</span>
+                            <span>50 тыс. ₽</span>
+                        </div>
+                    </div>
+
+                    <!-- Цена за клик -->
+                    <div class="mb-7">
+                        <label for="cpc" class="block text-sm font-medium text-gray-700 mb-2">
+                            <i class="fas fa-mouse-pointer mr-2 text-purple-500"></i>Цена за клик (CPC, ₽)
+                        </label>
+                        <input type="number" id="cpc" value="16.3" min="0.1" max="50" step="0.1" 
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
+                        <div class="flex justify-between text-xs text-gray-500 mt-1">
+                            <span>0.1 ₽</span>
+                            <span>50 ₽</span>
+                        </div>
+                    </div>
+
+                    <!-- Конверсия сайт → лид -->
+                    <div class="mb-7">
+                        <label for="conversionRate" class="block text-sm font-medium text-gray-700 mb-2">
+                            <i class="fas fa-chart-line mr-2 text-teal-500"></i>Конверсия сайт → лид (%)
+                        </label>
+                        <input type="number" id="conversionRate" value="3.00" min="0.1" max="50" step="0.1" 
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
+                        <div class="flex justify-between text-xs text-gray-500 mt-1">
+                            <span>0.1%</span>
+                            <span>50%</span>
+                        </div>
+                    </div>
+
+                    <!-- Конверсия лид → клиент -->
+                    <div class="mb-7">
+                        <label for="leadToCustomer" class="block text-sm font-medium text-gray-700 mb-2">
+                            <i class="fas fa-user-check mr-2 text-red-500"></i>Конверсия лид → клиент (%)
+                        </label>
+                        <input type="number" id="leadToCustomer" value="16" min="1" max="90" step="1" 
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
+                        <div class="flex justify-between text-xs text-gray-500 mt-1">
+                            <span>1%</span>
+                            <span>90%</span>
+                        </div>
+                    </div>
+
+                    <!-- Средняя цена продажи -->
+                    <div class="mb-7">
+                        <label for="salePrice" class="block text-sm font-medium text-gray-700 mb-2">
+                            <i class="fas fa-tag mr-2 text-yellow-500"></i>Средняя цена первой продажи (₽)
+                        </label>
+                        <input type="number" id="salePrice" value="15300" min="100" max="100000" step="100" 
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
+                        <div class="flex justify-between text-xs text-gray-500 mt-1">
+                            <span>100 ₽</span>
+                            <span>100 тыс. ₽</span>
+                        </div>
+                    </div>
+
+                    <!-- LTV -->
+                    <div class="mb-7">
+                        <label for="ltv" class="block text-sm font-medium text-gray-700 mb-2">
+                            <i class="fas fa-chart-pie mr-2 text-indigo-500"></i>LTV (общая ценность клиента, ₽)
+                        </label>
+                        <input type="number" id="ltv" value="45000" min="100" max="500000" step="100" 
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
+                        <div class="flex justify-between text-xs text-gray-500 mt-1">
+                            <span>100 ₽</span>
+                            <span>500 тыс. ₽</span>
+                        </div>
+                    </div>
+
+                    <!-- Средний срок жизни клиента -->
+                    <div class="mb-2">
+                        <label for="customerLifetime" class="block text-sm font-medium text-gray-700 mb-2">
+                            <i class="fas fa-calendar-alt mr-2 text-orange-500"></i>Средний срок жизни клиента (мес.)
+                        </label>
+                        <input type="number" id="customerLifetime" value="24" min="1" max="120" step="1" 
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
+                        <div class="flex justify-between text-xs text-gray-500 mt-1">
+                            <span>1 мес.</span>
+                            <span>10 лет</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Правая колонка - результаты -->
+                <div class="p-6 md:p-8">
+                    <h2 class="text-xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-chart-bar mr-3 text-blue-500"></i>Результаты расчета
+                    </h2>
+
+                    <!-- Основные показатели -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <div class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white p-5 rounded-xl shadow">
+                            <div class="text-sm font-medium mb-1">Количество кликов</div>
+                            <div class="text-2xl font-bold mb-2" id="clicks">503</div>
+                            <div class="text-xs opacity-80 border-t border-blue-400 pt-2">
+                                Бюджет ÷ Цена за клик
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-purple-500 to-pink-600 text-white p-5 rounded-xl shadow">
+                            <div class="text-sm font-medium mb-1">Количество лидов</div>
+                            <div class="text-2xl font-bold mb-2" id="leads">15</div>
+                            <div class="text-xs opacity-80 border-t border-purple-400 pt-2">
+                                Клики × Конверсия сайт→лид
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-cyan-500 to-blue-500 text-white p-5 rounded-xl shadow">
+                            <div class="text-sm font-medium mb-1">Стоимость за лид (CPL)</div>
+                            <div class="text-2xl font-bold mb-2" id="cpl">543 ₽</div>
+                            <div class="text-xs opacity-80 border-t border-cyan-400 pt-2">
+                                Бюджет ÷ Лиды
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-green-500 to-teal-500 text-white p-5 rounded-xl shadow">
+                            <div class="text-sm font-medium mb-1">Количество клиентов</div>
+                            <div class="text-2xl font-bold mb-2" id="customers">2</div>
+                            <div class="text-xs opacity-80 border-t border-green-400 pt-2">
+                                Лиды × Конверсия лид→клиент
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Финансовые результаты (первая продажа) -->
+                    <div class="mb-4">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-3 flex items-center">
+                            <i class="fas fa-shopping-cart mr-2 text-blue-500"></i>Первая продажа
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-gradient-to-r from-gray-600 to-gray-800 text-white p-4 rounded-xl shadow">
+                                <div class="text-sm font-medium mb-1">Доход с первой продажи</div>
+                                <div class="text-xl font-bold mb-2" id="firstSaleRevenue">30,600 ₽</div>
+                                <div class="text-xs opacity-80 border-t border-gray-500 pt-2">
+                                    Клиенты × Цена продажи
+                                </div>
+                            </div>
+
+                            <div class="bg-gradient-to-r from-green-500 to-emerald-600 text-white p-4 rounded-xl shadow">
+                                <div class="text-sm font-medium mb-1">Прибыль с первой продажи</div>
+                                <div class="text-xl font-bold mb-2" id="firstSaleProfit">22,400 ₽</div>
+                                <div class="text-xs opacity-80 border-t border-green-400 pt-2">
+                                    Доход - Бюджет
+                                </div>
+                            </div>
+
+                            <div class="bg-gradient-to-r from-blue-500 to-cyan-500 text-white p-4 rounded-xl shadow">
+                                <div class="text-sm font-medium mb-1">ROI первой продажи</div>
+                                <div class="text-xl font-bold mb-2" id="firstSaleRoi">273.2%</div>
+                                <div class="text-xs opacity-80 border-t border-blue-400 pt-2">
+                                    (Прибыль ÷ Бюджет) × 100%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Финансовые результаты (LTV) -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-3 flex items-center">
+                            <i class="fas fa-chart-line mr-2 text-green-500"></i>С учетом LTV клиента
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-gradient-to-r from-indigo-600 to-purple-700 text-white p-4 rounded-xl shadow">
+                                <div class="text-sm font-medium mb-1">Общий доход (LTV)</div>
+                                <div class="text-xl font-bold mb-2" id="ltvRevenue">90,000 ₽</div>
+                                <div class="text-xs opacity-80 border-t border-indigo-400 pt-2">
+                                    Клиенты × LTV
+                                </div>
+                            </div>
+
+                            <div class="bg-gradient-to-r from-emerald-600 to-green-700 text-white p-4 rounded-xl shadow">
+                                <div class="text-sm font-medium mb-1">Общая прибыль (LTV)</div>
+                                <div class="text-xl font-bold mb-2" id="ltvProfit">81,800 ₽</div>
+                                <div class="text-xs opacity-80 border-t border-emerald-400 pt-2">
+                                    Доход LTV - Бюджет
+                                </div>
+                            </div>
+
+                            <div class="bg-gradient-to-r from-orange-500 to-red-500 text-white p-4 rounded-xl shadow">
+                                <div class="text-sm font-medium mb-1">ROI с учетом LTV</div>
+                                <div class="text-xl font-bold mb-2" id="ltvRoi">997.6%</div>
+                                <div class="text-xs opacity-80 border-t border-orange-400 pt-2">
+                                    (Прибыль LTV ÷ Бюджет) × 100%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Дополнительные метрики -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-3 flex items-center">
+                            <i class="fas fa-calculator mr-2 text-purple-500"></i>Дополнительные метрики
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-gradient-to-r from-teal-500 to-cyan-600 text-white p-4 rounded-xl shadow">
+                                <div class="text-sm font-medium mb-1">Стоимость привлечения клиента (CAC)</div>
+                                <div class="text-xl font-bold mb-2" id="cac">4,100 ₽</div>
+                                <div class="text-xs opacity-80 border-t border-teal-400 pt-2">
+                                    Бюджет ÷ Клиенты
+                                </div>
+                            </div>
+
+                            <div class="bg-gradient-to-r from-violet-500 to-purple-600 text-white p-4 rounded-xl shadow">
+                                <div class="text-sm font-medium mb-1">Соотношение LTV:CAC</div>
+                                <div class="text-xl font-bold mb-2" id="ltvCacRatio">11.0</div>
+                                <div class="text-xs opacity-80 border-t border-violet-400 pt-2">
+                                    LTV ÷ CAC
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Визуализация сравнения -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-3">Сравнение: первая продажа vs LTV</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-sm text-gray-700 mb-1">
+                                    <span>Прибыль с первой продажи</span>
+                                    <span id="firstProfitValue">22,400 ₽</span>
+                                </div>
+                                <div class="h-4 bg-gray-200 rounded-full overflow-hidden">
+                                    <div id="firstProfitBar" class="h-full bg-gradient-to-r from-blue-500 to-cyan-500" style="width: 25%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm text-gray-700 mb-1">
+                                    <span>Общая прибыль (LTV)</span>
+                                    <span id="ltvProfitValue">81,800 ₽</span>
+                                </div>
+                                <div class="h-4 bg-gray-200 rounded-full overflow-hidden">
+                                    <div id="ltvProfitBar" class="h-full bg-gradient-to-r from-green-500 to-emerald-600" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Подсказки -->
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-lg">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-lightbulb text-blue-500 mt-1"></i>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-sm font-medium text-blue-800">Совет по оптимизации</h3>
+                                <div class="mt-1 text-sm text-blue-700">
+                                    <p id="adviceText">Ваша реклама высокорентабельна! С учетом LTV ROI достигает 997% - отличный результат для масштабирования.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Пояснения -->
+        <div class="mt-8 bg-white rounded-2xl shadow-lg p-6 md:p-8">
+            <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                <i class="fas fa-info-circle mr-3 text-blue-500"></i>Как работает калькулятор?
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="font-semibold text-gray-700 mb-2">Ключевые метрики:</h3>
+                    <ul class="list-disc pl-5 text-gray-600 space-y-2">
+                        <li><span class="font-medium">CPC (Cost Per Click)</span> - цена за клик</li>
+                        <li><span class="font-medium">CPL (Cost Per Lead)</span> - стоимость привлечения лида</li>
+                        <li><span class="font-medium">CAC (Customer Acquisition Cost)</span> - стоимость привлечения клиента</li>
+                        <li><span class="font-medium">LTV (Lifetime Value)</span> - общая ценность клиента</li>
+                        <li><span class="font-medium">ROI (Return On Investment)</span> - возврат на инвестиции</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-gray-700 mb-2">Оптимальные значения:</h3>
+                    <ul class="list-disc pl-5 text-gray-600 space-y-2">
+                        <li><span class="font-medium">LTV:CAC ≥ 3:1</span> - здоровый бизнес</li>
+                        <li><span class="font-medium">ROI ≥ 100%</span> - прибыльная кампания</li>
+                        <li><span class="font-medium">Конверсия лид→клиент ≥ 10%</span> - эффективные продажи</li>
+                        <li><span class="font-medium">Срок жизни клиента ≥ 12 мес.</span> - хорошее удержание</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Получаем все элементы ввода
+        const inputs = {
+            budget: document.getElementById('budget'),
+            cpc: document.getElementById('cpc'),
+            conversionRate: document.getElementById('conversionRate'),
+            salePrice: document.getElementById('salePrice'),
+            leadToCustomer: document.getElementById('leadToCustomer'),
+            ltv: document.getElementById('ltv'),
+            customerLifetime: document.getElementById('customerLifetime')
+        };
+
+        // Получаем все элементы для вывода результатов
+        const results = {
+            // Основные показатели
+            clicks: document.getElementById('clicks'),
+            leads: document.getElementById('leads'),
+            cpl: document.getElementById('cpl'),
+            customers: document.getElementById('customers'),
+            
+            // Первая продажа
+            firstSaleRevenue: document.getElementById('firstSaleRevenue'),
+            firstSaleProfit: document.getElementById('firstSaleProfit'),
+            firstSaleRoi: document.getElementById('firstSaleRoi'),
+            
+            // LTV
+            ltvRevenue: document.getElementById('ltvRevenue'),
+            ltvProfit: document.getElementById('ltvProfit'),
+            ltvRoi: document.getElementById('ltvRoi'),
+            
+            // Дополнительные метрики
+            cac: document.getElementById('cac'),
+            ltvCacRatio: document.getElementById('ltvCacRatio'),
+            
+            // Визуализация
+            firstProfitValue: document.getElementById('firstProfitValue'),
+            ltvProfitValue: document.getElementById('ltvProfitValue'),
+            firstProfitBar: document.getElementById('firstProfitBar'),
+            ltvProfitBar: document.getElementById('ltvProfitBar'),
+            
+            // Совет
+            adviceText: document.getElementById('adviceText')
+        };
+
+        // Функция для форматирования чисел с разделителями
+        function formatNumber(num) {
+            return new Intl.NumberFormat('ru-RU').format(Math.round(num));
+        }
+
+        // Функция для форматирования десятичных чисел
+        function formatDecimal(num, decimals = 1) {
+            return new Intl.NumberFormat('ru-RU', {
+                minimumFractionDigits: decimals,
+                maximumFractionDigits: decimals
+            }).format(num);
+        }
+
+        // Функция для расчета всех показателей
+        function calculateAll() {
+            // Получаем значения из полей ввода
+            const budget = parseFloat(inputs.budget.value) || 0;
+            const cpc = parseFloat(inputs.cpc.value) || 0;
+            const conversionRate = parseFloat(inputs.conversionRate.value) || 0;
+            const salePrice = parseFloat(inputs.salePrice.value) || 0;
+            const leadToCustomer = parseFloat(inputs.leadToCustomer.value) || 0;
+            const ltv = parseFloat(inputs.ltv.value) || 0;
+            const customerLifetime = parseFloat(inputs.customerLifetime.value) || 0;
+
+            // Выполняем расчеты
+            const clicks = budget / cpc;
+            const leads = clicks * (conversionRate / 100);
+            const cpl = leads > 0 ? budget / leads : 0;
+            const customers = leads * (leadToCustomer / 100);
+            
+            // Расчеты для первой продажи
+            const firstSaleRevenue = customers * salePrice;
+            const firstSaleProfit = firstSaleRevenue - budget;
+            const firstSaleRoi = budget > 0 ? (firstSaleProfit / budget) * 100 : 0;
+            
+            // Расчеты с учетом LTV
+            const ltvRevenue = customers * ltv;
+            const ltvProfit = ltvRevenue - budget;
+            const ltvRoi = budget > 0 ? (ltvProfit / budget) * 100 : 0;
+            
+            // Дополнительные метрики
+            const cac = customers > 0 ? budget / customers : 0;
+            const ltvCacRatio = cac > 0 ? ltv / cac : 0;
+
+            // Обновляем результаты на странице
+            results.clicks.textContent = formatNumber(clicks);
+            results.leads.textContent = formatNumber(leads);
+            results.cpl.textContent = formatNumber(cpl) + ' ₽';
+            results.customers.textContent = formatNumber(Math.floor(customers));
+            
+            // Первая продажа
+            results.firstSaleRevenue.textContent = formatNumber(firstSaleRevenue) + ' ₽';
+            results.firstSaleProfit.textContent = formatNumber(firstSaleProfit) + ' ₽';
+            results.firstSaleRoi.textContent = formatDecimal(firstSaleRoi) + '%';
+            
+            // LTV
+            results.ltvRevenue.textContent = formatNumber(ltvRevenue) + ' ₽';
+            results.ltvProfit.textContent = formatNumber(ltvProfit) + ' ₽';
+            results.ltvRoi.textContent = formatDecimal(ltvRoi) + '%';
+            
+            // Дополнительные метрики
+            results.cac.textContent = formatNumber(cac) + ' ₽';
+            results.ltvCacRatio.textContent = formatDecimal(ltvCacRatio, 1);
+            
+            // Визуализация сравнения
+            const maxProfit = Math.max(firstSaleProfit, ltvProfit, 1);
+            const firstProfitPercent = (firstSaleProfit / maxProfit) * 100;
+            const ltvProfitPercent = (ltvProfit / maxProfit) * 100;
+            
+            results.firstProfitValue.textContent = formatNumber(firstSaleProfit) + ' ₽';
+            results.ltvProfitValue.textContent = formatNumber(ltvProfit) + ' ₽';
+            results.firstProfitBar.style.width = `${firstProfitPercent}%`;
+            results.ltvProfitBar.style.width = `${ltvProfitPercent}%`;
+            
+            // Обновляем совет
+            updateAdvice(firstSaleRoi, ltvRoi, cpl, ltv, leadToCustomer, customerLifetime, ltvCacRatio);
+        }
+
+        // Функция для обновления совета
+        function updateAdvice(firstSaleRoi, ltvRoi, cpl, ltv, leadToCustomer, customerLifetime, ltvCacRatio) {
+            let advice = "";
+            
+            // Анализ ROI первой продажи
+            if (firstSaleRoi > 200) {
+                advice = "Отличная рентабельность первой продажи! ";
+            } else if (firstSaleRoi > 50) {
+                advice = "Хорошая рентабельность первой продажи. ";
+            } else if (firstSaleRoi > 0) {
+                advice = "Рентабельность первой продажи положительная, но можно улучшить. ";
+            } else {
+                advice = "Внимание: первая продажа убыточна. ";
+            }
+            
+            // Анализ LTV:CAC
+            if (ltvCacRatio > 5) {
+                advice += "LTV значительно превышает стоимость привлечения (LTV:CAC = " + formatDecimal(ltvCacRatio, 1) + ") - идеально для масштабирования. ";
+            } else if (ltvCacRatio > 3) {
+                advice += "Соотношение LTV к стоимости привлечения хорошее (LTV:CAC = " + formatDecimal(ltvCacRatio, 1) + "). ";
+            } else if (ltvCacRatio > 1) {
+                advice += "LTV покрывает стоимость привлечения (LTV:CAC = " + formatDecimal(ltvCacRatio, 1) + "), но есть потенциал для роста. ";
+            } else {
+                advice += "Внимание: LTV не покрывает стоимость привлечения клиента (LTV:CAC = " + formatDecimal(ltvCacRatio, 1) + "). ";
+            }
+            
+            // Рекомендации по сроку жизни клиента
+            if (customerLifetime < 12) {
+                advice += "Рассмотрите программы лояльности для увеличения срока жизни клиентов.";
+            } else if (customerLifetime > 36) {
+                advice += "Долгий срок жизни клиентов - ваше конкурентное преимущество!";
+            }
+            
+            results.adviceText.textContent = advice;
+        }
+
+        // Добавляем обработчики событий на все поля ввода
+        Object.values(inputs).forEach(input => {
+            input.addEventListener('input', calculateAll);
+            input.addEventListener('change', calculateAll);
+        });
+
+        // Запускаем первоначальный расчет
+        calculateAll();
+    </script>
+</body>
+</html>

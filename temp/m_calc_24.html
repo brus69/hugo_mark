@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Калькулятор когортного анализа</title>
+</head>
+<body class="bg-gray-50 p-6 font-sans">
+  <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-6">
+    <!-- Заголовок -->
+    <div class="text-center mb-6">
+      <h1 class="text-xl font-bold text-gray-800">Калькулятор когортного анализа</h1>
+      <p class="text-sm text-gray-500 mt-1">Рассчитайте удержание пользователей, отток и прогнозируемый доход по когортам. Бесплатно и удобно — инструмент Product Lab для анализа роста продукта.</p>
+    </div>
+
+    <div class="flex flex-col md:flex-row gap-6">
+      <!-- Левая колонка: Форма -->
+      <div class="md:w-1/2 space-y-4">
+        <!-- Количество пользователей при регистрации -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Количество пользователей при регистрации</label>
+          <input 
+            type="number" 
+            id="initialUsers" 
+            value="1000"
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            oninput="calculateCohort()"
+          />
+        </div>
+
+        <!-- Активных пользователей через 1 месяц -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Активных пользователей через 1 месяц</label>
+          <input 
+            type="number" 
+            id="activeMonth1" 
+            value="600"
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            oninput="calculateCohort()"
+          />
+        </div>
+
+        <!-- Активных пользователей через 2 месяца -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Активных пользователей через 2 месяца</label>
+          <input 
+            type="number" 
+            id="activeMonth2" 
+            value="400"
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            oninput="calculateCohort()"
+          />
+        </div>
+
+        <!-- Активных пользователей через 3 месяца -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Активных пользователей через 3 месяца</label>
+          <input 
+            type="number" 
+            id="activeMonth3" 
+            value="250"
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            oninput="calculateCohort()"
+          />
+        </div>
+
+        <!-- Средний доход на пользователя -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Средний доход на пользователя (руб.)</label>
+          <input 
+            type="number" 
+            id="avgRevenuePerUser" 
+            value="5000"
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            oninput="calculateCohort()"
+          />
+        </div>
+
+        <!-- Кнопка Рассчитать показатели -->
+        <button 
+          id="calculateBtn"
+          class="w-full bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-full transition-colors duration-200 mt-4"
+          onclick="calculateCohort()"
+        >
+          Рассчитать показатели
+        </button>
+      </div>
+
+      <!-- Правая колонка: Результаты -->
+      <div class="md:w-1/2 bg-gray-100 rounded-lg p-4">
+        <h2 class="text-lg font-bold text-gray-800 mb-4">Результаты</h2>
+        <div class="space-y-2">
+          <div><strong>Удержание 1 мес:</strong> <span id="retention1Result">—</span></div>
+          <div><strong>Удержание 2 мес:</strong> <span id="retention2Result">—</span></div>
+          <div><strong>Удержание 3 мес:</strong> <span id="retention3Result">—</span></div>
+          <hr class="my-3 border-gray-300" />
+          <div><strong>Средний отток:</strong> <span id="avgChurnResult">—</span></div>
+          <div><strong>Прогнозируемый доход:</strong> <span id="forecastedRevenueResult">—</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function calculateCohort() {
+      const initialUsers = parseInt(document.getElementById('initialUsers').value) || 0;
+      const activeMonth1 = parseInt(document.getElementById('activeMonth1').value) || 0;
+      const activeMonth2 = parseInt(document.getElementById('activeMonth2').value) || 0;
+      const activeMonth3 = parseInt(document.getElementById('activeMonth3').value) || 0;
+      const avgRevenuePerUser = parseFloat(document.getElementById('avgRevenuePerUser').value) || 0;
+
+      // Расчёт удержания
+      const retention1 = initialUsers > 0 ? (activeMonth1 / initialUsers) * 100 : 0;
+      const retention2 = initialUsers > 0 ? (activeMonth2 / initialUsers) * 100 : 0;
+      const retention3 = initialUsers > 0 ? (activeMonth3 / initialUsers) * 100 : 0;
+
+      // Расчёт среднего оттока
+      const churn1 = 100 - retention1;
+      const churn2 = 100 - retention2;
+      const churn3 = 100 - retention3;
+      const avgChurn = (churn1 + churn2 + churn3) / 3;
+
+      // Прогнозируемый доход (сумма дохода за 3 месяца)
+      const totalActiveUsers = activeMonth1 + activeMonth2 + activeMonth3;
+      const forecastedRevenue = totalActiveUsers * avgRevenuePerUser;
+
+      // Вывод результатов
+      document.getElementById('retention1Result').textContent = retention1.toFixed(1) + '%';
+      document.getElementById('retention2Result').textContent = retention2.toFixed(1) + '%';
+      document.getElementById('retention3Result').textContent = retention3.toFixed(1) + '%';
+      document.getElementById('avgChurnResult').textContent = avgChurn.toFixed(1) + '%';
+      document.getElementById('forecastedRevenueResult').textContent = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(forecastedRevenue);
+    }
+
+    // Инициализация при загрузке страницы
+    window.addEventListener('DOMContentLoaded', calculateCohort);
+  </script>
+</body>
+</html>

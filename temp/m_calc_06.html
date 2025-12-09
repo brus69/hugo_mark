@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Калькулятор бюджета стартапа</title>
+</head>
+<body class="bg-gray-50 p-6 font-sans">
+  <div class="max-w-6xl mx-auto space-y-6">
+
+    <!-- Заголовок -->
+    <div class="text-center mb-6">
+      <h1 class="text-xl font-bold text-gray-800">Калькулятор бюджета стартапа</h1>
+      <p class="text-sm text-gray-500 mt-1">Рассчитайте расходы, доходы, ROI, срок окупаемости и финансовый запас вашего проекта.</p>
+    </div>
+
+    <!-- Блок входных данных -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Стартовый кэш -->
+      <div class="bg-white rounded-lg shadow p-4">
+        <label class="block text-sm font-medium text-gray-700 mb-2">Стартовый кэш (₽)</label>
+        <input 
+          type="number" 
+          id="startupCash" 
+          value="300000"
+          class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          oninput="updateAll()"
+        />
+        <p class="text-xs text-gray-500 mt-1">Деньги на счёте на старте.</p>
+      </div>
+
+      <!-- Первоначальные инвестиции -->
+      <div class="bg-white rounded-lg shadow p-4">
+        <label class="block text-sm font-medium text-gray-700 mb-2">Первоначальные инвестиции (₽)</label>
+        <input 
+          type="number" 
+          id="initialInvestments" 
+          value="2000000"
+          class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          oninput="updateAll()"
+        />
+        <p class="text-xs text-gray-500 mt-1">Нужны для ROI и окупаемости. Если нет — оставьте 0.</p>
+      </div>
+
+      <!-- Горизонт расчёта -->
+      <div class="bg-white rounded-lg shadow p-4">
+        <label class="block text-sm font-medium text-gray-700 mb-2">Горизонт расчёта (месяцев)</label>
+        <input 
+          type="number" 
+          id="calcHorizon" 
+          value="12"
+          class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          oninput="updateAll()"
+        />
+        <p class="text-xs text-gray-500 mt-1">Используется в карточках «ежемесячно».</p>
+      </div>
+    </div>
+
+    <!-- Расходы -->
+    <div class="bg-white rounded-lg shadow p-6">
+      <h2 class="text-lg font-bold text-gray-800 mb-4">Предполагаемые годовые расходы</h2>
+      <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-gray-200">
+          <thead>
+            <tr>
+              <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Статья</th>
+              <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Категория</th>
+              <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">План (₽/год)</th>
+              <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Факт (₽/год)</th>
+              <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Расхождение</th>
+              <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Действия</th>
+            </tr>
+          </thead>
+          <tbody id="expensesTableBody" class="bg-white divide-y divide-gray-200">
+            <!-- Динамические строки будут добавляться здесь -->
+          </tbody>
+          <tfoot>
+            <tr class="bg-gray-50">
+              <td colspan="2" class="px-4 py-2 font-semibold">ИТОГО (год):</td>
+              <td id="totalPlanExpenses" class="px-4 py-2 font-semibold">—</td>
+              <td id="totalFactExpenses" class="px-4 py-2 font-semibold">—</td>
+              <td id="totalDiffExpenses" class="px-4 py-2 font-semibold">—</td>
+              <td class="px-4 py-2">
+                <button 
+                  id="addExpenseBtn"
+                  class="bg-gray-800 hover:bg-gray-900 text-white text-sm font-medium py-1 px-3 rounded-full transition-colors duration-200"
+                >
+                  + Добавить расход
+                </button>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+
+    <!-- Доходы -->
+    <div class="bg-white rounded-lg shadow p-6">
+      <h2 class="text-lg font-bold text-gray-800 mb-4">Предполагаемые годовые доходы</h2>
+      <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-gray-200">
+          <thead>
+            <tr>
+              <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Источник дохода</th>
+              <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Категория</th>
+              <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">План (₽/год)</th>
+              <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Факт (₽/год)</th>
+              <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Расхождение</th>
+              <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Действия</th>
+            </tr>
+          </thead>
+          <tbody id="revenueTableBody" class="bg-white divide-y divide-gray-200">
+            <!-- Динамические строки будут добавляться здесь -->
+          </tbody>
+          <tfoot>
+            <tr class="bg-gray-50">
+              <td colspan="2" class="px-4 py-2 font-semibold">ИТОГО (год):</td>
+              <td id="totalPlanRevenue" class="px-4 py-2 font-semibold">—</td>
+              <td id="totalFactRevenue" class="px-4 py-2 font-semibold">—</td>
+              <td id="totalDiffRevenue" class="px-4 py-2 font-semibold">—</td>
+              <td class="px-4 py-2">
+                <button 
+                  id="addRevenueBtn"
+                  class="bg-gray-800 hover:bg-gray-900 text-white text-sm font-medium py-1 px-3 rounded-full transition-colors duration-200"
+                >
+                  + Добавить доход
+                </button>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+
+    <!-- Результаты -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Годовой бюджет расходов -->
+      <div class="bg-white rounded-lg shadow p-4">
+        <h3 class="font-bold text-gray-800 mb-2">Годовой бюджет расходов</h3>
+        <div class="space-y-2 text-sm">
+          <div><span class="text-gray-500">План:</span> <span id="resultPlanExpenses">—</span></div>
+          <div><span class="text-gray-500">Факт:</span> <span id="resultFactExpenses">—</span></div>
+          <div><span class="text-gray-500">Расхождение:</span> <span id="resultDiffExpenses">—</span></div>
+        </div>
+      </div>
+
+      <!-- Годовой доход -->
+      <div class="bg-white rounded-lg shadow p-4">
+        <h3 class="font-bold text-gray-800 mb-2">Годовой доход</h3>
+        <div class="space-y-2 text-sm">
+          <div><span class="text-gray-500">План:</span> <span id="resultPlanRevenue">—</span></div>
+          <div><span class="text-gray-500">Факт:</span> <span id="resultFactRevenue">—</span></div>
+          <div><span class="text-gray-500">Расхождение:</span> <span id="resultDiffRevenue">—</span></div>
+        </div>
+      </div>
+
+      <!-- Оценочный годовой баланс -->
+      <div class="bg-white rounded-lg shadow p-4">
+        <h3 class="font-bold text-gray-800 mb-2">Оценочный годовой баланс</h3>
+        <div class="space-y-2 text-sm">
+          <div><span class="text-gray-500">План:</span> <span id="resultPlanBalance">—</span></div>
+          <div><span class="text-gray-500">Факт:</span> <span id="resultFactBalance">—</span></div>
+          <div><span class="text-gray-500">Расхождение:</span> <span id="resultDiffBalance">—</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Месячный бюджет расходов -->
+      <div class="bg-white rounded-lg shadow p-4">
+        <h3 class="font-bold text-gray-800 mb-2">Месячный бюджет расходов</h3>
+        <div class="space-y-2 text-sm">
+          <div><span class="text-gray-500">План:</span> <span id="monthlyPlanExpenses">—</span></div>
+          <div><span class="text-gray-500">Факт:</span> <span id="monthlyFactExpenses">—</span></div>
+          <div><span class="text-gray-500">Расхождение:</span> <span id="monthlyDiffExpenses">—</span></div>
+        </div>
+      </div>
+
+      <!-- Ежемесячный доход -->
+      <div class="bg-white rounded-lg shadow p-4">
+        <h3 class="font-bold text-gray-800 mb-2">Ежемесячный доход</h3>
+        <div class="space-y-2 text-sm">
+          <div><span class="text-gray-500">План:</span> <span id="monthlyPlanRevenue">—</span></div>
+          <div><span class="text-gray-500">Факт:</span> <span id="monthlyFactRevenue">—</span></div>
+          <div><span class="text-gray-500">Расхождение:</span> <span id="monthlyDiffRevenue">—</span></div>
+        </div>
+      </div>
+
+      <!-- Оценочный месячный баланс -->
+      <div class="bg-white rounded-lg shadow p-4">
+        <h3 class="font-bold text-gray-800 mb-2">Оценочный месячный баланс</h3>
+        <div class="space-y-2 text-sm">
+          <div><span class="text-gray-500">План:</span> <span id="monthlyPlanBalance">—</span></div>
+          <div><span class="text-gray-500">Факт:</span> <span id="monthlyFactBalance">—</span></div>
+          <div><span class="text-gray-500">Расхождение:</span> <span id="monthlyDiffBalance">—</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- ROI -->
+      <div class="bg-white rounded-lg shadow p-4">
+        <h3 class="font-bold text-gray-800 mb-2">ROI (год, план)</h3>
+        <div class="text-2xl font-bold" id="roiResult">—</div>
+        <div class="text-xs text-gray-500 mt-1">ROI = (Доход – Инвестиции) / Инвестиции.</div>
+      </div>
+
+      <!-- Runway -->
+      <div class="bg-white rounded-lg shadow p-4">
+        <h3 class="font-bold text-gray-800 mb-2">Runway (мес.)</h3>
+        <div class="text-2xl font-bold" id="runwayResult">—</div>
+        <div class="text-xs text-gray-500 mt-1">Стартовый кэш / среднемес. burn (если burn > 0).</div>
+      </div>
+
+      <!-- Окупаемость -->
+      <div class="bg-white rounded-lg shadow p-4">
+        <h3 class="font-bold text-gray-800 mb-2">Окупаемость (мес, план)</h3>
+        <div class="text-2xl font-bold" id="paybackResult">—</div>
+        <div class="text-xs text-gray-500 mt-1">Месяц, когда накопленный баланс ≥ 0 с учётом стартового кэша.</div>
+      </div>
+    </div>
+
+    <!-- Кнопка Рассчитать -->
+    <div class="text-center">
+      <button 
+        id="calculateBtn"
+        class="bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-6 rounded-full transition-colors duration-200"
+        onclick="updateAll()"
+      >
+        Рассчитать
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // Инициализация данных
+    let expenses = [
+      { item: 'Зарплата фронтенд-разработчика', category: 'ЗП', plan: 720000, fact: 700000 },
+      { item: 'Маркетинговая кампания Google', category: 'Маркетинг', plan: 360000, fact: 410000 },
+      { item: 'Подписка на облачный сервер', category: 'Инфраструктура', plan: 120000, fact: 110000 }
+    ];
+
+    let revenue = [
+      { source: 'Годовой доход от подписки', category: 'Подписки', plan: 240000, fact: 250000 },
+      { source: 'Инвестиции из раунда X', category: 'Инвестиции', plan: 0, fact: 0 }
+    ];
+
+    // Функция для рендеринга таблицы расходов
+    function renderExpenses() {
+      const tbody = document.getElementById('expensesTableBody');
+      tbody.innerHTML = '';
+      expenses.forEach((exp, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td class="px-4 py-2"><input type="text" value="${exp.item}" class="w-full px-2 py-1 border border-gray-300 rounded text-sm" oninput="updateExpense(${index}, this)" /></td>
+          <td class="px-4 py-2"><input type="text" value="${exp.category}" class="w-full px-2 py-1 border border-gray-300 rounded text-sm" oninput="updateExpense(${index}, this)" /></td>
+          <td class="px-4 py-2"><input type="number" value="${exp.plan}" class="w-full px-2 py-1 border border-gray-300 rounded text-sm" oninput="updateExpense(${index}, this)" /></td>
+          <td class="px-4 py-2"><input type="number" value="${exp.fact}" class="w-full px-2 py-1 border border-gray-300 rounded text-sm" oninput="updateExpense(${index}, this)" /></td>
+          <td class="px-4 py-2 ${exp.fact > exp.plan ? 'text-red-600' : 'text-green-600'}">${exp.fact - exp.plan}</td>
+          <td class="px-4 py-2"><button class="bg-red-100 hover:bg-red-200 text-red-700 text-xs font-medium py-1 px-2 rounded-full" onclick="removeExpense(${index})">×</button></td>
+        `;
+        tbody.appendChild(row);
+      });
+      updateTotals();
+    }
+
+    // Функция для рендеринга таблицы доходов
+    function renderRevenue() {
+      const tbody = document.getElementById('revenueTableBody');
+      tbody.innerHTML = '';
+      revenue.forEach((rev, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td class="px-4 py-2"><input type="text" value="${rev.source}" class="w-full px-2 py-1 border border-gray-300 rounded text-sm" oninput="updateRevenue(${index}, this)" /></td>
+          <td class="px-4 py-2"><input type="text" value="${rev.category}" class="w-full px-2 py-1 border border-gray-300 rounded text-sm" oninput="updateRevenue(${index}, this)" /></td>
+          <td class="px-4 py-2"><input type="number" value="${rev.plan}" class="w-full px-2 py-1 border border-gray-300 rounded text-sm" oninput="updateRevenue(${index}, this)" /></td>
+          <td class="px-4 py-2"><input type="number" value="${rev.fact}" class="w-full px-2 py-1 border border-gray-300 rounded text-sm" oninput="updateRevenue(${index}, this)" /></td>
+          <td class="px-4 py-2 ${rev.fact > rev.plan ? 'text-blue-600' : 'text-green-600'}">${rev.fact - rev.plan}</td>
+          <td class="px-4 py-2"><button class="bg-red-100 hover:bg-red-200 text-red-700 text-xs font-medium py-1 px-2 rounded-full" onclick="removeRevenue(${index})">×</button></td>
+        `;
+        tbody.appendChild(row);
+      });
+      updateTotals();
+    }
+
+    // Обновление расхода по индексу
+    window.updateExpense = function(index, inputElement) {
+      const row = inputElement.closest('tr');
+      expenses[index].item = row.querySelector('input:nth-child(1)').value;
+      expenses[index].category = row.querySelector('input:nth-child(2)').value;
+      expenses[index].plan = parseFloat(row.querySelector('input:nth-child(3)').value) || 0;
+      expenses[index].fact = parseFloat(row.querySelector('input:nth-child(4)').value) || 0;
+      updateTotals();
+    };
+
+    // Обновление дохода по индексу
+    window.updateRevenue = function(index, inputElement) {
+      const row = inputElement.closest('tr');
+      revenue[index].source = row.querySelector('input:nth-child(1)').value;
+      revenue[index].category = row.querySelector('input:nth-child(2)').value;
+      revenue[index].plan = parseFloat(row.querySelector('input:nth-child(3)').value) || 0;
+      revenue[index].fact = parseFloat(row.querySelector('input:nth-child(4)').value) || 0;
+      updateTotals();
+    };
+
+    // Удаление расхода
+    window.removeExpense = function(index) {
+      expenses.splice(index, 1);
+      renderExpenses();
+    };
+
+    // Удаление дохода
+    window.removeRevenue = function(index) {
+      revenue.splice(index, 1);
+      renderRevenue();
+    };
+
+    // Добавление расхода
+    document.getElementById('addExpenseBtn').addEventListener('click', function() {
+      expenses.push({ item: 'Новая статья', category: 'Прочее', plan: 0, fact: 0 });
+      renderExpenses();
+    });
+
+    // Добавление дохода
+    document.getElementById('addRevenueBtn').addEventListener('click', function() {
+      revenue.push({ source: 'Новый источник', category: 'Прочее', plan: 0, fact: 0 });
+      renderRevenue();
+    });
+
+    // Обновление итогов
+    function updateTotals() {
+      const totalPlanExp = expenses.reduce((sum, exp) => sum + exp.plan, 0);
+      const totalFactExp = expenses.reduce((sum, exp) => sum + exp.fact, 0);
+      const totalPlanRev = revenue.reduce((sum, rev) => sum + rev.plan, 0);
+      const totalFactRev = revenue.reduce((sum, rev) => sum + rev.fact, 0);
+
+      document.getElementById('totalPlanExpenses').textContent = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(totalPlanExp);
+      document.getElementById('totalFactExpenses').textContent = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(totalFactExp);
+      document.getElementById('totalDiffExpenses').textContent = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(totalFactExp - totalPlanExp);
+
+      document.getElementById('totalPlanRevenue').textContent = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(totalPlanRev);
+      document.getElementById('totalFactRevenue').textContent = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(totalFactRev);
+      document.getElementById('totalDiffRevenue').textContent = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(totalFactRev - totalPlanRev);
+
+      // Обновляем результаты
+      updateResults(totalPlanExp, totalFactExp, totalPlanRev, totalFactRev);
+    }
+
+    // Обновление результатов
+    function updateResults(planExp, factExp, planRev, factRev) {
+      const startupCash = parseFloat(document.getElementById('startupCash').value) || 0;
+      const initialInvestments = parseFloat(document.getElementById('initialInvestments').value) || 0;
+      const calcHorizon = parseFloat(document.getElementById('calcHorizon').value) || 12;
+
+      // Годовые показатели
+      document.getElementById('resultPlanExpenses').textContent = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(planExp);
+      document.getElementById('resultFactExpenses').textContent = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(factExp);
+      document.getElementById('resultDiffExpenses').textContent = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(factExp - planExp);
+
+      document.getElementById('resultPlanRevenue').textContent = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(planRev);
+      document.getElementById('resultFactRevenue').textContent = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(factRev);
+      document.getElementById('resultDiffRevenue').textContent = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(factRev - planRev);
+
+      // Годовой баланс
+      const planBalance = planRev - planExp;
+      const factBalance = factRev - factExp;
+      document.getElementById('resultPlanBalance').textContent = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(planBalance);
+      document.getElementById('resultFactBalance').textContent = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(factBalance);
+      document.getElementById('resultDiffBalance').textContent = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(factBalance - planBalance);
+
+      // Месячные показатели
+      const monthlyPlanExp = planExp / calcHorizon;
+      const monthlyFactExp = factExp / calcHorizon;
+      const monthlyPlanRev = planRev / calcHorizon;
+      const monthlyFactRev = factRev / calcHorizon;
+
+      document.getElementById('monthlyPlanExpenses').textContent = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(monthlyPlanExp);
+      document.getElementById('monthlyFactExpenses').textContent = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(monthlyFactExp);
+      document.getElementById('monthlyDiffExpenses').textContent = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(monthlyFactExp - monthlyPlanExp);
+
+      document.getElementById('monthlyPlanRevenue').textContent = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(monthlyPlanRev);
+      document.getElementById('monthlyFactRevenue').textContent = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(monthlyFactRev);
+      document.getElementById('monthlyDiffRevenue').textContent = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(monthlyFactRev - monthlyPlanRev);
+
+      // Месячный баланс
+      const monthlyPlanBalance = monthlyPlanRev - monthlyPlanExp;
+      const monthlyFactBalance = monthlyFactRev - monthlyFactExp;
+      document.getElementById('monthlyPlanBalance').textContent = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(monthlyPlanBalance);
+      document.getElementById('monthlyFactBalance').textContent = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(monthlyFactBalance);
+      document.getElementById('monthlyDiffBalance').textContent = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(monthlyFactBalance - monthlyPlanBalance);
+
+      // ROI
+      const roiPlan = initialInvestments > 0 ? ((planRev - initialInvestments) / initialInvestments) * 100 : 0;
+      document.getElementById('roiResult').textContent = roiPlan.toFixed(0) + ' %';
+
+      // Runway
+      const monthlyBurn = monthlyFactExp - monthlyFactRev; // если расходы > доходы
+      let runway = 0;
+      if (monthlyBurn > 0 && startupCash > 0) {
+        runway = Math.floor(startupCash / monthlyBurn);
+      } else if (monthlyBurn <= 0) {
+        runway = '∞'; // не тратим деньги
+      }
+      document.getElementById('runwayResult').textContent = runway;
+
+      // Окупаемость (упрощённо)
+      let paybackMonth = 'не окупается';
+      if (monthlyPlanBalance > 0) {
+        const monthsToPayback = Math.ceil(startupCash / monthlyPlanBalance);
+        if (monthsToPayback <= calcHorizon) {
+          paybackMonth = monthsToPayback;
+        }
+      }
+      document.getElementById('paybackResult').textContent = paybackMonth;
+    }
+
+    // Обновление всех данных при изменении любого поля
+    window.updateAll = function() {
+      // Обновляем данные из таблиц
+      expenses.forEach((exp, i) => {
+        const row = document.querySelectorAll('#expensesTableBody tr')[i];
+        exp.item = row.querySelector('input:nth-child(1)').value;
+        exp.category = row.querySelector('input:nth-child(2)').value;
+        exp.plan = parseFloat(row.querySelector('input:nth-child(3)').value) || 0;
+        exp.fact = parseFloat(row.querySelector('input:nth-child(4)').value) || 0;
+      });
+
+      revenue.forEach((rev, i) => {
+        const row = document.querySelectorAll('#revenueTableBody tr')[i];
+        rev.source = row.querySelector('input:nth-child(1)').value;
+        rev.category = row.querySelector('input:nth-child(2)').value;
+        rev.plan = parseFloat(row.querySelector('input:nth-child(3)').value) || 0;
+        rev.fact = parseFloat(row.querySelector('input:nth-child(4)').value) || 0;
+      });
+
+      updateTotals();
+    };
+
+    // Инициализация
+    renderExpenses();
+    renderRevenue();
+
+    // Привязываем событие изменения ко всем полям формы
+    document.getElementById('startupCash').addEventListener('input', updateAll);
+    document.getElementById('initialInvestments').addEventListener('input', updateAll);
+    document.getElementById('calcHorizon').addEventListener('input', updateAll);
+
+  </script>
+</body>
+</html>
+

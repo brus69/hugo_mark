@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Калькулятор CPA (Cost per Action)</title>
+</head>
+<body class="bg-gray-50 p-6 font-sans">
+  <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-6">
+    <!-- Заголовок -->
+    <div class="text-center mb-6">
+      <h1 class="text-xl font-bold text-gray-800">Калькулятор CPA (Cost per Action)</h1>
+      <p class="text-sm text-gray-500 mt-1">Рассчитайте стоимость одного целевого действия на основе рекламных расходов и количества конверсий.</p>
+    </div>
+
+    <div class="flex flex-col md:flex-row gap-6">
+      <!-- Левая колонка: Форма -->
+      <div class="md:w-1/2 space-y-4">
+        <!-- Расходы на рекламу -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Расходы на рекламу (руб.)</label>
+          <input 
+            type="number" 
+            id="adSpend" 
+            value="12000"
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            oninput="calculateCPA()"
+          />
+        </div>
+
+        <!-- Количество целевых действий -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Количество целевых действий (конверсий)</label>
+          <input 
+            type="number" 
+            id="conversions" 
+            value="100"
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            oninput="calculateCPA()"
+          />
+        </div>
+
+        <!-- Кнопка Рассчитать CPA -->
+        <button 
+          id="calculateBtn"
+          class="w-full bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-full transition-colors duration-200 mt-4"
+          onclick="calculateCPA()"
+        >
+          Рассчитать CPA
+        </button>
+      </div>
+
+      <!-- Правая колонка: Результаты -->
+      <div class="md:w-1/2 bg-gray-100 rounded-lg p-4">
+        <h2 class="text-lg font-bold text-gray-800 mb-4">Результаты</h2>
+        <div class="space-y-2">
+          <div><strong>CPA:</strong> <span id="cpaResult">—</span></div>
+          <div><strong>Интерпретация:</strong> <span id="interpretationResult">—</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function calculateCPA() {
+      const adSpend = parseFloat(document.getElementById('adSpend').value) || 0;
+      const conversions = parseFloat(document.getElementById('conversions').value) || 0;
+
+      // Расчёт CPA: Расходы / Конверсии
+      const cpa = conversions > 0 ? adSpend / conversions : 0;
+
+      // Интерпретация CPA
+      let interpretation = "Высокий CPA — реклама работает неэффективно.";
+      if (cpa <= 50) {
+        interpretation = "Отличный CPA — реклама работает очень эффективно.";
+      } else if (cpa <= 150) {
+        interpretation = "Хороший CPA — приемлемый уровень эффективности.";
+      }
+
+      // Вывод результатов
+      document.getElementById('cpaResult').textContent = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(cpa);
+      document.getElementById('interpretationResult').textContent = interpretation;
+    }
+
+    // Инициализация при загрузке страницы
+    window.addEventListener('DOMContentLoaded', calculateCPA);
+  </script>
+</body>
+</html>

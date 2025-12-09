@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Калькулятор CPM</title>
+</head>
+<body class="bg-gray-50 p-6 font-sans">
+  <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-6">
+    <!-- Заголовок -->
+    <div class="text-center mb-6">
+      <h1 class="text-xl font-bold text-gray-800">Калькулятор CPM</h1>
+      <p class="text-sm text-gray-500 mt-1">Рассчитайте стоимость 1000 показов рекламы и сравните эффективность разных каналов продвижения.</p>
+    </div>
+
+    <div class="flex flex-col md:flex-row gap-6">
+      <!-- Левая колонка: Форма -->
+      <div class="md:w-1/2 space-y-4">
+        <!-- Бюджет на рекламу -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Бюджет на рекламу (руб.)</label>
+          <input 
+            type="number" 
+            id="budget" 
+            value="50000"
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            oninput="calculateCPM()"
+          />
+        </div>
+
+        <!-- Количество показов -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Количество показов</label>
+          <input 
+            type="number" 
+            id="impressions" 
+            value="2000000"
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            oninput="calculateCPM()"
+          />
+        </div>
+
+        <!-- Кнопка Рассчитать -->
+        <button 
+          id="calculateBtn"
+          class="w-full bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-full transition-colors duration-200 mt-4"
+          onclick="calculateCPM()"
+        >
+          Рассчитать
+        </button>
+      </div>
+
+      <!-- Правая колонка: Результаты -->
+      <div class="md:w-1/2 bg-gray-100 rounded-lg p-4">
+        <h2 class="text-lg font-bold text-gray-800 mb-4">Результаты</h2>
+        <div class="space-y-2">
+          <div><strong>CPM:</strong> <span id="cpmResult">—</span></div>
+          <div><strong>Стоимость 1000 показов:</strong> <span id="costPerThousandResult">—</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function calculateCPM() {
+      const budget = parseFloat(document.getElementById('budget').value) || 0;
+      const impressions = parseFloat(document.getElementById('impressions').value) || 0;
+
+      // Расчёт CPM: (Бюджет / Количество показов) × 1000
+      const cpm = impressions > 0 ? (budget / impressions) * 1000 : 0;
+
+      // Вывод результатов
+      document.getElementById('cpmResult').textContent = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(cpm);
+      document.getElementById('costPerThousandResult').textContent = `${new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(cpm)} за 1000 показов`;
+    }
+
+    // Инициализация при загрузке страницы
+    window.addEventListener('DOMContentLoaded', calculateCPM);
+  </script>
+</body>
+</html>

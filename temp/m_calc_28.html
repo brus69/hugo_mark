@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Калькулятор рентабельности бизнеса</title>
+</head>
+<body class="bg-gray-50 p-6 font-sans">
+  <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-6">
+    <!-- Заголовок -->
+    <div class="text-center mb-6">
+      <h1 class="text-xl font-bold text-gray-800">Калькулятор рентабельности бизнеса</h1>
+      <p class="text-sm text-gray-500 mt-1">Рассчитайте, какой процент прибыли вы получаете с выручки и оцените эффективность бизнес-модели.</p>
+    </div>
+
+    <div class="flex flex-col md:flex-row gap-6">
+      <!-- Левая колонка: Форма -->
+      <div class="md:w-1/2 space-y-4">
+        <!-- Выручка -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Выручка (руб.)</label>
+          <input 
+            type="number" 
+            id="revenue" 
+            value="1000000"
+            placeholder="например, 1 000 000"
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            oninput="calculateProfitability()"
+          />
+        </div>
+
+        <!-- Общие расходы -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Общие расходы (руб.)</label>
+          <input 
+            type="number" 
+            id="expenses" 
+            value="820000"
+            placeholder="например, 820 000"
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            oninput="calculateProfitability()"
+          />
+        </div>
+
+        <!-- Кнопка Рассчитать рентабельность -->
+        <button 
+          id="calculateBtn"
+          class="w-full bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-full transition-colors duration-200 mt-4"
+          onclick="calculateProfitability()"
+        >
+          Рассчитать рентабельность
+        </button>
+      </div>
+
+      <!-- Правая колонка: Результаты -->
+      <div class="md:w-1/2 bg-gray-100 rounded-lg p-4">
+        <h2 class="text-lg font-bold text-gray-800 mb-4">Результаты</h2>
+        <div class="space-y-2">
+          <div><strong>Чистая прибыль:</strong> <span id="netProfitResult">—</span></div>
+          <div><strong>Рентабельность (Profit Margin):</strong> <span id="profitMarginResult">—</span></div>
+          <div><strong>Интерпретация:</strong> <span id="interpretationResult">—</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function calculateProfitability() {
+      const revenue = parseFloat(document.getElementById('revenue').value) || 0;
+      const expenses = parseFloat(document.getElementById('expenses').value) || 0;
+
+      // Чистая прибыль = Выручка - Расходы
+      const netProfit = revenue - expenses;
+
+      // Рентабельность (Profit Margin) = (Прибыль / Выручка) × 100%
+      const profitMargin = revenue > 0 ? (netProfit / revenue) * 100 : 0;
+
+      // Интерпретация
+      let interpretation = "Убыточный бизнес — требуется срочная оптимизация.";
+      if (profitMargin >= 15) {
+        interpretation = "Отличная рентабельность — бизнес эффективен и устойчив.";
+      } else if (profitMargin >= 5) {
+        interpretation = "Умеренная рентабельность — есть потенциал для роста.";
+      }
+
+      // Вывод результатов
+      document.getElementById('netProfitResult').textContent = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(netProfit);
+      document.getElementById('profitMarginResult').textContent = profitMargin.toFixed(1) + ' %';
+      document.getElementById('interpretationResult').textContent = interpretation;
+    }
+
+    // Инициализация при загрузке страницы
+    window.addEventListener('DOMContentLoaded', calculateProfitability);
+  </script>
+</body>
+</html>
