@@ -560,7 +560,8 @@ fill="#fff" class="bi bi-telegram pr-1">
 <hr>
 <p>Если вам нужно освежить знания, ознакомьтесь с моей старой статьёй, в которой рассказывается о том, что такое байесовское моделирование маркетингового микса.</p>
 <blockquote>
-<p><strong>Байесовское моделирование маркетингового микса в Python через PyMC3</strong></p></blockquote>
+<p><strong>Байесовское моделирование маркетингового микса в Python через PyMC3</strong></p>
+</blockquote>
 <h2 id="ручной-процесс">Ручной процесс</h2>
 <p>В моей старой статье (см. выше) я сам написал байесовскую модель маркетингового микса. Для этого мне нужно было определить функцию для эффекта переноса расходов на медиа, что было громоздко. Всё ещё используя более старую версию PyMC3, это выглядело так:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> theano.tensor <span style="color:#66d9ef">as</span> tt
@@ -630,7 +631,8 @@ fill="#fff" class="bi bi-telegram pr-1">
 <p>Судя по 1.0 в столбце <strong>r_hat</strong>, мы видим, что цепи, похоже, сошлась просто отлично, то есть результаты в остальной части таблицы надёжны.</p>
 <p>Мы также можем проверить, какие значения модель считает правильными для всех параметров. Например, канал TV carryover <code>alpha[TV]</code> находится между 0,465 и 0,515 с вероятностью 94%, как видно в столбцах <strong>hdi_3% и hdi_97%</strong>. Если бы модель должна была выбрать одно число, это было бы 0,49, как вы можете видеть в столбце <strong>mean</strong>.</p>
 <blockquote>
-<p><strong>Примечание:</strong> для создания этого набора данных я использовал значения насыщения 0,5 для ТВ, 0,2 для радио и 0 для баннеров. Наша модель PyMC смогла подобрать их довольно прилично!</p></blockquote>
+<p><strong>Примечание:</strong> для создания этого набора данных я использовал значения насыщения 0,5 для ТВ, 0,2 для радио и 0 для баннеров. Наша модель PyMC смогла подобрать их довольно прилично!</p>
+</blockquote>
 <p>Для визуалов:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>mmm<span style="color:#f92672">.</span>plot_channel_parameter(param_name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;alpha&#34;</span>, figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">5</span>))
 </span></span></code></pre></div><p>Мы даже можем проверить вклад каналов, используя удобный метод</p>
@@ -655,7 +657,8 @@ fill="#fff" class="bi bi-telegram pr-1">
 <hr>
 <p>Надеюсь, вы узнали что-то новое, интересное и ценное сегодня. Спасибо за чтение!</p>
 <blockquote>
-<p>Если у вас есть вопросы, напишите мне в LinkedIn!</p></blockquote>
+<p>Если у вас есть вопросы, напишите мне в LinkedIn!</p>
+</blockquote>
 <p>И если вы хотите глубже погрузиться в мир алгоритмов, попробуйте мою новую публикацию <strong>Всё об алгоритмах</strong>! Я всё ещё ищу авторов!</p>
 
         
