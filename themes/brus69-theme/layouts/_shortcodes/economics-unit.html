@@ -1,0 +1,109 @@
+<div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-6">
+    <!-- Заголовок -->
+    <div class="text-center mb-6">
+      <h1 class="text-xl font-bold text-gray-800">Калькулятор Юнит Экономики</h1>
+      <p class="text-sm text-gray-500 mt-1">Выберите тип бизнеса и рассчитайте ключевые показатели прибыльности: выручку, маржу, CAC, LTV и Unit экономику.</p>
+    </div>
+
+    <div class="flex flex-col md:flex-row gap-6">
+      <!-- Левая колонка: Форма -->
+      <div class="md:w-1/2 space-y-4">
+        <!-- Тип бизнеса -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Тип бизнеса</label>
+          <select 
+            id="businessType" 
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+          >
+            <option value="direct">Прямые продажи</option>
+            <option value="subscription">Подписки</option>
+            <option value="marketplace">Маркетплейс</option>
+          </select>
+        </div>
+
+        <!-- Цена продукта / подписки -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Цена продукта / подписки (₽)</label>
+          <input 
+            type="number" 
+            id="price" 
+            value="5000"
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+          />
+        </div>
+
+        <!-- Себестоимость юнита -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Себестоимость юнита (₽)</label>
+          <input 
+            type="number" 
+            id="costPerUnit" 
+            value="3000"
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+          />
+        </div>
+
+        <!-- CAC -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Стоимость привлечения клиента (CAC, ₽)</label>
+          <input 
+            type="number" 
+            id="cac" 
+            value="1000"
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+          />
+        </div>
+
+        <!-- Количество клиентов -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Количество клиентов</label>
+          <input 
+            type="number" 
+            id="clientsCount" 
+            value="100"
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+          />
+        </div>
+
+        <!-- Кнопка Рассчитать -->
+        <button 
+          id="calculateBtn"
+          class="w-full bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-full transition-colors duration-200 mt-4"
+        >
+          Рассчитать Unit Economics
+        </button>
+      </div>
+
+      <!-- Правая колонка: Результаты -->
+      <div class="md:w-1/2 bg-gray-100 rounded-lg p-4">
+        <h2 class="text-lg font-bold text-gray-800 mb-4">Результаты</h2>
+        <div class="space-y-2">
+          <div><strong>Выручка:</strong> <span id="revenueResult">—</span></div>
+          <div><strong>Переменные расходы:</strong> <span id="variableCostsResult">—</span></div>
+          <div><strong>Маржинальная прибыль:</strong> <span id="grossProfitResult">—</span></div>
+          <div><strong>Unit Economics:</strong> <span id="unitEconomicsResult">—</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('calculateBtn').addEventListener('click', function() {
+      const price = parseFloat(document.getElementById('price').value) || 0;
+      const costPerUnit = parseFloat(document.getElementById('costPerUnit').value) || 0;
+      const cac = parseFloat(document.getElementById('cac').value) || 0;
+      const clientsCount = parseFloat(document.getElementById('clientsCount').value) || 0;
+
+      // Расчёт показателей
+      const revenue = price * clientsCount; // Выручка
+      const variableCosts = costPerUnit * clientsCount; // Переменные расходы
+      const grossProfit = revenue - variableCosts; // Маржинальная прибыль
+      const unitEconomics = grossProfit - (cac * clientsCount); // Unit Economics (прибыль минус затраты на привлечение)
+
+      // Вывод результатов
+      document.getElementById('revenueResult').textContent = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(revenue);
+      document.getElementById('variableCostsResult').textContent = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(variableCosts);
+      document.getElementById('grossProfitResult').textContent = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(grossProfit);
+      document.getElementById('unitEconomicsResult').textContent = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(unitEconomics);
+    });
+  </script>

@@ -1,0 +1,191 @@
+
+  <div class="max-w-4xl mx-auto space-y-8">
+
+    <!-- Секция 1: Подбор NSM -->
+    <div class="bg-white rounded-lg shadow-md p-6">
+      <h2 class="text-xl font-bold text-center text-gray-800">North Star Metric Calculator</h2>
+      <p class="text-sm text-center text-gray-500 mt-1">Определите тип бизнеса и главную цель, получите подходящую метрику Полярной звезды и рассчитайте её.</p>
+
+      <div class="flex flex-col md:flex-row gap-6 mt-6">
+        <!-- Левая колонка: Форма подбора -->
+        <div class="md:w-1/2 space-y-4">
+          <!-- Тип компании -->
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Тип компании</label>
+            <select 
+              id="companyType" 
+              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            >
+              <option value="saas">SaaS / Онлайн-сервис</option>
+              <option value="ecommerce">E-commerce</option>
+              <option value="marketplace">Маркетплейс</option>
+              <option value="content">Контент-платформа</option>
+            </select>
+          </div>
+
+          <!-- Главная цель -->
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Главная цель</label>
+            <select 
+              id="mainGoal" 
+              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            >
+              <option value="acquisition">Привлечение</option>
+              <option value="retention">Удержание</option>
+              <option value="monetization">Монетизация</option>
+              <option value="engagement">Вовлечённость</option>
+            </select>
+          </div>
+
+          <!-- Кнопка Подобрать NSM -->
+          <button 
+            id="suggestNSMBtn"
+            class="w-full bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-full transition-colors duration-200 mt-4"
+          >
+            Подобрать NSM
+          </button>
+        </div>
+
+        <!-- Правая колонка: Результаты подбора -->
+        <div class="md:w-1/2 bg-gray-100 rounded-lg p-4">
+          <h3 class="text-lg font-bold text-gray-800 mb-4">Результаты</h3>
+          <div><strong>Метрика:</strong> <span id="nsmMetric">—</span></div>
+          <div><strong>Значение:</strong> <span id="nsmValue">—</span></div>
+          <div><strong>Комментарий:</strong> <span id="nsmComment">Выберите метрику и выполните расчёт.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Секция 2: Расчёт NSM -->
+    <div class="bg-white rounded-lg shadow-md p-6">
+      <h2 class="text-xl font-bold text-center text-gray-800">North Star Metric Calculator</h2>
+      <p class="text-sm text-center text-gray-500 mt-1">Определите ключевую метрику роста и рассчитайте её на основе данных вашего продукта.</p>
+
+      <div class="flex flex-col md:flex-row gap-6 mt-6">
+        <!-- Левая колонка: Форма расчёта -->
+        <div class="md:w-1/2 space-y-4">
+          <!-- Категория NSM -->
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Выберите категорию NSM</label>
+            <select 
+              id="nsmCategory" 
+              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            >
+              <option value="revenue">Выручка (ARR / GMV)</option>
+              <option value="arpu">ARPU (выручка на активного клиента)</option>
+              <option value="activeUsers">Активные пользователи</option>
+              <option value="transactions">Количество транзакций</option>
+            </select>
+            <p class="text-xs text-gray-500 mt-1">Пример метрики: ARPU (выручка на активного клиента).</p>
+          </div>
+
+          <!-- Выручка за период -->
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Выручка за период (₽)</label>
+            <input 
+              type="number" 
+              id="revenuePeriod" 
+              value="1200000"
+              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            />
+          </div>
+
+          <!-- Активные клиенты -->
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Активные клиенты (шт.)</label>
+            <input 
+              type="number" 
+              id="activeClients" 
+              value="400"
+              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            />
+          </div>
+
+          <!-- Кнопка Рассчитать -->
+          <button 
+            id="calculateNSMBtn"
+            class="w-full bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-full transition-colors duration-200 mt-4"
+          >
+            Рассчитать
+          </button>
+        </div>
+
+        <!-- Правая колонка: Результат расчёта -->
+        <div class="md:w-1/2 bg-gray-100 rounded-lg p-4">
+          <h3 class="text-lg font-bold text-gray-800 mb-4">Результат</h3>
+          <div id="calculationResult" class="text-gray-600">
+            Заполните поля слева и нажмите «Рассчитать».
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Подбор NSM по типу компании и цели
+    document.getElementById('suggestNSMBtn').addEventListener('click', function() {
+      const companyType = document.getElementById('companyType').value;
+      const mainGoal = document.getElementById('mainGoal').value;
+
+      let metric = "—";
+      let comment = "Выберите метрику и выполните расчёт.";
+
+      if (companyType === 'saas' && mainGoal === 'acquisition') {
+        metric = "Количество новых активных пользователей в месяц";
+        comment = "Для SaaS-компаний при привлечении — ключевая метрика роста.";
+      } else if (companyType === 'saas' && mainGoal === 'retention') {
+        metric = "Monthly Retention Rate";
+        comment = "Отслеживайте удержание — это основа устойчивого роста SaaS.";
+      } else if (companyType === 'saas' && mainGoal === 'monetization') {
+        metric = "ARR (Annual Recurring Revenue)";
+        comment = "Годовая повторяющаяся выручка — ключевой показатель монетизации.";
+      } else if (companyType === 'saas' && mainGoal === 'engagement') {
+        metric = "DAU / MAU";
+        comment = "Соотношение ежедневных и ежемесячных пользователей показывает вовлечённость.";
+      } else if (companyType === 'ecommerce') {
+        metric = "GMV (Gross Merchandise Value)";
+        comment = "Общая стоимость товаров — ключевая метрика для e-commerce.";
+      } else if (companyType === 'marketplace') {
+        metric = "Количество сделок / транзакций";
+        comment = "Для маркетплейса — количество успешных сделок является сутью бизнеса.";
+      } else if (companyType === 'content') {
+        metric = "Время просмотра / сессия";
+        comment = "Для контент-платформ — время вовлечения определяет ценность.";
+      }
+
+      document.getElementById('nsmMetric').textContent = metric;
+      document.getElementById('nsmValue').textContent = "—";
+      document.getElementById('nsmComment').textContent = comment;
+    });
+
+    // Расчёт NSM
+    document.getElementById('calculateNSMBtn').addEventListener('click', function() {
+      const category = document.getElementById('nsmCategory').value;
+      const revenue = parseFloat(document.getElementById('revenuePeriod').value) || 0;
+      const activeClients = parseFloat(document.getElementById('activeClients').value) || 0;
+
+      let resultText = "";
+      let value = 0;
+
+      if (category === 'revenue') {
+        value = revenue;
+        resultText = `Выручка (ARR/GMV): ${new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(value)}`;
+      } else if (category === 'arpu') {
+        value = activeClients > 0 ? revenue / activeClients : 0;
+        resultText = `ARPU: ${new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(value)} на клиента`;
+      } else if (category === 'activeUsers') {
+        value = activeClients;
+        resultText = `Активные клиенты: ${value} шт.`;
+      } else if (category === 'transactions') {
+        value = activeClients; // условно — можно добавить поле "транзакции"
+        resultText = `Транзакции: ${value} шт.`;
+      }
+
+      document.getElementById('calculationResult').innerHTML = `
+        <div class="space-y-2">
+          <div><strong>Метрика:</strong> ${document.getElementById('nsmCategory').options[document.getElementById('nsmCategory').selectedIndex].text}</div>
+          <div><strong>Значение:</strong> ${resultText}</div>
+        </div>
+      `;
+    });
+  </script>

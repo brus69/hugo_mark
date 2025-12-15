@@ -1,0 +1,85 @@
+  <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-6">
+    <!-- Заголовок -->
+    <div class="text-center mb-6">
+      <h1 class="text-xl font-bold text-gray-800">Калькулятор LTV</h1>
+      <p class="text-sm text-gray-500 mt-1">Рассчитайте пожизненную ценность клиента (Lifetime Value) — узнайте, сколько прибыли приносит один клиент за всё время сотрудничества.</p>
+    </div>
+
+    <div class="flex flex-col md:flex-row gap-6">
+      <!-- Левая колонка: Форма -->
+      <div class="md:w-1/2 space-y-4">
+        <!-- Средний чек -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Средний чек (руб.)</label>
+          <input 
+            type="number" 
+            id="avgCheck" 
+            value="5000"
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+          />
+        </div>
+
+        <!-- Количество покупок в год -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Количество покупок в год</label>
+          <input 
+            type="number" 
+            id="purchasesPerYear" 
+            value="4"
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+          />
+        </div>
+
+        <!-- Средняя продолжительность сотрудничества -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Средняя продолжительность сотрудничества (лет)</label>
+          <input 
+            type="number" 
+            id="avgDurationYears" 
+            value="3"
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+          />
+        </div>
+
+        <!-- Кнопка Расчитать LTV -->
+        <button 
+          id="calculateBtn"
+          class="w-full bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-full transition-colors duration-200 mt-4"
+        >
+          Рассчитать LTV
+        </button>
+      </div>
+
+      <!-- Правая колонка: Результаты -->
+      <div class="md:w-1/2 bg-gray-100 rounded-lg p-4">
+        <h2 class="text-lg font-bold text-gray-800 mb-4">Результаты</h2>
+        <div class="space-y-2">
+          <div><strong>LTV:</strong> <span id="ltvResult">—</span></div>
+          <div><strong>Комментарий:</strong> <span id="commentResult">—</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('calculateBtn').addEventListener('click', function() {
+      const avgCheck = parseFloat(document.getElementById('avgCheck').value) || 0;
+      const purchasesPerYear = parseFloat(document.getElementById('purchasesPerYear').value) || 0;
+      const avgDurationYears = parseFloat(document.getElementById('avgDurationYears').value) || 0;
+
+      // Расчёт LTV: Средний чек × Кол-во покупок в год × Срок сотрудничества
+      const ltv = avgCheck * purchasesPerYear * avgDurationYears;
+
+      // Генерация комментария
+      let comment = "Низкий LTV — есть потенциал для роста.";
+      if (ltv >= 30000) {
+        comment = "Высокий LTV — клиенты приносят отличную прибыль!";
+      } else if (ltv >= 15000) {
+        comment = "Средний LTV — стабильная прибыль.";
+      }
+
+      // Вывод результатов
+      document.getElementById('ltvResult').textContent = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(ltv);
+      document.getElementById('commentResult').textContent = comment;
+    });
+  </script>

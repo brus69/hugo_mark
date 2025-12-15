@@ -1,0 +1,175 @@
+<div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-6">
+
+    <!-- Быстрый расчёт -->
+    <div class="mb-10 pb-6 border-b border-gray-200">
+      <h2 class="text-xl font-bold text-center text-gray-800">Быстрый расчёт маркетингового бюджета</h2>
+      <p class="text-sm text-center text-gray-500 mt-1">Рассчитайте, какой бюджет нужно заложить на маркетинг, чтобы достичь целевого ROI.</p>
+
+      <div class="flex flex-col md:flex-row gap-6 mt-6">
+        <!-- Левая колонка: Форма -->
+        <div class="md:w-1/2 space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Планируемая выручка (руб.)</label>
+            <input 
+              type="number" 
+              id="quickRevenue" 
+              value="1000000"
+              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Доля маркетинга в выручке (%)</label>
+            <input 
+              type="number" 
+              id="quickMarketingShare" 
+              value="10"
+              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Целевой ROI (%)</label>
+            <input 
+              type="number" 
+              id="quickTargetROI" 
+              value="200"
+              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            />
+          </div>
+
+          <button 
+            id="calculateQuickBtn"
+            class="w-full bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-full transition-colors duration-200 mt-4"
+          >
+            Рассчитать бюджет
+          </button>
+        </div>
+
+        <!-- Правая колонка: Результаты -->
+        <div class="md:w-1/2 bg-gray-100 rounded-lg p-4">
+          <h3 class="text-lg font-bold text-gray-800 mb-4">Результаты</h3>
+          <div><strong>Рекомендуемый маркетинговый бюджет:</strong> <span id="quickBudgetResult">—</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Расширенный расчёт -->
+    <div>
+      <h2 class="text-xl font-bold text-center text-gray-800">Расширенный расчёт маркетингового бюджета</h2>
+      <p class="text-sm text-center text-gray-500 mt-1">Учтите сезонность, резерв и целевой ROI, чтобы получить более точный прогноз бюджета на маркетинг.</p>
+
+      <div class="flex flex-col md:flex-row gap-6 mt-6">
+        <!-- Левая колонка: Форма -->
+        <div class="md:w-1/2 space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Планируемая выручка (руб.)</label>
+            <input 
+              type="number" 
+              id="extendedRevenue" 
+              value="1000000"
+              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Доля маркетинга в выручке (%)</label>
+            <input 
+              type="number" 
+              id="extendedMarketingShare" 
+              value="10"
+              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Целевой ROI (%)</label>
+            <input 
+              type="number" 
+              id="extendedTargetROI" 
+              value="200"
+              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Резерв на непредвиденные расходы (%)</label>
+            <input 
+              type="number" 
+              id="reservePercent" 
+              value="20"
+              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Коэффициент сезонности (например: 0.8 — низкий сезон, 1.0 — стандарт, 1.3 — высокий)</label>
+            <input 
+              type="number" 
+              id="seasonalityFactor" 
+              value="1"
+              step="0.1"
+              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            />
+          </div>
+
+          <button 
+            id="calculateExtendedBtn"
+            class="w-full bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-full transition-colors duration-200 mt-4"
+          >
+            Рассчитать расширенный бюджет
+          </button>
+        </div>
+
+        <!-- Правая колонка: Результаты -->
+        <div class="md:w-1/2 bg-gray-100 rounded-lg p-4">
+          <h3 class="text-lg font-bold text-gray-800 mb-4">Результаты</h3>
+          <div><strong>Рекомендуемый маркетинговый бюджет:</strong> <span id="extendedBudgetResult">—</span></div>
+          <div class="mt-2"><strong>Комментарий:</strong> <span id="extendedCommentResult">—</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Быстрый расчёт
+    document.getElementById('calculateQuickBtn').addEventListener('click', function() {
+      const revenue = parseFloat(document.getElementById('quickRevenue').value) || 0;
+      const marketingShare = parseFloat(document.getElementById('quickMarketingShare').value) || 0;
+      const targetROI = parseFloat(document.getElementById('quickTargetROI').value) || 0;
+
+      // Бюджет = (Выручка × Доля маркетинга) / (1 + Целевой ROI / 100)
+      const budget = (revenue * (marketingShare / 100)) / (1 + targetROI / 100);
+
+      document.getElementById('quickBudgetResult').textContent = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(budget);
+    });
+
+    // Расширенный расчёт
+    document.getElementById('calculateExtendedBtn').addEventListener('click', function() {
+      const revenue = parseFloat(document.getElementById('extendedRevenue').value) || 0;
+      const marketingShare = parseFloat(document.getElementById('extendedMarketingShare').value) || 0;
+      const targetROI = parseFloat(document.getElementById('extendedTargetROI').value) || 0;
+      const reservePercent = parseFloat(document.getElementById('reservePercent').value) || 0;
+      const seasonalityFactor = parseFloat(document.getElementById('seasonalityFactor').value) || 1;
+
+      // Базовый бюджет
+      let baseBudget = (revenue * (marketingShare / 100)) / (1 + targetROI / 100);
+
+      // Применяем коэффициент сезонности
+      baseBudget *= seasonalityFactor;
+
+      // Добавляем резерв
+      const finalBudget = baseBudget * (1 + reservePercent / 100);
+
+      // Комментарий
+      let comment = "Бюджет рассчитан с учётом сезонности и резерва.";
+      if (seasonalityFactor > 1.2) {
+        comment = "Высокий сезон — увеличенный бюджет для максимизации охвата.";
+      } else if (seasonalityFactor < 0.9) {
+        comment = "Низкий сезон — бюджет сокращён для оптимизации затрат.";
+      }
+
+      document.getElementById('extendedBudgetResult').textContent = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(finalBudget);
+      document.getElementById('extendedCommentResult').textContent = comment;
+    });
+  </script>

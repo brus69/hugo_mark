@@ -1,0 +1,139 @@
+
+  <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-6">
+    <!-- Заголовок -->
+    <div class="text-center mb-6">
+      <h2 class="text-xl font-bold text-gray-800">Калькулятор приоритизации фич (RICE / ICE)</h2>
+      <p class="text-sm text-gray-500 mt-1">Рассчитайте приоритет продуктовых идей по методикам RICE и ICE, чтобы понять, какие фичи принесут наибольшую ценность при минимальных усилиях.</p>
+    </div>
+
+    <div class="flex flex-col md:flex-row gap-6">
+      <!-- Левая колонка: Форма -->
+      <div class="md:w-1/2 space-y-4">
+        <!-- Выбор метода -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Выберите метод</label>
+          <select 
+            id="method" 
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+          >
+            <option value="RICE">RICE</option>
+            <option value="ICE">ICE</option>
+          </select>
+        </div>
+
+        <!-- Reach -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Reach — охват (пользователей / действий)</label>
+          <input 
+            type="number" 
+            id="reach" 
+            placeholder="например, 500"
+            value="500"
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+          />
+        </div>
+
+        <!-- Impact -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Impact — влияние (1–5)</label>
+          <input 
+            type="number" 
+            id="impact" 
+            placeholder="например, 3"
+            value="3"
+            min="1"
+            max="5"
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+          />
+        </div>
+
+        <!-- Confidence -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Confidence — уверенность (%)</label>
+          <input 
+            type="number" 
+            id="confidence" 
+            placeholder="например, 80"
+            value="80"
+            min="0"
+            max="100"
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+          />
+        </div>
+
+        <!-- Effort -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Effort — усилия (человеко-дни / недели)</label>
+          <input 
+            type="number" 
+            id="effort" 
+            placeholder="например, 2"
+            value="2"
+            min="0.1"
+            step="0.1"
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+          />
+        </div>
+
+        <!-- Кнопка Рассчитать -->
+        <button 
+          id="calculateBtn"
+          class="w-full bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-full transition-colors duration-200 mt-4"
+        >
+          Рассчитать
+        </button>
+      </div>
+
+      <!-- Правая колонка: Результаты -->
+      <div class="md:w-1/2 bg-gray-100 rounded-lg p-4">
+        <h2 class="text-lg font-bold text-gray-800 mb-4">Результаты</h2>
+        <div class="space-y-2 text-sm">
+          <div><strong>Метод:</strong> <span id="methodResult">—</span></div>
+          <div><strong>Приоритетный балл:</strong> <span id="scoreResult">—</span></div>
+          <div><strong>Интерпретация:</strong> <span id="interpretationResult">—</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('calculateBtn').addEventListener('click', function() {
+      const method = document.getElementById('method').value;
+      const reach = parseFloat(document.getElementById('reach').value) || 0;
+      const impact = parseFloat(document.getElementById('impact').value) || 0;
+      const confidence = parseFloat(document.getElementById('confidence').value) || 0;
+      const effort = parseFloat(document.getElementById('effort').value) || 0;
+
+      let score = 0;
+      let interpretation = "Введите корректные данные.";
+
+      if (effort <= 0) {
+        score = 0;
+        interpretation = "Усилия не могут быть равны нулю или меньше.";
+      } else {
+        if (method === 'RICE') {
+          // RICE = (Reach × Impact × Confidence) / Effort
+          score = (reach * impact * (confidence / 100)) / effort;
+        } else if (method === 'ICE') {
+          // ICE = (Impact × Confidence) / Effort
+          score = (impact * (confidence / 100)) / effort;
+        }
+
+        // Интерпретация
+        if (score >= 10) {
+          interpretation = "Очень высокий приоритет — запускайте в первую очередь!";
+        } else if (score >= 5) {
+          interpretation = "Высокий приоритет — стоит рассмотреть в ближайшем цикле.";
+        } else if (score >= 2) {
+          interpretation = "Средний приоритет — можно отложить или объединить с другими задачами.";
+        } else {
+          interpretation = "Низкий приоритет — возможно, стоит пересмотреть необходимость реализации.";
+        }
+      }
+
+      // Вывод результатов
+      document.getElementById('methodResult').textContent = method;
+      document.getElementById('scoreResult').textContent = score.toFixed(2);
+      document.getElementById('interpretationResult').textContent = interpretation;
+    });
+  </script>
