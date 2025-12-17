@@ -4,6 +4,8 @@ description: "Онлайн‑симулятор и калькулятор A/B‑
 date: 2024-11-04
 h1: "Симулятор и калькулятор A/B‑теста"
 draft: false
+tags: ["calc"]
+type: "calculator"
 ---
 
 

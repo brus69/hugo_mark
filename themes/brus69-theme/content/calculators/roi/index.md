@@ -6,6 +6,8 @@ h1: "Калькулятор ROI"
 layout: "roi"
 slug: "roi"
 difficulty: "easy"
+tags:
+  - калькулятор
 ---
 
 

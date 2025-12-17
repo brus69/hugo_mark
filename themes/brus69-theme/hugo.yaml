@@ -43,3 +43,7 @@ pagination:
   disableAliases: false
   pagerSize: 20
   path: page
+
+taxonomies:
+  tag: tags
+  category: calculators
