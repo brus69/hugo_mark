@@ -1,608 +1,406 @@
 {{ define "main" }}
-
+  <div class="container mx-auto px-4 py-12">
     <!-- Hero Section -->
-    <section class="bg-gradient-to-br from-purple-950 to-orange-600 text-white">
-        <div class="container mx-auto px-4 py-16">
-            <div class="max-w-4xl mx-auto text-center">
-                <h1 class="text-4xl md:text-6xl font-bold mb-6">
-                    Маркетинг калькуляторы
-                </h1>
-                <p class="text-xl md:text-2xl text-purple-100 mb-8">
-                    Бесплатные онлайн калькуляторы для точных маркетинговых расчетов
-                </p>
-                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 max-w-2xl mx-auto">
-                    <p class="text-lg mb-4">📊 <strong>27 профессиональных инструментов</strong> для анализа и планирования</p>
-                    <p class="text-purple-200">Рассчитайте ROI, LTV, CAC и другие ключевые метрики за секунды</p>
-                </div>
-            </div>
+    <header class="text-center mb-12">
+      <h1 class="text-3xl font-bold text-gray-900 mb-4">Онлайн калькуляторы для маркетинга</h1>
+      <p class="text-gray-600">Выберите нужный инструмент и начните расчеты прямо сейчас</p>
+    </header>
+
+    <!-- Calculator Grid -->
+    <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- CAC Calculator -->
+      <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+        <h2 class="text-xl font-semibold text-gray-900 mb-1">CAC</h2>
+        <p class="text-gray-600 text-sm mb-4">(Стоимость привлечения клиента)</p>
+        <p class="text-gray-600 text-sm mb-6">Расчет производится по формуле CAC = общие затраты на маркетинг / количество новых клиентов</p>
+        <div class="flex items-center justify-between">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-8 h-8 text-gray-600">
+            <path d="M12 6C10.3431 6 9 7.34315 9 9H15C15 7.34315 13.6569 6 12 6Z"/>
+            <path d="M12 12C10.3431 12 9 13.3431 9 15H15C15 13.3431 13.6569 12 12 12Z"/>
+            <path d="M12 18C10.3431 18 9 19.3431 9 21H15C15 19.3431 13.6569 18 12 18Z"/>
+          </svg>
+          <a href="/calculators/cac/" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors font-medium">
+            РАССЧИТАТЬ
+          </a>
         </div>
-    </section>
+      </div>
 
-    <!-- Quick Stats -->
-    <section class="py-8 bg-white border-b">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                <div class="bg-purple-50 rounded-lg p-4">
-                    <div class="text-2xl font-bold text-primary">27+</div>
-                    <div class="text-gray-600 text-sm">Калькуляторов</div>
-                </div>
-                <div class="bg-purple-50 rounded-lg p-4">
-                    <div class="text-2xl font-bold text-primary">15k+</div>
-                    <div class="text-gray-600 text-sm">Расчетов в месяц</div>
-                </div>
-                <div class="bg-purple-50 rounded-lg p-4">
-                    <div class="text-2xl font-bold text-primary">100%</div>
-                    <div class="text-gray-600 text-sm">Бесплатно</div>
-                </div>
-                <div class="bg-purple-50 rounded-lg p-4">
-                    <div class="text-2xl font-bold text-primary">24/7</div>
-                    <div class="text-gray-600 text-sm">Доступность</div>
-                </div>
-            </div>
+      <!-- CPM Calculator -->
+      <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+        <h2 class="text-xl font-semibold text-gray-900 mb-1">CPM</h2>
+        <p class="text-gray-600 text-sm mb-4">(Стоимость за 1000 показов)</p>
+        <p class="text-gray-600 text-sm mb-6">Расчет производится по формуле CPM = (общие расходы на рекламу / количество показов) * 1000</p>
+        <div class="flex items-center justify-between">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-8 h-8 text-gray-600">
+            <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
+            <path d="M12 4V20" stroke="currentColor" stroke-width="2" stroke-dasharray="4 4"/>
+          </svg>
+          <a href="/calculators/cpm/" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors font-medium">
+            РАССЧИТАТЬ
+          </a>
         </div>
-    </section>
+      </div>
 
-    <section>
-тестовая секция
-
-{{ if eq .Type "calculator" }}
-<!-- Код для калькулятора -->фывавфыафыафыафыа
-{{ end }}
-end тестовая секция
-
-    </section>
-
-    <!-- Categories -->
-    <section id="categories" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-dark mb-12">Категории калькуляторов</h2>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-xl p-6 text-center hover:scale-105 transition-transform">
-                    <div class="text-3xl mb-4">💰</div>
-                    <h3 class="font-semibold text-lg mb-2">Финансовые</h3>
-                    <p class="text-blue-100 text-sm">ROI, ROMI, бюджет, окупаемость</p>
-                </div>
-                
-                <div class="bg-gradient-to-br from-green-500 to-green-600 text-white rounded-xl p-6 text-center hover:scale-105 transition-transform">
-                    <div class="text-3xl mb-4">👥</div>
-                    <h3 class="font-semibold text-lg mb-2">Клиентские</h3>
-                    <p class="text-green-100 text-sm">LTV, CAC, удержание, лояльность</p>
-                </div>
-                
-                <div class="bg-gradient-to-br from-purple-500 to-purple-600 text-white rounded-xl p-6 text-center hover:scale-105 transition-transform">
-                    <div class="text-3xl mb-4">📈</div>
-                    <h3 class="font-semibold text-lg mb-2">Аналитические</h3>
-                    <p class="text-purple-100 text-sm">Конверсия, трафик, эффективность</p>
-                </div>
-                
-                <div class="bg-gradient-to-br from-orange-500 to-orange-600 text-white rounded-xl p-6 text-center hover:scale-105 transition-transform">
-                    <div class="text-3xl mb-4">🎯</div>
-                    <h3 class="font-semibold text-lg mb-2">Рекламные</h3>
-                    <p class="text-orange-100 text-sm">CPC, CPM, CTR, ROAS</p>
-                </div>
-            </div>
+      <!-- LTV Calculator -->
+      <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+        <h2 class="text-xl font-semibold text-gray-900 mb-1">LTV</h2>
+        <p class="text-gray-600 text-sm mb-4">(Пожизненная ценность клиента)</p>
+        <p class="text-gray-600 text-sm mb-6">Расчет производится по формуле LTV = средний чек * частота покупок * средняя продолжительность отношений с клиентом</p>
+        <div class="flex items-center justify-between">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-8 h-8 text-gray-600">
+            <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
+            <path d="M12 4V20" stroke="currentColor" stroke-width="2"/>
+            <path d="M4 12H20" stroke="currentColor" stroke-width="2"/>
+            <path d="M6 6L18 18" stroke="currentColor" stroke-width="2"/>
+            <path d="M6 18L18 6" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          <a href="/calculators/ltv/" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors font-medium">
+            РАССЧИТАТЬ
+          </a>
         </div>
-    </section>
+      </div>
 
-    <!-- Calculators Grid -->
-    <section id="calculators" class="py-16 bg-sky-950">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-white mb-4">Популярные калькуляторы</h2>
-            <p class="text-gray-300/50 text-center mb-12">Выберите нужный инструмент для расчетов</p>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                      <!-- 1. ROI Calculator -->
-            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-primary">
-                <div class="flex items-start justify-between mb-4">
-                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
-                        <span class="text-primary text-xl">💰</span>
-                    </div>
-                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Популярный</span>
-                </div>
-                <h3 class="text-xl font-semibold mb-3">ROI калькулятор</h3>
-                <p class="text-gray-600 mb-4 text-sm">Расчет возврата на инвестиции в маркетинг</p>
-                <div class="space-y-2 text-sm text-gray-500 mb-4">
-                    <div class="flex justify-between"><span>Сложность:</span><span class="text-green-600">Легкая</span></div>
-                    <div class="flex justify-between"><span>Время:</span><span>2 мин</span></div>
-                    <div class="flex justify-between"><span>Категория:</span><span class="text-purple-600">Финансы</span></div>
-                </div>
-                <button class="w-full bg-primary text-white py-3 rounded-lg hover:bg-secondary transition-colors">
-                    Открыть калькулятор
-                </button>
-            </div>
-
-            <!-- 2. LTV Calculator -->
-            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-blue-500">
-                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                    <span class="text-blue-500 text-xl">👤</span>
-                </div>
-                <h3 class="text-xl font-semibold mb-3">LTV калькулятор</h3>
-                <p class="text-gray-600 mb-4 text-sm">Пожизненная ценность клиента</p>
-                <div class="space-y-2 text-sm text-gray-500 mb-4">
-                    <div class="flex justify-between"><span>Сложность:</span><span class="text-yellow-600">Средняя</span></div>
-                    <div class="flex justify-between"><span>Время:</span><span>5 мин</span></div>
-                    <div class="flex justify-between"><span>Категория:</span><span class="text-blue-600">Клиенты</span></div>
-                </div>
-                <button class="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 transition-colors">
-                    Открыть калькулятор
-                </button>
-            </div>
-
-            <!-- 3. CAC Calculator -->
-            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-green-500">
-                <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                    <span class="text-green-500 text-xl">📊</span>
-                </div>
-                <h3 class="text-xl font-semibold mb-3">CAC калькулятор</h3>
-                <p class="text-gray-600 mb-4 text-sm">Стоимость привлечения клиента</p>
-                <div class="space-y-2 text-sm text-gray-500 mb-4">
-                    <div class="flex justify-between"><span>Сложность:</span><span class="text-green-600">Легкая</span></div>
-                    <div class="flex justify-between"><span>Время:</span><span>3 мин</span></div>
-                    <div class="flex justify-between"><span>Категория:</span><span class="text-green-600">Клиенты</span></div>
-                </div>
-                <button class="w-full bg-green-500 text-white py-3 rounded-lg hover:bg-green-600 transition-colors">
-                    Открыть калькулятор
-                </button>
-            </div>
-
-            <!-- 4. ROAS Calculator -->
-            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-purple-500">
-                <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                    <span class="text-purple-500 text-xl">🎯</span>
-                </div>
-                <h3 class="text-xl font-semibold mb-3">ROAS калькулятор</h3>
-                <p class="text-gray-600 mb-4 text-sm">Окупаемость расходов на рекламу</p>
-                <div class="space-y-2 text-sm text-gray-500 mb-4">
-                    <div class="flex justify-between"><span>Сложность:</span><span class="text-green-600">Легкая</span></div>
-                    <div class="flex justify-between"><span>Время:</span><span>2 мин</span></div>
-                    <div class="flex justify-between"><span>Категория:</span><span class="text-purple-600">Реклама</span></div>
-                </div>
-                <button class="w-full bg-purple-500 text-white py-3 rounded-lg hover:bg-purple-600 transition-colors">
-                    Открыть калькулятор
-                </button>
-            </div>
-
-            <!-- 5. CTR Calculator -->
-            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-orange-500">
-                <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
-                    <span class="text-orange-500 text-xl">📈</span>
-                </div>
-                <h3 class="text-xl font-semibold mb-3">CTR калькулятор</h3>
-                <p class="text-gray-600 mb-4 text-sm">Показатель кликабельности объявлений</p>
-                <div class="space-y-2 text-sm text-gray-500 mb-4">
-                    <div class="flex justify-between"><span>Сложность:</span><span class="text-green-600">Легкая</span></div>
-                    <div class="flex justify-between"><span>Время:</span><span>1 мин</span></div>
-                    <div class="flex justify-between"><span>Категория:</span><span class="text-orange-600">Реклама</span></div>
-                </div>
-                <button class="w-full bg-orange-500 text-white py-3 rounded-lg hover:bg-orange-600 transition-colors">
-                    Открыть калькулятор
-                </button>
-            </div>
-
-            <!-- 6. Sales Forecast Calculator -->
-            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-red-500">
-                <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
-                    <span class="text-red-500 text-xl">📉</span>
-                </div>
-                <h3 class="text-xl font-semibold mb-3">Прогноз продаж</h3>
-                <p class="text-gray-600 mb-4 text-sm">Прогнозирование объема продаж</p>
-                <div class="space-y-2 text-sm text-gray-500 mb-4">
-                    <div class="flex justify-between"><span>Сложность:</span><span class="text-red-600">Сложная</span></div>
-                    <div class="flex justify-between"><span>Время:</span><span>10 мин</span></div>
-                    <div class="flex justify-between"><span>Категория:</span><span class="text-red-600">Аналитика</span></div>
-                </div>
-                <button class="w-full bg-red-500 text-white py-3 rounded-lg hover:bg-red-600 transition-colors">
-                    Открыть калькулятор
-                </button>
-            </div>
-
-            <!-- 7. Conversion Rate Calculator -->
-            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-indigo-500">
-                <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
-                    <span class="text-indigo-500 text-xl">🔄</span>
-                </div>
-                <h3 class="text-xl font-semibold mb-3">Конверсия сайта</h3>
-                <p class="text-gray-600 mb-4 text-sm">Расчет коэффициента конверсии</p>
-                <div class="space-y-2 text-sm text-gray-500 mb-4">
-                    <div class="flex justify-between"><span>Сложность:</span><span class="text-green-600">Легкая</span></div>
-                    <div class="flex justify-between"><span>Время:</span><span>2 мин</span></div>
-                    <div class="flex justify-between"><span>Категория:</span><span class="text-indigo-600">Аналитика</span></div>
-                </div>
-                <button class="w-full bg-indigo-500 text-white py-3 rounded-lg hover:bg-indigo-600 transition-colors">
-                    Открыть калькулятор
-                </button>
-            </div>
-
-            <!-- 8. Customer Retention Calculator -->
-            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-pink-500">
-                <div class="w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center mb-4">
-                    <span class="text-pink-500 text-xl">💝</span>
-                </div>
-                <h3 class="text-xl font-semibold mb-3">Удержание клиентов</h3>
-                <p class="text-gray-600 mb-4 text-sm">Коэффициент удержания клиентов</p>
-                <div class="space-y-2 text-sm text-gray-500 mb-4">
-                    <div class="flex justify-between"><span>Сложность:</span><span class="text-yellow-600">Средняя</span></div>
-                    <div class="flex justify-between"><span>Время:</span><span>4 мин</span></div>
-                    <div class="flex justify-between"><span>Категория:</span><span class="text-pink-600">Клиенты</span></div>
-                </div>
-                <button class="w-full bg-pink-500 text-white py-3 rounded-lg hover:bg-pink-600 transition-colors">
-                    Открыть калькулятор
-                </button>
-            </div>
-
-            <!-- 9. Churn Rate Calculator -->
-            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-rose-500">
-                <div class="w-12 h-12 bg-rose-100 rounded-lg flex items-center justify-center mb-4">
-                    <span class="text-rose-500 text-xl">📉</span>
-                </div>
-                <h3 class="text-xl font-semibold mb-3">Отток клиентов</h3>
-                <p class="text-gray-600 mb-4 text-sm">Расчет уровня оттока клиентов</p>
-                <div class="space-y-2 text-sm text-gray-500 mb-4">
-                    <div class="flex justify-between"><span>Сложность:</span><span class="text-yellow-600">Средняя</span></div>
-                    <div class="flex justify-between"><span>Время:</span><span>3 мин</span></div>
-                    <div class="flex justify-between"><span>Категория:</span><span class="text-rose-600">Клиенты</span></div>
-                </div>
-                <button class="w-full bg-rose-500 text-white py-3 rounded-lg hover:bg-rose-600 transition-colors">
-                    Открыть калькулятор
-                </button>
-            </div>
-
-            <!-- 10. Break-even Calculator -->
-            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-amber-500">
-                <div class="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mb-4">
-                    <span class="text-amber-500 text-xl">⚖️</span>
-                </div>
-                <h3 class="text-xl font-semibold mb-3">Точка безубыточности</h3>
-                <p class="text-gray-600 mb-4 text-sm">Расчет точки окупаемости проекта</p>
-                <div class="space-y-2 text-sm text-gray-500 mb-4">
-                    <div class="flex justify-between"><span>Сложность:</span><span class="text-yellow-600">Средняя</span></div>
-                    <div class="flex justify-between"><span>Время:</span><span>5 мин</span></div>
-                    <div class="flex justify-between"><span>Категория:</span><span class="text-amber-600">Финансы</span></div>
-                </div>
-                <button class="w-full bg-amber-500 text-white py-3 rounded-lg hover:bg-amber-600 transition-colors">
-                    Открыть калькулятор
-                </button>
-            </div>
-
-            <!-- 11. CPC Calculator -->
-            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-cyan-500">
-                <div class="w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center mb-4">
-                    <span class="text-cyan-500 text-xl">🖱️</span>
-                </div>
-                <h3 class="text-xl font-semibold mb-3">CPC калькулятор</h3>
-                <p class="text-gray-600 mb-4 text-sm">Стоимость за клик</p>
-                <div class="space-y-2 text-sm text-gray-500 mb-4">
-                    <div class="flex justify-between"><span>Сложность:</span><span class="text-green-600">Легкая</span></div>
-                    <div class="flex justify-between"><span>Время:</span><span>1 мин</span></div>
-                    <div class="flex justify-between"><span>Категория:</span><span class="text-cyan-600">Реклама</span></div>
-                </div>
-                <button class="w-full bg-cyan-500 text-white py-3 rounded-lg hover:bg-cyan-600 transition-colors">
-                    Открыть калькулятор
-                </button>
-            </div>
-
-            <!-- 12. CPM Calculator -->
-            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-blue-400">
-                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                    <span class="text-blue-400 text-xl">👁️</span>
-                </div>
-                <h3 class="text-xl font-semibold mb-3">CPM калькулятор</h3>
-                <p class="text-gray-600 mb-4 text-sm">Стоимость за 1000 показов</p>
-                <div class="space-y-2 text-sm text-gray-500 mb-4">
-                    <div class="flex justify-between"><span>Сложность:</span><span class="text-green-600">Легкая</span></div>
-                    <div class="flex justify-between"><span>Время:</span><span>1 мин</span></div>
-                    <div class="flex justify-between"><span>Категория:</span><span class="text-blue-400">Реклама</span></div>
-                </div>
-                <button class="w-full bg-blue-400 text-white py-3 rounded-lg hover:bg-blue-500 transition-colors">
-                    Открыть калькулятор
-                </button>
-            </div>
-
-            <!-- 13. CPA Calculator -->
-            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-emerald-500">
-                <div class="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-4">
-                    <span class="text-emerald-500 text-xl">🎯</span>
-                </div>
-                <h3 class="text-xl font-semibold mb-3">CPA калькулятор</h3>
-                <p class="text-gray-600 mb-4 text-sm">Стоимость за действие</p>
-                <div class="space-y-2 text-sm text-gray-500 mb-4">
-                    <div class="flex justify-between"><span>Сложность:</span><span class="text-green-600">Легкая</span></div>
-                    <div class="flex justify-between"><span>Время:</span><span>2 мин</span></div>
-                    <div class="flex justify-between"><span>Категория:</span><span class="text-emerald-600">Реклама</span></div>
-                </div>
-                <button class="w-full bg-emerald-500 text-white py-3 rounded-lg hover:bg-emerald-600 transition-colors">
-                    Открыть калькулятор
-                </button>
-            </div>
-
-            <!-- 14. Marketing Budget Calculator -->
-            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-violet-500">
-                <div class="w-12 h-12 bg-violet-100 rounded-lg flex items-center justify-center mb-4">
-                    <span class="text-violet-500 text-xl">💸</span>
-                </div>
-                <h3 class="text-xl font-semibold mb-3">Бюджет маркетинга</h3>
-                <p class="text-gray-600 mb-4 text-sm">Планирование маркетингового бюджета</p>
-                <div class="space-y-2 text-sm text-gray-500 mb-4">
-                    <div class="flex justify-between"><span>Сложность:</span><span class="text-yellow-600">Средняя</span></div>
-                    <div class="flex justify-between"><span>Время:</span><span>7 мин</span></div>
-                    <div class="flex justify-between"><span>Категория:</span><span class="text-violet-600">Финансы</span></div>
-                </div>
-                <button class="w-full bg-violet-500 text-white py-3 rounded-lg hover:bg-violet-600 transition-colors">
-                    Открыть калькулятор
-                </button>
-            </div>
-
-            <!-- 15. Email Marketing ROI -->
-            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-fuchsia-500">
-                <div class="w-12 h-12 bg-fuchsia-100 rounded-lg flex items-center justify-center mb-4">
-                    <span class="text-fuchsia-500 text-xl">📧</span>
-                </div>
-                <h3 class="text-xl font-semibold mb-3">Email маркетинг ROI</h3>
-                <p class="text-gray-600 mb-4 text-sm">Эффективность email рассылок</p>
-                <div class="space-y-2 text-sm text-gray-500 mb-4">
-                    <div class="flex justify-between"><span>Сложность:</span><span class="text-yellow-600">Средняя</span></div>
-                    <div class="flex justify-between"><span>Время:</span><span>4 мин</span></div>
-                    <div class="flex justify-between"><span>Категория:</span><span class="text-fuchsia-600">Аналитика</span></div>
-                </div>
-                <button class="w-full bg-fuchsia-500 text-white py-3 rounded-lg hover:bg-fuchsia-600 transition-colors">
-                    Открыть калькулятор
-                </button>
-            </div>
-
-            <!-- 16. Social Media ROI -->
-            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-sky-500">
-                <div class="w-12 h-12 bg-sky-100 rounded-lg flex items-center justify-center mb-4">
-                    <span class="text-sky-500 text-xl">📱</span>
-                </div>
-                <h3 class="text-xl font-semibold mb-3">Соцсети ROI</h3>
-                <p class="text-gray-600 mb-4 text-sm">Окупаемость соцмедиа маркетинга</p>
-                <div class="space-y-2 text-sm text-gray-500 mb-4">
-                    <div class="flex justify-between"><span>Сложность:</span><span class="text-yellow-600">Средняя</span></div>
-                    <div class="flex justify-between"><span>Время:</span><span>5 мин</span></div>
-                    <div class="flex justify-between"><span>Категория:</span><span class="text-sky-600">Аналитика</span></div>
-                </div>
-                <button class="w-full bg-sky-500 text-white py-3 rounded-lg hover:bg-sky-600 transition-colors">
-                    Открыть калькулятор
-                </button>
-            </div>
-
-            <!-- 17. Customer Lifetime Value to CAC Ratio -->
-            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-lime-500">
-                <div class="w-12 h-12 bg-lime-100 rounded-lg flex items-center justify-center mb-4">
-                    <span class="text-lime-500 text-xl">⚡</span>
-                </div>
-                <h3 class="text-xl font-semibold mb-3">LTV:CAC Ratio</h3>
-                <p class="text-gray-600 mb-4 text-sm">Соотношение ценности и стоимости клиента</p>
-                <div class="space-y-2 text-sm text-gray-500 mb-4">
-                    <div class="flex justify-between"><span>Сложность:</span><span class="text-yellow-600">Средняя</span></div>
-                    <div class="flex justify-between"><span>Время:</span><span>3 мин</span></div>
-                    <div class="flex justify-between"><span>Категория:</span><span class="text-lime-600">Клиенты</span></div>
-                </div>
-                <button class="w-full bg-lime-500 text-white py-3 rounded-lg hover:bg-lime-600 transition-colors">
-                    Открыть калькулятор
-                </button>
-            </div>
-
-            <!-- 18. Marketing Funnel Conversion -->
-            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-teal-500">
-                <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
-                    <span class="text-teal-500 text-xl">🔄</span>
-                </div>
-                <h3 class="text-xl font-semibold mb-3">Конверсия воронки</h3>
-                <p class="text-gray-600 mb-4 text-sm">Эффективность маркетинговой воронки</p>
-                <div class="space-y-2 text-sm text-gray-500 mb-4">
-                    <div class="flex justify-between"><span>Сложность:</span><span class="text-red-600">Сложная</span></div>
-                    <div class="flex justify-between"><span>Время:</span><span>8 мин</span></div>
-                    <div class="flex justify-between"><span>Категория:</span><span class="text-teal-600">Аналитика</span></div>
-                </div>
-                <button class="w-full bg-teal-500 text-white py-3 rounded-lg hover:bg-teal-600 transition-colors">
-                    Открыть калькулятор
-                </button>
-            </div>
-
-            <!-- 19. Customer Acquisition Cost Payback Period -->
-            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-amber-600">
-                <div class="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mb-4">
-                    <span class="text-amber-600 text-xl">⏱️</span>
-                </div>
-                <h3 class="text-xl font-semibold mb-3">Окупаемость CAC</h3>
-                <p class="text-gray-600 mb-4 text-sm">Период окупаемости стоимости привлечения</p>
-                <div class="space-y-2 text-sm text-gray-500 mb-4">
-                    <div class="flex justify-between"><span>Сложность:</span><span class="text-yellow-600">Средняя</span></div>
-                    <div class="flex justify-between"><span>Время:</span><span>4 мин</span></div>
-                    <div class="flex justify-between"><span>Категория:</span><span class="text-amber-600">Финансы</span></div>
-                </div>
-                <button class="w-full bg-amber-600 text-white py-3 rounded-lg hover:bg-amber-700 transition-colors">
-                    Открыть калькулятор
-                </button>
-            </div>
-
-            <!-- 20. Website Traffic Value -->
-            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-purple-600">
-                <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                    <span class="text-purple-600 text-xl">🚦</span>
-                </div>
-                <h3 class="text-xl font-semibold mb-3">Ценность трафика</h3>
-                <p class="text-gray-600 mb-4 text-sm">Монетарная ценность веб-трафика</p>
-                <div class="space-y-2 text-sm text-gray-500 mb-4">
-                    <div class="flex justify-between"><span>Сложность:</span><span class="text-yellow-600">Средняя</span></div>
-                    <div class="flex justify-between"><span>Время:</span><span>5 мин</span></div>
-                    <div class="flex justify-between"><span>Категория:</span><span class="text-purple-600">Аналитика</span></div>
-                </div>
-                <button class="w-full bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition-colors">
-                    Открыть калькулятор
-                </button>
-            </div>
-
-            <!-- 21. Lead Generation Cost -->
-            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-rose-600">
-                <div class="w-12 h-12 bg-rose-100 rounded-lg flex items-center justify-center mb-4">
-                    <span class="text-rose-600 text-xl">🎣</span>
-                </div>
-                <h3 class="text-xl font-semibold mb-3">Стоимость лида</h3>
-                <p class="text-gray-600 mb-4 text-sm">Расчет стоимости генерации лида</p>
-                <div class="space-y-2 text-sm text-gray-500 mb-4">
-                    <div class="flex justify-between"><span>Сложность:</span><span class="text-green-600">Легкая</span></div>
-                    <div class="flex justify-between"><span>Время:</span><span>2 мин</span></div>
-                    <div class="flex justify-between"><span>Категория:</span><span class="text-rose-600">Клиенты</span></div>
-                </div>
-                <button class="w-full bg-rose-600 text-white py-3 rounded-lg hover:bg-rose-700 transition-colors">
-                    Открыть калькулятор
-                </button>
-            </div>
-
-            <!-- 22. Marketing Attribution -->
-            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-indigo-600">
-                <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
-                    <span class="text-indigo-600 text-xl">🎭</span>
-                </div>
-                <h3 class="text-xl font-semibold mb-3">Атрибуция</h3>
-                <p class="text-gray-600 mb-4 text-sm">Распределение конверсий по каналам</p>
-                <div class="space-y-2 text-sm text-gray-500 mb-4">
-                    <div class="flex justify-between"><span>Сложность:</span><span class="text-red-600">Сложная</span></div>
-                    <div class="flex justify-between"><span>Время:</span><span>10 мин</span></div>
-                    <div class="flex justify-between"><span>Категория:</span><span class="text-indigo-600">Аналитика</span></div>
-                </div>
-                <button class="w-full bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700 transition-colors">
-                    Открыть калькулятор
-                </button>
-            </div>
-
-            <!-- 23. Customer Satisfaction Score (CSAT) -->
-            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-green-600">
-                <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                    <span class="text-green-600 text-xl">😊</span>
-                </div>
-                <h3 class="text-xl font-semibold mb-3">CSAT калькулятор</h3>
-                <p class="text-gray-600 mb-4 text-sm">Индекс удовлетворенности клиентов</p>
-                <div class="space-y-2 text-sm text-gray-500 mb-4">
-                    <div class="flex justify-between"><span>Сложность:</span><span class="text-green-600">Легкая</span></div>
-                    <div class="flex justify-between"><span>Время:</span><span>2 мин</span></div>
-                    <div class="flex justify-between"><span>Категория:</span><span class="text-green-600">Клиенты</span></div>
-                </div>
-                <button class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition-colors">
-                    Открыть калькулятор
-                </button>
-            </div>
-
-            <!-- 24. Net Promoter Score (NPS) -->
-            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-blue-600">
-                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                    <span class="text-blue-600 text-xl">⭐</span>
-                </div>
-                <h3 class="text-xl font-semibold mb-3">NPS калькулятор</h3>
-                <p class="text-gray-600 mb-4 text-sm">Индекс лояльности клиентов</p>
-                <div class="space-y-2 text-sm text-gray-500 mb-4">
-                    <div class="flex justify-between"><span>Сложность:</span><span class="text-green-600">Легкая</span></div>
-                    <div class="flex justify-between"><span>Время:</span><span>2 мин</span></div>
-                    <div class="flex justify-between"><span>Категория:</span><span class="text-blue-600">Клиенты</span></div>
-                </div>
-                <button class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors">
-                    Открыть калькулятор
-                </button>
-            </div>
-
-            <!-- 25. Marketing Efficiency Ratio -->
-            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-cyan-600">
-                <div class="w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center mb-4">
-                    <span class="text-cyan-600 text-xl">📐</span>
-                </div>
-                <h3 class="text-xl font-semibold mb-3">Эффективность маркетинга</h3>
-                <p class="text-gray-600 mb-4 text-sm">Коэффициент эффективности маркетинга</p>
-                <div class="space-y-2 text-sm text-gray-500 mb-4">
-                    <div class="flex justify-between"><span>Сложность:</span><span class="text-yellow-600">Средняя</span></div>
-                    <div class="flex justify-between"><span>Время:</span><span>4 мин</span></div>
-                    <div class="flex justify-between"><span>Категория:</span><span class="text-cyan-600">Аналитика</span></div>
-                </div>
-                <button class="w-full bg-cyan-600 text-white py-3 rounded-lg hover:bg-cyan-700 transition-colors">
-                    Открыть калькулятор
-                </button>
-            </div>
-
-            <!-- 26. Content Marketing ROI -->
-            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-orange-600">
-                <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
-                    <span class="text-orange-600 text-xl">📝</span>
-                </div>
-                <h3 class="text-xl font-semibold mb-3">Контент-маркетинг ROI</h3>
-                <p class="text-gray-600 mb-4 text-sm">Окупаемость контент-маркетинга</p>
-                <div class="space-y-2 text-sm text-gray-500 mb-4">
-                    <div class="flex justify-between"><span>Сложность:</span><span class="text-yellow-600">Средняя</span></div>
-                    <div class="flex justify-between"><span>Время:</span><span>5 мин</span></div>
-                    <div class="flex justify-between"><span>Категория:</span><span class="text-orange-600">Аналитика</span></div>
-                </div>
-                <button class="w-full bg-orange-600 text-white py-3 rounded-lg hover:bg-orange-700 transition-colors">
-                    Открыть калькулятор
-                </button>
-            </div>
-
-            <!-- 27. Viral Coefficient -->
-            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-red-600">
-                <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
-                    <span class="text-red-600 text-xl">🦠</span>
-                </div>
-                <h3 class="text-xl font-semibold mb-3">Вирусный коэффициент</h3>
-                <p class="text-gray-600 mb-4 text-sm">Коэффициент виральности продукта</p>
-                <div class="space-y-2 text-sm text-gray-500 mb-4">
-                    <div class="flex justify-between"><span>Сложность:</span><span class="text-red-600">Сложная</span></div>
-                    <div class="flex justify-between"><span>Время:</span><span>6 мин</span></div>
-                    <div class="flex justify-between"><span>Категория:</span><span class="text-red-600">Аналитика</span></div>
-                </div>
-                <button class="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition-colors">
-                    Открыть калькулятор
-                </button>
-            </div>
-          
-            </div>
-
-          
+      <!-- ROI Calculator -->
+      <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+        <h2 class="text-xl font-semibold text-gray-900 mb-1">ROI</h2>
+        <p class="text-gray-600 text-sm mb-4">(Возврат на инвестиции)</p>
+        <p class="text-gray-600 text-sm mb-6">Расчет производится по формуле ROI = (доход - расходы) / расходы * 100%</p>
+        <div class="flex items-center justify-between">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-8 h-8 text-gray-600">
+            <path d="M12 6C10.3431 6 9 7.34315 9 9H15C15 7.34315 13.6569 6 12 6Z"/>
+            <path d="M12 12C10.3431 12 9 13.3431 9 15H15C15 13.3431 13.6569 12 12 12Z"/>
+            <path d="M12 18C10.3431 18 9 19.3431 9 21H15C15 19.3431 13.6569 18 12 18Z"/>
+          </svg>
+          <a href="/calculators/roi/" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors font-medium">
+            РАССЧИТАТЬ
+          </a>
         </div>
-    </section>
+      </div>
 
-    <!-- Features -->
-    <section id="features" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-dark mb-12">Почему выбирают наши калькуляторы</h2>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span class="text-primary text-2xl">⚡</span>
-                    </div>
-                    <h3 class="font-semibold text-lg mb-3">Мгновенные расчеты</h3>
-                    <p class="text-gray-600">Получайте точные результаты без сложных формул и вычислений</p>
-                </div>
-                
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span class="text-blue-500 text-2xl">🎯</span>
-                    </div>
-                    <h3 class="font-semibold text-lg mb-3">Профессиональные формулы</h3>
-                    <p class="text-gray-600">Используем проверенные методики расчета маркетинговых метрик</p>
-                </div>
-                
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span class="text-green-500 text-2xl">💾</span>
-                    </div>
-                    <h3 class="font-semibold text-lg mb-3">Сохранение результатов</h3>
-                    <p class="text-gray-600">Скачивайте расчеты в PDF или сохраняйте для дальнейшего анализа</p>
-                </div>
-            </div>
+      <!-- CPA Calculator -->
+      <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+        <h2 class="text-xl font-semibold text-gray-900 mb-1">CPA</h2>
+        <p class="text-gray-600 text-sm mb-4">(Стоимость за действие)</p>
+        <p class="text-gray-600 text-sm mb-6">Расчет производится по формуле CPA = общие расходы на рекламу / количество целевых действий</p>
+        <div class="flex items-center justify-between">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-8 h-8 text-gray-600">
+            <path d="M12 6C10.3431 6 9 7.34315 9 9H15C15 7.34315 13.6569 6 12 6Z"/>
+            <path d="M12 12C10.3431 12 9 13.3431 9 15H15C15 13.3431 13.6569 12 12 12Z"/>
+            <path d="M12 18C10.3431 18 9 19.3431 9 21H15C15 19.3431 13.6569 18 12 18Z"/>
+          </svg>
+          <a href="/calculators/cpa/" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors font-medium">
+            РАССЧИТАТЬ
+          </a>
         </div>
-    </section>
+      </div>
 
-    <!-- CTA Section -->
-    <section class="py-16 bg-sky-800 text-white">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">Начните расчеты прямо сейчас!</h2>
-            <p class="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
-                Все калькуляторы абсолютно бесплатны и не требуют регистрации
-            </p>
-   
+      <!-- CPL Calculator -->
+      <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+        <h2 class="text-xl font-semibold text-gray-900 mb-1">CPL</h2>
+        <p class="text-gray-600 text-sm mb-4">(Привлечение одного лида с сайта)</p>
+        <p class="text-gray-600 text-sm mb-6">Расчет производится по формуле CPL = расход на рекламу / количество лидов</p>
+        <div class="flex items-center justify-between">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-8 h-8 text-gray-600">
+            <path d="M12 6C10.3431 6 9 7.34315 9 9H15C15 7.34315 13.6569 6 12 6Z"/>
+            <path d="M12 12C10.3431 12 9 13.3431 9 15H15C15 13.3431 13.6569 12 12 12Z"/>
+            <path d="M12 18C10.3431 18 9 19.3431 9 21H15C15 19.3431 13.6569 18 12 18Z"/>
+          </svg>
+          <a href="/calculators/cpl/" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors font-medium">
+            РАССЧИТАТЬ
+          </a>
         </div>
-    </section>
+      </div>
+
+      <!-- CR Calculator -->
+      <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+        <h2 class="text-xl font-semibold text-gray-900 mb-1">CR</h2>
+        <p class="text-gray-600 text-sm mb-4">(Коэффициент конверсии)</p>
+        <p class="text-gray-600 text-sm mb-6">Расчет производится по формуле CR = (количество целевых действий / количество посетителей) * 100%</p>
+        <div class="flex items-center justify-between">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-8 h-8 text-gray-600">
+            <path d="M12 6C10.3431 6 9 7.34315 9 9H15C15 7.34315 13.6569 6 12 6Z"/>
+            <path d="M12 12C10.3431 12 9 13.3431 9 15H15C15 13.3431 13.6569 12 12 12Z"/>
+            <path d="M12 18C10.3431 18 9 19.3431 9 21H15C15 19.3431 13.6569 18 12 18Z"/>
+          </svg>
+          <a href="/calculators/cr/" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors font-medium">
+            РАССЧИТАТЬ
+          </a>
+        </div>
+      </div>
+
+      <!-- CPC Calculator -->
+      <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+        <h2 class="text-xl font-semibold text-gray-900 mb-1">CPC</h2>
+        <p class="text-gray-600 text-sm mb-4">(Цена клика)</p>
+        <p class="text-gray-600 text-sm mb-6">Расчет производится по формуле CPC = потраченная сумма / количество кликов</p>
+        <div class="flex items-center justify-between">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-8 h-8 text-gray-600">
+            <path d="M12 6C10.3431 6 9 7.34315 9 9H15C15 7.34315 13.6569 6 12 6Z"/>
+            <path d="M12 12C10.3431 12 9 13.3431 9 15H15C15 13.3431 13.6569 12 12 12Z"/>
+            <path d="M12 18C10.3431 18 9 19.3431 9 21H15C15 19.3431 13.6569 18 12 18Z"/>
+          </svg>
+          <a href="/calculators/cpc/" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors font-medium">
+            РАССЧИТАТЬ
+          </a>
+        </div>
+      </div>
+
+      <!-- ROAS Calculator -->
+      <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+        <h2 class="text-xl font-semibold text-gray-900 mb-1">ROAS</h2>
+        <p class="text-gray-600 text-sm mb-4">(Рентабельность затрат на рекламу)</p>
+        <p class="text-gray-600 text-sm mb-6">Расчет производится по формуле ROAS = (доход от рекламы / расходы на рекламу) * 100%</p>
+        <div class="flex items-center justify-between">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-8 h-8 text-gray-600">
+            <path d="M12 6C10.3431 6 9 7.34315 9 9H15C15 7.34315 13.6569 6 12 6Z"/>
+            <path d="M12 12C10.3431 12 9 13.3431 9 15H15C15 13.3431 13.6569 12 12 12Z"/>
+            <path d="M12 18C10.3431 18 9 19.3431 9 21H15C15 19.3431 13.6569 18 12 18Z"/>
+          </svg>
+          <a href="/calculators/roas/" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors font-medium">
+            РАССЧИТАТЬ
+          </a>
+        </div>
+      </div>
+
+      <!-- ROMI Calculator -->
+      <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+        <h2 class="text-xl font-semibold text-gray-900 mb-1">ROMI</h2>
+        <p class="text-gray-600 text-sm mb-4">(Коэффициент возврата маркетинговых инвестиций)</p>
+        <p class="text-gray-600 text-sm mb-6">Расчет производится по формуле ROMI = (доход-расходы) / расходы * 100%</p>
+        <div class="flex items-center justify-between">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-8 h-8 text-gray-600">
+            <path d="M12 6C10.3431 6 9 7.34315 9 9H15C15 7.34315 13.6569 6 12 6Z"/>
+            <path d="M12 12C10.3431 12 9 13.3431 9 15H15C15 13.3431 13.6569 12 12 12Z"/>
+            <path d="M12 18C10.3431 18 9 19.3431 9 21H15C15 19.3431 13.6569 18 12 18Z"/>
+          </svg>
+          <a href="/calculators/romi/" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors font-medium">
+            РАССЧИТАТЬ
+          </a>
+        </div>
+      </div>
+
+      <!-- DRR Calculator -->
+      <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+        <h2 class="text-xl font-semibold text-gray-900 mb-1">DRR</h2>
+        <p class="text-gray-600 text-sm mb-4">(Доля рекламных расходов)</p>
+        <p class="text-gray-600 text-sm mb-6">Расчет производится по формуле DRR = (затраты на рекламу / прибыль с рекламы) * 100%</p>
+        <div class="flex items-center justify-between">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-8 h-8 text-gray-600">
+            <path d="M12 6C10.3431 6 9 7.34315 9 9H15C15 7.34315 13.6569 6 12 6Z"/>
+            <path d="M12 12C10.3431 12 9 13.3431 9 15H15C15 13.3431 13.6569 12 12 12Z"/>
+            <path d="M12 18C10.3431 18 9 19.3431 9 21H15C15 19.3431 13.6569 18 12 18Z"/>
+          </svg>
+          <a href="/calculators/drr/" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors font-medium">
+            РАССЧИТАТЬ
+          </a>
+        </div>
+      </div>
+
+      <!-- Profitability Calculator -->
+      <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+        <h2 class="text-xl font-semibold text-gray-900 mb-1">Прибыльность</h2>
+        <p class="text-gray-600 text-sm mb-4">(Общая рентабельность)</p>
+        <p class="text-gray-600 text-sm mb-6">Расчет производится по формуле Прибыльность = (прибыль / выручка) * 100%</p>
+        <div class="flex items-center justify-between">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-8 h-8 text-gray-600">
+            <path d="M12 6C10.3431 6 9 7.34315 9 9H15C15 7.34315 13.6569 6 12 6Z"/>
+            <path d="M12 12C10.3431 12 9 13.3431 9 15H15C15 13.3431 13.6569 12 12 12Z"/>
+            <path d="M12 18C10.3431 18 9 19.3431 9 21H15C15 19.3431 13.6569 18 12 18Z"/>
+          </svg>
+          <a href="/calculators/profitability/" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors font-medium">
+            РАССЧИТАТЬ
+          </a>
+        </div>
+      </div>
+
+      <!-- Marketing Budget Calculator -->
+      <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+        <h2 class="text-xl font-semibold text-gray-900 mb-1">Бюджет</h2>
+        <p class="text-gray-600 text-sm mb-4">(Маркетинговый бюджет)</p>
+        <p class="text-gray-600 text-sm mb-6">Расчет производится по формуле Бюджет = ожидаемая выручка * процент от выручки на маркетинг</p>
+        <div class="flex items-center justify-between">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-8 h-8 text-gray-600">
+            <path d="M12 6C10.3431 6 9 7.34315 9 9H15C15 7.34315 13.6569 6 12 6Z"/>
+            <path d="M12 12C10.3431 12 9 13.3431 9 15H15C15 13.3431 13.6569 12 12 12Z"/>
+            <path d="M12 18C10.3431 18 9 19.3431 9 21H15C15 19.3431 13.6569 18 12 18Z"/>
+          </svg>
+          <a href="/calculators/marketing-budget/" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors font-medium">
+            РАССЧИТАТЬ
+          </a>
+        </div>
+      </div>
+
+      <!-- Retention Rate Calculator -->
+      <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+        <h2 class="text-xl font-semibold text-gray-900 mb-1">Удержание</h2>
+        <p class="text-gray-600 text-sm mb-4">(Коэффициент удержания)</p>
+        <p class="text-gray-600 text-sm mb-6">Расчет производится по формуле Удержание = (количество удержанных клиентов / общее количество клиентов) * 100%</p>
+        <div class="flex items-center justify-between">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-8 h-8 text-gray-600">
+            <path d="M12 6C10.3431 6 9 7.34315 9 9H15C15 7.34315 13.6569 6 12 6Z"/>
+            <path d="M12 12C10.3431 12 9 13.3431 9 15H15C15 13.3431 13.6569 12 12 12Z"/>
+            <path d="M12 18C10.3431 18 9 19.3431 9 21H15C15 19.3431 13.6569 18 12 18Z"/>
+          </svg>
+          <a href="/calculators/retention-rate/" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors font-medium">
+            РАССЧИТАТЬ
+          </a>
+        </div>
+      </div>
+
+      <!-- Churn Rate Calculator -->
+      <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+        <h2 class="text-xl font-semibold text-gray-900 mb-1">Отток</h2>
+        <p class="text-gray-600 text-sm mb-4">(Коэффициент оттока)</p>
+        <p class="text-gray-600 text-sm mb-6">Расчет производится по формуле Отток = (количество потерянных клиентов / общее количество клиентов) * 100%</p>
+        <div class="flex items-center justify-between">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-8 h-8 text-gray-600">
+            <path d="M12 6C10.3431 6 9 7.34315 9 9H15C15 7.34315 13.6569 6 12 6Z"/>
+            <path d="M12 12C10.3431 12 9 13.3431 9 15H15C15 13.3431 13.6569 12 12 12Z"/>
+            <path d="M12 18C10.3431 18 9 19.3431 9 21H15C15 19.3431 13.6569 18 12 18Z"/>
+          </svg>
+          <a href="/calculators/churn-rate/" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors font-medium">
+            РАССЧИТАТЬ
+          </a>
+        </div>
+      </div>
+
+      <!-- EBITDA Calculator -->
+      <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+        <h2 class="text-xl font-semibold text-gray-900 mb-1">EBITDA</h2>
+        <p class="text-gray-600 text-sm mb-4">(Прибыль до вычета процентов, налогов и амортизации)</p>
+        <p class="text-gray-600 text-sm mb-6">Расчет производится по формуле EBITDA = прибыль + проценты + налоги + амортизация</p>
+        <div class="flex items-center justify-between">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-8 h-8 text-gray-600">
+            <path d="M12 6C10.3431 6 9 7.34315 9 9H15C15 7.34315 13.6569 6 12 6Z"/>
+            <path d="M12 12C10.3431 12 9 13.3431 9 15H15C15 13.3431 13.6569 12 12 12Z"/>
+            <path d="M12 18C10.3431 18 9 19.3431 9 21H15C15 19.3431 13.6569 18 12 18Z"/>
+          </svg>
+          <a href="/calculators/ebitda/" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors font-medium">
+            РАССЧИТАТЬ
+          </a>
+        </div>
+      </div>
+
+      <!-- MRR/ARR Calculator -->
+      <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+        <h2 class="text-xl font-semibold text-gray-900 mb-1">MRR/ARR</h2>
+        <p class="text-gray-600 text-sm mb-4">(Ежемесячный/годовой повторяющийся доход)</p>
+        <p class="text-gray-600 text-sm mb-6">Расчет производится по формуле MRR = количество клиентов * средний месячный доход с клиента</p>
+        <div class="flex items-center justify-between">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-8 h-8 text-gray-600">
+            <path d="M12 6C10.3431 6 9 7.34315 9 9H15C15 7.34315 13.6569 6 12 6Z"/>
+            <path d="M12 12C10.3431 12 9 13.3431 9 15H15C15 13.3431 13.6569 12 12 12Z"/>
+            <path d="M12 18C10.3431 18 9 19.3431 9 21H15C15 19.3431 13.6569 18 12 18Z"/>
+          </svg>
+          <a href="/calculators/mrr-arr/" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors font-medium">
+            РАССЧИТАТЬ
+          </a>
+        </div>
+      </div>
+
+      <!-- Cohort Analysis Calculator -->
+      <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+        <h2 class="text-xl font-semibold text-gray-900 mb-1">Когорты</h2>
+        <p class="text-gray-600 text-sm mb-4">(Анализ когорт)</p>
+        <p class="text-gray-600 text-sm mb-6">Расчет производится по формуле Когорта = группа пользователей, объединенных по дате первого действия</p>
+        <div class="flex items-center justify-between">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-8 h-8 text-gray-600">
+            <path d="M12 6C10.3431 6 9 7.34315 9 9H15C15 7.34315 13.6569 6 12 6Z"/>
+            <path d="M12 12C10.3431 12 9 13.3431 9 15H15C15 13.3431 13.6569 12 12 12Z"/>
+            <path d="M12 18C10.3431 18 9 19.3431 9 21H15C15 19.3431 13.6569 18 12 18Z"/>
+          </svg>
+          <a href="/calculators/cohort-analysis/" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors font-medium">
+            РАССЧИТАТЬ
+          </a>
+        </div>
+      </div>
+
+      <!-- Unit Economics Calculator -->
+      <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+        <h2 class="text-xl font-semibold text-gray-900 mb-1">Экономика единицы</h2>
+        <p class="text-gray-600 text-sm mb-4">(Экономика единицы продукта)</p>
+        <p class="text-gray-600 text-sm mb-6">Расчет производится по формуле Экономика единицы = доход с единицы - стоимость единицы</p>
+        <div class="flex items-center justify-between">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-8 h-8 text-gray-600">
+            <path d="M12 6C10.3431 6 9 7.34315 9 9H15C15 7.34315 13.6569 6 12 6Z"/>
+            <path d="M12 12C10.3431 12 9 13.3431 9 15H15C15 13.3431 13.6569 12 12 12Z"/>
+            <path d="M12 18C10.3431 18 9 19.3431 9 21H15C15 19.3431 13.6569 18 12 18Z"/>
+          </svg>
+          <a href="/calculators/economics-unit/" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors font-medium">
+            РАССЧИТАТЬ
+          </a>
+        </div>
+      </div>
+
+      <!-- North Star Metric Calculator -->
+      <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+        <h2 class="text-xl font-semibold text-gray-900 mb-1">Северная звезда</h2>
+        <p class="text-gray-600 text-sm mb-4">(Ключевой показатель роста)</p>
+        <p class="text-gray-600 text-sm mb-6">Расчет производится по формуле Северная звезда = ключевой показатель, который отражает ценность продукта для пользователя</p>
+        <div class="flex items-center justify-between">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-8 h-8 text-gray-600">
+            <path d="M12 6C10.3431 6 9 7.34315 9 9H15C15 7.34315 13.6569 6 12 6Z"/>
+            <path d="M12 12C10.3431 12 9 13.3431 9 15H15C15 13.3431 13.6569 12 12 12Z"/>
+            <path d="M12 18C10.3431 18 9 19.3431 9 21H15C15 19.3431 13.6569 18 12 18Z"/>
+          </svg>
+          <a href="/calculators/north-star-metric/" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors font-medium">
+            РАССЧИТАТЬ
+          </a>
+        </div>
+      </div>
+
+      <!-- NPS Calculator -->
+      <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+        <h2 class="text-xl font-semibold text-gray-900 mb-1">NPS</h2>
+        <p class="text-gray-600 text-sm mb-4">(Индекс лояльности клиентов)</p>
+        <p class="text-gray-600 text-sm mb-6">Расчет производится по формуле NPS = % промоутеров - % детракторов</p>
+        <div class="flex items-center justify-between">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-8 h-8 text-gray-600">
+            <path d="M12 6C10.3431 6 9 7.34315 9 9H15C15 7.34315 13.6569 6 12 6Z"/>
+            <path d="M12 12C10.3431 12 9 13.3431 9 15H15C15 13.3431 13.6569 12 12 12Z"/>
+            <path d="M12 18C10.3431 18 9 19.3431 9 21H15C15 19.3431 13.6569 18 12 18Z"/>
+          </svg>
+          <a href="/calculators/nps/" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors font-medium">
+            РАССЧИТАТЬ
+          </a>
+        </div>
+      </div>
+
+      <!-- Sample Size Calculator -->
+      <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+        <h2 class="text-xl font-semibold text-gray-900 mb-1">Размер выборки</h2>
+        <p class="text-gray-600 text-sm mb-4">(Необходимый размер выборки)</p>
+        <p class="text-gray-600 text-sm mb-6">Расчет производится по формуле Размер выборки = Z² * p * (1-p) / e²</p>
+        <div class="flex items-center justify-between">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-8 h-8 text-gray-600">
+            <path d="M12 6C10.3431 6 9 7.34315 9 9H15C15 7.34315 13.6569 6 12 6Z"/>
+            <path d="M12 12C10.3431 12 9 13.3431 9 15H15C15 13.3431 13.6569 12 12 12Z"/>
+            <path d="M12 18C10.3431 18 9 19.3431 9 21H15C15 19.3431 13.6569 18 12 18Z"/>
+          </svg>
+          <a href="/calculators/sample-size/" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors font-medium">
+            РАССЧИТАТЬ
+          </a>
+        </div>
+      </div>
+
+      <!-- A/B Test Simulator -->
+      <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+        <h2 class="text-xl font-semibold text-gray-900 mb-1">АВ-тесты</h2>
+        <p class="text-gray-600 text-sm mb-4">(Калькулятор АВ-тестов)</p>
+        <p class="text-gray-600 text-sm mb-6">Расчет производится по формуле АВ-тест = сравнение двух версий страницы для определения более эффективной</p>
+        <div class="flex items-center justify-between">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-8 h-8 text-gray-600">
+            <path d="M12 6C10.3431 6 9 7.34315 9 9H15C15 7.34315 13.6569 6 12 6Z"/>
+            <path d="M12 12C10.3431 12 9 13.3431 9 15H15C15 13.3431 13.6569 12 12 12Z"/>
+            <path d="M12 18C10.3431 18 9 19.3431 9 21H15C15 19.3431 13.6569 18 12 18Z"/>
+          </svg>
+          <a href="/calculators/simulator-a-b-test/" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors font-medium">
+            РАССЧИТАТЬ
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
 
 {{ end }}
+
